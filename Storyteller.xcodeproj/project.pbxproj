@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F8B513918E7679200A5CBEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513818E7679200A5CBEF /* Foundation.framework */; };
+		2F8B513B18E7679200A5CBEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */; };
+		2F8B513D18E7679200A5CBEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513C18E7679200A5CBEF /* UIKit.framework */; };
+		2F8B513F18E7679200A5CBEF /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513E18E7679200A5CBEF /* SpriteKit.framework */; };
+		2F8B514518E7679200A5CBEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514318E7679200A5CBEF /* InfoPlist.strings */; };
+		2F8B514718E7679200A5CBEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B514618E7679200A5CBEF /* main.m */; };
+		2F8B514B18E7679200A5CBEF /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B514A18E7679200A5CBEF /* STAppDelegate.m */; };
+		2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */; };
+		2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */; };
+		2F8B515418E7679200A5CBEF /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515318E7679200A5CBEF /* STViewController.m */; };
+		2F8B515718E7679200A5CBEF /* STMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STMyScene.m */; };
+		2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515818E7679200A5CBEF /* Spaceship.png */; };
+		2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515A18E7679200A5CBEF /* Images.xcassets */; };
+		2F8B516218E7679200A5CBEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B516118E7679200A5CBEF /* XCTest.framework */; };
+		2F8B516318E7679200A5CBEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513818E7679200A5CBEF /* Foundation.framework */; };
+		2F8B516418E7679200A5CBEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513C18E7679200A5CBEF /* UIKit.framework */; };
+		2F8B516C18E7679200A5CBEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B516A18E7679200A5CBEF /* InfoPlist.strings */; };
+		2F8B516E18E7679200A5CBEF /* StorytellerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B516D18E7679200A5CBEF /* StorytellerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F8B516518E7679200A5CBEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F8B512D18E7679200A5CBEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F8B513418E7679200A5CBEF;
+			remoteInfo = Storyteller;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F8B513518E7679200A5CBEF /* Storyteller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyteller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F8B513818E7679200A5CBEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F8B513C18E7679200A5CBEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2F8B513E18E7679200A5CBEF /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		2F8B514218E7679200A5CBEF /* Storyteller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Storyteller-Info.plist"; sourceTree = "<group>"; };
+		2F8B514418E7679200A5CBEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F8B514618E7679200A5CBEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F8B514818E7679200A5CBEF /* Storyteller-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Storyteller-Prefix.pch"; sourceTree = "<group>"; };
+		2F8B514918E7679200A5CBEF /* STAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
+		2F8B514A18E7679200A5CBEF /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
+		2F8B514D18E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2F8B515018E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		2F8B515218E7679200A5CBEF /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		2F8B515318E7679200A5CBEF /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		2F8B515518E7679200A5CBEF /* STMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMyScene.h; sourceTree = "<group>"; };
+		2F8B515618E7679200A5CBEF /* STMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMyScene.m; sourceTree = "<group>"; };
+		2F8B515818E7679200A5CBEF /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		2F8B515A18E7679200A5CBEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2F8B516018E7679200A5CBEF /* StorytellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F8B516118E7679200A5CBEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2F8B516918E7679200A5CBEF /* StorytellerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StorytellerTests-Info.plist"; sourceTree = "<group>"; };
+		2F8B516B18E7679200A5CBEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F8B516D18E7679200A5CBEF /* StorytellerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorytellerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F8B513218E7679200A5CBEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B513B18E7679200A5CBEF /* CoreGraphics.framework in Frameworks */,
+				2F8B513D18E7679200A5CBEF /* UIKit.framework in Frameworks */,
+				2F8B513F18E7679200A5CBEF /* SpriteKit.framework in Frameworks */,
+				2F8B513918E7679200A5CBEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F8B515D18E7679200A5CBEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B516218E7679200A5CBEF /* XCTest.framework in Frameworks */,
+				2F8B516418E7679200A5CBEF /* UIKit.framework in Frameworks */,
+				2F8B516318E7679200A5CBEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F8B512C18E7679200A5CBEF = {
+			isa = PBXGroup;
+			children = (
+				2F8B514018E7679200A5CBEF /* Storyteller */,
+				2F8B516718E7679200A5CBEF /* StorytellerTests */,
+				2F8B513718E7679200A5CBEF /* Frameworks */,
+				2F8B513618E7679200A5CBEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F8B513618E7679200A5CBEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B513518E7679200A5CBEF /* Storyteller.app */,
+				2F8B516018E7679200A5CBEF /* StorytellerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F8B513718E7679200A5CBEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B513818E7679200A5CBEF /* Foundation.framework */,
+				2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */,
+				2F8B513C18E7679200A5CBEF /* UIKit.framework */,
+				2F8B513E18E7679200A5CBEF /* SpriteKit.framework */,
+				2F8B516118E7679200A5CBEF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F8B514018E7679200A5CBEF /* Storyteller */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B514918E7679200A5CBEF /* STAppDelegate.h */,
+				2F8B514A18E7679200A5CBEF /* STAppDelegate.m */,
+				2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */,
+				2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */,
+				2F8B515218E7679200A5CBEF /* STViewController.h */,
+				2F8B515318E7679200A5CBEF /* STViewController.m */,
+				2F8B515518E7679200A5CBEF /* STMyScene.h */,
+				2F8B515618E7679200A5CBEF /* STMyScene.m */,
+				2F8B515818E7679200A5CBEF /* Spaceship.png */,
+				2F8B515A18E7679200A5CBEF /* Images.xcassets */,
+				2F8B514118E7679200A5CBEF /* Supporting Files */,
+			);
+			path = Storyteller;
+			sourceTree = "<group>";
+		};
+		2F8B514118E7679200A5CBEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B514218E7679200A5CBEF /* Storyteller-Info.plist */,
+				2F8B514318E7679200A5CBEF /* InfoPlist.strings */,
+				2F8B514618E7679200A5CBEF /* main.m */,
+				2F8B514818E7679200A5CBEF /* Storyteller-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F8B516718E7679200A5CBEF /* StorytellerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B516D18E7679200A5CBEF /* StorytellerTests.m */,
+				2F8B516818E7679200A5CBEF /* Supporting Files */,
+			);
+			path = StorytellerTests;
+			sourceTree = "<group>";
+		};
+		2F8B516818E7679200A5CBEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B516918E7679200A5CBEF /* StorytellerTests-Info.plist */,
+				2F8B516A18E7679200A5CBEF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F8B513418E7679200A5CBEF /* Storyteller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F8B517118E7679200A5CBEF /* Build configuration list for PBXNativeTarget "Storyteller" */;
+			buildPhases = (
+				2F8B513118E7679200A5CBEF /* Sources */,
+				2F8B513218E7679200A5CBEF /* Frameworks */,
+				2F8B513318E7679200A5CBEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Storyteller;
+			productName = Storyteller;
+			productReference = 2F8B513518E7679200A5CBEF /* Storyteller.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F8B515F18E7679200A5CBEF /* StorytellerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F8B517418E7679200A5CBEF /* Build configuration list for PBXNativeTarget "StorytellerTests" */;
+			buildPhases = (
+				2F8B515C18E7679200A5CBEF /* Sources */,
+				2F8B515D18E7679200A5CBEF /* Frameworks */,
+				2F8B515E18E7679200A5CBEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F8B516618E7679200A5CBEF /* PBXTargetDependency */,
+			);
+			name = StorytellerTests;
+			productName = StorytellerTests;
+			productReference = 2F8B516018E7679200A5CBEF /* StorytellerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F8B512D18E7679200A5CBEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ST;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Ryan Britt";
+				TargetAttributes = {
+					2F8B515F18E7679200A5CBEF = {
+						TestTargetID = 2F8B513418E7679200A5CBEF;
+					};
+				};
+			};
+			buildConfigurationList = 2F8B513018E7679200A5CBEF /* Build configuration list for PBXProject "Storyteller" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F8B512C18E7679200A5CBEF;
+			productRefGroup = 2F8B513618E7679200A5CBEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F8B513418E7679200A5CBEF /* Storyteller */,
+				2F8B515F18E7679200A5CBEF /* StorytellerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F8B513318E7679200A5CBEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */,
+				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
+				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
+				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
+				2F8B514518E7679200A5CBEF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F8B515E18E7679200A5CBEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B516C18E7679200A5CBEF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F8B513118E7679200A5CBEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B515418E7679200A5CBEF /* STViewController.m in Sources */,
+				2F8B515718E7679200A5CBEF /* STMyScene.m in Sources */,
+				2F8B514718E7679200A5CBEF /* main.m in Sources */,
+				2F8B514B18E7679200A5CBEF /* STAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F8B515C18E7679200A5CBEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F8B516E18E7679200A5CBEF /* StorytellerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F8B516618E7679200A5CBEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F8B513418E7679200A5CBEF /* Storyteller */;
+			targetProxy = 2F8B516518E7679200A5CBEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F8B514318E7679200A5CBEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F8B514418E7679200A5CBEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F8B514D18E7679200A5CBEF /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F8B515018E7679200A5CBEF /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		2F8B516A18E7679200A5CBEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F8B516B18E7679200A5CBEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F8B516F18E7679200A5CBEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F8B517018E7679200A5CBEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F8B517218E7679200A5CBEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
+				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2F8B517318E7679200A5CBEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
+				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2F8B517518E7679200A5CBEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Storyteller.app/Storyteller";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "StorytellerTests/StorytellerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2F8B517618E7679200A5CBEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Storyteller.app/Storyteller";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
+				INFOPLIST_FILE = "StorytellerTests/StorytellerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F8B513018E7679200A5CBEF /* Build configuration list for PBXProject "Storyteller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F8B516F18E7679200A5CBEF /* Debug */,
+				2F8B517018E7679200A5CBEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F8B517118E7679200A5CBEF /* Build configuration list for PBXNativeTarget "Storyteller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F8B517218E7679200A5CBEF /* Debug */,
+				2F8B517318E7679200A5CBEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F8B517418E7679200A5CBEF /* Build configuration list for PBXNativeTarget "StorytellerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F8B517518E7679200A5CBEF /* Debug */,
+				2F8B517618E7679200A5CBEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F8B512D18E7679200A5CBEF /* Project object */;
+}
