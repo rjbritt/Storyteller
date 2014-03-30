@@ -17,7 +17,7 @@
 		2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */; };
 		2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */; };
 		2F8B515418E7679200A5CBEF /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515318E7679200A5CBEF /* STViewController.m */; };
-		2F8B515718E7679200A5CBEF /* STMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STMyScene.m */; };
+		2F8B515718E7679200A5CBEF /* STInteractiveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STInteractiveScene.m */; };
 		2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515818E7679200A5CBEF /* Spaceship.png */; };
 		2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515A18E7679200A5CBEF /* Images.xcassets */; };
 		2F8B516218E7679200A5CBEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B516118E7679200A5CBEF /* XCTest.framework */; };
@@ -25,6 +25,10 @@
 		2F8B516418E7679200A5CBEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513C18E7679200A5CBEF /* UIKit.framework */; };
 		2F8B516C18E7679200A5CBEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B516A18E7679200A5CBEF /* InfoPlist.strings */; };
 		2F8B516E18E7679200A5CBEF /* StorytellerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B516D18E7679200A5CBEF /* StorytellerTests.m */; };
+		2F8B517C18E7B4FA00A5CBEF /* DraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B517B18E7B4FA00A5CBEF /* DraggableButton.m */; };
+		2F8B518118E7B9FA00A5CBEF /* NPC.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517E18E7B9FA00A5CBEF /* NPC.png */; };
+		2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517F18E7B9FA00A5CBEF /* Actor.png */; };
+		2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B518018E7B9FA00A5CBEF /* Environment.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +57,8 @@
 		2F8B515018E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2F8B515218E7679200A5CBEF /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
 		2F8B515318E7679200A5CBEF /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
-		2F8B515518E7679200A5CBEF /* STMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMyScene.h; sourceTree = "<group>"; };
-		2F8B515618E7679200A5CBEF /* STMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMyScene.m; sourceTree = "<group>"; };
+		2F8B515518E7679200A5CBEF /* STInteractiveScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STInteractiveScene.h; sourceTree = "<group>"; };
+		2F8B515618E7679200A5CBEF /* STInteractiveScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STInteractiveScene.m; sourceTree = "<group>"; };
 		2F8B515818E7679200A5CBEF /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		2F8B515A18E7679200A5CBEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F8B516018E7679200A5CBEF /* StorytellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +66,12 @@
 		2F8B516918E7679200A5CBEF /* StorytellerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StorytellerTests-Info.plist"; sourceTree = "<group>"; };
 		2F8B516B18E7679200A5CBEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F8B516D18E7679200A5CBEF /* StorytellerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorytellerTests.m; sourceTree = "<group>"; };
+		2F8B517918E7A5F900A5CBEF /* STInteractiveSceneDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STInteractiveSceneDataSource.h; path = Protocols/STInteractiveSceneDataSource.h; sourceTree = "<group>"; };
+		2F8B517A18E7B4FA00A5CBEF /* DraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableButton.h; sourceTree = "<group>"; };
+		2F8B517B18E7B4FA00A5CBEF /* DraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableButton.m; sourceTree = "<group>"; };
+		2F8B517E18E7B9FA00A5CBEF /* NPC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NPC.png; sourceTree = "<group>"; };
+		2F8B517F18E7B9FA00A5CBEF /* Actor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Actor.png; sourceTree = "<group>"; };
+		2F8B518018E7B9FA00A5CBEF /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,16 +133,17 @@
 		2F8B514018E7679200A5CBEF /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				2F8B517D18E7B50300A5CBEF /* Custom Views */,
+				2F8B517818E7A5BE00A5CBEF /* Protocols */,
 				2F8B514918E7679200A5CBEF /* STAppDelegate.h */,
 				2F8B514A18E7679200A5CBEF /* STAppDelegate.m */,
-				2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */,
-				2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */,
 				2F8B515218E7679200A5CBEF /* STViewController.h */,
 				2F8B515318E7679200A5CBEF /* STViewController.m */,
-				2F8B515518E7679200A5CBEF /* STMyScene.h */,
-				2F8B515618E7679200A5CBEF /* STMyScene.m */,
+				2F8B515518E7679200A5CBEF /* STInteractiveScene.h */,
+				2F8B515618E7679200A5CBEF /* STInteractiveScene.m */,
 				2F8B515818E7679200A5CBEF /* Spaceship.png */,
 				2F8B515A18E7679200A5CBEF /* Images.xcassets */,
+				2F8B517718E7A52E00A5CBEF /* Storyboard */,
 				2F8B514118E7679200A5CBEF /* Supporting Files */,
 			);
 			path = Storyteller;
@@ -142,6 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				2F8B514218E7679200A5CBEF /* Storyteller-Info.plist */,
+				2F8B517E18E7B9FA00A5CBEF /* NPC.png */,
+				2F8B517F18E7B9FA00A5CBEF /* Actor.png */,
+				2F8B518018E7B9FA00A5CBEF /* Environment.png */,
 				2F8B514318E7679200A5CBEF /* InfoPlist.strings */,
 				2F8B514618E7679200A5CBEF /* main.m */,
 				2F8B514818E7679200A5CBEF /* Storyteller-Prefix.pch */,
@@ -165,6 +179,32 @@
 				2F8B516A18E7679200A5CBEF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F8B517718E7A52E00A5CBEF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */,
+				2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		2F8B517818E7A5BE00A5CBEF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B517918E7A5F900A5CBEF /* STInteractiveSceneDataSource.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2F8B517D18E7B50300A5CBEF /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B517A18E7B4FA00A5CBEF /* DraggableButton.h */,
+				2F8B517B18E7B4FA00A5CBEF /* DraggableButton.m */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,8 +287,11 @@
 				2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */,
 				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
 				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
+				2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */,
+				2F8B518118E7B9FA00A5CBEF /* NPC.png in Resources */,
 				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
 				2F8B514518E7679200A5CBEF /* InfoPlist.strings in Resources */,
+				2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +311,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F8B515418E7679200A5CBEF /* STViewController.m in Sources */,
-				2F8B515718E7679200A5CBEF /* STMyScene.m in Sources */,
+				2F8B515718E7679200A5CBEF /* STInteractiveScene.m in Sources */,
 				2F8B514718E7679200A5CBEF /* main.m in Sources */,
+				2F8B517C18E7B4FA00A5CBEF /* DraggableButton.m in Sources */,
 				2F8B514B18E7679200A5CBEF /* STAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +454,7 @@
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -424,6 +469,7 @@
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
