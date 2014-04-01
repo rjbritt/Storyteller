@@ -12,6 +12,7 @@
 
 @interface STViewController()
 @property BOOL actorHasBeenAdded;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -40,8 +41,8 @@
     // Present the scene.
     [skView presentScene:scene];
     
-    [self presentViewController:gameViewController animated:YES completion:Nil];
-//    [self.navigationController pushViewController:gameViewController animated:YES];
+//    [self presentViewController:gameViewController animated:YES completion:Nil];
+    [self.navigationController pushViewController:gameViewController animated:YES];
 }
 
 - (IBAction)addEnvironmentButton:(id)sender
@@ -89,7 +90,7 @@
     [temp setTitle:name forState:UIControlStateNormal];
     temp.frame = frame;
     
-    [self.view addSubview:temp];
+    [self.scrollView addSubview:temp];
     
     return temp;
 }
@@ -102,17 +103,33 @@
     self.actors = [[NSMutableArray alloc]init];
     self.environment = [[NSMutableArray alloc]init];
     self.actorHasBeenAdded = NO;
+    
+    self.scrollView.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 }
 
-//
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    self.scrollView.contentSize = self.view.bounds.size;
-//}
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    [self.scrollView flashScrollIndicators];
-//}
+-(void)viewDidLayoutSubviews
+{
+    if(self.scrollView)
+    {
+        
+        
+//        CGFloat top = self.topLayoutGuide.length;
+//        CGFloat bot = self.bottomLayoutGuide.length;
+//        
+//        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, bot, 0);
+//        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.scrollView.contentSize = self.view.bounds.size;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.scrollView flashScrollIndicators];
+}
 
 - (BOOL)shouldAutorotate
 {

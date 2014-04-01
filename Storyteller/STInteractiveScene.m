@@ -100,11 +100,11 @@
         
     }
     
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    myLabel.text = @"TEST:";
-    myLabel.fontSize = 12;
-    myLabel.position = CGPointMake(0, 0);
-    [self addChild:myLabel];
+//    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+//    myLabel.text = @"TEST:";
+//    myLabel.fontSize = 12;
+//    myLabel.position = CGPointMake(0, 0);
+//    [self addChild:myLabel];
     
     
 }
