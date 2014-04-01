@@ -32,6 +32,7 @@
         /* Setup your scene here */
         self.dataSourceDelegate = interactiveDataSource;
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        
     }
     return self;
 }
@@ -82,14 +83,23 @@
         
         
         //Not needed at the moment but this is how it can be used.
-        //        if (currentButton.tag == GameSceneDataTypePlayableCharacter)
-        //        {
-        //            // configure playable characters
-        //        }
-        //        else if(currentButton.tag == GameSceneDataTypeNonPlayableCharacter)
-        //        {
-        //            // configure NPC
-        //        }
+        if (currentButton.tag == STInteractiveSceneDataTypePlayableCharacter)
+        {
+          // configure playable characters
+            actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
+            actorSprite.physicsBody.affectedByGravity = true;
+            actorSprite.physicsBody.friction = 0.5f;
+            actorSprite.physicsBody.restitution = 1.0f;
+            
+        }
+        else if(currentButton.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
+        {
+        // configure NPC
+            actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
+            actorSprite.physicsBody.affectedByGravity = false;
+            actorSprite.physicsBody.friction = 1.0f;
+            actorSprite.physicsBody.restitution = 1.0f;
+        }
         
         [self addChild:actorSprite];
     }

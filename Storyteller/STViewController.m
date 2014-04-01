@@ -90,6 +90,7 @@
     [temp setImage:image forState:UIControlStateNormal];
     [temp setTitle:name forState:UIControlStateNormal];
     temp.frame = frame;
+    temp.tag = tag;
     
     [self.view addSubview:temp];
     
