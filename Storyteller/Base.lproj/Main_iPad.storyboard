@@ -16,12 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xia-1x-0yk">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="679"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ws-Eo-yhT">
-                                <rect key="frame" x="-6" y="724" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b7P-zY-Fln"/>
@@ -46,6 +42,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="vub-xb-MzP">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="T3f-Rx-J94">
+                            <connections>
+                                <action selector="addActorButton:" destination="OTE-WF-xrO" id="K6w-RE-Lbo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Play" id="t2m-Hm-Iuq">
                             <connections>
                                 <action selector="playButton:" destination="OTE-WF-xrO" id="jDA-gE-hA2"/>
@@ -53,9 +54,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="scrollView" destination="xia-1x-0yk" id="9Yq-gH-G0Y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Be3-6C-sPQ" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +62,6 @@
         <!--Navigation Controller-->
         <scene sceneID="sCp-sq-3Fd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pEp-vS-d3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="cdq-6S-Pac" sceneMemberID="viewController">
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0RG-X7-T23">
@@ -74,6 +71,7 @@
                         <segue destination="OTE-WF-xrO" kind="relationship" relationship="rootViewController" id="i8y-1H-KbX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEp-vS-d3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4005" y="-561"/>
         </scene>

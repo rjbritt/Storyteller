@@ -53,12 +53,13 @@
 
 - (IBAction)addActorButton:(id)sender
 {
+    CGFloat top = self.topLayoutGuide.length;
     
     if (!self.actorHasBeenAdded)
     {
         
         UIImage *image = [UIImage imageNamed:@"Actor.png"];
-        CGRect imageFrame = CGRectMake(0, 0, image.size.width, image.size.height);
+        CGRect imageFrame = CGRectMake(0, top, image.size.width, image.size.height);
         
         [self.actors addObject:[self createNewDraggableButtonWithName:@"Actor" withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypePlayableCharacter]];
         
@@ -67,7 +68,7 @@
     else
     {
         UIImage *image = [UIImage imageNamed:@"NPC.png"];
-        CGRect imageFrame = CGRectMake(0, 0, image.size.width, image.size.height);
+        CGRect imageFrame = CGRectMake(0, top, image.size.width, image.size.height);
         
         DraggableButton *temp = [self createNewDraggableButtonWithName:@"NPC" withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypeNonPlayableCharacter];
         temp.tintColor = [UIColor blueColor];
@@ -90,7 +91,7 @@
     [temp setTitle:name forState:UIControlStateNormal];
     temp.frame = frame;
     
-    [self.scrollView addSubview:temp];
+    [self.view addSubview:temp];
     
     return temp;
 }
@@ -104,27 +105,34 @@
     self.environment = [[NSMutableArray alloc]init];
     self.actorHasBeenAdded = NO;
     
-    self.scrollView.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+//    UIScrollView *sv = [[UIScrollView alloc]initWithFrame:self.view.bounds];
+//    sv.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//    [self.view addSubview:sv];
+//    self.scrollView = sv;
+    
+//    self.scrollView.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+//
+//    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+//    self.scrollView.contentSize = self.view.bounds.size;
+    
 }
 
 -(void)viewDidLayoutSubviews
 {
     if(self.scrollView)
-    {
+    {   
         
+        CGFloat top = self.topLayoutGuide.length;
+        CGFloat bot = self.bottomLayoutGuide.length;
         
-//        CGFloat top = self.topLayoutGuide.length;
-//        CGFloat bot = self.bottomLayoutGuide.length;
-//        
-//        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, bot, 0);
-//        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
+        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, bot, 0);
+        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
+
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.scrollView.contentSize = self.view.bounds.size;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
