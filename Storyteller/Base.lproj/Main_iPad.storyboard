@@ -42,11 +42,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="vub-xb-MzP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="T3f-Rx-J94">
-                            <connections>
-                                <action selector="addActorButton:" destination="OTE-WF-xrO" id="K6w-RE-Lbo"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="C33-gt-1qb"/>
                         <barButtonItem key="rightBarButtonItem" title="Play" id="t2m-Hm-Iuq">
                             <connections>
                                 <action selector="playButton:" destination="OTE-WF-xrO" id="jDA-gE-hA2"/>

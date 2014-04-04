@@ -89,7 +89,8 @@
             actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
             actorSprite.physicsBody.affectedByGravity = true;
             actorSprite.physicsBody.friction = 0.5f;
-            actorSprite.physicsBody.restitution = 1.0f;
+            actorSprite.physicsBody.restitution = 0.2f;
+            actorSprite.physicsBody.linearDamping = 0.5f;
             
         }
         else if(currentButton.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
@@ -99,6 +100,9 @@
             actorSprite.physicsBody.affectedByGravity = false;
             actorSprite.physicsBody.friction = 1.0f;
             actorSprite.physicsBody.restitution = 1.0f;
+            
+            //setting it to not dynamic means it does not react to forces and impulses.
+                        actorSprite.physicsBody.dynamic = false;
         }
         
         [self addChild:actorSprite];
