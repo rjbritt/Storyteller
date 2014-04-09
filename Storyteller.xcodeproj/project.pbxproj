@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7CF7C518F03FDC0072490B /* STNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7C418F03FDC0072490B /* STNavigationController.m */; };
+		2F7CF7C718F06FC90072490B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7CF7C618F06FC90072490B /* CoreData.framework */; };
+		2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7C818F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld */; };
+		2F7CF7E018F07BB90072490B /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7DF18F07BB90072490B /* CoreDataHelper.m */; };
+		2F7CF7F618F08FD40072490B /* STStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7F518F08FD40072490B /* STStory.m */; };
+		2F7CF80418F1C26C0072490B /* STInteractiveSceneUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF80318F1C26C0072490B /* STInteractiveSceneUtilities.m */; };
 		2F8B513918E7679200A5CBEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513818E7679200A5CBEF /* Foundation.framework */; };
 		2F8B513B18E7679200A5CBEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */; };
 		2F8B513D18E7679200A5CBEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513C18E7679200A5CBEF /* UIKit.framework */; };
@@ -17,8 +23,7 @@
 		2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */; };
 		2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */; };
 		2F8B515418E7679200A5CBEF /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515318E7679200A5CBEF /* STViewController.m */; };
-		2F8B515718E7679200A5CBEF /* STInteractiveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STInteractiveScene.m */; };
-		2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515818E7679200A5CBEF /* Spaceship.png */; };
+		2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */; };
 		2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515A18E7679200A5CBEF /* Images.xcassets */; };
 		2F8B516218E7679200A5CBEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B516118E7679200A5CBEF /* XCTest.framework */; };
 		2F8B516318E7679200A5CBEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B513818E7679200A5CBEF /* Foundation.framework */; };
@@ -29,6 +34,11 @@
 		2F8B518118E7B9FA00A5CBEF /* NPC.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517E18E7B9FA00A5CBEF /* NPC.png */; };
 		2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517F18E7B9FA00A5CBEF /* Actor.png */; };
 		2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B518018E7B9FA00A5CBEF /* Environment.png */; };
+		2FF8C0EC18F4DA1500371BF9 /* STInteractiveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0EB18F4DA1500371BF9 /* STInteractiveScene.m */; };
+		2FF8C0F218F4DCB400371BF9 /* STInteractiveSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0F118F4DCB400371BF9 /* STInteractiveSceneElement.m */; };
+		2FF8C0F818F4DF2600371BF9 /* STObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0F718F4DF2600371BF9 /* STObject.m */; };
+		2FF8C0FB18F4DF2600371BF9 /* STEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0FA18F4DF2600371BF9 /* STEnvironment.m */; };
+		2FF8C0FE18F4DF2600371BF9 /* STActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0FD18F4DF2600371BF9 /* STActor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +52,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F7CF7C318F03FDC0072490B /* STNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STNavigationController.h; path = "Subclassed UIViewControllers/STNavigationController.h"; sourceTree = "<group>"; };
+		2F7CF7C418F03FDC0072490B /* STNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STNavigationController.m; path = "Subclassed UIViewControllers/STNavigationController.m"; sourceTree = "<group>"; };
+		2F7CF7C618F06FC90072490B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2F7CF7C918F0704C0072490B /* InteractiveSceneDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InteractiveSceneDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2F7CF7DE18F07BB90072490B /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		2F7CF7DF18F07BB90072490B /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		2F7CF7F418F08FD40072490B /* STStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStory.h; path = "NSManagedObject subclasses/STStory.h"; sourceTree = "<group>"; };
+		2F7CF7F518F08FD40072490B /* STStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStory.m; path = "NSManagedObject subclasses/STStory.m"; sourceTree = "<group>"; };
+		2F7CF80218F1C26C0072490B /* STInteractiveSceneUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STInteractiveSceneUtilities.h; sourceTree = "<group>"; };
+		2F7CF80318F1C26C0072490B /* STInteractiveSceneUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STInteractiveSceneUtilities.m; sourceTree = "<group>"; };
 		2F8B513518E7679200A5CBEF /* Storyteller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyteller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8B513818E7679200A5CBEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,21 +77,29 @@
 		2F8B515018E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2F8B515218E7679200A5CBEF /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
 		2F8B515318E7679200A5CBEF /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
-		2F8B515518E7679200A5CBEF /* STInteractiveScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STInteractiveScene.h; sourceTree = "<group>"; };
-		2F8B515618E7679200A5CBEF /* STInteractiveScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STInteractiveScene.m; sourceTree = "<group>"; };
-		2F8B515818E7679200A5CBEF /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		2F8B515518E7679200A5CBEF /* STInteractiveSceneSKScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STInteractiveSceneSKScene.h; sourceTree = "<group>"; };
+		2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STInteractiveSceneSKScene.m; sourceTree = "<group>"; };
 		2F8B515A18E7679200A5CBEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F8B516018E7679200A5CBEF /* StorytellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8B516118E7679200A5CBEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2F8B516918E7679200A5CBEF /* StorytellerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StorytellerTests-Info.plist"; sourceTree = "<group>"; };
 		2F8B516B18E7679200A5CBEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F8B516D18E7679200A5CBEF /* StorytellerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorytellerTests.m; sourceTree = "<group>"; };
-		2F8B517918E7A5F900A5CBEF /* STInteractiveSceneDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STInteractiveSceneDataSource.h; path = Protocols/STInteractiveSceneDataSource.h; sourceTree = "<group>"; };
 		2F8B517A18E7B4FA00A5CBEF /* DraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableButton.h; sourceTree = "<group>"; };
 		2F8B517B18E7B4FA00A5CBEF /* DraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableButton.m; sourceTree = "<group>"; };
 		2F8B517E18E7B9FA00A5CBEF /* NPC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NPC.png; sourceTree = "<group>"; };
 		2F8B517F18E7B9FA00A5CBEF /* Actor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Actor.png; sourceTree = "<group>"; };
 		2F8B518018E7B9FA00A5CBEF /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment.png; sourceTree = "<group>"; };
+		2FF8C0EA18F4DA1500371BF9 /* STInteractiveScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STInteractiveScene.h; path = "NSManagedObject subclasses/STInteractiveScene.h"; sourceTree = "<group>"; };
+		2FF8C0EB18F4DA1500371BF9 /* STInteractiveScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STInteractiveScene.m; path = "NSManagedObject subclasses/STInteractiveScene.m"; sourceTree = "<group>"; };
+		2FF8C0F018F4DCB400371BF9 /* STInteractiveSceneElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STInteractiveSceneElement.h; sourceTree = "<group>"; };
+		2FF8C0F118F4DCB400371BF9 /* STInteractiveSceneElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STInteractiveSceneElement.m; sourceTree = "<group>"; };
+		2FF8C0F618F4DF2600371BF9 /* STObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STObject.h; path = "NSManagedObject subclasses/STObject.h"; sourceTree = "<group>"; };
+		2FF8C0F718F4DF2600371BF9 /* STObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STObject.m; path = "NSManagedObject subclasses/STObject.m"; sourceTree = "<group>"; };
+		2FF8C0F918F4DF2600371BF9 /* STEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STEnvironment.h; path = "NSManagedObject subclasses/STEnvironment.h"; sourceTree = "<group>"; };
+		2FF8C0FA18F4DF2600371BF9 /* STEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STEnvironment.m; path = "NSManagedObject subclasses/STEnvironment.m"; sourceTree = "<group>"; };
+		2FF8C0FC18F4DF2600371BF9 /* STActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STActor.h; path = "NSManagedObject subclasses/STActor.h"; sourceTree = "<group>"; };
+		2FF8C0FD18F4DF2600371BF9 /* STActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STActor.m; path = "NSManagedObject subclasses/STActor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7CF7C718F06FC90072490B /* CoreData.framework in Frameworks */,
 				2F8B513B18E7679200A5CBEF /* CoreGraphics.framework in Frameworks */,
 				2F8B513D18E7679200A5CBEF /* UIKit.framework in Frameworks */,
 				2F8B513F18E7679200A5CBEF /* SpriteKit.framework in Frameworks */,
@@ -99,6 +128,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F7CF7BF18F03DED0072490B /* Subclassed UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F7CF7C318F03FDC0072490B /* STNavigationController.h */,
+				2F7CF7C418F03FDC0072490B /* STNavigationController.m */,
+			);
+			name = "Subclassed UIViewControllers";
+			sourceTree = "<group>";
+		};
+		2F7CF7DA18F0788F0072490B /* Managed Object Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				2FF8C0FC18F4DF2600371BF9 /* STActor.h */,
+				2FF8C0FD18F4DF2600371BF9 /* STActor.m */,
+				2FF8C0F918F4DF2600371BF9 /* STEnvironment.h */,
+				2FF8C0FA18F4DF2600371BF9 /* STEnvironment.m */,
+				2FF8C0F618F4DF2600371BF9 /* STObject.h */,
+				2FF8C0F718F4DF2600371BF9 /* STObject.m */,
+				2FF8C0F018F4DCB400371BF9 /* STInteractiveSceneElement.h */,
+				2FF8C0F118F4DCB400371BF9 /* STInteractiveSceneElement.m */,
+				2FF8C0EA18F4DA1500371BF9 /* STInteractiveScene.h */,
+				2FF8C0EB18F4DA1500371BF9 /* STInteractiveScene.m */,
+				2F7CF7F418F08FD40072490B /* STStory.h */,
+				2F7CF7F518F08FD40072490B /* STStory.m */,
+			);
+			name = "Managed Object Subclasses";
+			sourceTree = "<group>";
+		};
+		2F7CF7E118F07BC20072490B /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				2F7CF7C818F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld */,
+				2F7CF7DE18F07BB90072490B /* CoreDataHelper.h */,
+				2F7CF7DF18F07BB90072490B /* CoreDataHelper.m */,
+				2F7CF7DA18F0788F0072490B /* Managed Object Subclasses */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		2F8B512C18E7679200A5CBEF = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +189,7 @@
 		2F8B513718E7679200A5CBEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F7CF7C618F06FC90072490B /* CoreData.framework */,
 				2F8B513818E7679200A5CBEF /* Foundation.framework */,
 				2F8B513A18E7679200A5CBEF /* CoreGraphics.framework */,
 				2F8B513C18E7679200A5CBEF /* UIKit.framework */,
@@ -133,15 +202,15 @@
 		2F8B514018E7679200A5CBEF /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				2F7CF7E118F07BC20072490B /* Core Data */,
+				2F7CF7BF18F03DED0072490B /* Subclassed UIViewControllers */,
 				2F8B517D18E7B50300A5CBEF /* Custom Views */,
-				2F8B517818E7A5BE00A5CBEF /* Protocols */,
 				2F8B514918E7679200A5CBEF /* STAppDelegate.h */,
 				2F8B514A18E7679200A5CBEF /* STAppDelegate.m */,
 				2F8B515218E7679200A5CBEF /* STViewController.h */,
 				2F8B515318E7679200A5CBEF /* STViewController.m */,
-				2F8B515518E7679200A5CBEF /* STInteractiveScene.h */,
-				2F8B515618E7679200A5CBEF /* STInteractiveScene.m */,
-				2F8B515818E7679200A5CBEF /* Spaceship.png */,
+				2F8B515518E7679200A5CBEF /* STInteractiveSceneSKScene.h */,
+				2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */,
 				2F8B515A18E7679200A5CBEF /* Images.xcassets */,
 				2F8B517718E7A52E00A5CBEF /* Storyboard */,
 				2F8B514118E7679200A5CBEF /* Supporting Files */,
@@ -152,6 +221,8 @@
 		2F8B514118E7679200A5CBEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F7CF80218F1C26C0072490B /* STInteractiveSceneUtilities.h */,
+				2F7CF80318F1C26C0072490B /* STInteractiveSceneUtilities.m */,
 				2F8B514218E7679200A5CBEF /* Storyteller-Info.plist */,
 				2F8B517E18E7B9FA00A5CBEF /* NPC.png */,
 				2F8B517F18E7B9FA00A5CBEF /* Actor.png */,
@@ -188,14 +259,6 @@
 				2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */,
 			);
 			name = Storyboard;
-			sourceTree = "<group>";
-		};
-		2F8B517818E7A5BE00A5CBEF /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2F8B517918E7A5F900A5CBEF /* STInteractiveSceneDataSource.h */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		2F8B517D18E7B50300A5CBEF /* Custom Views */ = {
@@ -284,7 +347,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8B515918E7679200A5CBEF /* Spaceship.png in Resources */,
 				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
 				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
 				2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */,
@@ -310,9 +372,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7CF7C518F03FDC0072490B /* STNavigationController.m in Sources */,
+				2F7CF7F618F08FD40072490B /* STStory.m in Sources */,
+				2FF8C0F818F4DF2600371BF9 /* STObject.m in Sources */,
+				2FF8C0FE18F4DF2600371BF9 /* STActor.m in Sources */,
+				2FF8C0EC18F4DA1500371BF9 /* STInteractiveScene.m in Sources */,
 				2F8B515418E7679200A5CBEF /* STViewController.m in Sources */,
-				2F8B515718E7679200A5CBEF /* STInteractiveScene.m in Sources */,
+				2FF8C0FB18F4DF2600371BF9 /* STEnvironment.m in Sources */,
+				2F7CF80418F1C26C0072490B /* STInteractiveSceneUtilities.m in Sources */,
+				2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */,
+				2FF8C0F218F4DCB400371BF9 /* STInteractiveSceneElement.m in Sources */,
 				2F8B514718E7679200A5CBEF /* main.m in Sources */,
+				2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */,
+				2F7CF7E018F07BB90072490B /* CoreDataHelper.m in Sources */,
 				2F8B517C18E7B4FA00A5CBEF /* DraggableButton.m in Sources */,
 				2F8B514B18E7679200A5CBEF /* STAppDelegate.m in Sources */,
 			);
@@ -533,6 +605,7 @@
 				2F8B517318E7679200A5CBEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F8B517418E7679200A5CBEF /* Build configuration list for PBXNativeTarget "StorytellerTests" */ = {
 			isa = XCConfigurationList;
@@ -541,8 +614,23 @@
 				2F8B517618E7679200A5CBEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F7CF7C818F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F7CF7C918F0704C0072490B /* InteractiveSceneDataModel.xcdatamodel */,
+			);
+			currentVersion = 2F7CF7C918F0704C0072490B /* InteractiveSceneDataModel.xcdatamodel */;
+			name = InteractiveSceneDataModel.xcdatamodeld;
+			path = ../InteractiveSceneDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F8B512D18E7679200A5CBEF /* Project object */;
 }

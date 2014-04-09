@@ -23,15 +23,17 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b7P-zY-Fln"/>
                                     <barButtonItem title="Actor" id="kqS-j5-kMX">
                                         <connections>
-                                            <action selector="addActorButton:" destination="OTE-WF-xrO" id="SUq-bQ-yUm"/>
+                                            <action selector="addRedActorButton:" destination="OTE-WF-xrO" id="I5N-es-rKB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="LMc-Ot-2iE"/>
                                     <barButtonItem title="Environment" id="Y7E-fw-gI7">
                                         <connections>
-                                            <action selector="addEnvironmentButton:" destination="OTE-WF-xrO" id="Ka3-Sw-WiR"/>
+                                            <action selector="addEnvironmentButton:" destination="OTE-WF-xrO" id="RF7-YJ-8lf"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="B7a-ka-dow"/>
+                                    <barButtonItem title="Object" id="TtM-5u-qFu"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WKz-64-pI2"/>
                                 </items>
                             </toolbar>
@@ -42,7 +44,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="vub-xb-MzP">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="C33-gt-1qb"/>
                         <barButtonItem key="rightBarButtonItem" title="Play" id="t2m-Hm-Iuq">
                             <connections>
                                 <action selector="playButton:" destination="OTE-WF-xrO" id="jDA-gE-hA2"/>
@@ -55,10 +56,52 @@
             </objects>
             <point key="canvasLocation" x="-2718" y="-551"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="liM-3t-wN0">
+            <objects>
+                <viewController id="bMx-Ep-a5T" customClass="STViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1hc-zo-dC3"/>
+                        <viewControllerLayoutGuide type="bottom" id="gEl-s5-V4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3AQ-Ww-YG2">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAS-ae-gC0">
+                                <rect key="frame" x="35" y="20" width="119" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Actor.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRedActorButton:" destination="bMx-Ep-a5T" eventType="touchUpInside" id="K4d-6B-2mU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-1u-mOG">
+                                <rect key="frame" x="139" y="20" width="119" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="NPC.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addEnvironmentButton:" destination="bMx-Ep-a5T" eventType="touchUpInside" id="nXu-aN-633"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="100"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQK-Vj-QSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1536" y="-217"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="sCp-sq-3Fd">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cdq-6S-Pac" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="cdq-6S-Pac" customClass="STNavigationController" sceneMemberID="viewController">
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0RG-X7-T23">
                         <autoresizingMask key="autoresizingMask"/>
@@ -72,6 +115,10 @@
             <point key="canvasLocation" x="-4005" y="-561"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Actor.png" width="64" height="64"/>
+        <image name="NPC.png" width="64" height="64"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

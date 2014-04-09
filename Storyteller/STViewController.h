@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import "STInteractiveSceneDataSource.h"
 
-@interface STViewController : UIViewController<STInteractiveSceneDataSource>
+@interface STViewController : UIViewController
 
 @end

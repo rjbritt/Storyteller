@@ -7,85 +7,107 @@
 //
 
 #import "STViewController.h"
-#import "STInteractiveScene.h"
+#import "STInteractiveSceneSKScene.h"
 #import "DraggableButton.h"
+#import "STNavigationController.h"
+#import "STActor.h"
+#import "STInteractiveScene.h"
+#import "STAppDelegate.h"
+#import "STInteractiveSceneUtilities.h"
 
 @interface STViewController()
-@property BOOL actorHasBeenAdded;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
+@property (strong, nonatomic) NSMutableArray *actorButtonArray;
+@property (strong, nonatomic) NSMutableArray *environmentButtonArray;
+@property (strong, nonatomic) STInteractiveScene *currentScene;
+@property (strong, nonatomic) NSManagedObjectContext *currentContext;
+@property (strong, nonatomic) STAppDelegate *delegate;
 @end
+
 
 @implementation STViewController
 
-// Interactive Data Source properties
-@synthesize actors;
-@synthesize environment;
 
+#pragma -mark Button Action Methods
 
 - (IBAction)playButton:(id)sender
 {
-    UIViewController * gameViewController = [[UIViewController alloc]init];
+    UIViewController * stInteractiveSceneSKSceneViewController = [[UIViewController alloc]init];
+    
+
+    //Configure the Actors
+    for (UIButton *button in self.actorButtonArray)
+    {
+        [self updateSTInteractiveSceneElementFromButton:button];
+    }
+    
     
     // Configure the view.
     SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
-    
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
-    STInteractiveScene * scene = [[STInteractiveScene alloc]initWithSize:skView.bounds.size andData:self];
+    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andName:self.title];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    gameViewController.view = skView;
+    stInteractiveSceneSKSceneViewController.view = skView;
     
     // Present the scene.
     [skView presentScene:scene];
     
-//    [self presentViewController:gameViewController animated:YES completion:Nil];
-    [self.navigationController pushViewController:gameViewController animated:YES];
+
+    //Push the view controller
+    ((STNavigationController*)self.navigationController).forceNoAnimatePop = YES;
+    [self.navigationController pushViewController:stInteractiveSceneSKSceneViewController animated:NO];
+    
 }
 
-- (IBAction)addEnvironmentButton:(id)sender
-{
-}
 
+/**
+ * addActorButton
+ * This method will add an appropriate DraggableButton for a new Actor
+ *
+ * @param sender The button that sent this action
+ */
 
-
-- (IBAction)addActorButton:(id)sender
+- (IBAction)addRedActorButton:(id)sender
 {
     CGFloat top = self.topLayoutGuide.length;
+    CGPoint desiredCenter = CGPointMake(0, top);
+    DraggableButton *newActor;
     
-    if (!self.actorHasBeenAdded)
-    {
-        
-        UIImage *image = [UIImage imageNamed:@"Actor.png"];
-        CGRect imageFrame = CGRectMake(0, top, image.size.width, image.size.height);
-        
-        [self.actors addObject:[self createNewDraggableButtonWithName:@"Actor" withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypePlayableCharacter]];
-        
-        self.actorHasBeenAdded = YES;
-    }
-    else
-    {
-        UIImage *image = [UIImage imageNamed:@"NPC.png"];
-        CGRect imageFrame = CGRectMake(0, top, image.size.width, image.size.height);
-        
-        DraggableButton *temp = [self createNewDraggableButtonWithName:@"NPC" withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypeNonPlayableCharacter];
-        temp.tintColor = [UIColor blueColor];
-        
-        [self.actors addObject:temp];
-        
-    }
+    
+    UIImage *image = [UIImage imageNamed:@"Actor.png"];
+    CGRect imageFrame = CGRectMake(desiredCenter.x, desiredCenter.y, image.size.width, image.size.height);
+    
+    newActor = [self createNewDraggableButtonWithName:self.currentScene.getNextPCName withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypePlayableCharacter];
+    
+    [self createSTInteractiveSceneElementFromButton:newActor];
+    [self.actorButtonArray addObject:newActor];
+}
+
+- (IBAction)addEnvironmentButton:(id)sender //Currently just adds another Actor
+{
+    CGFloat top = self.topLayoutGuide.length;
+    CGPoint desiredCenter = CGPointMake(0, top);
+    DraggableButton *newActor;
+    
+    UIImage *image = [UIImage imageNamed:@"NPC.png"];
+    CGRect imageFrame = CGRectMake(desiredCenter.x, desiredCenter.y, image.size.width, image.size.height);
+    
+    newActor = [self createNewDraggableButtonWithName:self.currentScene.getNextNPCName withFrame: imageFrame  withImage:image andTag:STInteractiveSceneDataTypeNonPlayableCharacter];
+
+
+    [self createSTInteractiveSceneElementFromButton:newActor];
+    [self.actorButtonArray addObject:newActor];
 }
 
 
 
+#pragma -mark View Methods
 -(DraggableButton *)createNewDraggableButtonWithName:(NSString*) name withFrame:(CGRect) frame withImage:(UIImage *) image andTag:(int) tag
 {
     DraggableButton *temp = [DraggableButton buttonWithType:UIButtonTypeCustom];
-    
-    //    [temp addTarget:self action:@selector(hideTabBarButton:) forControlEvents:UIControlEventTouchDragInside];
-    //    [temp addTarget:self action:@selector(showTabBarButton:) forControlEvents:UIControlEventTouchDragExit];
     
     [temp setImage:image forState:UIControlStateNormal];
     [temp setTitle:name forState:UIControlStateNormal];
@@ -102,34 +124,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.actors = [[NSMutableArray alloc]init];
-    self.environment = [[NSMutableArray alloc]init];
-    self.actorHasBeenAdded = NO;
-    
-//    UIScrollView *sv = [[UIScrollView alloc]initWithFrame:self.view.bounds];
-//    sv.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    [self.view addSubview:sv];
-//    self.scrollView = sv;
-    
-//    self.scrollView.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-//
-//    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-//    self.scrollView.contentSize = self.view.bounds.size;
+    self.actorButtonArray = [[NSMutableArray alloc]init];
+    self.environmentButtonArray = [[NSMutableArray alloc]init];
+
+    self.delegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.currentContext = self.delegate.coreDataHelper.context;
+
+    [self loadSavedOrCreateNewSTInteractiveScene];
     
 }
 
 -(void)viewDidLayoutSubviews
 {
-    if(self.scrollView)
-    {   
-        
-        CGFloat top = self.topLayoutGuide.length;
-        CGFloat bot = self.bottomLayoutGuide.length;
-        
-        self.scrollView.contentInset = UIEdgeInsetsMake(top, 0, bot, 0);
-        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
 
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -159,6 +166,132 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+
+
+#pragma -mark CoreData Handling Methods
+
+/**
+ * loadSavedOrCreateNewSTInteractiveScene
+ *
+ * Contains the logic for whether a new scene should be created or if a scene with this name already exists.
+ * If a scene with this name exists, then a method is called to create the UIKit version of that scene.
+ * If not, a new scene in the current context is created.
+ */
+
+-(void)loadSavedOrCreateNewSTInteractiveScene
+{
+    //Attempt to fetch the current scene
+    NSFetchRequest *interactiveSceneFetch = [NSFetchRequest fetchRequestWithEntityName:@"STInteractiveScene"];
+    NSPredicate *currentSceneNameFilter = [NSPredicate predicateWithFormat:@"name == %@", self.title];
+    [interactiveSceneFetch setPredicate:currentSceneNameFilter];
+    NSArray * sceneArray = [self.currentContext executeFetchRequest:interactiveSceneFetch error:nil];
+    
+    // If there was no current scene
+    if(sceneArray.count == 0)
+    {
+        //Create the Scene
+        self.currentScene = [STInteractiveScene initWithName:self.title inContext:self.currentContext];
+    }
+    else
+    {
+        self.currentScene = sceneArray[0];
+        [self createUIKitSceneFromCurrentSTInteractiveScene];
+    }
+}
+
+/**
+ * createUIKitSceneFromCurrentSTInteractiveScene
+ *
+ * Does the heavy lifting of converting the saved STInteractiveScene into a UIKit scene.
+ * Converts the actors first, then the environment, and then the objects.
+ *
+ */
+
+-(void)createUIKitSceneFromCurrentSTInteractiveScene
+{
+    NSArray *actorArray = [self.currentScene.actorList array];
+    //        NSArray *environmentArray = [self.currentScene.environmentList array];
+    //        NSArray *objectArray = [self.currentScene.objectList array];
+
+    
+    
+    //Create All Actors
+    for (STActor *actor in actorArray)
+    {
+        CGPoint center = [actor getCenterPoint];
+        UIImage *theImage = [actor getUIImageFromData];
+        CGRect temp = CGRectMake(center.x, center.y, theImage.size.width, theImage.size.height);
+        [self.actorButtonArray addObject:[self createNewDraggableButtonWithName:actor.name withFrame:temp withImage:theImage andTag:(int)actor.tag]];
+    }
+}
+
+-(void)updateSTInteractiveSceneElementFromButton:(UIButton*) button
+{
+    int dataType = button.tag;
+    
+    switch (dataType)
+    {
+        case STInteractiveSceneDataTypePlayableCharacter:
+        case STInteractiveSceneDataTypeNonPlayableCharacter:
+        {
+            STActor *temp;
+            
+            //Attempt to fetch the appropriate STActor
+            NSFetchRequest *stActorFetch = [NSFetchRequest fetchRequestWithEntityName:@"STActor"];
+            NSPredicate *currentActorNameFilter = [NSPredicate predicateWithFormat:@"name == %@", button.titleLabel.text];
+            [stActorFetch setPredicate:currentActorNameFilter];
+            NSArray * actorArray = [self.currentContext executeFetchRequest:stActorFetch error:nil];
+            
+            if(actorArray.count > 0)
+            {
+                temp = actorArray[0];
+                [temp setCenterPoint:button.center];
+                temp.name = button.titleLabel.text;
+                [temp setImageDataFromUIImage:button.imageView.image];
+                temp.tag = button.tag;
+            }
+            
+            [self.delegate.coreDataHelper saveContext];
+        }
+            break;
+        case STInteractiveSceneDataTypeSolidEnvironment:
+            break;
+        case STInteractiveSceneDataTypeObject:
+            break;
+        default: // Invalid Datatype
+            break;
+    }
+}
+
+-(STInteractiveSceneElement *)createSTInteractiveSceneElementFromButton:(UIButton*) button
+{
+    int dataType = button.tag;
+    
+    switch (dataType)
+    {
+        case STInteractiveSceneDataTypePlayableCharacter:
+        case STInteractiveSceneDataTypeNonPlayableCharacter:
+        {
+            STActor *tempActor = [STActor initWithName:button.titleLabel.text
+                                             withImage:button.imageView.image
+                                               withTag:button.tag
+                                         withinContext:self.currentContext
+                                            centeredAt:button.center];
+            
+            [self.currentScene addActorListObject:tempActor];
+            [self.delegate.coreDataHelper saveContext];
+        }
+            break;
+        case STInteractiveSceneDataTypeSolidEnvironment:
+            break;
+        case STInteractiveSceneDataTypeObject:
+            break;
+        default: // Invalid Datatype
+            break;
+    }
+    return nil;
+}
+
 
 
 @end

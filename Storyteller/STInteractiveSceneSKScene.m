@@ -6,14 +6,17 @@
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STInteractiveScene.h"
+#import "STInteractiveSceneSKScene.h"
+#import "STAppDelegate.h"
+#import "STInteractiveSceneUtilities.h"
+
 
 //class extension for private properties
-@interface STInteractiveScene()
-@property id<STInteractiveSceneDataSource> dataSourceDelegate;
-
+@interface STInteractiveSceneSKScene()
+@property (strong, nonatomic) NSManagedObjectContext * currentContext;
+@property (strong, nonatomic) STInteractiveScene *currentScene;
 @end
-@implementation STInteractiveScene
+@implementation STInteractiveSceneSKScene
 
 /**
  * initWithSize:size  andData:interactiveDataSource
@@ -25,13 +28,28 @@
  * @return The initialized scene.
  */
 
--(id)initWithSize:(CGSize)size andData:(id<STInteractiveSceneDataSource>)interactiveDataSource
+-(id)initWithSize:(CGSize)size andName:(NSString *) name// will need to implement tag for interactive scene
 {
     if (self = [super initWithSize:size])
     {
         /* Setup your scene here */
-        self.dataSourceDelegate = interactiveDataSource;
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:1 green:1 blue:1 alpha:1.0];
+        self.currentContext = ((STAppDelegate *)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
+        
+        
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"STInteractiveScene"];
+        NSPredicate *nameFilter = [NSPredicate predicateWithFormat:@"name == %@", name];
+        [request setPredicate:nameFilter];
+        
+        self.currentScene = [self.currentContext executeFetchRequest:request error:nil][0];
+        
+//#if DEBUG
+//        NSLog(@"SKScene");
+//        for (STActor *temp in self.currentScene.actorList)
+//        {
+//            NSLog([NSString stringWithFormat:@"Name: %@ Center:%@ Tag:%i \n",temp.name, temp.center, (int)temp.tag]) ;
+//        }
+//#endif
         
     }
     return self;
@@ -67,23 +85,16 @@
  */
 
 -(void)configureDataSourceToNodes
-{
-    //Convert the Actor to SKNodes
-    for (UIButton *currentButton in [self.dataSourceDelegate actors] )
+{   
+    NSArray *actors = [self.currentScene.actorList array];
+    for (STActor * currentActor in actors)
     {
-        
-        
         SKSpriteNode *actorSprite = [SKSpriteNode spriteNodeWithTexture:
                                      [SKTexture textureWithImage:
-                                      [currentButton imageForState:UIControlStateNormal]]];
-        
-        actorSprite.name = currentButton.titleLabel.text;
-        actorSprite.position =[self convertPointFromView:currentButton.center];
-        
-        
-        
-        //Not needed at the moment but this is how it can be used.
-        if (currentButton.tag == STInteractiveSceneDataTypePlayableCharacter)
+                                      [currentActor getUIImageFromData]]];
+        actorSprite.name = currentActor.name;
+                actorSprite.position =[self convertPointFromView:[currentActor getCenterPoint]];
+        if (currentActor.tag == STInteractiveSceneDataTypePlayableCharacter)
         {
           // configure playable characters
             actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
@@ -91,35 +102,30 @@
             actorSprite.physicsBody.friction = 0.5f;
             actorSprite.physicsBody.restitution = 0.2f;
             actorSprite.physicsBody.linearDamping = 0.5f;
-            
+
         }
-        else if(currentButton.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
+        else //if(currentActor.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
         {
         // configure NPC
             actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
             actorSprite.physicsBody.affectedByGravity = false;
             actorSprite.physicsBody.friction = 1.0f;
             actorSprite.physicsBody.restitution = 1.0f;
-            
+
             //setting it to not dynamic means it does not react to forces and impulses.
-                        actorSprite.physicsBody.dynamic = false;
+            actorSprite.physicsBody.dynamic = false;
         }
         
         [self addChild:actorSprite];
+
     }
     
     //Convert all the environments to SKNodes
-    for (UIButton *currentButton in [self.dataSourceDelegate environment])
-    {
-        
-    }
     
-//    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-//    myLabel.text = @"TEST:";
-//    myLabel.fontSize = 12;
-//    myLabel.position = CGPointMake(0, 0);
-//    [self addChild:myLabel];
+    NSArray *environment = [self.currentScene.environmentList array];
     
+
+
     
 }
 -(void)update:(CFTimeInterval)currentTime {

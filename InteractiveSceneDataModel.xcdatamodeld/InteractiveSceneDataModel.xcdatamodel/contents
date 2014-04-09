@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="STActor" representedClassName="STActor" parentEntity="STInteractiveSceneElement" syncable="YES">
+        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="actorList" inverseEntity="STInteractiveScene" syncable="YES"/>
+    </entity>
+    <entity name="STEnvironment" representedClassName="STEnvironment" parentEntity="STInteractiveSceneElement" syncable="YES">
+        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="environmentList" inverseEntity="STInteractiveScene" syncable="YES"/>
+    </entity>
+    <entity name="STInteractiveScene" representedClassName="STInteractiveScene" syncable="YES">
+        <attribute name="envTagIncr" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="npcTagIncr" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="pcTagIncr" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="actorList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STActor" inverseName="belongingScene" inverseEntity="STActor" syncable="YES"/>
+        <relationship name="belongingStory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STStory" inverseName="interactiveSceneList" inverseEntity="STStory" syncable="YES"/>
+        <relationship name="environmentList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STEnvironment" inverseName="belongingScene" inverseEntity="STEnvironment" syncable="YES"/>
+        <relationship name="objectList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STObject" inverseName="belongingScene" inverseEntity="STObject" syncable="YES"/>
+    </entity>
+    <entity name="STInteractiveSceneElement" representedClassName="STInteractiveSceneElement" syncable="YES">
+        <attribute name="center" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="STObject" representedClassName="STObject" parentEntity="STInteractiveSceneElement" syncable="YES">
+        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="objectList" inverseEntity="STInteractiveScene" syncable="YES"/>
+    </entity>
+    <entity name="STStory" representedClassName="STStory" syncable="YES">
+        <relationship name="interactiveSceneList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="belongingStory" inverseEntity="STInteractiveScene" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="STActor" positionX="-279" positionY="-72" width="128" height="58"/>
+        <element name="STEnvironment" positionX="-54" positionY="108" width="128" height="58"/>
+        <element name="STInteractiveScene" positionX="385" positionY="0" width="128" height="180"/>
+        <element name="STObject" positionX="-279" positionY="297" width="128" height="58"/>
+        <element name="STStory" positionX="693" positionY="48" width="128" height="60"/>
+        <element name="STInteractiveSceneElement" positionX="-279" positionY="84" width="128" height="103"/>
+    </elements>
+</model>

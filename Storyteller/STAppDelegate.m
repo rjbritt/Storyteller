@@ -10,6 +10,23 @@
 
 @implementation STAppDelegate
 
+/**
+ * coreDataHelper
+ * This is an overwritten accessor to create lazy instantiation for the coreDataHelper property
+ *
+ * @return A successfully instantiated coreDataHelper instance
+ */
+
+-(CoreDataHelper*)coreDataHelper
+{
+    if (!_coreDataHelper)
+    {
+        _coreDataHelper = [CoreDataHelper new];
+        [_coreDataHelper setupCoreData];
+    }
+    return _coreDataHelper;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -26,6 +43,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [self.coreDataHelper saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -40,7 +59,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Called when the application is about to terminate. Save data if appropiate. See also applicationDidEnterBackground:.
+    [self.coreDataHelper saveContext];
 }
 
 @end
