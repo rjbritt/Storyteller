@@ -16,7 +16,11 @@
 @property (strong, nonatomic) NSManagedObjectContext * currentContext;
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 @end
+
 @implementation STInteractiveSceneSKScene
+
+dispatch_queue_t backgroundQueue;
+
 
 /**
  * initWithSize:size  andData:interactiveDataSource
@@ -32,6 +36,8 @@
 {
     if (self = [super initWithSize:size])
     {
+        backgroundQueue = dispatch_queue_create("com.ryanbritt.dispatchqueue", NULL);
+        
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:1 green:1 blue:1 alpha:1.0];
         self.currentContext = ((STAppDelegate *)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
@@ -85,40 +91,53 @@
  */
 
 -(void)configureDataSourceToNodes
-{   
+{
+    NSDate *start;
+    NSDate *end;
+    
     NSArray *actors = [self.currentScene.actorList array];
+    
+    start = [NSDate date];
     for (STActor * currentActor in actors)
     {
-        SKSpriteNode *actorSprite = [SKSpriteNode spriteNodeWithTexture:
-                                     [SKTexture textureWithImage:
-                                      [currentActor getUIImageFromData]]];
-        actorSprite.name = currentActor.name;
-                actorSprite.position =[self convertPointFromView:[currentActor getCenterPoint]];
-        if (currentActor.tag == STInteractiveSceneDataTypePlayableCharacter)
+        dispatch_async(backgroundQueue,^(void)
         {
-          // configure playable characters
-            actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
-            actorSprite.physicsBody.affectedByGravity = true;
-            actorSprite.physicsBody.friction = 0.5f;
-            actorSprite.physicsBody.restitution = 0.2f;
-            actorSprite.physicsBody.linearDamping = 0.5f;
-
-        }
-        else //if(currentActor.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
-        {
-        // configure NPC
-            actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
-            actorSprite.physicsBody.affectedByGravity = false;
-            actorSprite.physicsBody.friction = 1.0f;
-            actorSprite.physicsBody.restitution = 1.0f;
-
-            //setting it to not dynamic means it does not react to forces and impulses.
-            actorSprite.physicsBody.dynamic = false;
-        }
+            
+            SKSpriteNode *actorSprite = [SKSpriteNode spriteNodeWithTexture:
+                                         [SKTexture textureWithImage:
+                                          [currentActor getUIImageFromData]]];
+            actorSprite.name = currentActor.name;
+            actorSprite.position =[self convertPointFromView:[currentActor getCenterPoint]];
+            if (currentActor.tag == STInteractiveSceneDataTypePlayableCharacter)
+            {
+                // configure playable characters
+                actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
+                actorSprite.physicsBody.affectedByGravity = true;
+                actorSprite.physicsBody.friction = 0.5f;
+                actorSprite.physicsBody.restitution = 0.2f;
+                actorSprite.physicsBody.linearDamping = 0.5f;
+                
+            }
+            else //if(currentActor.tag == STInteractiveSceneDataTypeNonPlayableCharacter)
+            {
+                // configure NPC
+                actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
+                actorSprite.physicsBody.affectedByGravity = false;
+                actorSprite.physicsBody.friction = 1.0f;
+                actorSprite.physicsBody.restitution = 1.0f;
+                
+                //setting it to not dynamic means it does not react to forces and impulses.
+                actorSprite.physicsBody.dynamic = false;
+            }
+            
+            [self addChild:actorSprite];
         
-        [self addChild:actorSprite];
-
+        });
     }
+    end = [NSDate date];
+    NSLog([NSString stringWithFormat:@"Time taken: %lf", [end timeIntervalSinceDate:start]]);
+    
+    
     
     //Convert all the environments to SKNodes
     
