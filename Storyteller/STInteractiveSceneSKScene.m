@@ -61,7 +61,7 @@ dispatch_queue_t backgroundQueue;
     return self;
 }
 
-/**
+/** *
  * didMoveToView:view
  * This is a SKScene lifecycle method that is called as soon as the
  * SkScene is presented
