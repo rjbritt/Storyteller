@@ -54,7 +54,7 @@ dispatch_queue_t backgroundQueue;
 //        for (STActor *temp in self.currentScene.actorList)
 //        {
 //            NSLog([NSString stringWithFormat:@"Name: %@ Center:%@ Tag:%i \n",temp.name, temp.center, (int)temp.tag]) ;
-//        }
+//        } //
 //#endif
         
     }
@@ -70,7 +70,7 @@ dispatch_queue_t backgroundQueue;
  * be done after the view has been presented.
  *
  * @param view SKview that will be presented, called during the SKScene lifecycle.
- *
+ * //
  */
 
 -(void)didMoveToView:(SKView *)view
