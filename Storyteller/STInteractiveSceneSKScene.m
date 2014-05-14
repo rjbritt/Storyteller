@@ -54,7 +54,7 @@ dispatch_queue_t backgroundQueue;
 //        for (STActor *temp in self.currentScene.actorList)
 //        {
 //            NSLog([NSString stringWithFormat:@"Name: %@ Center:%@ Tag:%i \n",temp.name, temp.center, (int)temp.tag]) ;
-//        } //
+//        } 
 //#endif
         
     }
