@@ -16,7 +16,7 @@
 #import "STInteractiveSceneUtilities.h"
 
 @interface STViewController()
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (strong, nonatomic) NSMutableArray *actorButtonArray;
 @property (strong, nonatomic) NSMutableArray *environmentButtonArray;
 @property (strong, nonatomic) STInteractiveScene *currentScene;
@@ -144,7 +144,6 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self.scrollView flashScrollIndicators];
 }
 
 - (BOOL)shouldAutorotate

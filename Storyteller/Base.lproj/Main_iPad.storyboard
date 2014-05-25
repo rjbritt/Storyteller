@@ -53,12 +53,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Be3-6C-sPQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1630" y="-3"/>
+            <point key="canvasLocation" x="-3598" y="857"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="8mC-Du-WxO">
             <objects>
-                <viewController id="IOw-NN-BMf" sceneMemberID="viewController">
+                <viewController id="IOw-NN-BMf" customClass="STMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mPb-Bj-JYC"/>
                         <viewControllerLayoutGuide type="bottom" id="yLe-5G-bgf"/>
@@ -68,11 +68,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeO-5p-mpn">
-                                <rect key="frame" x="452" y="362" width="121" height="30"/>
+                                <rect key="frame" x="452" y="369" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create New Story">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="initializeNewStory:" destination="IOw-NN-BMf" eventType="touchUpInside" id="WJH-Ud-GSc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -124,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQK-Vj-QSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="107"/>
+            <point key="canvasLocation" x="-2906" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sCp-sq-3Fd">
