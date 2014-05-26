@@ -27,6 +27,14 @@
     return temp;
 }
 
+/**
+ *  This convenience class method allows the return of a particular named scene within a certain context.
+ *
+ *  @param name    The name of the scene to be found
+ *  @param context The context in which to search.
+ *
+ *  @return An element of STInteractiveScene if there is an instance with that name, Nil if not.
+ */
 +(STInteractiveScene *)findSceneWithName:(NSString *)name inContext:(NSManagedObjectContext *)context
 {
     STInteractiveScene *foundScene;
@@ -49,6 +57,11 @@
 
 #pragma mark - Utility Methods
 
+/**
+ *  The is a default Actor name generator that is linked to a saved incremented value. This guarentees unique default names.
+ *
+ *  @return A NSString representing the next Actor name.
+ */
 -(NSString *)nextActorName
 {
     NSString *temp = [NSString stringWithFormat:@"Actor%i",(int) self.actorTagIncr];
@@ -56,6 +69,11 @@
     return temp;
 }
 
+/**
+ *  The is a default Environment name generator that is linked to a saved incremented value. This guarentees unique default names.
+ *
+ *  @return A NSString representing the next Environment name.
+ */
 -(NSString *)nextEnviroName
 {
     NSString *temp = [NSString stringWithFormat:@"Environment%i",(int) self.enviroTagIncr];
@@ -63,6 +81,11 @@
     return temp;
 }
 
+/**
+ *  The is a default Object name generator that is linked to a saved incremented value. This guarentees unique default names.
+ *
+ *  @return A NSString representing the next Object name.
+ */
 -(NSString *)nextObjectName
 {
     NSString *temp = [NSString stringWithFormat:@"Object%i",(int) self.objectTagIncr];

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="STActor" representedClassName="STActor" parentEntity="STInteractiveSceneElement" syncable="YES">
-        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="actorList" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="belongingScene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="actorList" inverseEntity="STInteractiveScene" syncable="YES"/>
     </entity>
     <entity name="STEnvironment" representedClassName="STEnvironment" parentEntity="STInteractiveSceneElement" syncable="YES">
-        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="environmentList" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="belongingScene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="environmentList" inverseEntity="STInteractiveScene" syncable="YES"/>
     </entity>
     <entity name="STInteractiveScene" representedClassName="STInteractiveScene" syncable="YES">
         <attribute name="actorTagIncr" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -28,7 +28,7 @@
     </entity>
     <entity name="STMedia" syncable="YES"/>
     <entity name="STObject" representedClassName="STObject" parentEntity="STInteractiveSceneElement" syncable="YES">
-        <relationship name="belongingScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="objectList" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="belongingScene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="objectList" inverseEntity="STInteractiveScene" syncable="YES"/>
     </entity>
     <entity name="STStory" representedClassName="STStory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
