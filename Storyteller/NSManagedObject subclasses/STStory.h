@@ -36,6 +36,7 @@
 @interface STStory (ManuallyAddedMethods)
 +(STStory *)initWithName: (NSString *) name inContext:(NSManagedObjectContext *)context;
 +(STStory *)findStoryWithName: (NSString *)name inContext:(NSManagedObjectContext *)context;
++(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context;
 @end
 
 

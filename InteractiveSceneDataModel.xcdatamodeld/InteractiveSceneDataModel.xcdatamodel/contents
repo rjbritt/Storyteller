@@ -40,8 +40,8 @@
         <element name="STEnvironment" positionX="153" positionY="117" width="128" height="58"/>
         <element name="STInteractiveScene" positionX="385" positionY="-10" width="128" height="223"/>
         <element name="STInteractiveSceneElement" positionX="-54" positionY="90" width="128" height="103"/>
+        <element name="STMedia" positionX="387" positionY="-81" width="128" height="45"/>
         <element name="STObject" positionX="153" positionY="180" width="128" height="58"/>
         <element name="STStory" positionX="727" positionY="44" width="128" height="88"/>
-        <element name="STMedia" positionX="387" positionY="-81" width="128" height="43"/>
     </elements>
 </model>

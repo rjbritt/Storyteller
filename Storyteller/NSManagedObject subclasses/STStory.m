@@ -16,6 +16,7 @@
 @dynamic interactiveSceneList;
 @dynamic storyMedia;
 
+#pragma mark - Initialization/Modification
 
 /**
  *  Initializes a new story within the required NSManagedObjectContext.
@@ -35,13 +36,15 @@
     return temp;
 }
 
+
+#pragma mark - Convenience Methods
 /**
  *  This method is designed to help find a particular story within a particular core data context.
  *
  *  @param name    The name of the STStory that is to be found.
  *  @param context The context in which to search
  *
- *  @return A particular STStory instance if the name is found. Nil if there is no STStory named that.
+ *  @return A particular STStory instance if the name is found. Nil if there is no STStory with the specified name.
  */
 +(STStory *)findStoryWithName: (NSString *)name inContext:(NSManagedObjectContext *)context
 {
@@ -61,6 +64,23 @@
     //if there is no STStory with that name, then foundStory will remain initialized at nil and we can use this fact when calling this method.
     
     return foundStory;
+}
+
+/**
+ *  This method finds all the Stories within a particular context
+ *
+ *  @param context The context to search.
+ *
+ *  @return A NSArray of STStory objects that are in the specified context.
+ */
++(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context
+{
+    NSArray *allStories;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"STStory"];
+    
+    allStories = [context executeFetchRequest:request error:nil];
+    
+    return allStories;
 }
 
 

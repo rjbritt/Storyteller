@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataHelper.h"
+#import "STStory.h"
 
 @interface STAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) CoreDataHelper *coreDataHelper;
+@property (strong, nonatomic) STStory *currentStory;
 
 @end

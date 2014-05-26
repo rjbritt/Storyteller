@@ -11,6 +11,7 @@
 		2F3BF8F21932445E000FC8B0 /* STCoreDataStandaloneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BF8F11932445E000FC8B0 /* STCoreDataStandaloneTests.m */; };
 		2F3BF8F8193249D4000FC8B0 /* STStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BF8F7193249D4000FC8B0 /* STStory.m */; };
 		2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA0E19325B8D00B94507 /* STMainViewController.m */; };
+		2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */; };
 		2F7CF7C518F03FDC0072490B /* STNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7C418F03FDC0072490B /* STNavigationController.m */; };
 		2F7CF7C718F06FC90072490B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7CF7C618F06FC90072490B /* CoreData.framework */; };
 		2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7C818F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld */; };
@@ -25,7 +26,7 @@
 		2F8B514B18E7679200A5CBEF /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B514A18E7679200A5CBEF /* STAppDelegate.m */; };
 		2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514C18E7679200A5CBEF /* Main_iPhone.storyboard */; };
 		2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B514F18E7679200A5CBEF /* Main_iPad.storyboard */; };
-		2F8B515418E7679200A5CBEF /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515318E7679200A5CBEF /* STViewController.m */; };
+		2F8B515418E7679200A5CBEF /* STEditStoryViewController_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515318E7679200A5CBEF /* STEditStoryViewController_OLD.m */; };
 		2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */; };
 		2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B515A18E7679200A5CBEF /* Images.xcassets */; };
 		2F8B516218E7679200A5CBEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8B516118E7679200A5CBEF /* XCTest.framework */; };
@@ -37,6 +38,7 @@
 		2F8B518118E7B9FA00A5CBEF /* NPC.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517E18E7B9FA00A5CBEF /* NPC.png */; };
 		2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517F18E7B9FA00A5CBEF /* Actor.png */; };
 		2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B518018E7B9FA00A5CBEF /* Environment.png */; };
+		2F9466071932CB880043E76B /* STStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9466061932CB880043E76B /* STStoryViewController.m */; };
 		2FF8C0EC18F4DA1500371BF9 /* STInteractiveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0EB18F4DA1500371BF9 /* STInteractiveScene.m */; };
 		2FF8C0F218F4DCB400371BF9 /* STInteractiveSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0F118F4DCB400371BF9 /* STInteractiveSceneElement.m */; };
 		2FF8C0F818F4DF2600371BF9 /* STObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8C0F718F4DF2600371BF9 /* STObject.m */; };
@@ -61,6 +63,8 @@
 		2F3BF8F7193249D4000FC8B0 /* STStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStory.m; path = "NSManagedObject subclasses/STStory.m"; sourceTree = "<group>"; };
 		2F48DA0D19325B8D00B94507 /* STMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMainViewController.h; sourceTree = "<group>"; };
 		2F48DA0E19325B8D00B94507 /* STMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMainViewController.m; sourceTree = "<group>"; };
+		2F48DA1019327AF700B94507 /* STLoadStoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoadStoryTableViewController.h; sourceTree = "<group>"; };
+		2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoadStoryTableViewController.m; sourceTree = "<group>"; };
 		2F7CF7C318F03FDC0072490B /* STNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STNavigationController.h; path = "Subclassed UIViewControllers/STNavigationController.h"; sourceTree = "<group>"; };
 		2F7CF7C418F03FDC0072490B /* STNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STNavigationController.m; path = "Subclassed UIViewControllers/STNavigationController.m"; sourceTree = "<group>"; };
 		2F7CF7C618F06FC90072490B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -82,8 +86,8 @@
 		2F8B514A18E7679200A5CBEF /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		2F8B514D18E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2F8B515018E7679200A5CBEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		2F8B515218E7679200A5CBEF /* STViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
-		2F8B515318E7679200A5CBEF /* STViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		2F8B515218E7679200A5CBEF /* STEditStoryViewController_OLD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STEditStoryViewController_OLD.h; path = Storyteller/STEditStoryViewController_OLD.h; sourceTree = "<group>"; };
+		2F8B515318E7679200A5CBEF /* STEditStoryViewController_OLD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = STEditStoryViewController_OLD.m; path = Storyteller/STEditStoryViewController_OLD.m; sourceTree = "<group>"; };
 		2F8B515518E7679200A5CBEF /* STInteractiveSceneSKScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STInteractiveSceneSKScene.h; sourceTree = "<group>"; };
 		2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STInteractiveSceneSKScene.m; sourceTree = "<group>"; };
 		2F8B515A18E7679200A5CBEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		2F8B517E18E7B9FA00A5CBEF /* NPC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NPC.png; sourceTree = "<group>"; };
 		2F8B517F18E7B9FA00A5CBEF /* Actor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Actor.png; sourceTree = "<group>"; };
 		2F8B518018E7B9FA00A5CBEF /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment.png; sourceTree = "<group>"; };
+		2F9466051932CB880043E76B /* STStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStoryViewController.h; sourceTree = "<group>"; };
+		2F9466061932CB880043E76B /* STStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStoryViewController.m; sourceTree = "<group>"; };
 		2FF8C0EA18F4DA1500371BF9 /* STInteractiveScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STInteractiveScene.h; path = "NSManagedObject subclasses/STInteractiveScene.h"; sourceTree = "<group>"; };
 		2FF8C0EB18F4DA1500371BF9 /* STInteractiveScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STInteractiveScene.m; path = "NSManagedObject subclasses/STInteractiveScene.m"; sourceTree = "<group>"; };
 		2FF8C0F018F4DCB400371BF9 /* STInteractiveSceneElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STInteractiveSceneElement.h; sourceTree = "<group>"; };
@@ -141,6 +147,15 @@
 				2F3BF8F11932445E000FC8B0 /* STCoreDataStandaloneTests.m */,
 			);
 			name = "Core Data Tests";
+			sourceTree = "<group>";
+		};
+		2F48DA1319327B0A00B94507 /* SKScenes */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B515518E7679200A5CBEF /* STInteractiveSceneSKScene.h */,
+				2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */,
+			);
+			name = SKScenes;
 			sourceTree = "<group>";
 		};
 		2F7CF7BF18F03DED0072490B /* Subclassed UIViewControllers */ = {
@@ -189,6 +204,8 @@
 				2F8B516718E7679200A5CBEF /* StorytellerTests */,
 				2F8B513718E7679200A5CBEF /* Frameworks */,
 				2F8B513618E7679200A5CBEF /* Products */,
+				2F8B515218E7679200A5CBEF /* STEditStoryViewController_OLD.h */,
+				2F8B515318E7679200A5CBEF /* STEditStoryViewController_OLD.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,12 +239,13 @@
 				2F8B517D18E7B50300A5CBEF /* Custom Views */,
 				2F8B514918E7679200A5CBEF /* STAppDelegate.h */,
 				2F8B514A18E7679200A5CBEF /* STAppDelegate.m */,
-				2F8B515218E7679200A5CBEF /* STViewController.h */,
-				2F8B515318E7679200A5CBEF /* STViewController.m */,
 				2F48DA0D19325B8D00B94507 /* STMainViewController.h */,
 				2F48DA0E19325B8D00B94507 /* STMainViewController.m */,
-				2F8B515518E7679200A5CBEF /* STInteractiveSceneSKScene.h */,
-				2F8B515618E7679200A5CBEF /* STInteractiveSceneSKScene.m */,
+				2F48DA1019327AF700B94507 /* STLoadStoryTableViewController.h */,
+				2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */,
+				2F9466051932CB880043E76B /* STStoryViewController.h */,
+				2F9466061932CB880043E76B /* STStoryViewController.m */,
+				2F48DA1319327B0A00B94507 /* SKScenes */,
 				2F8B515A18E7679200A5CBEF /* Images.xcassets */,
 				2F8B517718E7A52E00A5CBEF /* Storyboard */,
 				2F8B514118E7679200A5CBEF /* Supporting Files */,
@@ -396,8 +414,10 @@
 				2FF8C0F818F4DF2600371BF9 /* STObject.m in Sources */,
 				2FF8C0FE18F4DF2600371BF9 /* STActor.m in Sources */,
 				2FF8C0EC18F4DA1500371BF9 /* STInteractiveScene.m in Sources */,
-				2F8B515418E7679200A5CBEF /* STViewController.m in Sources */,
+				2F8B515418E7679200A5CBEF /* STEditStoryViewController_OLD.m in Sources */,
+				2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */,
 				2FF8C0FB18F4DF2600371BF9 /* STEnvironment.m in Sources */,
+				2F9466071932CB880043E76B /* STStoryViewController.m in Sources */,
 				2F7CF80418F1C26C0072490B /* STInteractiveSceneUtilities.m in Sources */,
 				2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */,
 				2FF8C0F218F4DCB400371BF9 /* STInteractiveSceneElement.m in Sources */,

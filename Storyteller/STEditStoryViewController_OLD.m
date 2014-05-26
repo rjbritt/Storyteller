@@ -6,26 +6,31 @@
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STViewController.h"
+#import "STEditStoryViewController_OLD.h"
+
+#import "STStory.h"
+#import "STInteractiveScene.h"
+#import "STActor.h"
+
+#import "STAppDelegate.h"
+#import "STInteractiveSceneUtilities.h"
 #import "STInteractiveSceneSKScene.h"
 #import "DraggableButton.h"
 #import "STNavigationController.h"
-#import "STActor.h"
-#import "STInteractiveScene.h"
-#import "STAppDelegate.h"
-#import "STInteractiveSceneUtilities.h"
 
-@interface STViewController()
+@interface STEditStoryViewController_OLD()
 
 @property (strong, nonatomic) NSMutableArray *actorButtonArray;
 @property (strong, nonatomic) NSMutableArray *environmentButtonArray;
+
+@property (strong, nonatomic) STStory *currentStory;
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 @property (strong, nonatomic) NSManagedObjectContext *currentContext;
-@property (strong, nonatomic) STAppDelegate *delegate;
+@property (strong, nonatomic) STAppDelegate *appDelegate;
 @end
 
 
-@implementation STViewController
+@implementation STEditStoryViewController_OLD
 
 
 #pragma -mark Button Action Methods
@@ -70,7 +75,7 @@
  * @param sender The button that sent this action
  */
 
-- (IBAction)addRedActorButton:(id)sender
+- (IBAction)addActorButton:(id)sender
 {
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(0, top);
@@ -127,16 +132,14 @@
     self.actorButtonArray = [[NSMutableArray alloc]init];
     self.environmentButtonArray = [[NSMutableArray alloc]init];
 
-    self.delegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.currentContext = self.delegate.coreDataHelper.context;
-
-    [self loadSavedOrCreateNewSTInteractiveScene];
+    self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.currentContext = self.appDelegate.coreDataHelper.context;
+    self.currentStory = self.appDelegate.currentStory;
     
-}
+    [self.navigationItem setTitle:self.appDelegate.currentStory.name];
 
--(void)viewDidLayoutSubviews
-{
-
+//    [self loadSavedOrCreateNewSTInteractiveScene];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -250,7 +253,7 @@
                 temp.tag = button.tag;
             }
             
-            [self.delegate.coreDataHelper saveContext];
+            [self.appDelegate.coreDataHelper saveContext];
         }
             break;
         case STInteractiveSceneDataTypeSolidEnvironment:
@@ -278,7 +281,7 @@
                                             centeredAt:button.center];
             
             [self.currentScene addActorListObject:tempActor];
-            [self.delegate.coreDataHelper saveContext];
+            [self.appDelegate.coreDataHelper saveContext];
         }
             break;
         case STInteractiveSceneDataTypeSolidEnvironment:

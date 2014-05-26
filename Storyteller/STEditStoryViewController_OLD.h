@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface STViewController : UIViewController
+@interface STEditStoryViewController_OLD : UIViewController
 
 @end

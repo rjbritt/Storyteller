@@ -20,13 +20,14 @@
 - (void)setUp
 {
     [super setUp];
-    self.context = ((STAppDelegate *)[[UIApplication sharedApplication] delegate]).coreDataHelper.context;
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.context = ((STAppDelegate *)[[UIApplication sharedApplication] delegate]).coreDataHelper.context;
+
 }
 
 - (void)tearDown
 {
-    
+    [self.context reset];
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
@@ -36,16 +37,30 @@
 {
     STStory *temp = [STStory initWithName:@"EmptyTest" inContext:self.context];
     XCTAssertEqual(@"EmptyTest", temp.name, @"These should be equal.");
-//    [self.context reset];
 }
 
--(void)testStoryRetrieve1
+-(void)testStoryRetrieve
 {
-    STStory *temp = [STStory findStoryWithName:@"EmptyTest" inContext:self.context];
-    XCTAssertEqual(@"EmptyTest", temp.name);
+    [STStory initWithName:@"EmptyTest" inContext:self.context];
+    
+    STStory *temp1 = [STStory findStoryWithName:@"EmptyTest" inContext:self.context];
+    XCTAssertEqual(@"EmptyTest", temp1.name);
     
     STStory *temp2 = [STStory findStoryWithName:@"asdfksdfksfllsjflj" inContext:self.context];
     XCTAssertNil(temp2);
+}
+
+-(void)testAllStoryRetrieve
+{
+    self.context = ((STAppDelegate *)[[UIApplication sharedApplication] delegate]).coreDataHelper.context;
+
+   [STStory initWithName:@"EmptyTest" inContext:self.context];
+   [STStory initWithName:@"EmptyTest2" inContext:self.context];
+    
+    NSArray *tempArray = [STStory findAllStoriesWithinContext:self.context];
+    XCTAssertEqual(2, [tempArray count]);
+    
+
 }
 
 
