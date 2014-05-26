@@ -8,7 +8,14 @@
 
 #import "STStoryViewController.h"
 
+#import "STAppDelegate.h"
+#import "STStory.h"
+
 @interface STStoryViewController ()
+
+@property (strong, nonatomic) STAppDelegate *appDelegate;
+@property (strong, nonatomic) STStory *currentStory;
+@property (strong, nonatomic) NSManagedObjectContext *currentContext;
 
 @end
 
@@ -26,7 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Initialize all private properties
+    self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.currentContext = self.appDelegate.coreDataHelper.context;
+    self.currentStory = self.appDelegate.currentStory;
+    
+    [self.navigationItem setTitle:self.appDelegate.currentStory.name];
 }
 
 - (void)didReceiveMemoryWarning

@@ -12,13 +12,13 @@
         <attribute name="isOrdered" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectTagIncr" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="tag" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="actorList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STActor" inverseName="belongingScene" inverseEntity="STActor" syncable="YES"/>
+        <relationship name="actorList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STActor" inverseName="belongingScene" inverseEntity="STActor" syncable="YES"/>
         <relationship name="belongingStory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STStory" inverseName="interactiveSceneList" inverseEntity="STStory" syncable="YES"/>
-        <relationship name="environmentList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STEnvironment" inverseName="belongingScene" inverseEntity="STEnvironment" syncable="YES"/>
+        <relationship name="environmentList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STEnvironment" inverseName="belongingScene" inverseEntity="STEnvironment" syncable="YES"/>
         <relationship name="nextScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="previousScene" inverseEntity="STInteractiveScene" syncable="YES"/>
-        <relationship name="objectList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STObject" inverseName="belongingScene" inverseEntity="STObject" syncable="YES"/>
+        <relationship name="objectList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STObject" inverseName="belongingScene" inverseEntity="STObject" syncable="YES"/>
         <relationship name="previousScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="nextScene" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="startingSceneForStory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STStory" inverseName="startingScene" inverseEntity="STStory" syncable="YES"/>
     </entity>
     <entity name="STInteractiveSceneElement" representedClassName="STInteractiveSceneElement" syncable="YES">
         <attribute name="center" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +32,8 @@
     </entity>
     <entity name="STStory" representedClassName="STStory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="interactiveSceneList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="belongingStory" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="interactiveSceneList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="belongingStory" inverseEntity="STInteractiveScene" syncable="YES"/>
+        <relationship name="startingScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="startingSceneForStory" inverseEntity="STInteractiveScene" syncable="YES"/>
         <relationship name="storyMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMedia" syncable="YES"/>
     </entity>
     <elements>
@@ -42,6 +43,6 @@
         <element name="STInteractiveSceneElement" positionX="-54" positionY="90" width="128" height="103"/>
         <element name="STMedia" positionX="387" positionY="-81" width="128" height="45"/>
         <element name="STObject" positionX="153" positionY="180" width="128" height="58"/>
-        <element name="STStory" positionX="727" positionY="44" width="128" height="88"/>
+        <element name="STStory" positionX="765" positionY="68" width="128" height="103"/>
     </elements>
 </model>

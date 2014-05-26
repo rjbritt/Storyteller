@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "STAppDelegate.h"
-#import "STStory.h"
+#import "STStory+EaseOfUse.h"
 
 @interface STCoreDataStandaloneTests : XCTestCase
 @property (strong, nonatomic) NSManagedObjectContext *context;
@@ -32,7 +32,7 @@
     [super tearDown];
 }
 
-
+#pragma mark Only Story
 -(void)testStoryEmpty
 {
     STStory *temp = [STStory initWithName:@"EmptyTest" inContext:self.context];
@@ -52,15 +52,23 @@
 
 -(void)testAllStoryRetrieve
 {
-    self.context = ((STAppDelegate *)[[UIApplication sharedApplication] delegate]).coreDataHelper.context;
-
    [STStory initWithName:@"EmptyTest" inContext:self.context];
    [STStory initWithName:@"EmptyTest2" inContext:self.context];
     
     NSArray *tempArray = [STStory findAllStoriesWithinContext:self.context];
     XCTAssertEqual(2, [tempArray count]);
-    
+}
 
+#pragma mark - Scene Only
+-(void)testEmptyScene
+{
+    
+}
+
+#pragma mark - Story and Scene Integration
+-(void)testStoryAndScene
+{
+    
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "STLoadStoryTableViewController.h"
 #import "STAppDelegate.h"
+#import "STStory+EaseOfUse.h"
 
 @interface STLoadStoryTableViewController ()
 @property (strong, nonatomic) STAppDelegate *appDelegate;

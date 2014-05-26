@@ -8,8 +8,7 @@
 
 #import "STMainViewController.h"
 #import "STAppDelegate.h"
-#import "STStory.h"
-
+#import "STStory+EaseOfUse.h"
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UITextField *storyName;

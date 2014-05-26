@@ -18,7 +18,7 @@
 
 //Convienence Methods
 
--(CGPoint) getCenterPoint
+-(CGPoint) centerPointCGPoint
 {
     return CGPointFromString(self.center);
 }

@@ -95,7 +95,7 @@ dispatch_queue_t backgroundQueue;
     NSDate *start;
     NSDate *end;
     
-    NSArray *actors = [self.currentScene.actorList array];
+    NSArray *actors = [self.currentScene.actorList allObjects];
     
     start = [NSDate date];
     for (STActor * currentActor in actors)
@@ -107,7 +107,7 @@ dispatch_queue_t backgroundQueue;
                                          [SKTexture textureWithImage:
                                           [currentActor getUIImageFromData]]];
             actorSprite.name = currentActor.name;
-            actorSprite.position =[self convertPointFromView:[currentActor getCenterPoint]];
+            actorSprite.position =[self convertPointFromView:[currentActor centerPointCGPoint]];
             if (currentActor.tag == STInteractiveSceneDataTypePlayableCharacter)
             {
                 // configure playable characters
@@ -141,7 +141,7 @@ dispatch_queue_t backgroundQueue;
     
     //Convert all the environments to SKNodes
     
-    NSArray *environment = [self.currentScene.environmentList array];
+    NSArray *environment = [self.currentScene.environmentList allObjects];
     
 
 

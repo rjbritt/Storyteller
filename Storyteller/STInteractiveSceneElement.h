@@ -17,7 +17,7 @@
 @property (nonatomic) int64_t tag;
 @property (nonatomic, retain) NSString * name;
 
--(CGPoint) getCenterPoint;
+-(CGPoint) centerPointCGPoint;
 -(void) setCenterPoint:(CGPoint)point;
 -(UIImage *) getUIImageFromData;
 -(void) setImageDataFromUIImage: (UIImage *)image;

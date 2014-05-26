@@ -14,29 +14,17 @@
 @interface STStory : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSOrderedSet *interactiveSceneList;
+@property (nonatomic, retain) NSSet *interactiveSceneList;
 @property (nonatomic, retain) NSManagedObject *storyMedia;
+@property (nonatomic, retain) STInteractiveScene *startingScene;
 @end
 
 @interface STStory (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(STInteractiveScene *)value inInteractiveSceneListAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromInteractiveSceneListAtIndex:(NSUInteger)idx;
-- (void)insertInteractiveSceneList:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeInteractiveSceneListAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInInteractiveSceneListAtIndex:(NSUInteger)idx withObject:(STInteractiveScene *)value;
-- (void)replaceInteractiveSceneListAtIndexes:(NSIndexSet *)indexes withInteractiveSceneList:(NSArray *)values;
 - (void)addInteractiveSceneListObject:(STInteractiveScene *)value;
 - (void)removeInteractiveSceneListObject:(STInteractiveScene *)value;
-- (void)addInteractiveSceneList:(NSOrderedSet *)values;
-- (void)removeInteractiveSceneList:(NSOrderedSet *)values;
+- (void)addInteractiveSceneList:(NSSet *)values;
+- (void)removeInteractiveSceneList:(NSSet *)values;
 
 @end
-
-@interface STStory (ManuallyAddedMethods)
-+(STStory *)initWithName: (NSString *) name inContext:(NSManagedObjectContext *)context;
-+(STStory *)findStoryWithName: (NSString *)name inContext:(NSManagedObjectContext *)context;
-+(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context;
-@end
-
 
