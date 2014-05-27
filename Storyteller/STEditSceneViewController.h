@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import "STInteractiveScene+EaseOfUse.h"
 
-@interface STEditStoryViewController_OLD : UIViewController
-
+@interface STEditSceneViewController : UIViewController 
+@property (strong, nonatomic) STInteractiveScene *currentScene;
 @end

@@ -9,6 +9,15 @@
 #import "STInteractiveScene+EaseOfUse.h"
 
 @implementation STInteractiveScene (EaseOfUse)
+
+- (void)addActorListObject:(STActor *)value
+{
+    NSMutableSet* tempSet = [NSMutableSet setWithSet:self.actorList];
+    [tempSet addObject:value];
+    self.actorList = tempSet;
+}
+
+
 #pragma mark - Convenience Methods
 
 /**

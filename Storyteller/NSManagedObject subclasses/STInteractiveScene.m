@@ -29,10 +29,5 @@
 @dynamic previousScene;
 @dynamic startingSceneForStory;
 
-- (void)addActorListObject:(STActor *)value
-{
-    NSMutableSet* tempSet = [NSMutableSet setWithSet:self.actorList];
-    [tempSet addObject:value];
-    self.actorList = tempSet;
-}
+
 @end

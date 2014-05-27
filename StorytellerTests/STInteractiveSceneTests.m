@@ -124,6 +124,10 @@
 {
     XCTFail();
 }
+-(void)testSingleInstanceSceneElementMultipleScenes
+{
+    XCTFail();
+}
 
 
 

@@ -10,6 +10,15 @@
 
 @implementation STStory (EaseOfUse)
 
+#pragma mark - Overwritten Methods
+
+- (void)addInteractiveSceneListObject:(STInteractiveScene *)value
+{
+    NSMutableSet *tempSet = [NSMutableSet setWithSet:self.interactiveSceneList];
+    [tempSet addObject:value];
+    self.interactiveSceneList = tempSet;
+}
+
 #pragma mark - Initialization/Modification
 
 /**

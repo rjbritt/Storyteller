@@ -1,26 +1,23 @@
 //
-//  STLoadStoryTableViewController.m
+//  STEditStoryTableViewController.m
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/25/14.
+//  Created by Ryan Britt on 5/26/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STLoadStoryTableViewController.h"
+#import "STEditStoryTableViewController.h"
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
-#import "STEditStoryTableViewController.h"
-#import "STEditSceneViewController.h"
 
-@interface STLoadStoryTableViewController ()
+
+@interface STEditStoryTableViewController ()
 @property (strong, nonatomic) STAppDelegate *appDelegate;
-@property (strong, nonatomic) NSArray *storyList;
-@property (strong, nonatomic) UISplitViewController *storySplitViewController;
-
+@property (strong, nonatomic) NSArray *allScenesForCurrentStory;
 @end
 
-@implementation STLoadStoryTableViewController
+@implementation STEditStoryTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,17 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.storyList = [STStory findAllStoriesWithinContext:self.appDelegate.coreDataHelper.context];
     
+    self.allScenesForCurrentStory = [self.appDelegate.currentStory.interactiveSceneList allObjects];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.navigationItem setTitle:@"Load Story"];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,9 +47,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -66,46 +58,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.storyList count];
+    return self.allScenesForCurrentStory.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = ((STStory *)self.storyList[indexPath.row]).name;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
+    cell.textLabel.text = ((STInteractiveScene *)(self.allScenesForCurrentStory[indexPath.row])).name;
     // Configure the cell...
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    STStory *tempStory = self.storyList[indexPath.row];
-    
-    STInteractiveScene *tempScene = [STInteractiveScene initWithName:@"Test" inContext:self.appDelegate.coreDataHelper.context];
-    tempStory.startingScene = tempScene;
-    [tempStory addInteractiveSceneListObject:tempScene];
-    
-    [tempStory addInteractiveSceneListObject:[STInteractiveScene initWithName:@"Test2" inContext:self.appDelegate.coreDataHelper.context]];
-    
-    self.appDelegate.currentStory = tempStory;
-    
-    //Get new Storyboard
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    editSceneVC.currentScene = tempStory.startingScene;
-    editStoryVC.editSceneDelegate = editSceneVC;
-    
-    
-#warning Insert Animation Here
-    self.view.window.rootViewController = nextViewController;
+    self.editSceneDelegate.currentScene = self.allScenesForCurrentStory[indexPath.row];
+    [self.editSceneDelegate.view setNeedsDisplay];
 }
 
 
@@ -147,8 +120,6 @@
  }
  */
 
-
-
 /*
 #pragma mark - Navigation
 
@@ -157,7 +128,6 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
 }
 */
 

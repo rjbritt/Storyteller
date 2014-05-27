@@ -11,6 +11,8 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 
+//These tests are designed to be ran with an empty persistent store
+
 @interface STStoryTests : XCTestCase
 @property (strong,nonatomic) NSManagedObjectContext *context;
 @end
@@ -125,11 +127,26 @@
     STStory *testStory = [STStory initWithName:@"Test" inContext:self.context];
     XCTAssertEqual(0, testStory.interactiveSceneList.count);
     
-    //Add Starting Scene, retrieve Starting scene
+    //Add Starting Scene, set Starting scene
     STInteractiveScene *scene = [STInteractiveScene initWithName:@"starting" inContext:self.context];
     testStory.startingScene = scene;
     
     XCTAssert([@"starting" isEqualToString:testStory.startingScene.name]);
+}
+
+-(void)testAddingSceneToList
+{
+    //Create Story and check initial scene count
+    STStory *testStory = [STStory initWithName:@"Test" inContext:self.context];
+    XCTAssertEqual(0, testStory.interactiveSceneList.count);
+    
+    //Add Starting Scene, retrieve Starting scene
+    STInteractiveScene *scene = [STInteractiveScene initWithName:@"starting" inContext:self.context];
+    testStory.startingScene = scene;
+    [testStory addInteractiveSceneListObject:scene];
+    
+    XCTAssertEqual(1, testStory.interactiveSceneList.count);
+    
 }
 
 @end
