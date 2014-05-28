@@ -95,7 +95,7 @@ dispatch_queue_t backgroundQueue;
     NSDate *start;
     NSDate *end;
     
-    NSArray *actors = [self.currentScene.actorList allObjects];
+    NSArray *actors = [self.currentScene.actorList array];
     
     start = [NSDate date];
     for (STActor * currentActor in actors)
@@ -141,7 +141,7 @@ dispatch_queue_t backgroundQueue;
     
     //Convert all the environments to SKNodes
     
-    NSArray *environment = [self.currentScene.environmentList allObjects];
+    NSArray *environment = [self.currentScene.environmentList array];
     
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "STEditStoryTableViewController.h"
+#import "STEditSceneViewController.h"
+
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
@@ -33,10 +35,8 @@
     [super viewDidLoad];
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    self.allScenesForCurrentStory = [self.appDelegate.currentStory.interactiveSceneList allObjects];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.allScenesForCurrentStory = [self.appDelegate.currentStory.interactiveSceneList array];
+     self.clearsSelectionOnViewWillAppear = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -75,10 +75,26 @@
     return cell;
 }
 
+//The row selected is the new scene to edit
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.editSceneDelegate.currentScene = self.allScenesForCurrentStory[indexPath.row];
-    [self.editSceneDelegate.view setNeedsDisplay];
+    self.appDelegate.currentStory.editingScene = indexPath.row;
+    
+    UISplitViewController *splitViewController = self.splitViewController;
+    if(splitViewController)
+    {
+        UIViewController *tempVC = splitViewController.viewControllers[1];
+        if([tempVC isKindOfClass:[STEditSceneViewController class]])
+        {
+            STEditSceneViewController *tempEditSceneVC = (STEditSceneViewController *)tempVC;
+            
+            //Is there a better way?
+            [tempEditSceneVC viewDidLoad];
+        }
+    }
+    
+    
+    
 }
 
 

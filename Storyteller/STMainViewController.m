@@ -7,8 +7,14 @@
 //
 
 #import "STMainViewController.h"
+#import "STEditStoryTableViewController.h"
+#import "STEditSceneViewController.h"
+
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
+#import "STInteractiveScene+EaseOfUse.h"
+
+
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UITextField *storyName;
@@ -57,7 +63,7 @@
             
             if(!story) //if the story doesn't exist, create it
             {
-                story = [STStory initWithName:newStoryName inContext:self.context];
+                [self initializeNewStoryWithName:newStoryName];
             }
             else
             {
@@ -75,6 +81,34 @@
         [self initializeNewStory:nil];
     }
 }
+
+/**
+ *  Initializes a new story with a starting scene.
+ *
+ *  @param newStoryName The name of the new story to create.
+ */
+-(void)initializeNewStoryWithName:(NSString *)newStoryName
+{
+    STStory *tempStory = [STStory initWithName:newStoryName inContext:self.context];
+    
+    STInteractiveScene *tempScene = [STInteractiveScene initWithName:@"Test" inContext:self.context];
+    [tempStory setNewSceneToStartingScene:tempScene];
+    tempStory.editingScene = tempStory.startingScene;
+    
+    [tempStory addInteractiveSceneListObject:[STInteractiveScene initWithName:@"Test2" inContext:self.context]];
+    
+    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    appDelegate.currentStory = tempStory;
+    
+    //Get new Storyboard
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
+    
+#warning Insert Animation Here
+    self.view.window.rootViewController = nextViewController;
+}
+
+
 
 #pragma mark - Lifecycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

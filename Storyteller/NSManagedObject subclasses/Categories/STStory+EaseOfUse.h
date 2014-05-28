@@ -13,4 +13,9 @@
 +(STStory *)findStoryWithName: (NSString *)name inContext:(NSManagedObjectContext *)context;
 +(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context;
 
+-(void)setNewSceneToStartingScene:(STInteractiveScene *)scene;
+-(STInteractiveScene *)startingSceneToSTInteractiveScene;
+-(STInteractiveScene *)editingSceneToSTInteractiveScene;
+
+
 @end

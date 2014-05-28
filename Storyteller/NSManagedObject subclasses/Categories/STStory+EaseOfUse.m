@@ -14,12 +14,12 @@
 
 - (void)addInteractiveSceneListObject:(STInteractiveScene *)value
 {
-    NSMutableSet *tempSet = [NSMutableSet setWithSet:self.interactiveSceneList];
+    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
     [tempSet addObject:value];
     self.interactiveSceneList = tempSet;
 }
 
-#pragma mark - Initialization/Modification
+#pragma mark - Initialization
 
 /**
  *  Initializes a new story within the required NSManagedObjectContext.
@@ -84,6 +84,36 @@
     allStories = [context executeFetchRequest:request error:nil];
     
     return allStories;
+}
+/**
+ *  Adds a new scene and sets it to be the starting scene
+ *
+ *  @param scene The new scene to add to the scene list and set as the starting scene.
+ */
+-(void)setNewSceneToStartingScene:(STInteractiveScene *)scene
+{
+    [self addInteractiveSceneListObject:scene];
+    self.startingScene = [self.interactiveSceneList indexOfObject:scene];
+}
+
+/**
+ *  Returns the starting scene as the appropriate instance of STInteractiveScene
+ *
+ *  @return Appropriate starting scene as an STInteractiveScene object.
+ */
+-(STInteractiveScene *)startingSceneToSTInteractiveScene
+{
+    return self.interactiveSceneList[self.startingScene];
+}
+
+/**
+ *  Returns the currently editing scene as the appropriate instance of STInteractiveScene
+ *
+ *  @return Appropriate editing scene as an STInteractiveScene object.
+ */
+-(STInteractiveScene *)editingSceneToSTInteractiveScene
+{
+    return self.interactiveSceneList[self.editingScene];
 }
 
 

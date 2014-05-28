@@ -132,7 +132,7 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.currentContext = self.appDelegate.coreDataHelper.context;
-    self.tempLabelOutlet.text = self.currentScene.name;
+    self.tempLabelOutlet.text = [self.appDelegate.currentStory editingSceneToSTInteractiveScene].name;
     
     //    [self.navigationItem setTitle:self.appDelegate.currentStory.name];
 
@@ -207,7 +207,7 @@
 
 -(void)createUIKitSceneFromCurrentSTInteractiveScene
 {
-    NSArray *actorArray = [self.currentScene.actorList allObjects];
+    NSArray *actorArray = [self.currentScene.actorList array];
     //        NSArray *environmentArray = [self.currentScene.environmentList array];
     //        NSArray *objectArray = [self.currentScene.objectList array];
 
