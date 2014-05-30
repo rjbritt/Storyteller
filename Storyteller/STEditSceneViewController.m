@@ -26,7 +26,6 @@
 @property (strong, nonatomic) NSManagedObjectContext *currentContext;
 @property (strong, nonatomic) STAppDelegate *appDelegate;
 
-@property (strong, nonatomic) NSArray *allScenesForCurrentStory;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
 @end
 
@@ -132,12 +131,24 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.currentContext = self.appDelegate.coreDataHelper.context;
-    self.tempLabelOutlet.text = [self.appDelegate.currentStory editingSceneToSTInteractiveScene].name;
-    
+
+    [self refreshUIForNewScene: self.currentScene];
     //    [self.navigationItem setTitle:self.appDelegate.currentStory.name];
 
 
     
+}
+
+- (void)saveCurrentScene
+{
+    
+}
+
+- (void)refreshUIForNewScene:(STInteractiveScene *)scene;
+{
+    self.tempLabelOutlet.text = scene.name;
+    self.currentScene = scene;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

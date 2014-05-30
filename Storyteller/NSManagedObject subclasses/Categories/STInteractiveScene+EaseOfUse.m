@@ -12,7 +12,7 @@
 
 - (void)addActorListObject:(STActor *)value
 {
-    NSMutableSet* tempSet = [NSMutableSet setWithSet:self.actorList];
+    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.actorList];
     [tempSet addObject:value];
     self.actorList = tempSet;
 }

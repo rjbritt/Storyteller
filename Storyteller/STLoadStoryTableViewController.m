@@ -82,29 +82,26 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    STStory *tempStory = self.storyList[indexPath.row];
-//    
-//    STInteractiveScene *tempScene = [STInteractiveScene initWithName:@"Test" inContext:self.appDelegate.coreDataHelper.context];
-//    [tempStory setNewSceneToStartingScene:tempScene];
-//    
-//    [tempStory addInteractiveSceneListObject:[STInteractiveScene initWithName:@"Test2" inContext:self.appDelegate.coreDataHelper.context]];
-//    
-//    self.appDelegate.currentStory = tempStory;
-//    
-//    //Get new Storyboard
-//    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
-//    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-//    
-//    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-//    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-//    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-//    
-//    editSceneVC.currentScene = self.storyList[tempStory.startingScene];
-//    editStoryVC.editSceneDelegate = editSceneVC;
-//    
-//    
-//#warning Insert Animation Here
-//    self.view.window.rootViewController = nextViewController;
+    //Load the selected story, set the editing scene to the starting scene.
+    STStory *selectedStory = self.storyList[indexPath.row];
+    selectedStory.editingSceneIndex = selectedStory.startingSceneIndex;
+    
+    //Get new Storyboard and root UISplitViewController
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
+    
+    //Get splitView components
+    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
+    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
+    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
+    
+    //Set properties and delegates.
+    editStoryVC.currentStory = selectedStory;
+    editSceneVC.currentScene = [selectedStory stInteractiveStartingScene];
+    editStoryVC.editSceneDelegate = editSceneVC;
+    
+#warning Insert Animation Here
+    self.view.window.rootViewController = nextViewController;
 }
 
 

@@ -79,7 +79,7 @@
     XCTAssertEqual(1, testStory.interactiveSceneList.count);
     
     // Retrieve the scene. Verify not nil and that name is equal to what we expect it to be.
-    STInteractiveScene *temp2 = [testStory.interactiveSceneList member:temp];
+    STInteractiveScene *temp2 = [testStory.interactiveSceneList lastObject];
     XCTAssertNotNil(temp2);
     XCTAssert([@"Temp" isEqualToString:temp2.name]);
     
@@ -96,26 +96,17 @@
     
     
     //Add scenes, check scene count
-    NSSet *newScenes = [NSSet setWithArray:@[[STInteractiveScene initWithName:@"Temp1" inContext:self.context],
+    NSOrderedSet *newScenes = [NSOrderedSet orderedSetWithArray:@[[STInteractiveScene initWithName:@"Temp1" inContext:self.context],
                                              [STInteractiveScene initWithName:@"Temp2" inContext:self.context],
                                              [STInteractiveScene initWithName:@"Temp3" inContext:self.context]]];
     
     [testStory addInteractiveSceneList:newScenes];
     XCTAssertEqual(3, testStory.interactiveSceneList.count);
     
-    //Cannot determine the order that the items in the set are given to the array, so must test for all possibilities.
-    NSArray *tempArray = [testStory.interactiveSceneList allObjects];
-    XCTAssert([((STInteractiveScene*)tempArray[0]).name isEqualToString:@"Temp1"] ||
-              [((STInteractiveScene*)tempArray[1]).name isEqualToString:@"Temp1"] ||
-              [((STInteractiveScene*)tempArray[2]).name isEqualToString:@"Temp1"]);
-    
-    XCTAssert([((STInteractiveScene*)tempArray[0]).name isEqualToString:@"Temp2"] ||
-              [((STInteractiveScene*)tempArray[1]).name isEqualToString:@"Temp2"] ||
-              [((STInteractiveScene*)tempArray[2]).name isEqualToString:@"Temp2"]);
-    
-    XCTAssert([((STInteractiveScene*)tempArray[0]).name isEqualToString:@"Temp3"] ||
-              [((STInteractiveScene*)tempArray[1]).name isEqualToString:@"Temp3"] ||
-              [((STInteractiveScene*)tempArray[2]).name isEqualToString:@"Temp3"]);
+    NSArray *tempArray = [testStory.interactiveSceneList array];
+    XCTAssert([((STInteractiveScene*)tempArray[0]).name isEqualToString:@"Temp1"]);
+    XCTAssert([((STInteractiveScene*)tempArray[1]).name isEqualToString:@"Temp2"]);
+    XCTAssert([((STInteractiveScene*)tempArray[2]).name isEqualToString:@"Temp3"]);
     
     
 }
@@ -129,9 +120,9 @@
     
     //Add Starting Scene, set Starting scene
     STInteractiveScene *scene = [STInteractiveScene initWithName:@"starting" inContext:self.context];
-    testStory.startingScene = scene;
+    [testStory setNewSceneToStartingScene:scene];
     
-    XCTAssert([@"starting" isEqualToString:testStory.startingScene.name]);
+    XCTAssert([@"starting" isEqualToString:[testStory stInteractiveStartingScene].name]);
 }
 
 -(void)testAddingSceneToList
@@ -142,10 +133,13 @@
     
     //Add Starting Scene, retrieve Starting scene
     STInteractiveScene *scene = [STInteractiveScene initWithName:@"starting" inContext:self.context];
-    testStory.startingScene = scene;
-    [testStory addInteractiveSceneListObject:scene];
+
+    //adds the scene to the list as well as sets it as the starting scene.
+    [testStory setNewSceneToStartingScene:scene];
     
     XCTAssertEqual(1, testStory.interactiveSceneList.count);
+    XCTAssert([@"starting" isEqualToString:(testStory.stInteractiveStartingScene).name]);
+    XCTAssertEqual(0, testStory.startingSceneIndex);
     
 }
 

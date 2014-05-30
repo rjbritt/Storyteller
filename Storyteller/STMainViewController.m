@@ -89,20 +89,26 @@
  */
 -(void)initializeNewStoryWithName:(NSString *)newStoryName
 {
-    STStory *tempStory = [STStory initWithName:newStoryName inContext:self.context];
+    STStory *newStory = [STStory initWithName:newStoryName inContext:self.context];
     
-    STInteractiveScene *tempScene = [STInteractiveScene initWithName:@"Test" inContext:self.context];
-    [tempStory setNewSceneToStartingScene:tempScene];
-    tempStory.editingScene = tempStory.startingScene;
+    //Create Starting Scene and set the currently editing scene to the starting scene
+    STInteractiveScene *startingScene = [STInteractiveScene initWithName:@"First Scene" inContext:self.context];
+    [newStory setNewSceneToStartingScene:startingScene];
+    newStory.editingSceneIndex = newStory.startingSceneIndex;
     
-    [tempStory addInteractiveSceneListObject:[STInteractiveScene initWithName:@"Test2" inContext:self.context]];
-    
-    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    appDelegate.currentStory = tempStory;
-    
-    //Get new Storyboard
+    //Get new Storyboard and root UISplitViewController
     UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
     UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
+    
+    //Get splitView components
+    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
+    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
+    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
+    
+    //Set properties and delegates.
+    editStoryVC.currentStory = newStory;
+    editSceneVC.currentScene = [newStory stInteractiveStartingScene];
+    editStoryVC.editSceneDelegate = editSceneVC;
     
 #warning Insert Animation Here
     self.view.window.rootViewController = nextViewController;

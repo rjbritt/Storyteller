@@ -19,6 +19,15 @@
     self.interactiveSceneList = tempSet;
 }
 
+- (void)addInteractiveSceneList:(NSOrderedSet *)values
+{
+    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
+    [tempSet addObjectsFromArray:[values array]];
+    self.interactiveSceneList = tempSet;
+    
+}
+
+
 #pragma mark - Initialization
 
 /**
@@ -93,7 +102,7 @@
 -(void)setNewSceneToStartingScene:(STInteractiveScene *)scene
 {
     [self addInteractiveSceneListObject:scene];
-    self.startingScene = [self.interactiveSceneList indexOfObject:scene];
+    self.startingSceneIndex = [self.interactiveSceneList indexOfObject:scene];
 }
 
 /**
@@ -101,9 +110,9 @@
  *
  *  @return Appropriate starting scene as an STInteractiveScene object.
  */
--(STInteractiveScene *)startingSceneToSTInteractiveScene
+-(STInteractiveScene *)stInteractiveStartingScene
 {
-    return self.interactiveSceneList[self.startingScene];
+    return self.interactiveSceneList[self.startingSceneIndex];
 }
 
 /**
@@ -111,9 +120,9 @@
  *
  *  @return Appropriate editing scene as an STInteractiveScene object.
  */
--(STInteractiveScene *)editingSceneToSTInteractiveScene
+-(STInteractiveScene *)stInteractiveCurrentEditingScene
 {
-    return self.interactiveSceneList[self.editingScene];
+    return self.interactiveSceneList[self.editingSceneIndex];
 }
 
 

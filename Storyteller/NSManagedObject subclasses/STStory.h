@@ -2,7 +2,7 @@
 //  STStory.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/27/14.
+//  Created by Ryan Britt on 5/29/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @interface STStory : NSManagedObject
 
+@property (nonatomic) int32_t editingSceneIndex;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) int32_t startingScene;
-@property (nonatomic) int32_t editingScene;
+@property (nonatomic) int32_t startingSceneIndex;
 @property (nonatomic, retain) NSOrderedSet *interactiveSceneList;
 @property (nonatomic, retain) NSManagedObject *storyMedia;
 @end

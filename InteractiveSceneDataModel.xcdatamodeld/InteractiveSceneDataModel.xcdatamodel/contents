@@ -18,7 +18,6 @@
         <relationship name="nextScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="previousScene" inverseEntity="STInteractiveScene" syncable="YES"/>
         <relationship name="objectList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STObject" inverseName="belongingScene" inverseEntity="STObject" syncable="YES"/>
         <relationship name="previousScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="nextScene" inverseEntity="STInteractiveScene" syncable="YES"/>
-        <relationship name="startingSceneForStory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STStory" syncable="YES"/>
     </entity>
     <entity name="STInteractiveSceneElement" representedClassName="STInteractiveSceneElement" syncable="YES">
         <attribute name="center" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,18 +30,18 @@
         <relationship name="belongingScene" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="objectList" inverseEntity="STInteractiveScene" syncable="YES"/>
     </entity>
     <entity name="STStory" representedClassName="STStory" syncable="YES">
-        <attribute name="editingScene" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="editingSceneIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="startingScene" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="startingSceneIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="interactiveSceneList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STInteractiveScene" inverseName="belongingStory" inverseEntity="STInteractiveScene" syncable="YES"/>
         <relationship name="storyMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMedia" syncable="YES"/>
     </entity>
     <elements>
         <element name="STActor" positionX="153" positionY="54" width="128" height="58"/>
         <element name="STEnvironment" positionX="153" positionY="117" width="128" height="58"/>
-        <element name="STInteractiveScene" positionX="385" positionY="-10" width="128" height="223"/>
+        <element name="STInteractiveScene" positionX="385" positionY="9" width="128" height="208"/>
         <element name="STInteractiveSceneElement" positionX="-54" positionY="90" width="128" height="103"/>
-        <element name="STMedia" positionX="387" positionY="-81" width="128" height="43"/>
+        <element name="STMedia" positionX="387" positionY="-81" width="128" height="45"/>
         <element name="STObject" positionX="153" positionY="180" width="128" height="58"/>
         <element name="STStory" positionX="765" positionY="68" width="128" height="118"/>
     </elements>

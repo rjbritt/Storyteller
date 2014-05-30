@@ -10,4 +10,6 @@
 #import "STEditSceneViewController.h"
 
 @interface STEditStoryTableViewController : UITableViewController
+@property (strong, nonatomic) STStory *currentStory;
+@property (strong, nonatomic) STEditSceneViewController *editSceneDelegate;
 @end

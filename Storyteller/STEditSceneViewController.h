@@ -10,6 +10,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "STInteractiveScene+EaseOfUse.h"
 
-@interface STEditSceneViewController : UIViewController 
+@interface STEditSceneViewController : UIViewController
+
 @property (strong, nonatomic) STInteractiveScene *currentScene;
+- (void)refreshUIForNewScene:(STInteractiveScene *)scene;
+
 @end

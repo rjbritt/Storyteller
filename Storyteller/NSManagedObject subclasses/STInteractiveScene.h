@@ -2,7 +2,7 @@
 //  STInteractiveScene.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/27/14.
+//  Created by Ryan Britt on 5/29/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -24,7 +24,6 @@
 @property (nonatomic, retain) STInteractiveScene *nextScene;
 @property (nonatomic, retain) NSOrderedSet *objectList;
 @property (nonatomic, retain) STInteractiveScene *previousScene;
-@property (nonatomic, retain) STStory *startingSceneForStory;
 @end
 
 @interface STInteractiveScene (CoreDataGeneratedAccessors)

@@ -2,7 +2,7 @@
 //  STInteractiveScene.m
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/27/14.
+//  Created by Ryan Britt on 5/29/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -27,6 +27,5 @@
 @dynamic nextScene;
 @dynamic objectList;
 @dynamic previousScene;
-@dynamic startingSceneForStory;
 
 @end
