@@ -11,7 +11,7 @@
 @interface STStory (EaseOfUse)
 +(STStory *)initWithName: (NSString *) name inContext:(NSManagedObjectContext *)context;
 +(STStory *)findStoryWithName: (NSString *)name inContext:(NSManagedObjectContext *)context;
-+(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context;
++(NSArray *)findAllStoriesAscendinglyWithinContext: (NSManagedObjectContext *)context;
 
 -(void)setNewSceneToStartingScene:(STInteractiveScene *)scene;
 -(STInteractiveScene *)stInteractiveStartingScene;

@@ -35,13 +35,10 @@
     [super viewDidLoad];
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
     self.clearsSelectionOnViewWillAppear = YES;
-    
     [self.navigationItem setTitle:self.currentStory.name];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    UIBarButtonItem *editBarButton =[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEdit)];
+    //Set the buttons for the navigation bar of this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"All Stories" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
 }
@@ -67,20 +64,14 @@
 
 }
 
--(void)toggleEdit
-{
-    self.editing = !self.editing;
-    
-    if(self.editing)
-    {
-        self.navigationItem.rightBarButtonItem.title = @"Done";
-    }
-    else
-    {
-        self.navigationItem.rightBarButtonItem.title = @"Edit";
-    }
-}
-
+/**
+ *  This is a tableview property mutator for the .editing property.
+ *  This modification changes it so that the tableview data is reloaded on change, 
+ *  so that additional rows can be shown on editing.
+ *
+ *  @param editing  Whether this tableview is editing or not
+ *  @param animated Whether this transition needs to be animated or not.
+ */
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
@@ -170,8 +161,6 @@
      if (editingStyle == UITableViewCellEditingStyleDelete)
      {
          // Delete the row from the data source
-         NSLog(@"current Scenes %i", self.currentStory.interactiveSceneList.count);
-
         [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
      }
@@ -257,14 +246,7 @@
     [delegate.coreDataHelper saveContext];
     
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
-    self.editing = NO;
-    [self.tableView reloadData];
+    [self setEditing:NO animated:YES];
 }
 
--(void)removeInteractiveSceneAtIndex:(int)index
-{
-    
-}
-
-    
 @end

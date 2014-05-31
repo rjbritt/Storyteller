@@ -10,24 +10,6 @@
 
 @implementation STStory (EaseOfUse)
 
-#pragma mark - Overwritten Methods
-
-//- (void)addInteractiveSceneListObject:(STInteractiveScene *)value
-//{
-//    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
-//    [tempSet addObject:value];
-//    self.interactiveSceneList = tempSet;
-//}
-//
-//- (void)addInteractiveSceneList:(NSOrderedSet *)values
-//{
-//    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
-//    [tempSet addObjectsFromArray:[values array]];
-//    self.interactiveSceneList = tempSet;
-//    
-//}
-
-
 #pragma mark - Initialization
 
 /**
@@ -85,12 +67,15 @@
  *
  *  @return A NSArray of STStory objects that are in the specified context.
  */
-+(NSArray *)findAllStoriesWithinContext: (NSManagedObjectContext *)context
++(NSArray *)findAllStoriesAscendinglyWithinContext: (NSManagedObjectContext *)context
 {
     NSArray *allStories;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"STStory"];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
     
+    [request setSortDescriptors:@[sort]];
     allStories = [context executeFetchRequest:request error:nil];
+    
     
     return allStories;
 }

@@ -57,7 +57,7 @@
     [STStory initWithName:@"EmptyTest" inContext:self.context];
     [STStory initWithName:@"EmptyTest2" inContext:self.context];
     
-    NSArray *tempArray = [STStory findAllStoriesWithinContext:self.context];
+    NSArray *tempArray = [STStory findAllStoriesAscendinglyWithinContext:self.context];
     XCTAssertEqual(2, [tempArray count]);
 }
 

@@ -111,6 +111,17 @@
     editStoryVC.editSceneDelegate = editSceneVC;
     
 #warning Insert Animation Here
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.view.alpha = 0;
+                         nextViewController.view.alpha = 1;
+                     }
+                     completion:nil];
+    
+    
     self.view.window.rootViewController = nextViewController;
 }
 

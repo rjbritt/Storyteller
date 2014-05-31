@@ -36,13 +36,13 @@
     [super viewDidLoad];
     
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.storyList = [STStory findAllStoriesWithinContext:self.appDelegate.coreDataHelper.context];
+    self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.navigationItem setTitle:@"Load Story"];
     
 }
@@ -114,18 +114,29 @@
  }
  */
 
-/*
+
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         // Delete All the scenes from the story
+         STStory  *storyToDelete = self.storyList[indexPath.row];
+         [storyToDelete removeInteractiveSceneList:storyToDelete.interactiveSceneList];
+         
+         //Delete the Story itself.
+         [self.appDelegate.coreDataHelper.context deleteObject:storyToDelete];
+         
+         self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
+         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         [self.tableView reloadData];
+
+     }
+     else if (editingStyle == UITableViewCellEditingStyleInsert)
+     {
+         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
  }
- }
- */
+ 
 
 /*
  // Override to support rearranging the table view.
