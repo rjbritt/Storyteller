@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <NSManagedObjectModel+KCOrderedAccessorFix.h>
+
 
 @interface CoreDataHelper :NSObject
 

@@ -12,20 +12,20 @@
 
 #pragma mark - Overwritten Methods
 
-- (void)addInteractiveSceneListObject:(STInteractiveScene *)value
-{
-    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
-    [tempSet addObject:value];
-    self.interactiveSceneList = tempSet;
-}
-
-- (void)addInteractiveSceneList:(NSOrderedSet *)values
-{
-    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
-    [tempSet addObjectsFromArray:[values array]];
-    self.interactiveSceneList = tempSet;
-    
-}
+//- (void)addInteractiveSceneListObject:(STInteractiveScene *)value
+//{
+//    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
+//    [tempSet addObject:value];
+//    self.interactiveSceneList = tempSet;
+//}
+//
+//- (void)addInteractiveSceneList:(NSOrderedSet *)values
+//{
+//    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.interactiveSceneList];
+//    [tempSet addObjectsFromArray:[values array]];
+//    self.interactiveSceneList = tempSet;
+//    
+//}
 
 
 #pragma mark - Initialization

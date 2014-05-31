@@ -138,8 +138,6 @@
 
     }
     
-    
-    // Configure the cell...
     return cell;
 }
 
@@ -172,7 +170,10 @@
      if (editingStyle == UITableViewCellEditingStyleDelete)
      {
          // Delete the row from the data source
-         // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         NSLog(@"current Scenes %i", self.currentStory.interactiveSceneList.count);
+
+        [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
      }
      else if (editingStyle == UITableViewCellEditingStyleInsert)
      {
@@ -260,6 +261,10 @@
     [self.tableView reloadData];
 }
 
+-(void)removeInteractiveSceneAtIndex:(int)index
+{
+    
+}
 
     
 @end

@@ -9,6 +9,7 @@
 
 #import "CoreDataHelper.h"
 
+
 @implementation CoreDataHelper
 
 #pragma mark - Files
@@ -96,6 +97,7 @@ NSString *storeFilename = @"InteractiveSceneDataModel";
          */
         
     _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    [_model kc_generateOrderedSetAccessors];
 
     _coordinator = [[NSPersistentStoreCoordinator alloc]
                     initWithManagedObjectModel:_model];
