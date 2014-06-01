@@ -17,7 +17,7 @@
 #import "STInteractiveSceneSKScene.h"
 //#import "DraggableButton.h"
 #import "STNavigationController.h"
-#include "RCDraggableButton.h"
+#import <RCDraggableButton.h>
 
 
 @interface STEditSceneViewController()
@@ -216,12 +216,12 @@
             break;
         case STInteractiveSceneDataTypeEnvironment:
         {
-            STEnvironmentSceneElement *tempEnv = [STEnvironmentSceneElement initWithName:button.titleLabel.text
-                                                                     withImage:button.imageView.image
-                                                                 withinContext:self.currentContext
-                                                                    centeredAt:button.center];
+//            STEnvironmentSceneElement *tempEnv = [STEnvironmentSceneElement initWithName:button.titleLabel.text
+//                                                                     withImage:button.imageView.image
+//                                                                 withinContext:self.currentContext
+//                                                                    centeredAt:button.center];
             
-            [self.currentScene addEnvironmentSceneElementListObject:tempEnv];
+//            [self.currentScene addEnvironmentSceneElementListObject:tempEnv];
         }
             break;
         case STInteractiveSceneDataTypeObject:
