@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>14284B43-B8C6-4147-B577-4953B7F0A88F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Storyteller</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E1261FF1-6458-462B-80FF-6C865EE20D77</key>
+		<string>https://github.com/rjbritt/Storyteller.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Storyteller.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E1261FF1-6458-462B-80FF-6C865EE20D77</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rjbritt/Storyteller.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E1261FF1-6458-462B-80FF-6C865EE20D77</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E1261FF1-6458-462B-80FF-6C865EE20D77</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Storyteller</string>
+		</dict>
+	</array>
+</dict>
+</plist>
