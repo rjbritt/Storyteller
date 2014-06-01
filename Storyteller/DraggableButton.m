@@ -71,6 +71,9 @@
     }
     dragging = NO;
     [self sendActionsForControlEvents:UIControlEventTouchDragExit];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"NTF_FinishedDragging" object:self];
+    
+    NSLog(@"Finished Dragging Center: %lf , %lf", self.center.x, self.center.y);
 }
 
 -(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event

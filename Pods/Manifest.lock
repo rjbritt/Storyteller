@@ -1,10 +1,13 @@
 PODS:
   - KCOrderedAccessorFix (0.0.1)
+  - RCDraggableButton (0.4)
 
 DEPENDENCIES:
   - KCOrderedAccessorFix
+  - RCDraggableButton (~> 0.1)
 
 SPEC CHECKSUMS:
   KCOrderedAccessorFix: d177d657cbe2b3b070540d6b1652e8534c8bceae
+  RCDraggableButton: b9bd67cc1623fde0ac4190baed9dcc847dc3081b
 
 COCOAPODS: 0.33.1

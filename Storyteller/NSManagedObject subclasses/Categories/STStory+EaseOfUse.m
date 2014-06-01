@@ -15,6 +15,7 @@
 /**
  *  Initializes a new story within the required NSManagedObjectContext.
  *  This method assumes that the uniqueness of this name has been verified.
+ *  All stories initialized this way are defaulted to unordered scenes
  *
  *  @param name    The name for which the STStory will be initiated
  *  @param context The context in which the STStory will be initiated
@@ -25,6 +26,7 @@
 {
     
     STStory *temp = [NSEntityDescription insertNewObjectForEntityForName:@"STStory" inManagedObjectContext:context];
+    temp.isOrdered = NO;
     temp.name = name;
     
     return temp;

@@ -10,14 +10,6 @@
 
 @implementation STInteractiveScene (EaseOfUse)
 
-- (void)addActorListObject:(STActor *)value
-{
-    NSMutableOrderedSet *tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.actorList];
-    [tempSet addObject:value];
-    self.actorList = tempSet;
-}
-
-
 #pragma mark - Convenience Methods
 
 /**

@@ -95,39 +95,39 @@
     
 }
 
--(void)testAddDeleteAndRetrieveActor
-{
-    XCTFail();
-}
-
--(void)testAddDeleteAndRetrieveActorSet
-{
-    XCTFail();
-}
-
--(void)testAddDeleteAndRetrieveEnvironment
-{
-    XCTFail();
-}
-
--(void)testAddDeleteAndRetrieveEnvironmentSet
-{
-    XCTFail();
-}
-
--(void)testAddDeleteandRetrieveObject
-{
-    XCTFail();
-}
-
--(void)testAddDeleteAndRetrieveObjectSet
-{
-    XCTFail();
-}
--(void)testSingleInstanceSceneElementMultipleScenes
-{
-    XCTFail();
-}
+//-(void)testAddDeleteAndRetrieveActor
+//{
+//    XCTFail();
+//}
+//
+//-(void)testAddDeleteAndRetrieveActorSet
+//{
+//    XCTFail();
+//}
+//
+//-(void)testAddDeleteAndRetrieveEnvironment
+//{
+//    XCTFail();
+//}
+//
+//-(void)testAddDeleteAndRetrieveEnvironmentSet
+//{
+//    XCTFail();
+//}
+//
+//-(void)testAddDeleteandRetrieveObject
+//{
+//    XCTFail();
+//}
+//
+//-(void)testAddDeleteAndRetrieveObjectSet
+//{
+//    XCTFail();
+//}
+//-(void)testSingleInstanceSceneElementMultipleScenes
+//{
+//    XCTFail();
+//}
 
 
 

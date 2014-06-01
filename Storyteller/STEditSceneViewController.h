@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import "STInteractiveScene+EaseOfUse.h"
+
+@class STInteractiveScene;
 
 @interface STEditSceneViewController : UIViewController
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
-- (void)refreshUIForNewScene:(STInteractiveScene *)scene;
 
+typedef NS_ENUM(NSInteger, STInteractiveSceneDataType)
+{
+    STInteractiveSceneDataTypeActor = 1000,
+    STInteractiveSceneDataTypeEnvironment,
+    STInteractiveSceneDataTypeObject
+    
+};
 @end

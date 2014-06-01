@@ -4,11 +4,14 @@
 target "Storyteller" do
 
 pod 'KCOrderedAccessorFix'
+pod 'RCDraggableButton' , '~>0.1'
+
 
 end
 
 target "StorytellerTests" do
 
 pod 'KCOrderedAccessorFix'
+pod 'RCDraggableButton' , '~>0.1'
 
 end

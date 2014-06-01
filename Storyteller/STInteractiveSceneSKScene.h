@@ -7,8 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "STActor.h"
-#import "STInteractiveScene.h"
+#import "STActorSceneElement+EaseOfUse.h"
+#import "STInteractiveScene+EaseOfUse.h"
 
 @interface STInteractiveSceneSKScene : SKScene
 

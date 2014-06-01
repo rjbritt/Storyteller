@@ -84,7 +84,6 @@
 {
     //Load the selected story, set the editing scene to the starting scene.
     STStory *selectedStory = self.storyList[indexPath.row];
-    selectedStory.editingSceneIndex = selectedStory.startingSceneIndex;
     
     //Get new Storyboard and root UISplitViewController
     UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
@@ -101,6 +100,7 @@
     editStoryVC.editSceneDelegate = editSceneVC;
     
 #warning Insert Animation Here
+    
     self.view.window.rootViewController = nextViewController;
 }
 

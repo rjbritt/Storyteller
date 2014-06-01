@@ -2,22 +2,23 @@
 //  STStory.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/29/14.
+//  Created by Ryan Britt on 5/31/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class STInteractiveScene;
+@class STInteractiveScene, STMedia;
 
 @interface STStory : NSManagedObject
 
 @property (nonatomic) int32_t editingSceneIndex;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int32_t startingSceneIndex;
+@property (nonatomic) BOOL isOrdered;
 @property (nonatomic, retain) NSOrderedSet *interactiveSceneList;
-@property (nonatomic, retain) NSManagedObject *storyMedia;
+@property (nonatomic, retain) STMedia *storyMedia;
 @end
 
 @interface STStory (CoreDataGeneratedAccessors)

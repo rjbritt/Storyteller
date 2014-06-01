@@ -65,7 +65,7 @@
         <!--Edit Scene View Controller-->
         <scene sceneID="dmr-Qf-rjd">
             <objects>
-                <viewController storyboardIdentifier="STStoryViewController" id="j6J-Z6-QVO" customClass="STEditSceneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STEditSceneViewController" id="j6J-Z6-QVO" customClass="STEditSceneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FAM-8E-etp"/>
                         <viewControllerLayoutGuide type="bottom" id="Itb-cp-dFm"/>
@@ -79,7 +79,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nSt-Cn-e9W"/>
-                                    <barButtonItem title="Actor" id="Ud7-O3-3cT"/>
+                                    <barButtonItem title="Actor" id="Ud7-O3-3cT">
+                                        <connections>
+                                            <action selector="addActorButton:" destination="j6J-Z6-QVO" id="U7w-TC-dRC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTA-Yx-To7"/>
                                     <barButtonItem title="Environment" id="OeE-Yt-xZY"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="iJh-0k-IoS"/>
@@ -87,13 +91,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hi4-Tq-in5"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2M-9C-Pgi">
-                                <rect key="frame" x="304" y="227" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,9 +99,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="tempLabelOutlet" destination="l2M-9C-Pgi" id="Vbg-Vj-khF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfX-22-URt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -34,13 +34,22 @@
 {
     [super viewDidLoad];
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
-    self.clearsSelectionOnViewWillAppear = YES;
+    self.clearsSelectionOnViewWillAppear = NO;
     [self.navigationItem setTitle:self.currentStory.name];
     
     //Set the buttons for the navigation bar of this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"All Stories" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.startingSceneIndex inSection:0]
+                                animated:NO
+                          scrollPosition:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +69,16 @@
     STMainViewController *viewController = (STMainViewController *)[mainStoryboard instantiateInitialViewController];
 
 #warning insert animation here
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.view.alpha = 0;
+                         viewController.view.alpha = 1;
+                     }
+                     completion:nil];
+    
     self.view.window.rootViewController = viewController;
 
 }
@@ -132,17 +151,40 @@
     return cell;
 }
 
-//The row selected is the new scene to edit
+/**
+ *  This is the delegate method that is called when a row is selected. The row that
+ *  is selected is the new scene to show. Rather than reloading all the information
+ *  the current view controller, this method creates a new view controller. ARC
+ *  recognizes that there is no longer a count to the other view controller and should release it.
+ *
+ *  @param tableView The tableview that called this method.
+ *  @param indexPath The indexPath that represents the selected row.
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Save current Scene
+    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate.coreDataHelper saveContext];
+    
+    //Set current Editing scene to the new scene.
     self.currentStory.editingSceneIndex = indexPath.row;
-    [self.editSceneDelegate refreshUIForNewScene:[self.currentStory stInteractiveCurrentEditingScene]];
+    
+    //Create a new EditSceneViewController, set it as the current scene.
+    STEditSceneViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"STEditSceneViewController"];
+    temp.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
+
+    //Change this view controller's delegate and then change the detail view to temp.
+    //Doing it this way, we may not need a delegate. Verify Later
+    self.editSceneDelegate = temp;
+    self.splitViewController.viewControllers = @[self.splitViewController.viewControllers[0], temp];
+    
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCellEditingStyle style;
     
+    //Only the last row should be an insert. Will have to change how we do this for long scenes. Probably just put the + in the corner.
     if(indexPath.row == self.allScenesForCurrentStory.count)
     {
         style = UITableViewCellEditingStyleInsert;
@@ -155,7 +197,6 @@
     return style;
 }
 
- // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
      if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -166,8 +207,7 @@
      }
      else if (editingStyle == UITableViewCellEditingStyleInsert)
      {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-         
+         // Provide a UIAlert which will handle the actual adding to the datasource on "Create Scene"
          UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:@"Name"
                                                              message:@"Create a name for your Scene"
                                                             delegate:self
@@ -175,7 +215,6 @@
                                                    otherButtonTitles:@"Create Scene",nil];
          nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
          [nameAlert show];
-         
      }
  }
 

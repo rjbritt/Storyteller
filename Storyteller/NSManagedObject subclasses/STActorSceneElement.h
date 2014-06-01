@@ -1,8 +1,8 @@
 //
-//  STEnvironment.h
+//  STActorSceneElement.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 4/8/14.
+//  Created by Ryan Britt on 5/31/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -10,10 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "STInteractiveSceneElement.h"
 
-@class STInteractiveScene;
+@class STActorMind, STInteractiveScene;
 
-@interface STEnvironment : STInteractiveSceneElement
+@interface STActorSceneElement : STInteractiveSceneElement
 
 @property (nonatomic, retain) STInteractiveScene *belongingScene;
+@property (nonatomic, retain) STActorMind *mind;
 
 @end
