@@ -14,12 +14,4 @@
 @interface STEditSceneViewController : UIViewController
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
-
-typedef NS_ENUM(NSInteger, STInteractiveSceneDataType)
-{
-    STInteractiveSceneDataTypeActor = 1000,
-    STInteractiveSceneDataTypeEnvironment,
-    STInteractiveSceneDataTypeObject
-    
-};
 @end

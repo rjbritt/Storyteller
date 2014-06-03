@@ -16,4 +16,13 @@
 -(NSString *)nextEnviroName;
 -(NSString *)nextObjectName;
 
+typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
+{
+    STInteractiveSceneElementTypeActor = 1000,
+    STInteractiveSceneElementTypeEnvironment,
+    STInteractiveSceneElementTypeObject
+    
+};
+
+
 @end

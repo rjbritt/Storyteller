@@ -67,6 +67,7 @@
  */
 - (IBAction)addActorButton:(id)sender
 {
+    [self currentSceneStatusAtLocation:@"Add ActorButton"];
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredOrigin = CGPointMake(0, top);
     
@@ -74,10 +75,15 @@
     UIImage *image = [UIImage imageNamed:@"Actor"];
     CGRect imageFrame = CGRectMake(desiredOrigin.x, desiredOrigin.y, image.size.width, image.size.height);
     
-    [self createNewDraggableButtonWithName:[self.currentScene nextActorName]
-                                 withFrame:imageFrame
-                                   withTag:STInteractiveSceneDataTypeActor
-                                 withImage:image];
+    //Button is created separately from STInteractiveScene element
+    //because createNewDraggableButton is also used in loading.
+    RCDraggableButton *button = [self createNewDraggableButtonWithName:[self.currentScene nextActorName]
+                                                              withFrame:imageFrame
+                                                                withTag:STInteractiveSceneElementTypeActor
+                                                              withImage:image];
+    
+    //Create the appropriate STInteractiveSceneElement for this newly created actor button
+    [self createSTInteractiveSceneElementFromButton:button];
 }
 
 - (IBAction)addEnvironmentButton:(id)sender
@@ -98,10 +104,11 @@
  *  @param tag   The Tag of the button. This is used to identify what type of item in the scene that this instance represents.
  *  @param image The image that should be displayed as the button.
  *
- *  @return The newly added DraggableButton
+ *  @return The newly added DraggableButton that represents a STInteractiveSceneElement
  */
 -(RCDraggableButton *)createNewDraggableButtonWithName:(NSString*) name withFrame:(CGRect) frame withTag:(int)tag withImage:(UIImage *) image
 {
+    [self currentSceneStatusAtLocation:@"CreateNewDraggableButton"];
     //Create RCDraggableButton with aforementioned information
     RCDraggableButton *temp = [[RCDraggableButton alloc] initWithFrame:frame];
     [temp setImage:image forState:UIControlStateNormal];
@@ -114,9 +121,6 @@
         {
             [self updateSTInteractiveSceneElementForButton:button];
         };
-    
-    //Create the appropriate STInteractiveSceneElement for this button
-    [self createSTInteractiveSceneElementFromButton:temp];
     
     //Add as subview and return
     [self.view addSubview:temp];
@@ -168,6 +172,7 @@
  */
 -(void)loadUIKitSceneFromCurrentSTInteractiveScene
 {
+    [self currentSceneStatusAtLocation:@"Load UIKit from STInteractive Scene"];
     NSArray *actorsInCurrentScene = [self.currentScene.actorSceneElementList array];
     //        NSArray *environmentArray = [self.currentScene.environmentList array];
     //        NSArray *objectArray = [self.currentScene.objectList array];
@@ -184,7 +189,7 @@
         
         [self createNewDraggableButtonWithName:actor.name
                                      withFrame:temp
-                                       withTag:STInteractiveSceneDataTypeActor
+                                       withTag:STInteractiveSceneElementTypeActor
                                      withImage:theImage];
     }
 }
@@ -199,11 +204,12 @@
  */
 -(void)createSTInteractiveSceneElementFromButton:(UIButton*)button
 {
+    [self currentSceneStatusAtLocation:@"Create STInteractiveElement from Button"];
     //For now they will all be similar, but eventually the different Elements will have different
     //initial parameters and must be set in this method.
     switch (button.tag)
     {
-        case STInteractiveSceneDataTypeActor:
+        case STInteractiveSceneElementTypeActor:
         {
             STActorSceneElement *tempActor = [STActorSceneElement initActorWithName:button.titleLabel.text
                                                                      withImage:button.imageView.image
@@ -214,17 +220,11 @@
             
         }
             break;
-        case STInteractiveSceneDataTypeEnvironment:
+        case STInteractiveSceneElementTypeEnvironment:
         {
-//            STEnvironmentSceneElement *tempEnv = [STEnvironmentSceneElement initWithName:button.titleLabel.text
-//                                                                     withImage:button.imageView.image
-//                                                                 withinContext:self.currentContext
-//                                                                    centeredAt:button.center];
-            
-//            [self.currentScene addEnvironmentSceneElementListObject:tempEnv];
         }
             break;
-        case STInteractiveSceneDataTypeObject:
+        case STInteractiveSceneElementTypeObject:
             break;
         default: // Invalid Datatype
             break;
@@ -238,10 +238,14 @@
  */
 -(void)updateSTInteractiveSceneElementForButton:(UIButton *)button
 {
-//    RCDraggableButton *button = (RCDraggableButton *)sender;
+    [self currentSceneStatusAtLocation:@"Update Button"];
+    
+    //The button tag must be analyzed to verify the type of element that we are accessing. An Actor could
+    //theoretically have the same name as an Environment. This must be understood so that the appropriate STInteractiveSceneElement
+    //can be found.
     switch (button.tag)
     {
-        case STInteractiveSceneDataTypeActor:
+        case STInteractiveSceneElementTypeActor:
         {
             STActorSceneElement *temp = [STActorSceneElement findActorSceneElementWithName:button.titleLabel.text
                                                                                    inStory:self.currentScene.belongingStory
@@ -256,12 +260,12 @@
             }
         }
             break;
-        case STInteractiveSceneDataTypeEnvironment:
+        case STInteractiveSceneElementTypeEnvironment:
         {
             
         }
             break;
-        case STInteractiveSceneDataTypeObject:
+        case STInteractiveSceneElementTypeObject:
         {
             
         }
@@ -280,7 +284,7 @@
  *  @param center The centerpoint of the rectangle.
  *  @param size   The size of the rectangle.
  *
- *  @return <#return value description#>
+ *  @return A configured Frame Rectangle
  */
 -(CGRect)frameCGRectFromCenter:(CGPoint)center AndSize:(CGSize)size
 {
@@ -290,6 +294,9 @@
 }
 
 
-
+-(void)currentSceneStatusAtLocation:(NSString *)location
+{
+    NSLog(@"Current Scene: %@ , Current Actor Count: %i, Location: %@", self.currentScene.name, self.currentScene.actorSceneElementList.count, location);
+}
 
 @end

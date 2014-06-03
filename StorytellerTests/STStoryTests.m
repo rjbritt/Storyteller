@@ -131,7 +131,7 @@
     STStory *testStory = [STStory initWithName:@"Test" inContext:self.context];
     XCTAssertEqual(0, testStory.interactiveSceneList.count);
     
-    //Add Starting Scene, retrieve Starting scene
+    //Add Starting Scene
     STInteractiveScene *scene = [STInteractiveScene initWithName:@"starting" inContext:self.context];
 
     //adds the scene to the list as well as sets it as the starting scene.

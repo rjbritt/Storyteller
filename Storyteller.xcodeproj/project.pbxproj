@@ -41,6 +41,8 @@
 		2F8B518218E7B9FA00A5CBEF /* Actor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B517F18E7B9FA00A5CBEF /* Actor.png */; };
 		2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B518018E7B9FA00A5CBEF /* Environment.png */; };
 		2F94661A1932E4D50043E76B /* STStory+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9466191932E4D50043E76B /* STStory+EaseOfUse.m */; };
+		2FBE404D193BB57C0038D27E /* STActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE404C193BB57C0038D27E /* STActorTests.m */; };
+		2FBE404F193E828D0038D27E /* git.ignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE404E193E828D0038D27E /* git.ignore */; };
 		2FE00024193BA455003719DC /* STActorMind.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00011193BA455003719DC /* STActorMind.m */; };
 		2FE00025193BA455003719DC /* STActorSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00013193BA455003719DC /* STActorSceneElement.m */; };
 		2FE00026193BA455003719DC /* STEnvironmentMind.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00015193BA455003719DC /* STEnvironmentMind.m */; };
@@ -54,7 +56,6 @@
 		2FE00036193BA469003719DC /* STActorSceneElement+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0002F193BA469003719DC /* STActorSceneElement+EaseOfUse.m */; };
 		2FE00037193BA469003719DC /* STInteractiveScene+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00031193BA469003719DC /* STInteractiveScene+EaseOfUse.m */; };
 		2FE00038193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00033193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m */; };
-		2FE00039193BA469003719DC /* STStory+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00035193BA469003719DC /* STStory+EaseOfUse.m */; };
 		554A7A40B36D446AA4D09C30 /* libPods-StorytellerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C58AD372262B4B1889D66218 /* libPods-StorytellerTests.a */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		2F8B518018E7B9FA00A5CBEF /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment.png; sourceTree = "<group>"; };
 		2F9466181932E4D50043E76B /* STStory+EaseOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "STStory+EaseOfUse.h"; path = "NSManagedObject subclasses/Categories/STStory+EaseOfUse.h"; sourceTree = "<group>"; };
 		2F9466191932E4D50043E76B /* STStory+EaseOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "STStory+EaseOfUse.m"; path = "NSManagedObject subclasses/Categories/STStory+EaseOfUse.m"; sourceTree = "<group>"; };
+		2FBE404C193BB57C0038D27E /* STActorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STActorTests.m; sourceTree = "<group>"; };
+		2FBE404E193E828D0038D27E /* git.ignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.ignore; sourceTree = "<group>"; };
 		2FDCDA4219395D1700625871 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2FE00010193BA455003719DC /* STActorMind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STActorMind.h; path = "NSManagedObject subclasses/STActorMind.h"; sourceTree = "<group>"; };
 		2FE00011193BA455003719DC /* STActorMind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STActorMind.m; path = "NSManagedObject subclasses/STActorMind.m"; sourceTree = "<group>"; };
@@ -142,8 +145,6 @@
 		2FE00031193BA469003719DC /* STInteractiveScene+EaseOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "STInteractiveScene+EaseOfUse.m"; path = "NSManagedObject subclasses/Categories/STInteractiveScene+EaseOfUse.m"; sourceTree = "<group>"; };
 		2FE00032193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "STInteractiveSceneElement+EaseOfUse.h"; path = "NSManagedObject subclasses/Categories/STInteractiveSceneElement+EaseOfUse.h"; sourceTree = "<group>"; };
 		2FE00033193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "STInteractiveSceneElement+EaseOfUse.m"; path = "NSManagedObject subclasses/Categories/STInteractiveSceneElement+EaseOfUse.m"; sourceTree = "<group>"; };
-		2FE00034193BA469003719DC /* STStory+EaseOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "STStory+EaseOfUse.h"; path = "NSManagedObject subclasses/Categories/STStory+EaseOfUse.h"; sourceTree = "<group>"; };
-		2FE00035193BA469003719DC /* STStory+EaseOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "STStory+EaseOfUse.m"; path = "NSManagedObject subclasses/Categories/STStory+EaseOfUse.m"; sourceTree = "<group>"; };
 		853F59EF89734DF08F0601E4 /* Pods-Storyteller.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storyteller.xcconfig"; path = "Pods/Pods-Storyteller.xcconfig"; sourceTree = "<group>"; };
 		C58AD372262B4B1889D66218 /* libPods-StorytellerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7653248038B40B5AF3B3D02 /* Pods-StorytellerTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorytellerTests.xcconfig"; path = "Pods/Pods-StorytellerTests.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 			children = (
 				2F5E8FAD1933B17B00D78641 /* STStoryTests.m */,
 				2F5E8FAB19338EBF00D78641 /* STInteractiveSceneTests.m */,
+				2FBE404C193BB57C0038D27E /* STActorTests.m */,
 			);
 			name = "Core Data Tests";
 			sourceTree = "<group>";
@@ -264,6 +266,7 @@
 		2F8B512C18E7679200A5CBEF = {
 			isa = PBXGroup;
 			children = (
+				2FBE404E193E828D0038D27E /* git.ignore */,
 				2F8B514018E7679200A5CBEF /* Storyteller */,
 				2F8B516718E7679200A5CBEF /* StorytellerTests */,
 				2F8B513718E7679200A5CBEF /* Frameworks */,
@@ -375,8 +378,6 @@
 				2FE00031193BA469003719DC /* STInteractiveScene+EaseOfUse.m */,
 				2FE00032193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.h */,
 				2FE00033193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m */,
-				2FE00034193BA469003719DC /* STStory+EaseOfUse.h */,
-				2FE00035193BA469003719DC /* STStory+EaseOfUse.m */,
 				2F9466181932E4D50043E76B /* STStory+EaseOfUse.h */,
 				2F9466191932E4D50043E76B /* STStory+EaseOfUse.m */,
 			);
@@ -470,6 +471,7 @@
 				2F8B518118E7B9FA00A5CBEF /* NPC.png in Resources */,
 				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
 				2F5E8FB31933ECAF00D78641 /* STStoryStoryboard.storyboard in Resources */,
+				2FBE404F193E828D0038D27E /* git.ignore in Resources */,
 				2F8B514518E7679200A5CBEF /* InfoPlist.strings in Resources */,
 				2F2545E3192404EF008A3163 /* README.md in Resources */,
 				2F8B518318E7B9FA00A5CBEF /* Environment.png in Resources */,
@@ -560,7 +562,6 @@
 				2F8B515418E7679200A5CBEF /* STEditSceneViewController.m in Sources */,
 				2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */,
 				2FE00036193BA469003719DC /* STActorSceneElement+EaseOfUse.m in Sources */,
-				2FE00039193BA469003719DC /* STStory+EaseOfUse.m in Sources */,
 				2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */,
 				2FE00038193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m in Sources */,
 				2FE0002A193BA455003719DC /* STMedia.m in Sources */,
@@ -587,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBE404D193BB57C0038D27E /* STActorTests.m in Sources */,
 				2F5E8FAE1933B17B00D78641 /* STStoryTests.m in Sources */,
 				2F8B516E18E7679200A5CBEF /* StorytellerTests.m in Sources */,
 				2F5E8FAC19338EBF00D78641 /* STInteractiveSceneTests.m in Sources */,
