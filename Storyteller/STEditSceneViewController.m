@@ -13,16 +13,18 @@
 #import "STInteractiveSceneElement+EaseOfUse.h"
 #import "STActorSceneElement+EaseOfUse.h"
 
+#import "STEnvironmentSceneElement.h"
+#import "STObjectSceneElement.h"
+
 #import "STAppDelegate.h"
 #import "STInteractiveSceneSKScene.h"
-//#import "DraggableButton.h"
 #import "STNavigationController.h"
 #import <RCDraggableButton.h>
 
 
 @interface STEditSceneViewController()
 
-@property (strong, nonatomic) NSManagedObjectContext *currentContext;
+@property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) STAppDelegate *appDelegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
@@ -68,35 +70,91 @@
 - (IBAction)addActorButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add ActorButton"];
+   
     CGFloat top = self.topLayoutGuide.length;
-    CGPoint desiredOrigin = CGPointMake(0, top);
-    
-    
+    CGPoint desiredCenter = CGPointMake(50, top + 50);
     UIImage *image = [UIImage imageNamed:@"Actor"];
-    CGRect imageFrame = CGRectMake(desiredOrigin.x, desiredOrigin.y, image.size.width, image.size.height);
     
-    //Button is created separately from STInteractiveScene element
-    //because createNewDraggableButton is also used in loading.
-    RCDraggableButton *button = [self createNewDraggableButtonWithName:[self.currentScene nextActorName]
-                                                              withFrame:imageFrame
-                                                                withTag:STInteractiveSceneElementTypeActor
-                                                              withImage:image];
     
-    //Create the appropriate STInteractiveSceneElement for this newly created actor button
-    [self createSTInteractiveSceneElementFromButton:button];
+    //Create ActorSceneElement
+    STActorSceneElement *tempActor = (STActorSceneElement *)
+                                     [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+                                                                                             withName:self.currentScene.nextActorName
+                                                                                            withImage:image
+                                                                                        withinContext:self.context
+                                                                                           centeredAt:desiredCenter];
+    
+                                      
+    [self.currentScene addActorSceneElementListObject:tempActor];
+
+    
+    //Create Button to represent Actor
+    [self createNewDraggableButtonWithName:tempActor.name
+                                 withFrame:[self frameCGRectFromCenter:tempActor.centerPointCGPoint AndSize:image.size]
+                                   withTag:STInteractiveSceneElementTypeActor
+                                 withImage:image];
+    
 }
 
 - (IBAction)addEnvironmentButton:(id)sender
 {
+    [self currentSceneStatusAtLocation:@"Add EnvButton"];
     
+    CGFloat top = self.topLayoutGuide.length;
+    CGPoint desiredCenter = CGPointMake(50, top + 50);
+    UIImage *image = [UIImage imageNamed:@"Environment"];
+    
+    
+    //Create EnvironmentSceneElement
+    STEnvironmentSceneElement  *tempEnv = (STEnvironmentSceneElement *)
+                                          [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeEnvironment
+                                                                                       withName:[self.currentScene nextEnviroName]
+                                                                                      withImage:image
+                                                                                  withinContext:self.context
+                                                                                     centeredAt:desiredCenter];
+    
+    [self.currentScene addEnvironmentSceneElementListObject:tempEnv];
+    
+    
+    //Create Button to represent Environment
+    [self createNewDraggableButtonWithName:tempEnv.name
+                                 withFrame:[self frameCGRectFromCenter:tempEnv.centerPointCGPoint AndSize:image.size]
+                                   withTag:STInteractiveSceneElementTypeEnvironment
+                                 withImage:image];
 }
 
+- (IBAction)addObjectButton:(id)sender
+{
+    [self currentSceneStatusAtLocation:@"Add Object"];
+    
+    CGFloat top = self.topLayoutGuide.length;
+    CGPoint desiredCenter = CGPointMake(50, top + 50);
+    UIImage *image = [UIImage imageNamed:@"NPC"];
+    
+    
+    //Create ObjectSceneElement
+    STObjectSceneElement  *tempObject = (STObjectSceneElement *)
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeObject
+                                                 withName:[self.currentScene nextObjectName]
+                                                withImage:image
+                                            withinContext:self.context
+                                               centeredAt:desiredCenter];
+    
+    [self.currentScene addObjectSceneElementListObject:tempObject];
+    
+    
+    //Create Button to represent Object
+    [self createNewDraggableButtonWithName:tempObject.name
+                                 withFrame:[self frameCGRectFromCenter:tempObject.centerPointCGPoint AndSize:image.size]
+                                   withTag:STInteractiveSceneElementTypeObject
+                                 withImage:image];
+}
 
 
 #pragma mark - View Methods
 
 /**
- *  Creates a new DraggableButton instance. This button is used as the UIKit representation of 
+ *  Creates a new DraggableButton instance. This button is used as the UIKit representation of
  *  The different items in the scene.
  *
  *  @param name  The name of the draggable button.
@@ -134,7 +192,7 @@
 	// Do any additional setup after loading the view.
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.currentContext = self.appDelegate.coreDataHelper.context;
+    self.context = self.appDelegate.coreDataHelper.context;
 
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
 }
@@ -173,63 +231,45 @@
 -(void)loadUIKitSceneFromCurrentSTInteractiveScene
 {
     [self currentSceneStatusAtLocation:@"Load UIKit from STInteractive Scene"];
-    NSArray *actorsInCurrentScene = [self.currentScene.actorSceneElementList array];
-    //        NSArray *environmentArray = [self.currentScene.environmentList array];
-    //        NSArray *objectArray = [self.currentScene.objectList array];
-
     
-    //Create a new draggable button representing each of the actor scene elements
-    for (STActorSceneElement *actor in actorsInCurrentScene)
+    NSArray *actorsInCurrentScene = [self.currentScene.actorSceneElementList array];
+    NSArray *environmentsInCurrentScene = [self.currentScene.environmentSceneElementList array];
+    NSArray *objectsInCurrentScene = [self.currentScene.objectSceneElementList array];
+
+    NSArray *allInteractiveElements = [[actorsInCurrentScene arrayByAddingObjectsFromArray:environmentsInCurrentScene]arrayByAddingObjectsFromArray:objectsInCurrentScene];
+    
+    //Create a new draggable button representing each of the scene elements
+    for (STInteractiveSceneElement *element in allInteractiveElements)
     {
-        CGPoint center = [actor centerPointCGPoint];
-        UIImage *theImage = [actor getUIImageFromData];
+        CGPoint center = [element centerPointCGPoint];
+        UIImage *theImage = [element getUIImageFromData];
+   
+        STInteractiveSceneElementType elementType;
+        
+        if([element isMemberOfClass:[STActorSceneElement class]])
+        {
+            elementType = STInteractiveSceneElementTypeActor;
+        }
+        else if([element isMemberOfClass:[STEnvironmentSceneElement class]])
+        {
+            elementType = STInteractiveSceneElementTypeEnvironment;
+        }
+        else
+        {
+            elementType = STInteractiveSceneElementTypeObject;
+        }
         
         //Since we create a button with a frame and not the saved center, we need to find out what the frame would be for the saved center
         CGRect temp = [self frameCGRectFromCenter:center AndSize:theImage.size];
-        
-        [self createNewDraggableButtonWithName:actor.name
+        [self createNewDraggableButtonWithName:element.name
                                      withFrame:temp
-                                       withTag:STInteractiveSceneElementTypeActor
+                                       withTag:elementType
                                      withImage:theImage];
     }
+    
 }
 
 #pragma mark - InteractiveSceneElement Update from UIKit
-
-/**
- *  This method is called from an appropriate button response method in order to create a new Interactive Scene Element
- *  with the correct default parameters and add it to the correct list.
- *
- *  @param button The button that will be turned into a new STInteractiveSceneElement.
- */
--(void)createSTInteractiveSceneElementFromButton:(UIButton*)button
-{
-    [self currentSceneStatusAtLocation:@"Create STInteractiveElement from Button"];
-    //For now they will all be similar, but eventually the different Elements will have different
-    //initial parameters and must be set in this method.
-    switch (button.tag)
-    {
-        case STInteractiveSceneElementTypeActor:
-        {
-            STActorSceneElement *tempActor = [STActorSceneElement initActorWithName:button.titleLabel.text
-                                                                     withImage:button.imageView.image
-                                                                 withinContext:self.currentContext
-                                                                    centeredAt:button.center];
-            
-            [self.currentScene addActorSceneElementListObject:tempActor];
-            
-        }
-            break;
-        case STInteractiveSceneElementTypeEnvironment:
-        {
-        }
-            break;
-        case STInteractiveSceneElementTypeObject:
-            break;
-        default: // Invalid Datatype
-            break;
-    }
-}
 
 /**
  *  This method is called on finished dragging from an RCDraggableButton.
@@ -247,27 +287,52 @@
     {
         case STInteractiveSceneElementTypeActor:
         {
-            STActorSceneElement *temp = [STActorSceneElement findActorSceneElementWithName:button.titleLabel.text
-                                                                                   inStory:self.currentScene.belongingStory
-                                                                                   inScene:self.currentScene
-                                                                                 inContext:self.currentContext];
-                                         
+            STActorSceneElement *temp = (STActorSceneElement *)
+                                        [STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeActor
+                                                                                 withName:button.titleLabel.text
+                                                                                  inStory:self.currentScene.belongingStory
+                                                                                  inScene:self.currentScene
+                                                                                inContext:self.context];
+            
             //If there was a returned ActorSceneElement, otherwise, there was an error.
             if(temp)
             {
-                NSLog(@"Button Center: %lf , %lf", button.center.x, button.center.y);
                 [temp setCenterPoint:button.center];
             }
         }
             break;
+            
         case STInteractiveSceneElementTypeEnvironment:
         {
+            STEnvironmentSceneElement *temp = (STEnvironmentSceneElement *)
+                                              [STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeEnvironment
+                                                                                       withName:button.titleLabel.text
+                                                                                        inStory:self.currentScene.belongingStory
+                                                                                        inScene:self.currentScene
+                                                                                      inContext:self.context];
             
+            //If there was a returned Environment, otherwise, there was an error.
+            if(temp)
+            {
+                [temp setCenterPoint:button.center];
+            }
         }
             break;
+            
         case STInteractiveSceneElementTypeObject:
         {
+            STObjectSceneElement *temp = (STObjectSceneElement *)
+                                         [STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeObject
+                                                                                  withName:button.titleLabel.text
+                                                                                   inStory:self.currentScene.belongingStory
+                                                                                   inScene:self.currentScene
+                                                                                 inContext:self.context];
             
+            //If there was a returned Object, otherwise, there was an error.
+            if(temp)
+            {
+                [temp setCenterPoint:button.center];
+            }
         }
             break;
         default:

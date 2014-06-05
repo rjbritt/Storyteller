@@ -85,9 +85,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTA-Yx-To7"/>
-                                    <barButtonItem title="Environment" id="OeE-Yt-xZY"/>
+                                    <barButtonItem title="Environment" id="OeE-Yt-xZY">
+                                        <connections>
+                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="8l1-bc-eio"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="iJh-0k-IoS"/>
-                                    <barButtonItem title="Object" id="Ojs-Iq-qBA"/>
+                                    <barButtonItem title="Object" id="Ojs-Iq-qBA">
+                                        <connections>
+                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="knF-0R-5Xe"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hi4-Tq-in5"/>
                                 </items>
                             </toolbar>

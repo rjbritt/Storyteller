@@ -7,6 +7,17 @@
 //
 
 #import "STInteractiveSceneElement.h"
+@class STStory;
+@class STInteractiveScene;
+
+typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
+{
+    STInteractiveSceneElementTypeActor = 1000,
+    STInteractiveSceneElementTypeEnvironment,
+    STInteractiveSceneElementTypeObject
+    
+};
+
 
 @interface STInteractiveSceneElement (EaseOfUse)
 
@@ -14,5 +25,17 @@
 -(void) setCenterPoint:(CGPoint)point;
 -(UIImage *) getUIImageFromData;
 -(void) setImageDataFromUIImage: (UIImage *)image;
+
++(STInteractiveSceneElement *)initializeSceneElementType:(STInteractiveSceneElementType)elementType
+                                                           withName:(NSString *)name
+                                                          withImage:(UIImage *)image
+                                                      withinContext:(NSManagedObjectContext *)context
+                                                         centeredAt:(CGPoint)center;
+
++(STInteractiveSceneElement *)findSceneElementOfType:(STInteractiveSceneElementType)elementType
+                                            withName:(NSString *)name
+                                             inStory:(STStory *)story
+                                             inScene:(STInteractiveScene *)scene
+                                           inContext:(NSManagedObjectContext *)context;
 
 @end

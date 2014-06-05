@@ -12,9 +12,4 @@
 
 @interface STActorSceneElement (EaseOfUse)
 
-+(STActorSceneElement *)initActorWithName: (NSString *) name withImage:(UIImage *)image withinContext:(NSManagedObjectContext *)context centeredAt:(CGPoint) center;
-+(STActorSceneElement *)findActorSceneElementWithName:(NSString *)name
-                                              inStory:(STStory *)story
-                                              inScene:(STInteractiveScene *)scene
-                                            inContext:(NSManagedObjectContext *)context;
 @end
