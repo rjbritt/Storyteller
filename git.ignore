@@ -1,6 +1,6 @@
 # Created by http://www.gitignore.io
 
-### Xcode  ###
+### Xcode  ### Updated 6/4/2014
 build/
 *.pbxuser
 !default.pbxuser
@@ -10,7 +10,10 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+xcuserdata
 *.xcuserdata
+xcshareddata
+*.xcshareddata
 *.xccheckout
 *.moved-aside
 DerivedData
