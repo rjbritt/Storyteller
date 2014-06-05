@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B56B9FC7A9643FE97C67ED5"
+               BlueprintIdentifier = "13E7B4D44C96494BA77BC56E"
                BuildableName = "libPods-Storyteller-KCOrderedAccessorFix.a"
                BlueprintName = "Pods-Storyteller-KCOrderedAccessorFix"
                ReferencedContainer = "container:Pods.xcodeproj">
