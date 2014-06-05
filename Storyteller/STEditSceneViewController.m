@@ -198,7 +198,7 @@
 
 /**
  *  This method is called from an appropriate button response method in order to create a new Interactive Scene Element
- *  with the correct default parameters and add it to the correct list.
+ *  with the correct default parameters and add it to the correct list
  *
  *  @param button The button that will be turned into a new STInteractiveSceneElement.
  */
