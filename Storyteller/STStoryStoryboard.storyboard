@@ -87,16 +87,21 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTA-Yx-To7"/>
                                     <barButtonItem title="Environment" id="OeE-Yt-xZY">
                                         <connections>
-                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="8l1-bc-eio"/>
+                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="91d-Bb-n0p"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="iJh-0k-IoS"/>
                                     <barButtonItem title="Object" id="Ojs-Iq-qBA">
                                         <connections>
-                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="knF-0R-5Xe"/>
+                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="qSI-JR-fqD"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hi4-Tq-in5"/>
+                                    <barButtonItem title="Play" id="9Ty-E6-nWL">
+                                        <connections>
+                                            <action selector="playButton:" destination="j6J-Z6-QVO" id="qTO-nc-gf7"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -152,7 +157,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbq-rr-sfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3479" y="-1574"/>
+            <point key="canvasLocation" x="-4423" y="-1998"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Iz-Vp-m5V">
+            <objects>
+                <navigationController storyboardIdentifier="STSceneViewController" definesPresentationContext="YES" id="4gp-rS-psh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3cN-JV-M5J">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TFG-ky-bog" kind="relationship" relationship="rootViewController" id="Hi8-IZ-7Iv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1w-2f-WNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4843" y="-1614"/>
+        </scene>
+        <!--Edit Scene View Controller-->
+        <scene sceneID="vxU-bj-Mak">
+            <objects>
+                <viewController id="TFG-ky-bog" customClass="STEditSceneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="txx-fP-t2e"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Zs-NW-vvs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zFJ-yk-epK" customClass="Ste">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Tkh-Ho-0mm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yD0-V7-6i9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3905" y="-1614"/>
         </scene>
     </scenes>
     <resources>

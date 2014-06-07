@@ -7,6 +7,7 @@
 //
 
 #import "STEditSceneViewController.h"
+#import "STEditStoryTableViewController.h"
 
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
@@ -38,28 +39,50 @@
 
 - (IBAction)playButton:(id)sender
 {
-    UIViewController * stInteractiveSceneSKSceneViewController = [[UIViewController alloc]init]; 
+        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+    UINavigationController * stInteractiveSceneSKSceneViewController = [newStoryboard instantiateViewControllerWithIdentifier:@"STSceneViewController"];
     
     // Configure the view.
     SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
-    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andName:self.title];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andScene:self.currentScene];
+        scene.scaleMode = SKSceneScaleModeAspectFit;
     
-    stInteractiveSceneSKSceneViewController.view = skView;
+    [stInteractiveSceneSKSceneViewController.visibleViewController.view addSubview: skView];
     
+//    UIBarButtonItem *backToSceneButton = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStylePlain target:self action:@selector(backToSceneSelection)];
+//
+//    stInteractiveSceneSKSceneViewController.visibleViewController.navigationItem.leftBarButtonItem = backToSceneButton;
+//    
     // Present the scene.
     [skView presentScene:scene];
     
-
-    //Push the view controller
-    ((STNavigationController*)self.navigationController).forceNoAnimatePop = YES;
-    [self.navigationController pushViewController:stInteractiveSceneSKSceneViewController animated:NO];
+    self.view.window.rootViewController = stInteractiveSceneSKSceneViewController;
     
 }
 
+-(void)backToSceneSelection
+{
+    //Get new Storyboard and root UISplitViewController
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
+    
+    //Get splitView components
+    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
+    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
+    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
+    
+    //Set properties and delegates.
+    editStoryVC.currentStory = self.currentScene.belongingStory;
+    editSceneVC.currentScene = [self.currentScene.belongingStory stInteractiveCurrentEditingScene];
+    editStoryVC.editSceneDelegate = editSceneVC;
+    
+#warning Insert Animation Here
+    
+    self.view.window.rootViewController = nextViewController;
+}
 
 /**
  * This method will add an appropriate RCDraggableButton and

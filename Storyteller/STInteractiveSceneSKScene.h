@@ -7,11 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "STActorSceneElement+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+@class STInteractiveScene;
 
 @interface STInteractiveSceneSKScene : SKScene
 
--(id)initWithSize:(CGSize)size andName:(NSString *) name;
+-(id)initWithSize:(CGSize)size andScene:(STInteractiveScene *) scene;
 
 @end
