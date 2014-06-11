@@ -10,7 +10,7 @@
 @class STInteractiveScene;
 
 @interface STInteractiveSceneSKScene : SKScene
-
+@property (strong, nonatomic, readonly) STInteractiveScene *currentScene;
 -(id)initWithSize:(CGSize)size andScene:(STInteractiveScene *) scene;
 
 @end

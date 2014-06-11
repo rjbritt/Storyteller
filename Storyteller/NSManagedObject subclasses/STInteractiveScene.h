@@ -2,14 +2,14 @@
 //  STInteractiveScene.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/31/14.
+//  Created by Ryan Britt on 6/9/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class STActorSceneElement, STEnvironmentSceneElement, STInteractiveScene, STMedia, STObjectSceneElement, STStory;
+@class STActorSceneElement, STEnvironmentSceneElement, STMedia, STObjectSceneElement, STStory;
 
 @interface STInteractiveScene : NSManagedObject
 
@@ -20,9 +20,7 @@
 @property (nonatomic, retain) NSOrderedSet *actorSceneElementList;
 @property (nonatomic, retain) STStory *belongingStory;
 @property (nonatomic, retain) NSOrderedSet *environmentSceneElementList;
-@property (nonatomic, retain) STInteractiveScene *nextScene;
 @property (nonatomic, retain) NSOrderedSet *objectSceneElementList;
-@property (nonatomic, retain) STInteractiveScene *previousScene;
 @property (nonatomic, retain) STMedia *sceneMedia;
 @end
 

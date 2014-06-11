@@ -86,7 +86,7 @@
     STStory *selectedStory = self.storyList[indexPath.row];
     
     //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
     UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
     
     //Get splitView components

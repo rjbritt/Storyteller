@@ -9,6 +9,7 @@
 #import "STEditStoryTableViewController.h"
 #import "STEditSceneViewController.h"
 #import "STMainViewController.h"
+#import "STPlayStoryPageViewController.h"
 
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
@@ -38,9 +39,12 @@
     [self.navigationItem setTitle:self.currentStory.name];
     
     //Set the buttons for the navigation bar of this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"All Stories" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
+    
+    UIBarButtonItem *playBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playStory)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
+    self.navigationItem.rightBarButtonItems = @[playBarButton, self.editButtonItem];
+
     
 }
 
@@ -56,6 +60,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void)playStory
+{
+    STPlayStoryPageViewController *playStoryVC = [[STPlayStoryPageViewController alloc]init];
+    playStoryVC.story = self.currentStory;
+    self.view.window.rootViewController = playStoryVC;
+
 }
 
 -(void)toMainViewController

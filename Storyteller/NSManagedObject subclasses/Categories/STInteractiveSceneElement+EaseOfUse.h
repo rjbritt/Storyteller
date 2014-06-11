@@ -14,8 +14,8 @@ typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
 {
     STInteractiveSceneElementTypeActor = 1000,
     STInteractiveSceneElementTypeEnvironment,
-    STInteractiveSceneElementTypeObject
-    
+    STInteractiveSceneElementTypeObject,
+    STInteractiveSceneElementTypeObjectText,
 };
 
 
@@ -37,5 +37,7 @@ typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
                                              inStory:(STStory *)story
                                              inScene:(STInteractiveScene *)scene
                                            inContext:(NSManagedObjectContext *)context;
+
+//+(NSArray*)findAllSceneElements
 
 @end

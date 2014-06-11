@@ -22,9 +22,7 @@
         <relationship name="actorSceneElementList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STActorSceneElement" inverseName="belongingScene" inverseEntity="STActorSceneElement" syncable="YES"/>
         <relationship name="belongingStory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STStory" inverseName="interactiveSceneList" inverseEntity="STStory" syncable="YES"/>
         <relationship name="environmentSceneElementList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STEnvironmentSceneElement" inverseName="belongingScene" inverseEntity="STEnvironmentSceneElement" syncable="YES"/>
-        <relationship name="nextScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="previousScene" inverseEntity="STInteractiveScene" syncable="YES"/>
         <relationship name="objectSceneElementList" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="STObjectSceneElement" inverseName="belongingScene" inverseEntity="STObjectSceneElement" syncable="YES"/>
-        <relationship name="previousScene" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STInteractiveScene" inverseName="nextScene" inverseEntity="STInteractiveScene" syncable="YES"/>
         <relationship name="sceneMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMedia" syncable="YES"/>
     </entity>
     <entity name="STInteractiveSceneElement" representedClassName="STInteractiveSceneElement" syncable="YES">
@@ -50,15 +48,15 @@
         <relationship name="storyMedia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STMedia" syncable="YES"/>
     </entity>
     <elements>
-        <element name="STInteractiveScene" positionX="351" positionY="54" width="128" height="208"/>
-        <element name="STInteractiveSceneElement" positionX="153" positionY="-81" width="128" height="103"/>
-        <element name="STMedia" positionX="718" positionY="54" width="128" height="43"/>
-        <element name="STStory" positionX="558" positionY="54" width="128" height="133"/>
-        <element name="STActorSceneElement" positionX="151" positionY="41" width="128" height="73"/>
-        <element name="STObjectSceneElement" positionX="151" positionY="198" width="128" height="73"/>
-        <element name="STEnvironmentSceneElement" positionX="151" positionY="122" width="128" height="73"/>
         <element name="STActorMind" positionX="-54" positionY="45" width="128" height="58"/>
+        <element name="STActorSceneElement" positionX="151" positionY="41" width="128" height="73"/>
         <element name="STEnvironmentMind" positionX="-54" positionY="110" width="128" height="58"/>
+        <element name="STEnvironmentSceneElement" positionX="151" positionY="122" width="128" height="73"/>
+        <element name="STInteractiveScene" positionX="351" positionY="54" width="128" height="180"/>
+        <element name="STInteractiveSceneElement" positionX="153" positionY="-81" width="128" height="103"/>
+        <element name="STMedia" positionX="718" positionY="54" width="128" height="45"/>
         <element name="STObjectMind" positionX="-54" positionY="182" width="128" height="58"/>
+        <element name="STObjectSceneElement" positionX="151" positionY="198" width="128" height="73"/>
+        <element name="STStory" positionX="558" positionY="54" width="128" height="133"/>
     </elements>
 </model>

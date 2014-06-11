@@ -39,7 +39,7 @@
 
 - (IBAction)playButton:(id)sender
 {
-        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
+        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
     UINavigationController * stInteractiveSceneSKSceneViewController = [newStoryboard instantiateViewControllerWithIdentifier:@"STSceneViewController"];
     
     // Configure the view.
@@ -52,6 +52,8 @@
     
     [stInteractiveSceneSKSceneViewController.visibleViewController.view addSubview: skView];
     
+    
+    //Will need to subclass UIViewController for the stInteractiveSceneSKSceneViewController to have a back button.
 //    UIBarButtonItem *backToSceneButton = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStylePlain target:self action:@selector(backToSceneSelection)];
 //
 //    stInteractiveSceneSKSceneViewController.visibleViewController.navigationItem.leftBarButtonItem = backToSceneButton;
@@ -119,6 +121,12 @@
     
 }
 
+/**
+ * This method will add an appropriate RCDraggableButton and
+ * call the method to add a new STEnvironmentSceneElement for a new Environment.
+ *
+ * @param sender The button that sent this action
+ */
 - (IBAction)addEnvironmentButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add EnvButton"];
@@ -146,6 +154,12 @@
                                  withImage:image];
 }
 
+/**
+ * This method will add an appropriate RCDraggableButton and
+ * call the method to add a new STObjectSceneElement for a new Object.
+ *
+ * @param sender The button that sent this action
+ */
 - (IBAction)addObjectButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add Object"];
@@ -173,6 +187,13 @@
                                  withImage:image];
 }
 
+-(IBAction)addTextButton:(id)sender
+{
+    CGFloat top = self.topLayoutGuide.length;
+    
+//    CGRect *frame = CGRectMake(0, 0, 0, 0)
+    [self createNewDraggableButtonWithText:@"This is a test button. "];
+}
 
 #pragma mark - View Methods
 
@@ -207,6 +228,43 @@
     [self.view addSubview:temp];
     return temp;
 }
+
+-(void)createNewDraggableButtonWithText:(NSString *)text
+{
+    [self currentSceneStatusAtLocation:@"CreateNewTextDraggableButton"];
+
+    NSArray *words = [text componentsSeparatedByString:@" "];
+    
+    for (NSString *word in words)
+    {
+        CGSize maxSize = CGSizeMake(280, 9999);
+        
+        CGRect labelFrame = [self rectForText:word
+                                    usingFont:[UIFont systemFontOfSize:40]
+                                boundedBySize:maxSize];
+        labelFrame.origin = CGPointMake(20, 20);
+        
+        //Create RCDraggableButton with aforementioned information
+        RCDraggableButton *temp = [[RCDraggableButton alloc] initWithFrame:labelFrame];
+        
+        [temp.titleLabel setFont:[UIFont systemFontOfSize:40]];
+        [temp setTitle:word forState:UIControlStateNormal];
+        [temp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        
+        //Setup the Button Functions
+        temp.dragEndedBlock = //This is the code block that is called at the end of a drag of the RCDraggableButton.
+        ^(RCDraggableButton * button)
+        {
+        };
+        
+        //Add as subview and return
+        [self.view addSubview:temp];
+    }
+
+    
+}
+
 #pragma mark - View Life Cycle Methods
 
 - (void)viewDidLoad
@@ -295,7 +353,7 @@
 #pragma mark - InteractiveSceneElement Update from UIKit
 
 /**
- *  This method is called on finished dragging from an RCDraggableButton.
+ *  This method is called on finished dragging from an RCDraggableButton for a STInteractiveSceneElement.
  *
  *  @param button The button that sent this message.
  */
@@ -381,6 +439,28 @@
     return frame;
 }
 
+/**
+ *  Easy method of calculating a bounding rectangle for variable length text. 
+ *  Obtained from http://stackoverflow.com/questions/9181368/ios-dynamic-sizing-labels/18750292#18750292
+ *
+ *  @param text    The text for which a user wants the bounding rectangle.
+ *  @param font    The font the text will use.
+ *  @param maxSize The maximum size that the rectangle can be.
+ *
+ *  @return returns An appropriate bounding rectangle for the particular text.
+ */
+-(CGRect)rectForText:(NSString *)text
+           usingFont:(UIFont *)font
+       boundedBySize:(CGSize)maxSize
+{
+    NSAttributedString *attrString =
+    [[NSAttributedString alloc] initWithString:text
+                                    attributes:@{ NSFontAttributeName:font}];
+    
+    return [attrString boundingRectWithSize:maxSize
+                                    options:NSStringDrawingUsesLineFragmentOrigin
+                                    context:nil];
+}
 
 -(void)currentSceneStatusAtLocation:(NSString *)location
 {

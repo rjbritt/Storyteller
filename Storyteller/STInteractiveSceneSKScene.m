@@ -19,8 +19,8 @@
 
 //class extension for private properties
 @interface STInteractiveSceneSKScene()
+@property (strong, nonatomic, readwrite) STInteractiveScene *currentScene;
 @property (strong, nonatomic) NSManagedObjectContext * currentContext;
-@property (strong, nonatomic) STInteractiveScene *currentScene;
 @end
 
 @implementation STInteractiveSceneSKScene

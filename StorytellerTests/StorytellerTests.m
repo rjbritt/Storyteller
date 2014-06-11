@@ -7,8 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "STAppDelegate.h"
+
+#import "STInteractiveSceneElement+EaseOfUse.h"
+
 
 @interface StorytellerTests : XCTestCase
+@property (strong, nonatomic) NSManagedObjectContext *context;
 
 @end
 
@@ -17,13 +22,35 @@
 - (void)setUp
 {
     [super setUp];
+    self.context = ((STAppDelegate *)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [self.context reset];
     [super tearDown];
+}
+
+-(void)testRetrieveAllSceneElements
+{
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+                                                 withName:@"name 1"
+                                                withImage:[UIImage imageNamed:@"Actor"]
+                                            withinContext:self.context centeredAt:CGPointMake(0, 0)];
+    
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeEnvironment
+                                                 withName:@"name 1"
+                                                withImage:[UIImage imageNamed:@"Environment"]
+                                            withinContext:self.context centeredAt:CGPointMake(0, 0)];
+    
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeObject
+                                                 withName:@"name 1"
+                                                withImage:[UIImage imageNamed:@"NPC"]
+                                            withinContext:self.context centeredAt:CGPointMake(0, 0)];
+    
+//    [STInteractiveSceneElement find]
 }
 
 @end

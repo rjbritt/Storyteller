@@ -74,24 +74,22 @@
 
 -(void)testNextAndPreviousScenes
 {
+    STStory *test = [STStory initWithName:@"story1" inContext:self.context];
+    
     STInteractiveScene *firstScene = [STInteractiveScene initWithName:@"One" inContext:self.context];
     STInteractiveScene *secondScene = [STInteractiveScene initWithName:@"Two" inContext:self.context];
     STInteractiveScene *thirdScene = [STInteractiveScene initWithName:@"Three" inContext:self.context];
     
-    firstScene.previousScene = nil;
-    firstScene.nextScene = secondScene;
+    [test addInteractiveSceneListObject:firstScene];
+    [test addInteractiveSceneListObject:thirdScene];
     
-    secondScene.previousScene = firstScene;
-    secondScene.nextScene = thirdScene;
+    int index = [test.interactiveSceneList indexOfObject:thirdScene];
     
-    thirdScene.previousScene = secondScene;
-    thirdScene.nextScene = nil;
-    
-    XCTAssert([@"Three" isEqualToString:firstScene.nextScene.nextScene.name]);
-    XCTAssert([@"One" isEqualToString:thirdScene.previousScene.previousScene.name]);
-    XCTAssert([@"One" isEqualToString:firstScene.nextScene.previousScene.name]);
-    XCTAssert([@"Two" isEqualToString:firstScene.nextScene.name]);
-    XCTAssert([@"Three" isEqualToString:thirdScene.previousScene.previousScene.nextScene.nextScene.name]);
+    [test insertObject:secondScene inInteractiveSceneListAtIndex:index];
+
+    XCTAssert([@"One" isEqualToString:((STInteractiveScene *)test.interactiveSceneList[0]).name]);
+    XCTAssert([@"Two" isEqualToString:((STInteractiveScene *)test.interactiveSceneList[1]).name]);
+    XCTAssert([@"Three" isEqualToString:((STInteractiveScene *)test.interactiveSceneList[2]).name]);
     
 }
 
