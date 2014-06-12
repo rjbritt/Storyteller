@@ -2,7 +2,7 @@
 //  STInteractiveScene.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 6/9/14.
+//  Created by Ryan Britt on 6/11/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -21,7 +21,7 @@
 @property (nonatomic, retain) STStory *belongingStory;
 @property (nonatomic, retain) NSOrderedSet *environmentSceneElementList;
 @property (nonatomic, retain) NSOrderedSet *objectSceneElementList;
-@property (nonatomic, retain) STMedia *sceneMedia;
+@property (nonatomic, retain) NSSet *sceneMedia;
 @end
 
 @interface STInteractiveScene (CoreDataGeneratedAccessors)
@@ -56,4 +56,9 @@
 - (void)removeObjectSceneElementListObject:(STObjectSceneElement *)value;
 - (void)addObjectSceneElementList:(NSOrderedSet *)values;
 - (void)removeObjectSceneElementList:(NSOrderedSet *)values;
+- (void)addSceneMediaObject:(STMedia *)value;
+- (void)removeSceneMediaObject:(STMedia *)value;
+- (void)addSceneMedia:(NSSet *)values;
+- (void)removeSceneMedia:(NSSet *)values;
+
 @end

@@ -13,6 +13,8 @@
 #import "STInteractiveScene+EaseOfUse.h"
 #import "STInteractiveSceneElement+EaseOfUse.h"
 #import "STActorSceneElement+EaseOfUse.h"
+#import "STTextMedia+EaseOfUse.h"
+#import "STMedia+EaseOfUse.h"
 
 #import "STEnvironmentSceneElement.h"
 #import "STObjectSceneElement.h"
@@ -21,6 +23,7 @@
 #import "STInteractiveSceneSKScene.h"
 #import "STNavigationController.h"
 #import <RCDraggableButton.h>
+#import <UIView+DragDrop.h>
 
 
 @interface STEditSceneViewController()
@@ -189,10 +192,12 @@
 
 -(IBAction)addTextButton:(id)sender
 {
-    CGFloat top = self.topLayoutGuide.length;
+    NSString *text = @"Insert Text Here.";
+    CGPoint center = CGPointMake(100, 100);
     
-//    CGRect *frame = CGRectMake(0, 0, 0, 0)
-    [self createNewDraggableButtonWithText:@"This is a test button. "];
+    STTextMedia *media = [STTextMedia initWithText:text withFontSize:20 inContext:self.context atCenter:center];
+    [self.currentScene addSceneMediaObject:media];
+    [self createNewDraggableTextViewWithText:text atCenter:center];
 }
 
 #pragma mark - View Methods
@@ -229,40 +234,26 @@
     return temp;
 }
 
--(void)createNewDraggableButtonWithText:(NSString *)text
+-(UITextView *)createNewDraggableTextViewWithText:(NSString *)text atCenter:(CGPoint)center
 {
-    [self currentSceneStatusAtLocation:@"CreateNewTextDraggableButton"];
-
-    NSArray *words = [text componentsSeparatedByString:@" "];
+    CGRect frame = [STTextMedia genericRectForTextFieldAtCenter:center];
+    UITextView *tempTextView = [[UITextView alloc]initWithFrame:frame];
+    [tempTextView setFont:[UIFont systemFontOfSize:20]];
+    tempTextView.text = text;
+    tempTextView.opaque =  NO;
+    tempTextView.backgroundColor = [UIColor clearColor];
+    tempTextView.tag = STTextMediaType;
     
-    for (NSString *word in words)
-    {
-        CGSize maxSize = CGSizeMake(280, 9999);
-        
-        CGRect labelFrame = [self rectForText:word
-                                    usingFont:[UIFont systemFontOfSize:40]
-                                boundedBySize:maxSize];
-        labelFrame.origin = CGPointMake(20, 20);
-        
-        //Create RCDraggableButton with aforementioned information
-        RCDraggableButton *temp = [[RCDraggableButton alloc] initWithFrame:labelFrame];
-        
-        [temp.titleLabel setFont:[UIFont systemFontOfSize:40]];
-        [temp setTitle:word forState:UIControlStateNormal];
-        [temp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
-        
-        //Setup the Button Functions
-        temp.dragEndedBlock = //This is the code block that is called at the end of a drag of the RCDraggableButton.
-        ^(RCDraggableButton * button)
-        {
-        };
-        
-        //Add as subview and return
-        [self.view addSubview:temp];
-    }
-
     
+    //make a view draggable
+    [tempTextView makeDraggable];
+    [tempTextView setDragMode:UIViewDragDropModeNormal];
+#warning will need to set delegate in order to execute update on successful drag.
+    
+    
+    [self.view addSubview: tempTextView];
+    
+    return tempTextView;
 }
 
 #pragma mark - View Life Cycle Methods
@@ -316,6 +307,8 @@
     NSArray *actorsInCurrentScene = [self.currentScene.actorSceneElementList array];
     NSArray *environmentsInCurrentScene = [self.currentScene.environmentSceneElementList array];
     NSArray *objectsInCurrentScene = [self.currentScene.objectSceneElementList array];
+    
+    NSArray *mediaInCurrentScene = [self.currentScene.sceneMedia allObjects];
 
     NSArray *allInteractiveElements = [[actorsInCurrentScene arrayByAddingObjectsFromArray:environmentsInCurrentScene]arrayByAddingObjectsFromArray:objectsInCurrentScene];
     
@@ -348,9 +341,40 @@
                                      withImage:theImage];
     }
     
+    for (STMedia *media in mediaInCurrentScene)
+    {
+        STMediaType mediaType;
+        if([media isMemberOfClass:[STTextMedia class]])
+        {
+            mediaType = STTextMediaType;
+            STTextMedia *textMedia = (STTextMedia *)media;
+            [self createNewDraggableTextViewWithText:textMedia.text atCenter:[textMedia centerPointCGPoint]];
+            
+            
+        }
+    }
+    
 }
 
-#pragma mark - InteractiveSceneElement Update from UIKit
+
+#pragma mark - Scene Update from UIKit
+
+//need another method to update text
+-(void)updateMediaElementLocationForSender:(id)sender
+{
+    //update STTextMedia;
+    if ([sender isMemberOfClass:[UITextView class]])
+    {
+        UITextView *textView = (UITextView *)sender;
+        STTextMedia *media = [STTextMedia findTextMediaWithText:textView.text
+                                                        inScene:self.currentScene
+                                                       andStory:self.currentScene.belongingStory
+                                                      inContext:self.context];
+        
+        [media setCenterPoint:textView.center];
+    }
+}
+
 
 /**
  *  This method is called on finished dragging from an RCDraggableButton for a STInteractiveSceneElement.

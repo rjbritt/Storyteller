@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Storyteller-UIView+DragDrop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Storyteller.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-StorytellerTests-UIView+DragDrop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StorytellerTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13E7B4D44C96494BA77BC56E</key>
+		<key>0B8AF440FB2348B9B892AC64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C92A58CE4094B1588ACD71C</key>
+		<key>2569F8A66ED54DF58E64B85D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31F307A4C25C4E86BE16020C</key>
+		<key>25F12F49020A4B4DA5ADF8AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>997F067AAB594C019410D79B</key>
+		<key>4515D9EC450047CEBA758443</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF5078EB4B3C4603B51BAAFE</key>
+		<key>6674E3B468244DC1A9C725FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D31E7D0B1ADF43DF87ACC8C5</key>
+		<key>6F2C215E375D40DC8AF49B4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A10D9C5C9D8C46C7B8D0C94A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1DE25233AC54080A1BF21E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

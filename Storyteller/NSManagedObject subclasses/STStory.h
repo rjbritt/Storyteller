@@ -2,7 +2,7 @@
 //  STStory.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/31/14.
+//  Created by Ryan Britt on 6/11/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -14,11 +14,11 @@
 @interface STStory : NSManagedObject
 
 @property (nonatomic) int32_t editingSceneIndex;
+@property (nonatomic) BOOL isOrdered;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int32_t startingSceneIndex;
-@property (nonatomic) BOOL isOrdered;
 @property (nonatomic, retain) NSOrderedSet *interactiveSceneList;
-@property (nonatomic, retain) STMedia *storyMedia;
+@property (nonatomic, retain) NSSet *storyMedia;
 @end
 
 @interface STStory (CoreDataGeneratedAccessors)
@@ -33,4 +33,9 @@
 - (void)removeInteractiveSceneListObject:(STInteractiveScene *)value;
 - (void)addInteractiveSceneList:(NSOrderedSet *)values;
 - (void)removeInteractiveSceneList:(NSOrderedSet *)values;
+- (void)addStoryMediaObject:(STMedia *)value;
+- (void)removeStoryMediaObject:(STMedia *)value;
+- (void)addStoryMedia:(NSSet *)values;
+- (void)removeStoryMedia:(NSSet *)values;
+
 @end
