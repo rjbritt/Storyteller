@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <UIView+DragDrop.h>
+
 
 @class STInteractiveScene;
 
-@interface STEditSceneViewController : UIViewController
+@interface STEditSceneViewController : UIViewController<UIViewDragDropDelegate>
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 @end

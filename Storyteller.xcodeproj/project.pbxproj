@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150E8CFA046E4AA996CC8A92 /* libPods-Storyteller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E3F706566947D19ED69877 /* libPods-Storyteller.a */; };
+		2F1E7568194A70C000CF064D /* STPresentSKSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */; };
 		2F2545E3192404EF008A3163 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F2545E2192404EF008A3163 /* README.md */; };
 		2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA0E19325B8D00B94507 /* STMainViewController.m */; };
 		2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */; };
@@ -91,6 +92,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F1E7566194A70C000CF064D /* STPresentSKSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPresentSKSceneViewController.h; sourceTree = "<group>"; };
+		2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPresentSKSceneViewController.m; sourceTree = "<group>"; };
 		2F2545E2192404EF008A3163 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		2F48DA0D19325B8D00B94507 /* STMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMainViewController.h; sourceTree = "<group>"; };
 		2F48DA0E19325B8D00B94507 /* STMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMainViewController.m; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				2F609134193419FE001787A3 /* STEditStoryTableViewController.m */,
 				2F8B515218E7679200A5CBEF /* STEditSceneViewController.h */,
 				2F8B515318E7679200A5CBEF /* STEditSceneViewController.m */,
+				2F1E7566194A70C000CF064D /* STPresentSKSceneViewController.h */,
+				2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */,
 				2FA2BED1194696760007D813 /* Play Story View Controllers */,
 			);
 			name = "View Controllers";
@@ -623,6 +628,7 @@
 				2F4C136C19495131003639F3 /* STStory.m in Sources */,
 				2F7CF7E018F07BB90072490B /* CoreDataHelper.m in Sources */,
 				2F8B517C18E7B4FA00A5CBEF /* DraggableButton.m in Sources */,
+				2F1E7568194A70C000CF064D /* STPresentSKSceneViewController.m in Sources */,
 				2F4C135619493F95003639F3 /* STTextMedia+EaseOfUse.m in Sources */,
 				2F94661A1932E4D50043E76B /* STStory+EaseOfUse.m in Sources */,
 				2FE0002C193BA455003719DC /* STObjectSceneElement.m in Sources */,

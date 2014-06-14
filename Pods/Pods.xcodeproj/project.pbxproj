@@ -7,553 +7,466 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		044BE2749B5748F88DABB31A /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */ = {isa = PBXBuildFile; fileRef = 91704F913E974435BE59C872 /* NSManagedObjectModel+KCOrderedAccessorFix.h */; };
-		04FF66342AC944E2B12C658C /* RCDraggableButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 670B304F8F2C44D9945DA183 /* RCDraggableButton.h */; };
-		0586159EC0E2439CBB34F1DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		0588BB2515184F1CAE099268 /* Pods-Storyteller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD82B2601A014C288ED0CDEF /* Pods-Storyteller-dummy.m */; };
-		08940F996F1B4A7ABC53AFAF /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */ = {isa = PBXBuildFile; fileRef = 91704F913E974435BE59C872 /* NSManagedObjectModel+KCOrderedAccessorFix.h */; };
-		0C4F2858920F42EB8259EEF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		173961CA749540A3AE9103FF /* libPods-Storyteller-KCOrderedAccessorFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 817104AF35F6419DA8D4BFB0 /* libPods-Storyteller-KCOrderedAccessorFix.a */; };
-		2A5E16744DA04FA3AFF69D1E /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B989561BA41C2BEB58B48 /* RCDraggableButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		34161A3811BD4B09A2F916E5 /* libPods-StorytellerTests-KCOrderedAccessorFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C502EE39CB4F5D9BFD8ABF /* libPods-StorytellerTests-KCOrderedAccessorFix.a */; };
-		3E207737942D41C9B5AEF5E3 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA3B6BBA8A448D8FA22D39 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */; };
-		3E98159408F144FE82BB6B67 /* libPods-StorytellerTests-UIView+DragDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEB3A746A414BF5B39E2B0F /* libPods-StorytellerTests-UIView+DragDrop.a */; };
-		45F2FF32FD3D4952A7DC1281 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9DD6F8144D401B868E0415 /* CoreData.framework */; };
-		56A95ED8F74B4E2EBA992E40 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5724DB589428E9B224575 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */; };
-		6313EF56A74341AE90D13AC8 /* Pods-StorytellerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C799090850174500A3ABB565 /* Pods-StorytellerTests-dummy.m */; };
-		65AE4F1E22DA4FAC91086E74 /* UIView+DragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D3D21FB0C4EF79F5E56B8 /* UIView+DragDrop.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		6F3E3821762C41EDB31E254D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B2E228B0D4A73ADF4F9E3 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		7174DCD8332C49029CC0E9E7 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6B2E228B0D4A73ADF4F9E3 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		770E1EF2CE3542B58599A220 /* UIView+DragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 541D3D21FB0C4EF79F5E56B8 /* UIView+DragDrop.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		8165B7823F2C47C4B290C974 /* libPods-Storyteller-UIView+DragDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A63096ECF24B6798A15A03 /* libPods-Storyteller-UIView+DragDrop.a */; };
-		81A0FE452D4C4179A54FE926 /* RCDraggableButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 670B304F8F2C44D9945DA183 /* RCDraggableButton.h */; };
-		88E83481DEEC4D2EB39B951D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		919ED3C7C08F4228BF0347F2 /* libPods-Storyteller-RCDraggableButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B791E6A0BDD24BA7AD727EC6 /* libPods-Storyteller-RCDraggableButton.a */; };
-		9623749B23844F99B37F31C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		96CA0F2FCBB14911AD75D828 /* UIView+DragDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = A228F07873B14D9EB7A8B006 /* UIView+DragDrop.h */; };
-		A4822C066D984EFE94EA78CC /* Pods-Storyteller-RCDraggableButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6059173DAE54E31AF77D3D7 /* Pods-Storyteller-RCDraggableButton-dummy.m */; };
-		A5E5166915B7451D9F668449 /* UIView+DragDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = A228F07873B14D9EB7A8B006 /* UIView+DragDrop.h */; };
-		AA46F9BCDC0D4C5BB4173ED9 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 346FDBB9605E4FBABFC9B784 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */; };
-		AC8883778F5A4BDEA6E9401C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		ADCECE8C5C0640A8B2C6896E /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B989561BA41C2BEB58B48 /* RCDraggableButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
-		B4AB5505F00141FDBB99E98D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		CE3CE557DB7A4B94B73B27C2 /* Pods-StorytellerTests-RCDraggableButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C926C7D1F84B4B9D718E73 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */; };
-		DC54E4785CAA4B05A3C63FDF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9DD6F8144D401B868E0415 /* CoreData.framework */; };
-		EC0C36F2B373492296BF731F /* libPods-StorytellerTests-RCDraggableButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51576C1D03B4C788CB2FB47 /* libPods-StorytellerTests-RCDraggableButton.a */; };
-		F2C664D7E4594A2FA5C59AA9 /* Pods-Storyteller-UIView+DragDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5EC6D26D8E04B6985C03EF8 /* Pods-Storyteller-UIView+DragDrop-dummy.m */; };
-		F89B0869552E426E981CC1C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
-		FBE2FD4544DF4D46A466B05E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16646E0D8F1F4981AF4B11F3 /* Foundation.framework */; };
+		05EC6124E92F48FC80FFE7D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5A451CFDCE45CC9FD70A1D /* CoreData.framework */; };
+		0A1833F0042F4F8980B64E58 /* libPods-Storyteller-UIView+DragDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DFDA8E1C36540839CF74D75 /* libPods-Storyteller-UIView+DragDrop.a */; };
+		0C6F85106B7749BCB83CA37E /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2006EA2C8F294A5CA7FC7F64 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		17C2AC7216604A2ABD99F713 /* UIView+DragDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B5A299B13F4313A756EB84 /* UIView+DragDrop.h */; };
+		247A3ACCA1334BECB8AB2A7E /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D058284E2A44ABF9D042F18 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */; };
+		257CACCE15594DBA9D2C5768 /* libPods-StorytellerTests-KCOrderedAccessorFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C45767CFCD54393A32629C7 /* libPods-StorytellerTests-KCOrderedAccessorFix.a */; };
+		25A8CA47DF5F410CBF1DBD99 /* UIView+DragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 78719AFB616A4BDBB7A76C6E /* UIView+DragDrop.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		2B4ED172A11549BD8DE021A0 /* libPods-Storyteller-KCOrderedAccessorFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E74E7CFA6B4F0A98C27DDF /* libPods-Storyteller-KCOrderedAccessorFix.a */; };
+		52012255CE124C9D8C8F5E5F /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */ = {isa = PBXBuildFile; fileRef = D1DAD67154F044B68E2373B2 /* NSManagedObjectModel+KCOrderedAccessorFix.h */; };
+		55A915241DC54C6A8F276C2C /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA27E1FF0244F739F617A9E /* RCDraggableButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		56DCB34E06C9431480A5BCFB /* UIView+DragDrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B5A299B13F4313A756EB84 /* UIView+DragDrop.h */; };
+		5BDD28066B2A49FF871D9A70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		5E13D742560344A097BD9D3B /* libPods-Storyteller-RCDraggableButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 886E895A3E7447DC89807334 /* libPods-Storyteller-RCDraggableButton.a */; };
+		5F96F1964CAC4579B2CE0109 /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */ = {isa = PBXBuildFile; fileRef = D1DAD67154F044B68E2373B2 /* NSManagedObjectModel+KCOrderedAccessorFix.h */; };
+		6FFECE73BC0249D8990253DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		753883B5A27643629A0EE1B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		8A464834CA004ECEB39F0621 /* RCDraggableButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E3D965F20946F2AFC1264C /* RCDraggableButton.h */; };
+		8AA3A2D93584476F8E84CEB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		8E968F2E7BFB44AE97C8469A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		9294F7DBA2C046F395BAC835 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B9BC6A0124E579CF10A96 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */; };
+		999E9F30DD434D819D49C70D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 2006EA2C8F294A5CA7FC7F64 /* NSManagedObjectModel+KCOrderedAccessorFix.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		9AF8B067C85440C390CFA316 /* Pods-Storyteller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD18AE56A8914FD898E44417 /* Pods-Storyteller-dummy.m */; };
+		A1325383C8AC46F6A6B83378 /* Pods-StorytellerTests-RCDraggableButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E66B42BC01004B3CBBFD7CF4 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */; };
+		A4D728BF45884B6996C7EFE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		A899A463BCF74AB1890694DD /* Pods-StorytellerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD2BB4B7D4B413D8265B8D6 /* Pods-StorytellerTests-dummy.m */; };
+		B53ED7ADE8E449F2907CFB5A /* Pods-Storyteller-RCDraggableButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FADE84C848284807AD380DE9 /* Pods-Storyteller-RCDraggableButton-dummy.m */; };
+		C6DBDA18CE8F4027ABC85EAC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5A451CFDCE45CC9FD70A1D /* CoreData.framework */; };
+		D591505F6103440B8068B9CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		DB1130A0642947408B1C1C3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CAE11C65A6443389F51222 /* Foundation.framework */; };
+		DEDD82248707487A839B6766 /* RCDraggableButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E3D965F20946F2AFC1264C /* RCDraggableButton.h */; };
+		DEFB5B9CD03D47EE959C44CB /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA27E1FF0244F739F617A9E /* RCDraggableButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		E19E949FD984422CBA0A2B78 /* libPods-StorytellerTests-RCDraggableButton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D5C46F6B2449C096201244 /* libPods-StorytellerTests-RCDraggableButton.a */; };
+		E9E2C88478EA4C029DD445A2 /* libPods-StorytellerTests-UIView+DragDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D51A23907C4924BDC401B8 /* libPods-StorytellerTests-UIView+DragDrop.a */; };
+		ED4032DD49424C08AE9F70F9 /* Pods-Storyteller-UIView+DragDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2F5CBA67E4C5B9D8588DD /* Pods-Storyteller-UIView+DragDrop-dummy.m */; };
+		EEC3273F0EAD411197E1DF30 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9524251DC54615959C4532 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */; };
+		F787254AB187414EB41E3874 /* UIView+DragDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 78719AFB616A4BDBB7A76C6E /* UIView+DragDrop.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15870A51AD56424DAE425847 /* PBXContainerItemProxy */ = {
+		1F5867D23DC84006BE054505 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4515D9EC450047CEBA758443;
-			remoteInfo = "Pods-StorytellerTests-RCDraggableButton";
-		};
-		41B853CFC66C44A28A86EC8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2569F8A66ED54DF58E64B85D;
+			remoteGlobalIDString = C96CC4717DFD4136A4BE79A2;
 			remoteInfo = "Pods-Storyteller-KCOrderedAccessorFix";
 		};
-		8CB837E558D74F88A5E65272 /* PBXContainerItemProxy */ = {
+		2BC7C7E87D59446D99B36962 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6674E3B468244DC1A9C725FB;
-			remoteInfo = "Pods-Storyteller-UIView+DragDrop";
-		};
-		AA718B97CFEE4AD58D9FE52D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A10D9C5C9D8C46C7B8D0C94A;
-			remoteInfo = "Pods-StorytellerTests-UIView+DragDrop";
-		};
-		AE4B1E10E7CD44ED9CAD3813 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A1DE25233AC54080A1BF21E4;
+			remoteGlobalIDString = 991BAD75870647DC96D19F0E;
 			remoteInfo = "Pods-Storyteller-RCDraggableButton";
 		};
-		BB60433FF0464704825FFB94 /* PBXContainerItemProxy */ = {
+		6869C9CDC6394BBC9E5EC581 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BEAE0D62473545719802BB81 /* Project object */;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 25F12F49020A4B4DA5ADF8AE;
+			remoteGlobalIDString = 35F01F8386C34C74AAFF8252;
+			remoteInfo = "Pods-StorytellerTests-UIView+DragDrop";
+		};
+		795063FB410A4A41AD110DF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5E4A9AA9368431E930BF9DF;
+			remoteInfo = "Pods-StorytellerTests-RCDraggableButton";
+		};
+		DDC5BA8F337E4886A19AF228 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EA4C5DD67C44F76B7F98B73;
+			remoteInfo = "Pods-Storyteller-UIView+DragDrop";
+		};
+		E5CF1957FAC741B784122294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56ABACC4DD924F728CFDB2B9;
 			remoteInfo = "Pods-StorytellerTests-KCOrderedAccessorFix";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		046B989561BA41C2BEB58B48 /* RCDraggableButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDraggableButton.m; path = Src/RCDraggableButton.m; sourceTree = "<group>"; };
-		0FA1135B93FB469FB448736C /* Pods-StorytellerTests-RCDraggableButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-RCDraggableButton-prefix.pch"; sourceTree = "<group>"; };
-		16646E0D8F1F4981AF4B11F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		1806AA379FA94F0BACF1709D /* Pods-Storyteller-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Storyteller-resources.sh"; sourceTree = "<group>"; };
-		20EF7BB8B5894FD88F599A05 /* libPods-StorytellerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		288516D66B15463CB5724FEE /* Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch"; sourceTree = "<group>"; };
-		292A8BAB172D4216BAC8F480 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig"; sourceTree = "<group>"; };
-		2CB194B54A894853BE745C07 /* Pods-StorytellerTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests.xcconfig"; sourceTree = "<group>"; };
-		2F4C13501949375E003639F3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		3362A769AB0E417D91325F12 /* Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig"; sourceTree = "<group>"; };
-		337FBDA3F13C486A8E12AADD /* Pods-StorytellerTests-UIView+DragDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-UIView+DragDrop.xcconfig"; sourceTree = "<group>"; };
-		346FDBB9605E4FBABFC9B784 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-KCOrderedAccessorFix-dummy.m"; sourceTree = "<group>"; };
-		37413B0D7C794C0F8CC64EED /* Pods-Storyteller-UIView+DragDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-UIView+DragDrop.xcconfig"; sourceTree = "<group>"; };
-		3EC5724DB589428E9B224575 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m"; sourceTree = "<group>"; };
-		42EAB2FCEA4E43F8B3D817A0 /* Pods-Storyteller-RCDraggableButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-RCDraggableButton.xcconfig"; sourceTree = "<group>"; };
-		4EADEDA88469405B8D5B1DC3 /* Pods-StorytellerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StorytellerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		541D3D21FB0C4EF79F5E56B8 /* UIView+DragDrop.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+DragDrop.m"; path = "Classes/UIView+DragDrop.m"; sourceTree = "<group>"; };
-		5D6B2E228B0D4A73ADF4F9E3 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = "<group>"; };
-		61AF6376EAC143B491FA4CB2 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig"; sourceTree = "<group>"; };
-		670B304F8F2C44D9945DA183 /* RCDraggableButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDraggableButton.h; path = Src/RCDraggableButton.h; sourceTree = "<group>"; };
-		68EB37DAAE94479FA00B2CDF /* Pods-StorytellerTests-RCDraggableButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-RCDraggableButton.xcconfig"; sourceTree = "<group>"; };
-		6A16C5A7F6DA4DDC88728297 /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-UIView+DragDrop-Private.xcconfig"; sourceTree = "<group>"; };
-		782CE849F734422293B1E68F /* Pods-StorytellerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StorytellerTests-resources.sh"; sourceTree = "<group>"; };
-		7F874BA375A449B38869A012 /* Pods-Storyteller-KCOrderedAccessorFix.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-KCOrderedAccessorFix.xcconfig"; sourceTree = "<group>"; };
-		817104AF35F6419DA8D4BFB0 /* libPods-Storyteller-KCOrderedAccessorFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-KCOrderedAccessorFix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CBBDA9D6E39472FAC377AEB /* Pods-StorytellerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StorytellerTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		905DF173FBEF47A6AB50E288 /* Pods-Storyteller-UIView+DragDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-UIView+DragDrop-prefix.pch"; sourceTree = "<group>"; };
-		912F61BAAC2C4DBAB1C974E7 /* Pods-Storyteller-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Storyteller-acknowledgements.markdown"; sourceTree = "<group>"; };
-		91704F913E974435BE59C872 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = "<group>"; };
-		91D5C7E29F834427AF2484C1 /* Pods-Storyteller-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Storyteller-acknowledgements.plist"; sourceTree = "<group>"; };
-		94CF6015CDD84254ACADF241 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9B0CBF4FF9BD4EAEAE5EF235 /* Pods-StorytellerTests-UIView+DragDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch"; sourceTree = "<group>"; };
-		9F255A808C86419290FE8ECE /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-RCDraggableButton-Private.xcconfig"; sourceTree = "<group>"; };
-		A228F07873B14D9EB7A8B006 /* UIView+DragDrop.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+DragDrop.h"; path = "Classes/UIView+DragDrop.h"; sourceTree = "<group>"; };
-		A9A1F331F9C44E1186291E17 /* Pods-Storyteller-KCOrderedAccessorFix-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch"; sourceTree = "<group>"; };
-		ABDA3B6BBA8A448D8FA22D39 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-UIView+DragDrop-dummy.m"; sourceTree = "<group>"; };
-		B3C502EE39CB4F5D9BFD8ABF /* libPods-StorytellerTests-KCOrderedAccessorFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-KCOrderedAccessorFix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5EC6D26D8E04B6985C03EF8 /* Pods-Storyteller-UIView+DragDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-UIView+DragDrop-dummy.m"; sourceTree = "<group>"; };
-		B6059173DAE54E31AF77D3D7 /* Pods-Storyteller-RCDraggableButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-RCDraggableButton-dummy.m"; sourceTree = "<group>"; };
-		B6A63096ECF24B6798A15A03 /* libPods-Storyteller-UIView+DragDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-UIView+DragDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B791E6A0BDD24BA7AD727EC6 /* libPods-Storyteller-RCDraggableButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-RCDraggableButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD82B2601A014C288ED0CDEF /* Pods-Storyteller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-dummy.m"; sourceTree = "<group>"; };
-		BFDDDFED8569420C90B49AA5 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig"; sourceTree = "<group>"; };
-		C0B8312D2A954F869D0B0135 /* libPods-Storyteller.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C799090850174500A3ABB565 /* Pods-StorytellerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-dummy.m"; sourceTree = "<group>"; };
-		CA471EF1C7B548E39AB6C12F /* Pods-StorytellerTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-environment.h"; sourceTree = "<group>"; };
-		D8448D529A3E4D008D72CFD0 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-RCDraggableButton-Private.xcconfig"; sourceTree = "<group>"; };
-		DAEC161716454AA0AEFCB802 /* Pods-Storyteller-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-environment.h"; sourceTree = "<group>"; };
-		DDEB3A746A414BF5B39E2B0F /* libPods-StorytellerTests-UIView+DragDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-UIView+DragDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1C694F6601D455CA99CF40A /* Pods-Storyteller-RCDraggableButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-RCDraggableButton-prefix.pch"; sourceTree = "<group>"; };
-		E2C926C7D1F84B4B9D718E73 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-RCDraggableButton-dummy.m"; sourceTree = "<group>"; };
-		E51576C1D03B4C788CB2FB47 /* libPods-StorytellerTests-RCDraggableButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-RCDraggableButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F25523B82DEA4DB89CA10E59 /* Pods-Storyteller.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller.xcconfig"; sourceTree = "<group>"; };
-		FD9DD6F8144D401B868E0415 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		07FE985BB3A94621AA2FE0ED /* Pods-Storyteller-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Storyteller-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0D578373E33548A6AF02D4AC /* Pods-StorytellerTests-RCDraggableButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-RCDraggableButton-prefix.pch"; sourceTree = "<group>"; };
+		0DB1E8232E334535BFDC047F /* Pods-Storyteller-RCDraggableButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-RCDraggableButton-prefix.pch"; sourceTree = "<group>"; };
+		0DFDA8E1C36540839CF74D75 /* libPods-Storyteller-UIView+DragDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-UIView+DragDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14AC76B9E3824C4F86251D29 /* Pods-StorytellerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StorytellerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2006EA2C8F294A5CA7FC7F64 /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = "<group>"; };
+		2081456D6D6B4445986B96D9 /* Pods-Storyteller.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller.xcconfig"; sourceTree = "<group>"; };
+		21D5C46F6B2449C096201244 /* libPods-StorytellerTests-RCDraggableButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-RCDraggableButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		293BA9AE8EB542A38C734F76 /* Pods-Storyteller-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Storyteller-resources.sh"; sourceTree = "<group>"; };
+		2D058284E2A44ABF9D042F18 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m"; sourceTree = "<group>"; };
+		2F1E7565194A5B6200CF064D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		34D9B4318CEC4B2E9F7B2D23 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-RCDraggableButton-Private.xcconfig"; sourceTree = "<group>"; };
+		37CAE11C65A6443389F51222 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3864367651AA4E7A996E86C5 /* libPods-Storyteller.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A226650921744E8B331C102 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig"; sourceTree = "<group>"; };
+		3C45767CFCD54393A32629C7 /* libPods-StorytellerTests-KCOrderedAccessorFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-KCOrderedAccessorFix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F74C835E898410B873B112B /* Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch"; sourceTree = "<group>"; };
+		4211E46042D24E46A1FDE274 /* libPods-StorytellerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AE2F5CBA67E4C5B9D8588DD /* Pods-Storyteller-UIView+DragDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-UIView+DragDrop-dummy.m"; sourceTree = "<group>"; };
+		5716A9C693B944C19948690F /* Pods-StorytellerTests-UIView+DragDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-UIView+DragDrop.xcconfig"; sourceTree = "<group>"; };
+		5B392518A3404DF48D03A3B3 /* Pods-Storyteller-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-environment.h"; sourceTree = "<group>"; };
+		5F989CB3E49047ACBAE9299E /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-RCDraggableButton-Private.xcconfig"; sourceTree = "<group>"; };
+		607C4D683FEB49C5965B595D /* Pods-StorytellerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-StorytellerTests-resources.sh"; sourceTree = "<group>"; };
+		64E8CFF5E0E44677825F91E9 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig"; sourceTree = "<group>"; };
+		67E74E7CFA6B4F0A98C27DDF /* libPods-Storyteller-KCOrderedAccessorFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-KCOrderedAccessorFix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E3D965F20946F2AFC1264C /* RCDraggableButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCDraggableButton.h; path = Src/RCDraggableButton.h; sourceTree = "<group>"; };
+		74B5A299B13F4313A756EB84 /* UIView+DragDrop.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+DragDrop.h"; path = "Classes/UIView+DragDrop.h"; sourceTree = "<group>"; };
+		78719AFB616A4BDBB7A76C6E /* UIView+DragDrop.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+DragDrop.m"; path = "Classes/UIView+DragDrop.m"; sourceTree = "<group>"; };
+		7FD7FAD2AE43445F9D041A7B /* Pods-Storyteller-UIView+DragDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-UIView+DragDrop.xcconfig"; sourceTree = "<group>"; };
+		886E895A3E7447DC89807334 /* libPods-Storyteller-RCDraggableButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storyteller-RCDraggableButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CA5D71B04A4F7090620A14 /* Pods-StorytellerTests-RCDraggableButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-RCDraggableButton.xcconfig"; sourceTree = "<group>"; };
+		972B9BC6A0124E579CF10A96 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-KCOrderedAccessorFix-dummy.m"; sourceTree = "<group>"; };
+		A2FA6F3E3B78487DB44DE69A /* Pods-StorytellerTests-UIView+DragDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch"; sourceTree = "<group>"; };
+		A8D51A23907C4924BDC401B8 /* libPods-StorytellerTests-UIView+DragDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorytellerTests-UIView+DragDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5A451CFDCE45CC9FD70A1D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		ACA27E1FF0244F739F617A9E /* RCDraggableButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RCDraggableButton.m; path = Src/RCDraggableButton.m; sourceTree = "<group>"; };
+		B108C2EE4466428C919616BD /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-UIView+DragDrop-Private.xcconfig"; sourceTree = "<group>"; };
+		BB3A40261EA24FF689BDE4EF /* Pods-StorytellerTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-StorytellerTests-environment.h"; sourceTree = "<group>"; };
+		C0F478A2567C4E3B833AEA1B /* Pods-Storyteller-RCDraggableButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-RCDraggableButton.xcconfig"; sourceTree = "<group>"; };
+		CCD2BB4B7D4B413D8265B8D6 /* Pods-StorytellerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-dummy.m"; sourceTree = "<group>"; };
+		CD18AE56A8914FD898E44417 /* Pods-Storyteller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-dummy.m"; sourceTree = "<group>"; };
+		D064AA75E3DE490DB0025124 /* Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig"; sourceTree = "<group>"; };
+		D078C3F02EFD4D9A86D8E2DB /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D1DAD67154F044B68E2373B2 /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = "<group>"; };
+		E29CE5E70DFA41329B55F3E4 /* Pods-Storyteller-KCOrderedAccessorFix.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storyteller-KCOrderedAccessorFix.xcconfig"; sourceTree = "<group>"; };
+		E66B42BC01004B3CBBFD7CF4 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-RCDraggableButton-dummy.m"; sourceTree = "<group>"; };
+		EB3BCE7EECC841A18F790634 /* Pods-Storyteller-KCOrderedAccessorFix-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch"; sourceTree = "<group>"; };
+		F51FFFCC7DD64680835E2E3A /* Pods-StorytellerTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests.xcconfig"; sourceTree = "<group>"; };
+		F6D3AE9AB90441AE920058F2 /* Pods-Storyteller-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Storyteller-acknowledgements.plist"; sourceTree = "<group>"; };
+		FADE84C848284807AD380DE9 /* Pods-Storyteller-RCDraggableButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Storyteller-RCDraggableButton-dummy.m"; sourceTree = "<group>"; };
+		FC1C4D20A56D4B20B8ED18C5 /* Pods-StorytellerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StorytellerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FD710BDFBCFF465CBB3475E2 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig"; sourceTree = "<group>"; };
+		FD9524251DC54615959C4532 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-StorytellerTests-UIView+DragDrop-dummy.m"; sourceTree = "<group>"; };
+		FE0CAF7CA382445EA0258BE8 /* Pods-Storyteller-UIView+DragDrop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Storyteller-UIView+DragDrop-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0D1A7690ED7C49B98D0B0B99 /* Frameworks */ = {
+		007DD8FE7D344755A3FF2E5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9623749B23844F99B37F31C9 /* Foundation.framework in Frameworks */,
+				C6DBDA18CE8F4027ABC85EAC /* CoreData.framework in Frameworks */,
+				8AA3A2D93584476F8E84CEB2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		830002682234461191295A74 /* Frameworks */ = {
+		2BB08477AF8040CEA8EE71CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8883778F5A4BDEA6E9401C /* Foundation.framework in Frameworks */,
+				6FFECE73BC0249D8990253DF /* Foundation.framework in Frameworks */,
+				257CACCE15594DBA9D2C5768 /* libPods-StorytellerTests-KCOrderedAccessorFix.a in Frameworks */,
+				E19E949FD984422CBA0A2B78 /* libPods-StorytellerTests-RCDraggableButton.a in Frameworks */,
+				E9E2C88478EA4C029DD445A2 /* libPods-StorytellerTests-UIView+DragDrop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9C3DA6A5637B4187A92D82B2 /* Frameworks */ = {
+		558E7415D2B940D185BFA147 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C4F2858920F42EB8259EEF4 /* Foundation.framework in Frameworks */,
+				D591505F6103440B8068B9CF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4232FA4A4144DF48D971E98 /* Frameworks */ = {
+		B5D1BDCAF46E4D6EA0C5E176 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F2FF32FD3D4952A7DC1281 /* CoreData.framework in Frameworks */,
-				FBE2FD4544DF4D46A466B05E /* Foundation.framework in Frameworks */,
+				5BDD28066B2A49FF871D9A70 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC4C37C4741842CB94740AAC /* Frameworks */ = {
+		C23EFD9E34ED4385A1533CE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F89B0869552E426E981CC1C9 /* Foundation.framework in Frameworks */,
-				173961CA749540A3AE9103FF /* libPods-Storyteller-KCOrderedAccessorFix.a in Frameworks */,
-				919ED3C7C08F4228BF0347F2 /* libPods-Storyteller-RCDraggableButton.a in Frameworks */,
-				8165B7823F2C47C4B290C974 /* libPods-Storyteller-UIView+DragDrop.a in Frameworks */,
+				DB1130A0642947408B1C1C3C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2DEF04B2C284389AD9605F2 /* Frameworks */ = {
+		C2460139174F4DCAAD750740 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0586159EC0E2439CBB34F1DB /* Foundation.framework in Frameworks */,
+				05EC6124E92F48FC80FFE7D8 /* CoreData.framework in Frameworks */,
+				8E968F2E7BFB44AE97C8469A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F95C6017FEC64D36BEAB9027 /* Frameworks */ = {
+		C7322834D01D45E0899857ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC54E4785CAA4B05A3C63FDF /* CoreData.framework in Frameworks */,
-				B4AB5505F00141FDBB99E98D /* Foundation.framework in Frameworks */,
+				A4D728BF45884B6996C7EFE6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEA64AB21C78480096879BCB /* Frameworks */ = {
+		CDF13B3A1E9246AAB9B3DC83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E83481DEEC4D2EB39B951D /* Foundation.framework in Frameworks */,
-				34161A3811BD4B09A2F916E5 /* libPods-StorytellerTests-KCOrderedAccessorFix.a in Frameworks */,
-				EC0C36F2B373492296BF731F /* libPods-StorytellerTests-RCDraggableButton.a in Frameworks */,
-				3E98159408F144FE82BB6B67 /* libPods-StorytellerTests-UIView+DragDrop.a in Frameworks */,
+				753883B5A27643629A0EE1B2 /* Foundation.framework in Frameworks */,
+				2B4ED172A11549BD8DE021A0 /* libPods-Storyteller-KCOrderedAccessorFix.a in Frameworks */,
+				5E13D742560344A097BD9D3B /* libPods-Storyteller-RCDraggableButton.a in Frameworks */,
+				0A1833F0042F4F8980B64E58 /* libPods-Storyteller-UIView+DragDrop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010EED0341DE4057BAA7811A /* UIView+DragDrop */ = {
+		01D54E7A3D8D4567B9FC2649 /* KCOrderedAccessorFix */ = {
 			isa = PBXGroup;
 			children = (
-				A228F07873B14D9EB7A8B006 /* UIView+DragDrop.h */,
-				541D3D21FB0C4EF79F5E56B8 /* UIView+DragDrop.m */,
-				2F4C13501949375E003639F3 /* README.md */,
-				7B2422C7407140749C7127F6 /* Support Files */,
-			);
-			path = "UIView+DragDrop";
-			sourceTree = "<group>";
-		};
-		5C07A77D84AE4C70986F32AA /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				FD9DD6F8144D401B868E0415 /* CoreData.framework */,
-				16646E0D8F1F4981AF4B11F3 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		73FD32BAD8E84B4ABF7B17F4 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CEECA64200A6441D99226C99 /* Pods-Storyteller */,
-				E06FFD4DEB4F46629334722F /* Pods-StorytellerTests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		749BD3ABFDCC4F7EA6DB2F77 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				42EAB2FCEA4E43F8B3D817A0 /* Pods-Storyteller-RCDraggableButton.xcconfig */,
-				9F255A808C86419290FE8ECE /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */,
-				B6059173DAE54E31AF77D3D7 /* Pods-Storyteller-RCDraggableButton-dummy.m */,
-				E1C694F6601D455CA99CF40A /* Pods-Storyteller-RCDraggableButton-prefix.pch */,
-				68EB37DAAE94479FA00B2CDF /* Pods-StorytellerTests-RCDraggableButton.xcconfig */,
-				D8448D529A3E4D008D72CFD0 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */,
-				E2C926C7D1F84B4B9D718E73 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */,
-				0FA1135B93FB469FB448736C /* Pods-StorytellerTests-RCDraggableButton-prefix.pch */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		7B2422C7407140749C7127F6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				37413B0D7C794C0F8CC64EED /* Pods-Storyteller-UIView+DragDrop.xcconfig */,
-				6A16C5A7F6DA4DDC88728297 /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */,
-				B5EC6D26D8E04B6985C03EF8 /* Pods-Storyteller-UIView+DragDrop-dummy.m */,
-				905DF173FBEF47A6AB50E288 /* Pods-Storyteller-UIView+DragDrop-prefix.pch */,
-				337FBDA3F13C486A8E12AADD /* Pods-StorytellerTests-UIView+DragDrop.xcconfig */,
-				BFDDDFED8569420C90B49AA5 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */,
-				ABDA3B6BBA8A448D8FA22D39 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */,
-				9B0CBF4FF9BD4EAEAE5EF235 /* Pods-StorytellerTests-UIView+DragDrop-prefix.pch */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		815CE4FE4C984342BD72D6D9 /* RCDraggableButton */ = {
-			isa = PBXGroup;
-			children = (
-				670B304F8F2C44D9945DA183 /* RCDraggableButton.h */,
-				046B989561BA41C2BEB58B48 /* RCDraggableButton.m */,
-				749BD3ABFDCC4F7EA6DB2F77 /* Support Files */,
-			);
-			path = RCDraggableButton;
-			sourceTree = "<group>";
-		};
-		84D4296611A3422183F301BB = {
-			isa = PBXGroup;
-			children = (
-				94CF6015CDD84254ACADF241 /* Podfile */,
-				C3FF79B5AC9841ED9ECBF82F /* Frameworks */,
-				F0BA28C0CD8941F681BB4D43 /* Pods */,
-				D8928A80BC5E44399B535EB6 /* Products */,
-				73FD32BAD8E84B4ABF7B17F4 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		8702B2772E2D490FB195DC64 /* KCOrderedAccessorFix */ = {
-			isa = PBXGroup;
-			children = (
-				91704F913E974435BE59C872 /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
-				5D6B2E228B0D4A73ADF4F9E3 /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
-				E42D5D9ABE7846FBB90FF320 /* Support Files */,
+				D1DAD67154F044B68E2373B2 /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
+				2006EA2C8F294A5CA7FC7F64 /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
+				48F29E3EBFCB45F28E515E4E /* Support Files */,
 			);
 			path = KCOrderedAccessorFix;
 			sourceTree = "<group>";
 		};
-		C3FF79B5AC9841ED9ECBF82F /* Frameworks */ = {
+		2658FE3242AE48FCB5F7D935 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C07A77D84AE4C70986F32AA /* iOS */,
+				01D54E7A3D8D4567B9FC2649 /* KCOrderedAccessorFix */,
+				46D458724087486C830509C2 /* RCDraggableButton */,
+				AEB7E5D1F4B743CCBE1CE990 /* UIView+DragDrop */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		CEECA64200A6441D99226C99 /* Pods-Storyteller */ = {
+		3B5D29361718436A873A8B8A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F25523B82DEA4DB89CA10E59 /* Pods-Storyteller.xcconfig */,
-				912F61BAAC2C4DBAB1C974E7 /* Pods-Storyteller-acknowledgements.markdown */,
-				91D5C7E29F834427AF2484C1 /* Pods-Storyteller-acknowledgements.plist */,
-				BD82B2601A014C288ED0CDEF /* Pods-Storyteller-dummy.m */,
-				DAEC161716454AA0AEFCB802 /* Pods-Storyteller-environment.h */,
-				1806AA379FA94F0BACF1709D /* Pods-Storyteller-resources.sh */,
+				8867AE1307BE46BEAB62DDFF /* Pods-Storyteller */,
+				9A70AE40E6804A96BA00F403 /* Pods-StorytellerTests */,
 			);
-			name = "Pods-Storyteller";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		D8928A80BC5E44399B535EB6 /* Products */ = {
+		46D458724087486C830509C2 /* RCDraggableButton */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8312D2A954F869D0B0135 /* libPods-Storyteller.a */,
-				817104AF35F6419DA8D4BFB0 /* libPods-Storyteller-KCOrderedAccessorFix.a */,
-				B791E6A0BDD24BA7AD727EC6 /* libPods-Storyteller-RCDraggableButton.a */,
-				B6A63096ECF24B6798A15A03 /* libPods-Storyteller-UIView+DragDrop.a */,
-				20EF7BB8B5894FD88F599A05 /* libPods-StorytellerTests.a */,
-				B3C502EE39CB4F5D9BFD8ABF /* libPods-StorytellerTests-KCOrderedAccessorFix.a */,
-				E51576C1D03B4C788CB2FB47 /* libPods-StorytellerTests-RCDraggableButton.a */,
-				DDEB3A746A414BF5B39E2B0F /* libPods-StorytellerTests-UIView+DragDrop.a */,
+				73E3D965F20946F2AFC1264C /* RCDraggableButton.h */,
+				ACA27E1FF0244F739F617A9E /* RCDraggableButton.m */,
+				4D6D2A4FBADB4E2887BD661D /* Support Files */,
 			);
-			name = Products;
+			path = RCDraggableButton;
 			sourceTree = "<group>";
 		};
-		E06FFD4DEB4F46629334722F /* Pods-StorytellerTests */ = {
+		48F29E3EBFCB45F28E515E4E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2CB194B54A894853BE745C07 /* Pods-StorytellerTests.xcconfig */,
-				4EADEDA88469405B8D5B1DC3 /* Pods-StorytellerTests-acknowledgements.markdown */,
-				8CBBDA9D6E39472FAC377AEB /* Pods-StorytellerTests-acknowledgements.plist */,
-				C799090850174500A3ABB565 /* Pods-StorytellerTests-dummy.m */,
-				CA471EF1C7B548E39AB6C12F /* Pods-StorytellerTests-environment.h */,
-				782CE849F734422293B1E68F /* Pods-StorytellerTests-resources.sh */,
-			);
-			name = "Pods-StorytellerTests";
-			sourceTree = "<group>";
-		};
-		E42D5D9ABE7846FBB90FF320 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7F874BA375A449B38869A012 /* Pods-Storyteller-KCOrderedAccessorFix.xcconfig */,
-				61AF6376EAC143B491FA4CB2 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */,
-				346FDBB9605E4FBABFC9B784 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */,
-				A9A1F331F9C44E1186291E17 /* Pods-Storyteller-KCOrderedAccessorFix-prefix.pch */,
-				3362A769AB0E417D91325F12 /* Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig */,
-				292A8BAB172D4216BAC8F480 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */,
-				3EC5724DB589428E9B224575 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */,
-				288516D66B15463CB5724FEE /* Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch */,
+				E29CE5E70DFA41329B55F3E4 /* Pods-Storyteller-KCOrderedAccessorFix.xcconfig */,
+				3A226650921744E8B331C102 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */,
+				972B9BC6A0124E579CF10A96 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m */,
+				EB3BCE7EECC841A18F790634 /* Pods-Storyteller-KCOrderedAccessorFix-prefix.pch */,
+				D064AA75E3DE490DB0025124 /* Pods-StorytellerTests-KCOrderedAccessorFix.xcconfig */,
+				FD710BDFBCFF465CBB3475E2 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */,
+				2D058284E2A44ABF9D042F18 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m */,
+				3F74C835E898410B873B112B /* Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch */,
 			);
 			name = "Support Files";
 			sourceTree = SOURCE_ROOT;
 		};
-		F0BA28C0CD8941F681BB4D43 /* Pods */ = {
+		4A8F652BE20C47D795CD3C9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8702B2772E2D490FB195DC64 /* KCOrderedAccessorFix */,
-				815CE4FE4C984342BD72D6D9 /* RCDraggableButton */,
-				010EED0341DE4057BAA7811A /* UIView+DragDrop */,
+				8544430B3CB24FB58CAA9F26 /* iOS */,
 			);
-			name = Pods;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6D2A4FBADB4E2887BD661D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0F478A2567C4E3B833AEA1B /* Pods-Storyteller-RCDraggableButton.xcconfig */,
+				5F989CB3E49047ACBAE9299E /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */,
+				FADE84C848284807AD380DE9 /* Pods-Storyteller-RCDraggableButton-dummy.m */,
+				0DB1E8232E334535BFDC047F /* Pods-Storyteller-RCDraggableButton-prefix.pch */,
+				88CA5D71B04A4F7090620A14 /* Pods-StorytellerTests-RCDraggableButton.xcconfig */,
+				34D9B4318CEC4B2E9F7B2D23 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */,
+				E66B42BC01004B3CBBFD7CF4 /* Pods-StorytellerTests-RCDraggableButton-dummy.m */,
+				0D578373E33548A6AF02D4AC /* Pods-StorytellerTests-RCDraggableButton-prefix.pch */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		59E7E83BBEA94E1780B37AC1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FD7FAD2AE43445F9D041A7B /* Pods-Storyteller-UIView+DragDrop.xcconfig */,
+				B108C2EE4466428C919616BD /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */,
+				4AE2F5CBA67E4C5B9D8588DD /* Pods-Storyteller-UIView+DragDrop-dummy.m */,
+				FE0CAF7CA382445EA0258BE8 /* Pods-Storyteller-UIView+DragDrop-prefix.pch */,
+				5716A9C693B944C19948690F /* Pods-StorytellerTests-UIView+DragDrop.xcconfig */,
+				64E8CFF5E0E44677825F91E9 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */,
+				FD9524251DC54615959C4532 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m */,
+				A2FA6F3E3B78487DB44DE69A /* Pods-StorytellerTests-UIView+DragDrop-prefix.pch */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		8544430B3CB24FB58CAA9F26 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AB5A451CFDCE45CC9FD70A1D /* CoreData.framework */,
+				37CAE11C65A6443389F51222 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8867AE1307BE46BEAB62DDFF /* Pods-Storyteller */ = {
+			isa = PBXGroup;
+			children = (
+				2081456D6D6B4445986B96D9 /* Pods-Storyteller.xcconfig */,
+				07FE985BB3A94621AA2FE0ED /* Pods-Storyteller-acknowledgements.markdown */,
+				F6D3AE9AB90441AE920058F2 /* Pods-Storyteller-acknowledgements.plist */,
+				CD18AE56A8914FD898E44417 /* Pods-Storyteller-dummy.m */,
+				5B392518A3404DF48D03A3B3 /* Pods-Storyteller-environment.h */,
+				293BA9AE8EB542A38C734F76 /* Pods-Storyteller-resources.sh */,
+			);
+			name = "Pods-Storyteller";
+			sourceTree = "<group>";
+		};
+		995A5C0AE9E34A499E834D86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3864367651AA4E7A996E86C5 /* libPods-Storyteller.a */,
+				67E74E7CFA6B4F0A98C27DDF /* libPods-Storyteller-KCOrderedAccessorFix.a */,
+				886E895A3E7447DC89807334 /* libPods-Storyteller-RCDraggableButton.a */,
+				0DFDA8E1C36540839CF74D75 /* libPods-Storyteller-UIView+DragDrop.a */,
+				4211E46042D24E46A1FDE274 /* libPods-StorytellerTests.a */,
+				3C45767CFCD54393A32629C7 /* libPods-StorytellerTests-KCOrderedAccessorFix.a */,
+				21D5C46F6B2449C096201244 /* libPods-StorytellerTests-RCDraggableButton.a */,
+				A8D51A23907C4924BDC401B8 /* libPods-StorytellerTests-UIView+DragDrop.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A70AE40E6804A96BA00F403 /* Pods-StorytellerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F51FFFCC7DD64680835E2E3A /* Pods-StorytellerTests.xcconfig */,
+				14AC76B9E3824C4F86251D29 /* Pods-StorytellerTests-acknowledgements.markdown */,
+				FC1C4D20A56D4B20B8ED18C5 /* Pods-StorytellerTests-acknowledgements.plist */,
+				CCD2BB4B7D4B413D8265B8D6 /* Pods-StorytellerTests-dummy.m */,
+				BB3A40261EA24FF689BDE4EF /* Pods-StorytellerTests-environment.h */,
+				607C4D683FEB49C5965B595D /* Pods-StorytellerTests-resources.sh */,
+			);
+			name = "Pods-StorytellerTests";
+			sourceTree = "<group>";
+		};
+		AEB7E5D1F4B743CCBE1CE990 /* UIView+DragDrop */ = {
+			isa = PBXGroup;
+			children = (
+				2F1E7565194A5B6200CF064D /* README.md */,
+				74B5A299B13F4313A756EB84 /* UIView+DragDrop.h */,
+				78719AFB616A4BDBB7A76C6E /* UIView+DragDrop.m */,
+				59E7E83BBEA94E1780B37AC1 /* Support Files */,
+			);
+			path = "UIView+DragDrop";
+			sourceTree = "<group>";
+		};
+		E260197820854F9597A4F50B = {
+			isa = PBXGroup;
+			children = (
+				D078C3F02EFD4D9A86D8E2DB /* Podfile */,
+				4A8F652BE20C47D795CD3C9D /* Frameworks */,
+				2658FE3242AE48FCB5F7D935 /* Pods */,
+				995A5C0AE9E34A499E834D86 /* Products */,
+				3B5D29361718436A873A8B8A /* Targets Support Files */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		450388B827B0411D892BE731 /* Headers */ = {
+		021872B1B7BD4290A58E43D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044BE2749B5748F88DABB31A /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */,
+				8A464834CA004ECEB39F0621 /* RCDraggableButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F08742E29644E35B89B4D21 /* Headers */ = {
+		40E004F368DF4AD599BF1C70 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81A0FE452D4C4179A54FE926 /* RCDraggableButton.h in Headers */,
+				17C2AC7216604A2ABD99F713 /* UIView+DragDrop.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B064D396C8A4403CACF3B43F /* Headers */ = {
+		517E3039F1F14D899956B0FD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5E5166915B7451D9F668449 /* UIView+DragDrop.h in Headers */,
+				52012255CE124C9D8C8F5E5F /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B550FC1B42D34DE4A62708FF /* Headers */ = {
+		85B0AC0B59B54021826BCF6A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96CA0F2FCBB14911AD75D828 /* UIView+DragDrop.h in Headers */,
+				5F96F1964CAC4579B2CE0109 /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C61890D720EC4818924DE53D /* Headers */ = {
+		863A0DF82E6F4434833AEA97 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08940F996F1B4A7ABC53AFAF /* NSManagedObjectModel+KCOrderedAccessorFix.h in Headers */,
+				56DCB34E06C9431480A5BCFB /* UIView+DragDrop.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDEBFA35BBAB4E098245B712 /* Headers */ = {
+		DD195FD4CFF744F19599F0B4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04FF66342AC944E2B12C658C /* RCDraggableButton.h in Headers */,
+				DEDD82248707487A839B6766 /* RCDraggableButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0B8AF440FB2348B9B892AC64 /* Pods-StorytellerTests */ = {
+		2F154E9305A44AA0B46034B2 /* Pods-StorytellerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A98E0358FFC416AAEEF8FC5 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests" */;
+			buildConfigurationList = F9C16BC506904C518AFD7EB3 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests" */;
 			buildPhases = (
-				9A00C990CC0C46668C57070C /* Sources */,
-				FEA64AB21C78480096879BCB /* Frameworks */,
+				D3C9B99BED9C4AF7AD750556 /* Sources */,
+				2BB08477AF8040CEA8EE71CC /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				181A9FB814DE471CB6B8A94F /* PBXTargetDependency */,
-				0923521C47414C449B265A85 /* PBXTargetDependency */,
-				30D4C6EC880F4CD497B7D1FA /* PBXTargetDependency */,
+				25881E444F4944C886CC2170 /* PBXTargetDependency */,
+				5E3F9DEDC2CF4D91966E874F /* PBXTargetDependency */,
+				5DC32AF9A04F4CC78F1888B9 /* PBXTargetDependency */,
 			);
 			name = "Pods-StorytellerTests";
 			productName = "Pods-StorytellerTests";
-			productReference = 20EF7BB8B5894FD88F599A05 /* libPods-StorytellerTests.a */;
+			productReference = 4211E46042D24E46A1FDE274 /* libPods-StorytellerTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		2569F8A66ED54DF58E64B85D /* Pods-Storyteller-KCOrderedAccessorFix */ = {
+		35F01F8386C34C74AAFF8252 /* Pods-StorytellerTests-UIView+DragDrop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8EBA188E82394E61BD172D23 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-KCOrderedAccessorFix" */;
+			buildConfigurationList = C3F6DE8390654125AB642F82 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-UIView+DragDrop" */;
 			buildPhases = (
-				B529F0C903034975A070D3D7 /* Sources */,
-				F95C6017FEC64D36BEAB9027 /* Frameworks */,
-				450388B827B0411D892BE731 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Storyteller-KCOrderedAccessorFix";
-			productName = "Pods-Storyteller-KCOrderedAccessorFix";
-			productReference = 817104AF35F6419DA8D4BFB0 /* libPods-Storyteller-KCOrderedAccessorFix.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		25F12F49020A4B4DA5ADF8AE /* Pods-StorytellerTests-KCOrderedAccessorFix */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4507388C95954B46ACE37E03 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-KCOrderedAccessorFix" */;
-			buildPhases = (
-				491CBF50CC8D4C49A63632E4 /* Sources */,
-				D4232FA4A4144DF48D971E98 /* Frameworks */,
-				C61890D720EC4818924DE53D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-StorytellerTests-KCOrderedAccessorFix";
-			productName = "Pods-StorytellerTests-KCOrderedAccessorFix";
-			productReference = B3C502EE39CB4F5D9BFD8ABF /* libPods-StorytellerTests-KCOrderedAccessorFix.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		4515D9EC450047CEBA758443 /* Pods-StorytellerTests-RCDraggableButton */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0DFF2ABE786C4E018E166913 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-RCDraggableButton" */;
-			buildPhases = (
-				6675354FA73B4A5DA3CBC8C1 /* Sources */,
-				9C3DA6A5637B4187A92D82B2 /* Frameworks */,
-				4F08742E29644E35B89B4D21 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-StorytellerTests-RCDraggableButton";
-			productName = "Pods-StorytellerTests-RCDraggableButton";
-			productReference = E51576C1D03B4C788CB2FB47 /* libPods-StorytellerTests-RCDraggableButton.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		6674E3B468244DC1A9C725FB /* Pods-Storyteller-UIView+DragDrop */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E8FCEA609B8F42CDB50A8EDF /* Build configuration list for PBXNativeTarget "Pods-Storyteller-UIView+DragDrop" */;
-			buildPhases = (
-				59B4CC47507F464DBE94F781 /* Sources */,
-				F2DEF04B2C284389AD9605F2 /* Frameworks */,
-				B550FC1B42D34DE4A62708FF /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Storyteller-UIView+DragDrop";
-			productName = "Pods-Storyteller-UIView+DragDrop";
-			productReference = B6A63096ECF24B6798A15A03 /* libPods-Storyteller-UIView+DragDrop.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		6F2C215E375D40DC8AF49B4F /* Pods-Storyteller */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 399168F588D949C8BFFFE217 /* Build configuration list for PBXNativeTarget "Pods-Storyteller" */;
-			buildPhases = (
-				48CFFB46FC1F43429925BBBF /* Sources */,
-				EC4C37C4741842CB94740AAC /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D448BA1EDD78409B8DC22B16 /* PBXTargetDependency */,
-				6601BB957F9D4211B997BEDE /* PBXTargetDependency */,
-				6FF4F82A8E3143AEA92904A8 /* PBXTargetDependency */,
-			);
-			name = "Pods-Storyteller";
-			productName = "Pods-Storyteller";
-			productReference = C0B8312D2A954F869D0B0135 /* libPods-Storyteller.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		A10D9C5C9D8C46C7B8D0C94A /* Pods-StorytellerTests-UIView+DragDrop */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A47DF05D846E4416BD57C174 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-UIView+DragDrop" */;
-			buildPhases = (
-				BD9C954CD1DD49F499D9EE33 /* Sources */,
-				0D1A7690ED7C49B98D0B0B99 /* Frameworks */,
-				B064D396C8A4403CACF3B43F /* Headers */,
+				EF22A6D3428B4059ACCC8CCD /* Sources */,
+				558E7415D2B940D185BFA147 /* Frameworks */,
+				863A0DF82E6F4434833AEA97 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -561,16 +474,69 @@
 			);
 			name = "Pods-StorytellerTests-UIView+DragDrop";
 			productName = "Pods-StorytellerTests-UIView+DragDrop";
-			productReference = DDEB3A746A414BF5B39E2B0F /* libPods-StorytellerTests-UIView+DragDrop.a */;
+			productReference = A8D51A23907C4924BDC401B8 /* libPods-StorytellerTests-UIView+DragDrop.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A1DE25233AC54080A1BF21E4 /* Pods-Storyteller-RCDraggableButton */ = {
+		56ABACC4DD924F728CFDB2B9 /* Pods-StorytellerTests-KCOrderedAccessorFix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7B21220000347A19B94ACA8 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-RCDraggableButton" */;
+			buildConfigurationList = 08D03AA56D3C4B229853D426 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-KCOrderedAccessorFix" */;
 			buildPhases = (
-				4D0EDBD346E145CAA2552F30 /* Sources */,
-				830002682234461191295A74 /* Frameworks */,
-				CDEBFA35BBAB4E098245B712 /* Headers */,
+				CC4421828CE647F3A536E717 /* Sources */,
+				C2460139174F4DCAAD750740 /* Frameworks */,
+				85B0AC0B59B54021826BCF6A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-StorytellerTests-KCOrderedAccessorFix";
+			productName = "Pods-StorytellerTests-KCOrderedAccessorFix";
+			productReference = 3C45767CFCD54393A32629C7 /* libPods-StorytellerTests-KCOrderedAccessorFix.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6EA4C5DD67C44F76B7F98B73 /* Pods-Storyteller-UIView+DragDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AFEBECF805B4B538B3218F4 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-UIView+DragDrop" */;
+			buildPhases = (
+				065B53B46C2741DCB4E49292 /* Sources */,
+				C23EFD9E34ED4385A1533CE7 /* Frameworks */,
+				40E004F368DF4AD599BF1C70 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Storyteller-UIView+DragDrop";
+			productName = "Pods-Storyteller-UIView+DragDrop";
+			productReference = 0DFDA8E1C36540839CF74D75 /* libPods-Storyteller-UIView+DragDrop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		966DE12D4D2342B19A71C26F /* Pods-Storyteller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B723C288C5643AEADB89941 /* Build configuration list for PBXNativeTarget "Pods-Storyteller" */;
+			buildPhases = (
+				B650914CF75C438BA70CD16C /* Sources */,
+				CDF13B3A1E9246AAB9B3DC83 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAE621040665464D8D5797D2 /* PBXTargetDependency */,
+				116B79A273BA4199BF7D007C /* PBXTargetDependency */,
+				A7181ED07BC34964B7906244 /* PBXTargetDependency */,
+			);
+			name = "Pods-Storyteller";
+			productName = "Pods-Storyteller";
+			productReference = 3864367651AA4E7A996E86C5 /* libPods-Storyteller.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		991BAD75870647DC96D19F0E /* Pods-Storyteller-RCDraggableButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B61C34427C26495EAF0E46FE /* Build configuration list for PBXNativeTarget "Pods-Storyteller-RCDraggableButton" */;
+			buildPhases = (
+				91DEB68489C34A94AFF09AFB /* Sources */,
+				B5D1BDCAF46E4D6EA0C5E176 /* Frameworks */,
+				DD195FD4CFF744F19599F0B4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -578,151 +544,185 @@
 			);
 			name = "Pods-Storyteller-RCDraggableButton";
 			productName = "Pods-Storyteller-RCDraggableButton";
-			productReference = B791E6A0BDD24BA7AD727EC6 /* libPods-Storyteller-RCDraggableButton.a */;
+			productReference = 886E895A3E7447DC89807334 /* libPods-Storyteller-RCDraggableButton.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A5E4A9AA9368431E930BF9DF /* Pods-StorytellerTests-RCDraggableButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11D37B863F6F4E249ECDF92B /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-RCDraggableButton" */;
+			buildPhases = (
+				756A043B9CD7427393FE5AFD /* Sources */,
+				C7322834D01D45E0899857ED /* Frameworks */,
+				021872B1B7BD4290A58E43D2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-StorytellerTests-RCDraggableButton";
+			productName = "Pods-StorytellerTests-RCDraggableButton";
+			productReference = 21D5C46F6B2449C096201244 /* libPods-StorytellerTests-RCDraggableButton.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C96CC4717DFD4136A4BE79A2 /* Pods-Storyteller-KCOrderedAccessorFix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F93932907F0549C08D483D7C /* Build configuration list for PBXNativeTarget "Pods-Storyteller-KCOrderedAccessorFix" */;
+			buildPhases = (
+				E2CBC19EA2A74A6D99A0E7D3 /* Sources */,
+				007DD8FE7D344755A3FF2E5F /* Frameworks */,
+				517E3039F1F14D899956B0FD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Storyteller-KCOrderedAccessorFix";
+			productName = "Pods-Storyteller-KCOrderedAccessorFix";
+			productReference = 67E74E7CFA6B4F0A98C27DDF /* libPods-Storyteller-KCOrderedAccessorFix.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BEAE0D62473545719802BB81 /* Project object */ = {
+		9D0685B6B11C4EA4BDBD3242 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 714072D38A3940E29A8C49B2 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 711046A2A2A44D97B202709D /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 84D4296611A3422183F301BB;
-			productRefGroup = D8928A80BC5E44399B535EB6 /* Products */;
+			mainGroup = E260197820854F9597A4F50B;
+			productRefGroup = 995A5C0AE9E34A499E834D86 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F2C215E375D40DC8AF49B4F /* Pods-Storyteller */,
-				2569F8A66ED54DF58E64B85D /* Pods-Storyteller-KCOrderedAccessorFix */,
-				A1DE25233AC54080A1BF21E4 /* Pods-Storyteller-RCDraggableButton */,
-				6674E3B468244DC1A9C725FB /* Pods-Storyteller-UIView+DragDrop */,
-				0B8AF440FB2348B9B892AC64 /* Pods-StorytellerTests */,
-				25F12F49020A4B4DA5ADF8AE /* Pods-StorytellerTests-KCOrderedAccessorFix */,
-				4515D9EC450047CEBA758443 /* Pods-StorytellerTests-RCDraggableButton */,
-				A10D9C5C9D8C46C7B8D0C94A /* Pods-StorytellerTests-UIView+DragDrop */,
+				966DE12D4D2342B19A71C26F /* Pods-Storyteller */,
+				C96CC4717DFD4136A4BE79A2 /* Pods-Storyteller-KCOrderedAccessorFix */,
+				991BAD75870647DC96D19F0E /* Pods-Storyteller-RCDraggableButton */,
+				6EA4C5DD67C44F76B7F98B73 /* Pods-Storyteller-UIView+DragDrop */,
+				2F154E9305A44AA0B46034B2 /* Pods-StorytellerTests */,
+				56ABACC4DD924F728CFDB2B9 /* Pods-StorytellerTests-KCOrderedAccessorFix */,
+				A5E4A9AA9368431E930BF9DF /* Pods-StorytellerTests-RCDraggableButton */,
+				35F01F8386C34C74AAFF8252 /* Pods-StorytellerTests-UIView+DragDrop */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		48CFFB46FC1F43429925BBBF /* Sources */ = {
+		065B53B46C2741DCB4E49292 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0588BB2515184F1CAE099268 /* Pods-Storyteller-dummy.m in Sources */,
+				ED4032DD49424C08AE9F70F9 /* Pods-Storyteller-UIView+DragDrop-dummy.m in Sources */,
+				F787254AB187414EB41E3874 /* UIView+DragDrop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		491CBF50CC8D4C49A63632E4 /* Sources */ = {
+		756A043B9CD7427393FE5AFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F3E3821762C41EDB31E254D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
-				56A95ED8F74B4E2EBA992E40 /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m in Sources */,
+				A1325383C8AC46F6A6B83378 /* Pods-StorytellerTests-RCDraggableButton-dummy.m in Sources */,
+				55A915241DC54C6A8F276C2C /* RCDraggableButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4D0EDBD346E145CAA2552F30 /* Sources */ = {
+		91DEB68489C34A94AFF09AFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4822C066D984EFE94EA78CC /* Pods-Storyteller-RCDraggableButton-dummy.m in Sources */,
-				ADCECE8C5C0640A8B2C6896E /* RCDraggableButton.m in Sources */,
+				B53ED7ADE8E449F2907CFB5A /* Pods-Storyteller-RCDraggableButton-dummy.m in Sources */,
+				DEFB5B9CD03D47EE959C44CB /* RCDraggableButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4CC47507F464DBE94F781 /* Sources */ = {
+		B650914CF75C438BA70CD16C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2C664D7E4594A2FA5C59AA9 /* Pods-Storyteller-UIView+DragDrop-dummy.m in Sources */,
-				65AE4F1E22DA4FAC91086E74 /* UIView+DragDrop.m in Sources */,
+				9AF8B067C85440C390CFA316 /* Pods-Storyteller-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6675354FA73B4A5DA3CBC8C1 /* Sources */ = {
+		CC4421828CE647F3A536E717 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3CE557DB7A4B94B73B27C2 /* Pods-StorytellerTests-RCDraggableButton-dummy.m in Sources */,
-				2A5E16744DA04FA3AFF69D1E /* RCDraggableButton.m in Sources */,
+				0C6F85106B7749BCB83CA37E /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
+				247A3ACCA1334BECB8AB2A7E /* Pods-StorytellerTests-KCOrderedAccessorFix-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A00C990CC0C46668C57070C /* Sources */ = {
+		D3C9B99BED9C4AF7AD750556 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6313EF56A74341AE90D13AC8 /* Pods-StorytellerTests-dummy.m in Sources */,
+				A899A463BCF74AB1890694DD /* Pods-StorytellerTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B529F0C903034975A070D3D7 /* Sources */ = {
+		E2CBC19EA2A74A6D99A0E7D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7174DCD8332C49029CC0E9E7 /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
-				AA46F9BCDC0D4C5BB4173ED9 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m in Sources */,
+				999E9F30DD434D819D49C70D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
+				9294F7DBA2C046F395BAC835 /* Pods-Storyteller-KCOrderedAccessorFix-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD9C954CD1DD49F499D9EE33 /* Sources */ = {
+		EF22A6D3428B4059ACCC8CCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E207737942D41C9B5AEF5E3 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m in Sources */,
-				770E1EF2CE3542B58599A220 /* UIView+DragDrop.m in Sources */,
+				EEC3273F0EAD411197E1DF30 /* Pods-StorytellerTests-UIView+DragDrop-dummy.m in Sources */,
+				25A8CA47DF5F410CBF1DBD99 /* UIView+DragDrop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0923521C47414C449B265A85 /* PBXTargetDependency */ = {
+		116B79A273BA4199BF7D007C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4515D9EC450047CEBA758443 /* Pods-StorytellerTests-RCDraggableButton */;
-			targetProxy = 15870A51AD56424DAE425847 /* PBXContainerItemProxy */;
+			target = 991BAD75870647DC96D19F0E /* Pods-Storyteller-RCDraggableButton */;
+			targetProxy = 2BC7C7E87D59446D99B36962 /* PBXContainerItemProxy */;
 		};
-		181A9FB814DE471CB6B8A94F /* PBXTargetDependency */ = {
+		25881E444F4944C886CC2170 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 25F12F49020A4B4DA5ADF8AE /* Pods-StorytellerTests-KCOrderedAccessorFix */;
-			targetProxy = BB60433FF0464704825FFB94 /* PBXContainerItemProxy */;
+			target = 56ABACC4DD924F728CFDB2B9 /* Pods-StorytellerTests-KCOrderedAccessorFix */;
+			targetProxy = E5CF1957FAC741B784122294 /* PBXContainerItemProxy */;
 		};
-		30D4C6EC880F4CD497B7D1FA /* PBXTargetDependency */ = {
+		5DC32AF9A04F4CC78F1888B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A10D9C5C9D8C46C7B8D0C94A /* Pods-StorytellerTests-UIView+DragDrop */;
-			targetProxy = AA718B97CFEE4AD58D9FE52D /* PBXContainerItemProxy */;
+			target = 35F01F8386C34C74AAFF8252 /* Pods-StorytellerTests-UIView+DragDrop */;
+			targetProxy = 6869C9CDC6394BBC9E5EC581 /* PBXContainerItemProxy */;
 		};
-		6601BB957F9D4211B997BEDE /* PBXTargetDependency */ = {
+		5E3F9DEDC2CF4D91966E874F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1DE25233AC54080A1BF21E4 /* Pods-Storyteller-RCDraggableButton */;
-			targetProxy = AE4B1E10E7CD44ED9CAD3813 /* PBXContainerItemProxy */;
+			target = A5E4A9AA9368431E930BF9DF /* Pods-StorytellerTests-RCDraggableButton */;
+			targetProxy = 795063FB410A4A41AD110DF7 /* PBXContainerItemProxy */;
 		};
-		6FF4F82A8E3143AEA92904A8 /* PBXTargetDependency */ = {
+		A7181ED07BC34964B7906244 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6674E3B468244DC1A9C725FB /* Pods-Storyteller-UIView+DragDrop */;
-			targetProxy = 8CB837E558D74F88A5E65272 /* PBXContainerItemProxy */;
+			target = 6EA4C5DD67C44F76B7F98B73 /* Pods-Storyteller-UIView+DragDrop */;
+			targetProxy = DDC5BA8F337E4886A19AF228 /* PBXContainerItemProxy */;
 		};
-		D448BA1EDD78409B8DC22B16 /* PBXTargetDependency */ = {
+		CAE621040665464D8D5797D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2569F8A66ED54DF58E64B85D /* Pods-Storyteller-KCOrderedAccessorFix */;
-			targetProxy = 41B853CFC66C44A28A86EC8D /* PBXContainerItemProxy */;
+			target = C96CC4717DFD4136A4BE79A2 /* Pods-Storyteller-KCOrderedAccessorFix */;
+			targetProxy = 1F5867D23DC84006BE054505 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11B8E659ABC942528B98EB23 /* Debug */ = {
+		1028F765314D43819FBB3564 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F255A808C86419290FE8ECE /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */;
+			baseConfigurationReference = 64E8CFF5E0E44677825F91E9 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -731,7 +731,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Storyteller-RCDraggableButton-prefix.pch";
+				GCC_PREFIX_HEADER = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -748,15 +748,16 @@
 			};
 			name = Debug;
 		};
-		13D3399471BA4AF591650FAF /* Release */ = {
+		19E4BC15BD434F8695E72581 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F25523B82DEA4DB89CA10E59 /* Pods-Storyteller.xcconfig */;
+			baseConfigurationReference = FD710BDFBCFF465CBB3475E2 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -777,7 +778,37 @@
 			};
 			name = Release;
 		};
-		13D9FADA36C64EB8955B400B /* Release */ = {
+		31CE99C7AE1D409FBAA667A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A226650921744E8B331C102 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A747EB1166F425BAEBFFAA5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -807,72 +838,16 @@
 			};
 			name = Release;
 		};
-		21CC5BF7481741C3B9560690 /* Debug */ = {
+		5C6E6C9026874286874D1A35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61AF6376EAC143B491FA4CB2 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5620EBB9926F4375B2B27D68 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 292A8BAB172D4216BAC8F480 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		59B4E4E2D117473689587F17 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 292A8BAB172D4216BAC8F480 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */;
+			baseConfigurationReference = 64E8CFF5E0E44677825F91E9 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch";
+				GCC_PREFIX_HEADER = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -893,16 +868,15 @@
 			};
 			name = Release;
 		};
-		63D07415AF02471F9AFA7B0E /* Release */ = {
+		7C57AC032ACD4A7889056AF3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F255A808C86419290FE8ECE /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */;
+			baseConfigurationReference = 2081456D6D6B4445986B96D9 /* Pods-Storyteller.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Storyteller-RCDraggableButton-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -923,36 +897,38 @@
 			};
 			name = Release;
 		};
-		774552220B7344EBB50C45D6 /* Debug */ = {
+		92C00869E979448C9D14B3A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F25523B82DEA4DB89CA10E59 /* Pods-Storyteller.xcconfig */;
+			baseConfigurationReference = F51FFFCC7DD64680835E2E3A /* Pods-StorytellerTests.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		79B5716571994EA89744FEC2 /* Release */ = {
+		B0DAC34D531945649862C1EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A16C5A7F6DA4DDC88728297 /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */;
+			baseConfigurationReference = B108C2EE4466428C919616BD /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -980,98 +956,9 @@
 			};
 			name = Release;
 		};
-		83E2BB5819F045A5834BA933 /* Release */ = {
+		B7717896F652400AB7D2A225 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61AF6376EAC143B491FA4CB2 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		84F88000C8DA4C569AD63B38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CB194B54A894853BE745C07 /* Pods-StorytellerTests.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		A873FA19E30E4E49A6CC9551 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFDDDFED8569420C90B49AA5 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		BF3700B17329485C92F5628E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CB194B54A894853BE745C07 /* Pods-StorytellerTests.xcconfig */;
+			baseConfigurationReference = F51FFFCC7DD64680835E2E3A /* Pods-StorytellerTests.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -1096,63 +983,7 @@
 			};
 			name = Debug;
 		};
-		CCD585C9C74F4D81BC7B45D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFDDDFED8569420C90B49AA5 /* Pods-StorytellerTests-UIView+DragDrop-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-StorytellerTests-UIView+DragDrop-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		CF40B225B646434DB472DF9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8448D529A3E4D008D72CFD0 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-StorytellerTests-RCDraggableButton-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D0DAD88228584B48AC5FB12C /* Debug */ = {
+		BE90C0E275484BD2BEB8D7A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1188,9 +1019,206 @@
 			};
 			name = Debug;
 		};
-		E3905C7FF3A4440FA28C3749 /* Release */ = {
+		D20009F5C5D04262961819C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8448D529A3E4D008D72CFD0 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */;
+			baseConfigurationReference = 2081456D6D6B4445986B96D9 /* Pods-Storyteller.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D3B6F02F3E8341AF810C69AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34D9B4318CEC4B2E9F7B2D23 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-StorytellerTests-RCDraggableButton-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D63E07024CBE4C699B842BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F989CB3E49047ACBAE9299E /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Storyteller-RCDraggableButton-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D9CCAECD413640D7B91AAFEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B108C2EE4466428C919616BD /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Storyteller-UIView+DragDrop-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DC746EE05C8B4841893F7BD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD710BDFBCFF465CBB3475E2 /* Pods-StorytellerTests-KCOrderedAccessorFix-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-StorytellerTests-KCOrderedAccessorFix-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DFD029E1A90C47B5B6E9A4AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A226650921744E8B331C102 /* Pods-Storyteller-KCOrderedAccessorFix-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Storyteller-KCOrderedAccessorFix-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F6E39C91FBBE45F48D6E6608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F989CB3E49047ACBAE9299E /* Pods-Storyteller-RCDraggableButton-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-Storyteller-RCDraggableButton-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB28F17F667D4A0AA4631B60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34D9B4318CEC4B2E9F7B2D23 /* Pods-StorytellerTests-RCDraggableButton-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -1218,119 +1246,91 @@
 			};
 			name = Release;
 		};
-		EFD36EB94437478E955CD002 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A16C5A7F6DA4DDC88728297 /* Pods-Storyteller-UIView+DragDrop-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-Storyteller-UIView+DragDrop-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A98E0358FFC416AAEEF8FC5 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests" */ = {
+		08D03AA56D3C4B229853D426 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-KCOrderedAccessorFix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF3700B17329485C92F5628E /* Debug */,
-				84F88000C8DA4C569AD63B38 /* Release */,
+				DC746EE05C8B4841893F7BD0 /* Debug */,
+				19E4BC15BD434F8695E72581 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0DFF2ABE786C4E018E166913 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-RCDraggableButton" */ = {
+		11D37B863F6F4E249ECDF92B /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-RCDraggableButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF40B225B646434DB472DF9A /* Debug */,
-				E3905C7FF3A4440FA28C3749 /* Release */,
+				D3B6F02F3E8341AF810C69AB /* Debug */,
+				FB28F17F667D4A0AA4631B60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		399168F588D949C8BFFFE217 /* Build configuration list for PBXNativeTarget "Pods-Storyteller" */ = {
+		3AFEBECF805B4B538B3218F4 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-UIView+DragDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				774552220B7344EBB50C45D6 /* Debug */,
-				13D3399471BA4AF591650FAF /* Release */,
+				D9CCAECD413640D7B91AAFEE /* Debug */,
+				B0DAC34D531945649862C1EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4507388C95954B46ACE37E03 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-KCOrderedAccessorFix" */ = {
+		3B723C288C5643AEADB89941 /* Build configuration list for PBXNativeTarget "Pods-Storyteller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5620EBB9926F4375B2B27D68 /* Debug */,
-				59B4E4E2D117473689587F17 /* Release */,
+				D20009F5C5D04262961819C9 /* Debug */,
+				7C57AC032ACD4A7889056AF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		714072D38A3940E29A8C49B2 /* Build configuration list for PBXProject "Pods" */ = {
+		711046A2A2A44D97B202709D /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D0DAD88228584B48AC5FB12C /* Debug */,
-				13D9FADA36C64EB8955B400B /* Release */,
+				BE90C0E275484BD2BEB8D7A0 /* Debug */,
+				4A747EB1166F425BAEBFFAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8EBA188E82394E61BD172D23 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-KCOrderedAccessorFix" */ = {
+		B61C34427C26495EAF0E46FE /* Build configuration list for PBXNativeTarget "Pods-Storyteller-RCDraggableButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21CC5BF7481741C3B9560690 /* Debug */,
-				83E2BB5819F045A5834BA933 /* Release */,
+				D63E07024CBE4C699B842BF2 /* Debug */,
+				F6E39C91FBBE45F48D6E6608 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A47DF05D846E4416BD57C174 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-UIView+DragDrop" */ = {
+		C3F6DE8390654125AB642F82 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests-UIView+DragDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CCD585C9C74F4D81BC7B45D1 /* Debug */,
-				A873FA19E30E4E49A6CC9551 /* Release */,
+				1028F765314D43819FBB3564 /* Debug */,
+				5C6E6C9026874286874D1A35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8FCEA609B8F42CDB50A8EDF /* Build configuration list for PBXNativeTarget "Pods-Storyteller-UIView+DragDrop" */ = {
+		F93932907F0549C08D483D7C /* Build configuration list for PBXNativeTarget "Pods-Storyteller-KCOrderedAccessorFix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFD36EB94437478E955CD002 /* Debug */,
-				79B5716571994EA89744FEC2 /* Release */,
+				DFD029E1A90C47B5B6E9A4AD /* Debug */,
+				31CE99C7AE1D409FBAA667A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7B21220000347A19B94ACA8 /* Build configuration list for PBXNativeTarget "Pods-Storyteller-RCDraggableButton" */ = {
+		F9C16BC506904C518AFD7EB3 /* Build configuration list for PBXNativeTarget "Pods-StorytellerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11B8E659ABC942528B98EB23 /* Debug */,
-				63D07415AF02471F9AFA7B0E /* Release */,
+				B7717896F652400AB7D2A225 /* Debug */,
+				92C00869E979448C9D14B3A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BEAE0D62473545719802BB81 /* Project object */;
+	rootObject = 9D0685B6B11C4EA4BDBD3242 /* Project object */;
 }

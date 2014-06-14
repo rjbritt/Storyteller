@@ -8,6 +8,7 @@
 
 #import "STPlayStoryPageViewController.h"
 #import "STInteractiveSceneSKScene.h"
+#import "STPresentSKSceneViewController.h"
 
 #import "STStory+EaseOfUse.h"
 
@@ -57,35 +58,68 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UIViewController *)viewControllerAtIndex:(int)index
+-(UIViewController *)viewControllerAtIndex:(NSInteger)index
 {
-    UIViewController *controller = [[UIViewController alloc]init];
-    STInteractiveScene *sceneToDisplayOnPage = self.allScenes[index];
+    
+//    UIViewController *controller = [[UIViewController alloc]init];
+//    STInteractiveScene *sceneToDisplayOnPage = self.allScenes[index];
+//
+//    // Configure the view based on scene to display
+//    SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
+//    
+//    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andScene:sceneToDisplayOnPage];
+//    scene.scaleMode = SKSceneScaleModeAspectFit;
+//    
+//    [controller.view addSubview: skView];
+//    [skView presentScene:scene];
+    
+    STPresentSKSceneViewController* temp;
 
-    // Configure the view based on scene to display
-    SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
+    //protect from going out of bounds
+    if(index < self.allScenes.count)
+    {
+        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
+        temp = [newStoryboard instantiateViewControllerWithIdentifier:@"STPresentSKSceneViewController"];
+        STInteractiveScene *sceneToDisplayOnPage = self.allScenes[index];
+
+        temp.scene =  sceneToDisplayOnPage;
+        
+        //Modify stpresentskscenenviewcontroller to
+        //work w/ navigation controller as well as
+        //independently control the presentation of an skscene.
+
+    }
     
-    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andScene:sceneToDisplayOnPage];
-    scene.scaleMode = SKSceneScaleModeAspectFit;
-    
-    [controller.view addSubview: skView];
-    [skView presentScene:scene];
-    
-    return controller;
+    return temp;
 }
--(int)indexOfViewController:(UIViewController *)controller
+-(NSInteger)indexOfViewController:(UIViewController *)controller
 {
     //given that an view controller is only created as above this should work. This will be ripped out later.
-    SKView *currentView = (SKView *)(controller.view.subviews[0]);
     
-    
-    return [self.allScenes indexOfObject:((STInteractiveSceneSKScene *)currentView.scene).currentScene];
+    NSInteger index;
+    if([controller isMemberOfClass:[STPresentSKSceneViewController class]])
+    {
+        for (UIView *temp in controller.view.subviews)
+        {
+            if([temp isMemberOfClass:[SKView class]])
+            {
+                SKView *currentView = (SKView *)temp;
+                
+                //protect from falling over the edge
+                index = [self.allScenes indexOfObject:
+                         ((STInteractiveSceneSKScene *)currentView.scene).currentScene];
+
+            }
+        }
+
+    }
+    return index;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     
-    int index = [self indexOfViewController:viewController];
+    NSInteger index = [self indexOfViewController:viewController];
     
     if ((index == 0) || (index == NSNotFound))
     {
@@ -99,7 +133,7 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    int index = [self indexOfViewController:viewController];
+    NSInteger index = [self indexOfViewController:viewController];
     if(index == NSNotFound)
     {
         return nil;

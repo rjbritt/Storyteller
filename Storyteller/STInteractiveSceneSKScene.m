@@ -15,6 +15,8 @@
 
 #import "STInteractiveScene+EaseOfUse.h"
 #import "STInteractiveSceneElement+EaseOfUse.h"
+#import "STMedia+EaseOfUse.h"
+#import "STTextMedia+EaseOfUse.h"
 
 
 //class extension for private properties
@@ -69,6 +71,26 @@ dispatch_queue_t backgroundQueue;
 {
     [super didMoveToView:view];
     [self configureDataSourceToNodes];
+    
+    //Configure Media
+    NSArray *sceneMedia = [self.currentScene.sceneMedia allObjects];
+    for (STMedia *media in sceneMedia)
+    {
+        if([media isMemberOfClass:[STTextMedia class]])
+           {
+               STTextMedia *textMedia = (STTextMedia *)media;
+               UITextView *tempTextView = [[UITextView alloc]initWithFrame:
+                                           [STTextMedia genericRectForTextFieldAtCenter:textMedia.centerPointCGPoint]];
+               
+               tempTextView.text = textMedia.text;
+               tempTextView.tag = STTextMediaType;
+               tempTextView.font = [UIFont systemFontOfSize:textMedia.fontSize];
+               tempTextView.backgroundColor = [UIColor clearColor];
+               tempTextView.userInteractionEnabled =  NO;
+               [view.superview addSubview:tempTextView];
+               
+           }
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -128,13 +150,13 @@ dispatch_queue_t backgroundQueue;
                                   [actor getUIImageFromData]]];
     actorSprite.name = actor.name;
     actorSprite.position =[self convertPointFromView:[actor centerPointCGPoint]];
-    
-    // configure Actor
-    actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
-    actorSprite.physicsBody.affectedByGravity = true;
-    actorSprite.physicsBody.friction = 0.5f;
-    actorSprite.physicsBody.restitution = 0.2f;
-    actorSprite.physicsBody.linearDamping = 0.5f;
+//    
+//    // configure Actor
+//    actorSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:actorSprite.frame.size];
+//    actorSprite.physicsBody.affectedByGravity = true;
+//    actorSprite.physicsBody.friction = 0.5f;
+//    actorSprite.physicsBody.restitution = 0.2f;
+//    actorSprite.physicsBody.linearDamping = 0.5f;
     
     return actorSprite;
     
@@ -147,15 +169,15 @@ dispatch_queue_t backgroundQueue;
     
     enviroSprite.name = enviro.name;
     enviroSprite.position =[self convertPointFromView:[enviro centerPointCGPoint]];
-    
-    // configure Environment
-    enviroSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enviroSprite.frame.size];
-    enviroSprite.physicsBody.affectedByGravity = false;
-    enviroSprite.physicsBody.friction = 1.0f;
-    enviroSprite.physicsBody.restitution = 1.0f;
-    
-    //setting it to not dynamic means it does not react to forces and impulses.
-    enviroSprite.physicsBody.dynamic = false;
+//    
+//    // configure Environment
+//    enviroSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enviroSprite.frame.size];
+//    enviroSprite.physicsBody.affectedByGravity = false;
+//    enviroSprite.physicsBody.friction = 1.0f;
+//    enviroSprite.physicsBody.restitution = 1.0f;
+//    
+//    //setting it to not dynamic means it does not react to forces and impulses.
+//    enviroSprite.physicsBody.dynamic = false;
     
     return enviroSprite;
 }
@@ -167,15 +189,15 @@ dispatch_queue_t backgroundQueue;
     
     objectSprite.name = object.name;
     objectSprite.position =[self convertPointFromView:[object centerPointCGPoint]];
-    
-    // configure Object
-    objectSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:objectSprite.frame.size];
-    objectSprite.physicsBody.affectedByGravity = false;
-    objectSprite.physicsBody.friction = 1.0f;
-    objectSprite.physicsBody.restitution = 1.0f;
-    
-    //setting it to not dynamic means it does not react to forces and impulses.
-    objectSprite.physicsBody.dynamic = false;
+//    
+//    // configure Object
+//    objectSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:objectSprite.frame.size];
+//    objectSprite.physicsBody.affectedByGravity = false;
+//    objectSprite.physicsBody.friction = 1.0f;
+//    objectSprite.physicsBody.restitution = 1.0f;
+//    
+//    //setting it to not dynamic means it does not react to forces and impulses.
+//    objectSprite.physicsBody.dynamic = false;
     
     return objectSprite;
 }

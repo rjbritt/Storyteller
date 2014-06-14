@@ -22,14 +22,15 @@
 #import "STAppDelegate.h"
 #import "STInteractiveSceneSKScene.h"
 #import "STNavigationController.h"
+#import "STPresentSKSceneViewController.h"
 #import <RCDraggableButton.h>
-#import <UIView+DragDrop.h>
 
 
 @interface STEditSceneViewController()
 
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) STAppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
 @property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
 @end
@@ -43,28 +44,13 @@
 - (IBAction)playButton:(id)sender
 {
         UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UINavigationController * stInteractiveSceneSKSceneViewController = [newStoryboard instantiateViewControllerWithIdentifier:@"STSceneViewController"];
+    UINavigationController * skSceneNavigationController = [newStoryboard instantiateViewControllerWithIdentifier:@"STPresentSKSceneNavigationController"];
+    STPresentSKSceneViewController *temp = skSceneNavigationController.viewControllers[0];
+    temp.scene = self.currentScene;
     
-    // Configure the view.
-    SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    //Modify stpresentskscenenviewcontroller to work w/ navigation controller as well as independently control the presentation of an skscene.
     
-    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andScene:self.currentScene];
-        scene.scaleMode = SKSceneScaleModeAspectFit;
-    
-    [stInteractiveSceneSKSceneViewController.visibleViewController.view addSubview: skView];
-    
-    
-    //Will need to subclass UIViewController for the stInteractiveSceneSKSceneViewController to have a back button.
-//    UIBarButtonItem *backToSceneButton = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStylePlain target:self action:@selector(backToSceneSelection)];
-//
-//    stInteractiveSceneSKSceneViewController.visibleViewController.navigationItem.leftBarButtonItem = backToSceneButton;
-//    
-    // Present the scene.
-    [skView presentScene:scene];
-    
-    self.view.window.rootViewController = stInteractiveSceneSKSceneViewController;
+    self.view.window.rootViewController = skSceneNavigationController;
     
 }
 
@@ -241,15 +227,13 @@
     [tempTextView setFont:[UIFont systemFontOfSize:20]];
     tempTextView.text = text;
     tempTextView.opaque =  NO;
-    tempTextView.backgroundColor = [UIColor clearColor];
+    tempTextView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
     tempTextView.tag = STTextMediaType;
     
     
     //make a view draggable
-    [tempTextView makeDraggable];
+    [tempTextView makeDraggableWithDropViews:@[self.view] delegate:self];
     [tempTextView setDragMode:UIViewDragDropModeNormal];
-#warning will need to set delegate in order to execute update on successful drag.
-    
     
     [self.view addSubview: tempTextView];
     
@@ -265,6 +249,15 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.context = self.appDelegate.coreDataHelper.context;
+
+    
+    //For adding in a scrollview later. Will need to check if subviews can respond to touch before scrollview does.
+    // Will need scrollview subclass.
+//    UIView *tempView = [[UIView alloc] initWithFrame:self.splitViewController.view.frame];
+//    tempView.backgroundColor = [UIColor whiteColor];
+//    self.scrollview.contentSize = tempView.frame.size;
+//    [self.scrollview addSubview:tempView];
+    
 
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
 }
@@ -289,6 +282,34 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - UIView + DragDrop Delegate Methods
+- (void) view:(UIView *)view wasDroppedOnDropView:(UIView *)drop
+{
+    [self updateMediaElementLocationForSender:view];
+}
+
+- (BOOL) viewShouldReturnToStartingPosition:(UIView*)view
+{
+    return NO;
+}
+
+- (void) draggingDidBeginForView:(UIView*)view
+{
+    
+}
+- (void) draggingDidEndWithoutDropForView:(UIView*)view
+{
+    [self updateMediaElementLocationForSender:view];
+}
+
+- (void) view:(UIView *)view didHoverOverDropView:(UIView *)dropView
+{
+
+}
+- (void) view:(UIView *)view didUnhoverOverDropView:(UIView *)dropView
+{
+    
+}
 
 
 #pragma mark - UIKit From InteractiveSceneElement

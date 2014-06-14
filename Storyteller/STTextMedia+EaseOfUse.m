@@ -11,6 +11,7 @@
 #import "STStory+EaseOfUse.h"
 
 @implementation STTextMedia (EaseOfUse)
+
 +(CGRect) genericRectForTextFieldAtCenter:(CGPoint)center
 {
     //Assumes center was set with the intention of a specific height and width

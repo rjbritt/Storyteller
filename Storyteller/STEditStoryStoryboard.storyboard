@@ -126,7 +126,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Iz-Vp-m5V">
             <objects>
-                <navigationController storyboardIdentifier="STSceneViewController" definesPresentationContext="YES" id="4gp-rS-psh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="STPresentSKSceneNavigationController" definesPresentationContext="YES" id="4gp-rS-psh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3cN-JV-M5J">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="-4843" y="-1614"/>
         </scene>
-        <!--Edit Scene View Controller-->
+        <!--PresentSK Scene View Controller-->
         <scene sceneID="vxU-bj-Mak">
             <objects>
-                <viewController id="TFG-ky-bog" customClass="STEditSceneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STPresentSKSceneViewController" id="TFG-ky-bog" customClass="STPresentSKSceneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="txx-fP-t2e"/>
                         <viewControllerLayoutGuide type="bottom" id="0Zs-NW-vvs"/>
