@@ -7,8 +7,6 @@
 //
 
 #import "STActorSceneElement.h"
-@class STStory;
-@class STInteractiveScene;
 
 @interface STActorSceneElement (EaseOfUse)
 

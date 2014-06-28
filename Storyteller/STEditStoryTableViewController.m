@@ -22,6 +22,7 @@
 
 @implementation STEditStoryTableViewController
 
+#pragma mark - View Lifecycle Methods
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -38,8 +39,8 @@
     self.clearsSelectionOnViewWillAppear = NO;
     [self.navigationItem setTitle:self.currentStory.name];
     
-    //Set the buttons for the navigation bar of this view controller.
-    UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"All Stories" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
+    //Set the buttons for the navigation bar of this view controller in order to go back to Main Screen
+    UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"Main Screen" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
     
     UIBarButtonItem *playBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playStory)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
@@ -63,7 +64,10 @@
 }
 
 
-
+#pragma mark - View Action Methods
+/**
+ *  This method is to progress through the story. It will initially only support playing a story as a book format.
+ */
 -(void)playStory
 {
     STPlayStoryPageViewController *playStoryVC = [[STPlayStoryPageViewController alloc]init];
@@ -72,6 +76,9 @@
 
 }
 
+/**
+ *  This method returns the user to the main view controller by resetting the root view controller.
+ */
 -(void)toMainViewController
 {
     //Save current Scene
@@ -97,6 +104,8 @@
 
 }
 
+#pragma mark - Tableview
+
 /**
  *  This is a tableview property mutator for the .editing property.
  *  This modification changes it so that the tableview data is reloaded on change, 
@@ -111,7 +120,7 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView Datasource Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -165,15 +174,6 @@
     return cell;
 }
 
-/**
- *  This is the delegate method that is called when a row is selected. The row that
- *  is selected is the new scene to show. Rather than reloading all the information
- *  the current view controller, this method creates a new view controller. ARC
- *  recognizes that there is no longer a count to the other view controller and should release it.
- *
- *  @param tableView The tableview that called this method.
- *  @param indexPath The indexPath that represents the selected row.
- */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Save current Scene

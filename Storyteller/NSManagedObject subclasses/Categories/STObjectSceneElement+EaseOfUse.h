@@ -1,5 +1,5 @@
 //
-//  STObjectSceneElement.m
+//  STObjectSceneElement+EaseOfUse.h
 //  Storyteller
 //
 //  Created by Ryan Britt on 6/24/14.
@@ -7,11 +7,7 @@
 //
 
 #import "STObjectSceneElement.h"
-#import "STInteractiveScene.h"
 
-
-@implementation STObjectSceneElement
-
-@dynamic belongingScene;
+@interface STObjectSceneElement (EaseOfUse)
 
 @end

@@ -2,7 +2,7 @@
 //  STInteractiveSceneElement.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/31/14.
+//  Created by Ryan Britt on 6/24/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 @interface STInteractiveSceneElement : NSManagedObject
 
 @property (nonatomic, retain) NSString * center;
+@property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) double rotation;
-@property (nonatomic, retain) NSData * image;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  STEnvironmentSceneElement.m
+//  STEnvironmentSceneElement+EaseOfUse.h
 //  Storyteller
 //
 //  Created by Ryan Britt on 6/24/14.
@@ -7,11 +7,7 @@
 //
 
 #import "STEnvironmentSceneElement.h"
-#import "STInteractiveScene.h"
 
-
-@implementation STEnvironmentSceneElement
-
-@dynamic belongingScene;
+@interface STEnvironmentSceneElement (EaseOfUse)
 
 @end

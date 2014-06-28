@@ -7,6 +7,7 @@
 //
 
 #import "STInteractiveSceneElement.h"
+
 @class STStory;
 @class STInteractiveScene;
 
@@ -15,7 +16,6 @@ typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
     STInteractiveSceneElementTypeActor = 1000,
     STInteractiveSceneElementTypeEnvironment,
     STInteractiveSceneElementTypeObject,
-    STInteractiveSceneElementTypeObjectText,
 };
 
 

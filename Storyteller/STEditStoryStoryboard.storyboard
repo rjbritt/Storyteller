@@ -81,19 +81,19 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nSt-Cn-e9W"/>
                                     <barButtonItem title="Actor" id="Ud7-O3-3cT">
                                         <connections>
-                                            <action selector="addActorButton:" destination="j6J-Z6-QVO" id="U7w-TC-dRC"/>
+                                            <action selector="addActorButton:" destination="j6J-Z6-QVO" id="rgz-QP-YZC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTA-Yx-To7"/>
                                     <barButtonItem title="Environment" id="OeE-Yt-xZY">
                                         <connections>
-                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="91d-Bb-n0p"/>
+                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="WnK-e9-NcL"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="iJh-0k-IoS"/>
                                     <barButtonItem title="Object" id="Ojs-Iq-qBA">
                                         <connections>
-                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="qSI-JR-fqD"/>
+                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="8XR-At-3pU"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="n03-vo-WaD"/>
@@ -146,7 +146,7 @@
                         <viewControllerLayoutGuide type="top" id="txx-fP-t2e"/>
                         <viewControllerLayoutGuide type="bottom" id="0Zs-NW-vvs"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zFJ-yk-epK" customClass="Ste">
+                    <view key="view" contentMode="scaleToFill" id="zFJ-yk-epK">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

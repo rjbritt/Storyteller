@@ -15,41 +15,50 @@
 
 @implementation STInteractiveSceneElement (EaseOfUse)
 
-//Convienence Methods
+#pragma mark - Convenience Methods
 
+/**
+ *  Convenience Method to return the stored NSString center as a CGPoint
+ *
+ *  @return Center of the SceneElement as a CGPoint
+ */
 -(CGPoint) centerPointCGPoint
 {
     return CGPointFromString(self.center);
 }
 
+
+/**
+ *  Convenience Method to set the stored NSString center from a CGPoint
+ *
+ *  @param point The CGPoint to set as center
+ */
 -(void) setCenterPoint:(CGPoint)point
 {
     self.center = NSStringFromCGPoint(point);
 }
 
+/**
+ *  Convenience method to return the NSData image as a UIImage
+ *
+ *  @return UIImage representation of the NSData image
+ */
 -(UIImage *) getUIImageFromData
 {
     return [UIImage imageWithData:self.image];
 }
 
+/**
+ *  Convenience method to set the NSData image from a UIImage
+ *
+ *  @param image the UIImage to set as the NSData
+ */
 -(void) setImageDataFromUIImage: (UIImage *)image
 {
     self.image = UIImagePNGRepresentation(image);
 }
 
-
-/**
- * initializeSceneElementType: withImage: withinContext: centeredAt:
- * This is an easy way of initializing an STActor in order to obfuscate the NSEntity Description every time an STActor must be used.
- *
- * @param name The name of the STActor
- * @param image A UIImage of the STActor
- * @param context The NSManagedObjectContext where this STActor is being added
- * @param center The desired center of the STActor in UIKit coordinates
- *
- * @return A properly configured STActor
- */
-
+#pragma mark - Factory and superclass Methods
 /**
  *  This is a factory method to easily initialize a scene element of a specific type.
  *
@@ -110,13 +119,14 @@
 }
 
 /**
- *  <#Description#>
+ *  This convenience method allows the searching of any particular scene element of a certain name within a particular story
+ *  and name.
  *
- *  @param elementType <#elementType description#>
- *  @param name        <#name description#>
- *  @param story       <#story description#>
- *  @param scene       <#scene description#>
- *  @param context     <#context description#>
+ *  @param elementType The STInteractiveSceneElementType that is going to be found and returned
+ *  @param name        The Name of the STInteractiveSceneElement
+ *  @param story       The Story that the STInteractiveSceneElement is in
+ *  @param scene       The Scene that the STInteractiveSceneElement is in
+ *  @param context     The NSManagedObjectContext to look for the STInteractiveSceneElement in
  *
  *  @return <#return value description#>
  */
@@ -150,6 +160,7 @@
             break;
             
         default:
+            //Will look for any STInteractiveSceneElement
             elementFetch = [NSFetchRequest fetchRequestWithEntityName:@"STInteractiveSceneElement"];
 
             break;

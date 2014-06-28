@@ -13,7 +13,9 @@
 
 @class STInteractiveScene;
 
-@interface STEditSceneViewController : UIViewController<UIViewDragDropDelegate>
+@interface STEditSceneViewController : UIViewController<UIViewDragDropDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
+
+- (void)addActorElementWithImage:(UIImage *)image;
 @end

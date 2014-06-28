@@ -14,10 +14,12 @@
 @interface STTextMedia (EaseOfUse)
 
 +(CGRect) genericRectForTextFieldAtCenter:(CGPoint)center;
+
 +(STTextMedia *)initWithText:(NSString *)text
                 withFontSize:(int)fontSize
                    inContext:(NSManagedObjectContext *)context
                     atCenter:(CGPoint)center;
+
 +(STTextMedia *)findTextMediaWithText:(NSString *)text
                               inScene:(STInteractiveScene *)scene
                              andStory:(STStory *)story

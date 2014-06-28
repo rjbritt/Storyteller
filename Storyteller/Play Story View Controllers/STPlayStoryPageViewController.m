@@ -2,6 +2,8 @@
 //  STPlayStoryViewController.m
 //  Storyteller
 //
+//  Entire View Controller is created programmatically
+//
 //  Created by Ryan Britt on 6/9/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
@@ -59,20 +61,7 @@
 }
 
 -(UIViewController *)viewControllerAtIndex:(NSInteger)index
-{
-    
-//    UIViewController *controller = [[UIViewController alloc]init];
-//    STInteractiveScene *sceneToDisplayOnPage = self.allScenes[index];
-//
-//    // Configure the view based on scene to display
-//    SKView * skView = [[SKView alloc]initWithFrame:self.view.frame];
-//    
-//    STInteractiveSceneSKScene * scene = [[STInteractiveSceneSKScene alloc]initWithSize:skView.bounds.size andScene:sceneToDisplayOnPage];
-//    scene.scaleMode = SKSceneScaleModeAspectFit;
-//    
-//    [controller.view addSubview: skView];
-//    [skView presentScene:scene];
-    
+{    
     STPresentSKSceneViewController* temp;
 
     //protect from going out of bounds
@@ -83,11 +72,6 @@
         STInteractiveScene *sceneToDisplayOnPage = self.allScenes[index];
 
         temp.scene =  sceneToDisplayOnPage;
-        
-        //Modify stpresentskscenenviewcontroller to
-        //work w/ navigation controller as well as
-        //independently control the presentation of an skscene.
-
     }
     
     return temp;
@@ -96,7 +80,7 @@
 {
     //given that an view controller is only created as above this should work. This will be ripped out later.
     
-    NSInteger index;
+    NSInteger index = NSNotFound;
     if([controller isMemberOfClass:[STPresentSKSceneViewController class]])
     {
         for (UIView *temp in controller.view.subviews)
@@ -105,7 +89,6 @@
             {
                 SKView *currentView = (SKView *)temp;
                 
-                //protect from falling over the edge
                 index = [self.allScenes indexOfObject:
                          ((STInteractiveSceneSKScene *)currentView.scene).currentScene];
 

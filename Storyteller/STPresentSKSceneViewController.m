@@ -64,9 +64,6 @@
         self.view.window.rootViewController = self.presentingViewController;
         
     }
-    //Will need to subclass UIViewController for the stInteractiveSceneSKSceneViewController to have a back button.
-    //
-    
     // Do any additional setup after loading the view.
 }
 

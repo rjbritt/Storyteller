@@ -8,6 +8,7 @@
 
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
+#import "STSelectSceneElementViewController.h"
 
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
@@ -31,7 +32,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) STAppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
-
+@property (strong, nonatomic) STTextMedia *editingTextMedia;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
 @end
 
@@ -41,6 +42,14 @@
 
 #pragma mark - Button Action Methods
 
+
+/**
+ *  Initiates an example of what the scene will look like when it is
+ *  presented as an element of a story. Sets the new rootViewController since a navigation element is needed
+ *  between the UISplitView and UINavigationView.
+ *
+ *  @param sender The Object that sent the action.
+ */
 - (IBAction)playButton:(id)sender
 {
         UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
@@ -48,38 +57,16 @@
     STPresentSKSceneViewController *temp = skSceneNavigationController.viewControllers[0];
     temp.scene = self.currentScene;
     
-    //Modify stpresentskscenenviewcontroller to work w/ navigation controller as well as independently control the presentation of an skscene.
-    
+#warning  Insert animation here
     self.view.window.rootViewController = skSceneNavigationController;
     
 }
 
--(void)backToSceneSelection
-{
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = self.currentScene.belongingStory;
-    editSceneVC.currentScene = [self.currentScene.belongingStory stInteractiveCurrentEditingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
-    
-#warning Insert Animation Here
-    
-    self.view.window.rootViewController = nextViewController;
-}
-
 /**
- * This method will add an appropriate RCDraggableButton and
- * call the method to add a new STActorSceneElement for a new Actor.
+ * Creates a new STActorSceneElement and initiates the creation 
+ * of a draggable button to represent this scene element.
  *
- * @param sender The button that sent this action
+ * @param sender The object that sent this action
  */
 - (IBAction)addActorButton:(id)sender
 {
@@ -103,18 +90,50 @@
 
     
     //Create Button to represent Actor
-    [self createNewDraggableButtonWithName:tempActor.name
+    [self createNewDraggableSceneElementWithName:tempActor.name
                                  withFrame:[self frameCGRectFromCenter:tempActor.centerPointCGPoint AndSize:image.size]
                                    withTag:STInteractiveSceneElementTypeActor
                                  withImage:image];
     
 }
 
+
 /**
- * This method will add an appropriate RCDraggableButton and
- * call the method to add a new STEnvironmentSceneElement for a new Environment.
+ * Creates a new STActorSceneElement and initiates the creation
+ * of a draggable button to represent this scene element.
  *
- * @param sender The button that sent this action
+ * @param sender The object that sent this action
+ */
+- (void)addActorElementWithImage:(UIImage *)image
+{
+    CGPoint center = CGPointMake(20, 20);
+    
+    //Create ActorSceneElement
+    STActorSceneElement *tempActor = (STActorSceneElement *)
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+                                                 withName:self.currentScene.nextActorName
+                                                withImage:image
+                                            withinContext:self.context
+                                               centeredAt:center];
+    
+    
+    [self.currentScene addActorSceneElementListObject:tempActor];
+    
+    
+    //Create Button to represent Actor
+    [self createNewDraggableSceneElementWithName:tempActor.name
+                                       withFrame:[self frameCGRectFromCenter:tempActor.centerPointCGPoint AndSize:image.size]
+                                         withTag:STInteractiveSceneElementTypeActor
+                                       withImage:image];
+    
+}
+
+
+/**
+ * Creates a new STEnvironmentSceneElement and initiates the creation
+ * of a draggable button to represent this scene element.
+ *
+ * @param sender The object that sent this action
  */
 - (IBAction)addEnvironmentButton:(id)sender
 {
@@ -122,7 +141,7 @@
     
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(50, top + 50);
-    UIImage *image = [UIImage imageNamed:@"Environment"];
+    UIImage *image = [UIImage imageNamed:@"Actor 2"];
     
     
     //Create EnvironmentSceneElement
@@ -137,17 +156,17 @@
     
     
     //Create Button to represent Environment
-    [self createNewDraggableButtonWithName:tempEnv.name
+    [self createNewDraggableSceneElementWithName:tempEnv.name
                                  withFrame:[self frameCGRectFromCenter:tempEnv.centerPointCGPoint AndSize:image.size]
                                    withTag:STInteractiveSceneElementTypeEnvironment
                                  withImage:image];
 }
 
 /**
- * This method will add an appropriate RCDraggableButton and
- * call the method to add a new STObjectSceneElement for a new Object.
+ * Creates a new STObjectSceneElement and initiates the creation
+ * of a draggable button to represent this scene element.
  *
- * @param sender The button that sent this action
+ * @param sender The object that sent this action
  */
 - (IBAction)addObjectButton:(id)sender
 {
@@ -155,7 +174,7 @@
     
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(50, top + 50);
-    UIImage *image = [UIImage imageNamed:@"NPC"];
+    UIImage *image = [UIImage imageNamed:@"Actor 3"];
     
     
     //Create ObjectSceneElement
@@ -170,12 +189,18 @@
     
     
     //Create Button to represent Object
-    [self createNewDraggableButtonWithName:tempObject.name
+    [self createNewDraggableSceneElementWithName:tempObject.name
                                  withFrame:[self frameCGRectFromCenter:tempObject.centerPointCGPoint AndSize:image.size]
                                    withTag:STInteractiveSceneElementTypeObject
                                  withImage:image];
 }
 
+/**
+ * Creates a new STTextMedia and initiates the creation
+ * of a draggable UITextView to represent this scene element.
+ *
+ *  @param sender The object that sent this action.
+ */
 -(IBAction)addTextButton:(id)sender
 {
     NSString *text = @"Insert Text Here.";
@@ -189,8 +214,8 @@
 #pragma mark - View Methods
 
 /**
- *  Creates a new DraggableButton instance. This button is used as the UIKit representation of
- *  The different items in the scene.
+ *  Creates a new SceneElement with a RCDraggableButton instance. This button is used as the UIKit representation of
+ *  the different items in the scene.
  *
  *  @param name  The name of the draggable button.
  *  @param frame The frame that the button will occupy.
@@ -199,9 +224,10 @@
  *
  *  @return The newly added DraggableButton that represents a STInteractiveSceneElement
  */
--(RCDraggableButton *)createNewDraggableButtonWithName:(NSString*) name withFrame:(CGRect) frame withTag:(int)tag withImage:(UIImage *) image
+-(RCDraggableButton *)createNewDraggableSceneElementWithName:(NSString*) name withFrame:(CGRect) frame withTag:(int)tag withImage:(UIImage *) image
 {
     [self currentSceneStatusAtLocation:@"CreateNewDraggableButton"];
+    
     //Create RCDraggableButton with aforementioned information
     RCDraggableButton *temp = [[RCDraggableButton alloc] initWithFrame:frame];
     [temp setImage:image forState:UIControlStateNormal];
@@ -220,15 +246,26 @@
     return temp;
 }
 
+
+/**
+ *  Creates a new UITextView that has been made draggable.
+ *
+ *  @param text   The text that will appear in the textview by default
+ *  @param center The point where the textview needs to be centered
+ *
+ *  @return A properly configured draggable UITextView.
+ */
 -(UITextView *)createNewDraggableTextViewWithText:(NSString *)text atCenter:(CGPoint)center
 {
     CGRect frame = [STTextMedia genericRectForTextFieldAtCenter:center];
+    
     UITextView *tempTextView = [[UITextView alloc]initWithFrame:frame];
     [tempTextView setFont:[UIFont systemFontOfSize:20]];
     tempTextView.text = text;
     tempTextView.opaque =  NO;
     tempTextView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
     tempTextView.tag = STTextMediaType;
+    tempTextView.delegate = self;
     
     
     //make a view draggable
@@ -251,13 +288,8 @@
     self.context = self.appDelegate.coreDataHelper.context;
 
     
-    //For adding in a scrollview later. Will need to check if subviews can respond to touch before scrollview does.
+    //Add in a scrollview later. Will need to check if subviews can respond to touch before scrollview does.
     // Will need scrollview subclass.
-//    UIView *tempView = [[UIView alloc] initWithFrame:self.splitViewController.view.frame];
-//    tempView.backgroundColor = [UIColor whiteColor];
-//    self.scrollview.contentSize = tempView.frame.size;
-//    [self.scrollview addSubview:tempView];
-    
 
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
 }
@@ -282,10 +314,45 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
+#pragma mark - View Controller Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"actorElementSelect"] || [segue.identifier isEqualToString:@"environmentElementSelect"] || [segue.identifier isEqualToString:@"objectElementSelect"])
+    {
+        STSelectSceneElementViewController *selectVC = segue.destinationViewController;
+        selectVC.editSceneDelegate = self;
+        
+        if ([segue.identifier isEqualToString:@"actorElementSelect"])
+        {
+            selectVC.sceneElementType = STInteractiveSceneElementTypeActor;
+        }
+        else if([segue.identifier isEqualToString:@"environmentElementSelect"])
+        {
+            selectVC.sceneElementType = STInteractiveSceneElementTypeEnvironment;
+        }
+        else
+        {
+            selectVC.sceneElementType = STInteractiveSceneElementTypeObject;
+        }
+        
+    }
+    
+    
+}
+
+
 #pragma mark - UIView + DragDrop Delegate Methods
 - (void) view:(UIView *)view wasDroppedOnDropView:(UIView *)drop
 {
-    [self updateMediaElementLocationForSender:view];
+    if ([view isMemberOfClass:[UITextView class]])
+    {
+        [self updateMediaElementLocationForSender:view];
+    }
 }
 
 - (BOOL) viewShouldReturnToStartingPosition:(UIView*)view
@@ -299,7 +366,10 @@
 }
 - (void) draggingDidEndWithoutDropForView:(UIView*)view
 {
-    [self updateMediaElementLocationForSender:view];
+    if ([view isMemberOfClass:[UITextView class]])
+    {
+        [self updateMediaElementLocationForSender:view];
+    }
 }
 
 - (void) view:(UIView *)view didHoverOverDropView:(UIView *)dropView
@@ -309,6 +379,34 @@
 - (void) view:(UIView *)view didUnhoverOverDropView:(UIView *)dropView
 {
     
+}
+
+#pragma mark - TextView Delegate
+
+/**
+ *  TextView Delegate method used to signify that a textView has begun editing. This
+ *  is used to identify the textview that is currently being edited as its instance of STTextMedia
+ *
+ *  @param textView The textView that is being edited.
+ */
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.editingTextMedia = [STTextMedia findTextMediaWithText:textView.text
+                                                       inScene:self.currentScene
+                                                      andStory:self.currentScene.belongingStory
+                                                     inContext:self.context];
+}
+
+/**
+ *  TextView Delegate method used to signify that a textView has ended editing. This
+ *  is used to set the appropriate STTextMedia's current text as to keep it in line with 
+ *  TextView for proper loading.
+ *
+ *  @param textView The textView that has finished editing.
+ */
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.editingTextMedia.text = textView.text;
 }
 
 
@@ -356,7 +454,7 @@
         
         //Since we create a button with a frame and not the saved center, we need to find out what the frame would be for the saved center
         CGRect temp = [self frameCGRectFromCenter:center AndSize:theImage.size];
-        [self createNewDraggableButtonWithName:element.name
+        [self createNewDraggableSceneElementWithName:element.name
                                      withFrame:temp
                                        withTag:elementType
                                      withImage:theImage];
@@ -364,10 +462,8 @@
     
     for (STMedia *media in mediaInCurrentScene)
     {
-        STMediaType mediaType;
         if([media isMemberOfClass:[STTextMedia class]])
         {
-            mediaType = STTextMediaType;
             STTextMedia *textMedia = (STTextMedia *)media;
             [self createNewDraggableTextViewWithText:textMedia.text atCenter:[textMedia centerPointCGPoint]];
             
@@ -380,10 +476,16 @@
 
 #pragma mark - Scene Update from UIKit
 
-//need another method to update text
+
+/**
+ *  This is a generic method that should be able to update any location of a media item
+ *  within the scene. The first iteration is only for STTextMedia.
+ *
+ *  @param sender Whatever media element that needs to be updated.
+ */
 -(void)updateMediaElementLocationForSender:(id)sender
 {
-    //update STTextMedia;
+    //update STTextMedia Location;
     if ([sender isMemberOfClass:[UITextView class]])
     {
         UITextView *textView = (UITextView *)sender;
@@ -507,6 +609,11 @@
                                     context:nil];
 }
 
+/**
+ *  Debug method. Tells current state of the scene at a particular location within the scene.
+ *
+ *  @param location The string that represents the location.
+ */
 -(void)currentSceneStatusAtLocation:(NSString *)location
 {
     NSLog(@"Current Scene: %@ , Current Actor Count: %i, Location: %@", self.currentScene.name, self.currentScene.actorSceneElementList.count, location);

@@ -2,7 +2,7 @@
 //  STInteractiveSceneElement.m
 //  Storyteller
 //
-//  Created by Ryan Britt on 5/31/14.
+//  Created by Ryan Britt on 6/24/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 @implementation STInteractiveSceneElement
 
 @dynamic center;
+@dynamic image;
 @dynamic name;
 @dynamic rotation;
-@dynamic image;
 
 @end
