@@ -13,6 +13,7 @@
 #import "STPresentSKSceneViewController.h"
 
 #import "STStory+EaseOfUse.h"
+#import "ECSlidingViewController+EditStorySlidingViewController.h"
 
 @interface STPlayStoryPageViewController ()
 @end
@@ -106,7 +107,7 @@
     
     if ((index == 0) || (index == NSNotFound))
     {
-        return nil;
+        return [ECSlidingViewController slidingViewControllerForStory:self.story];
     }
     
     index--;

@@ -1,5 +1,5 @@
 //
-//  STViewController.m
+//  STEditSceneViewController.m
 //  Storyteller
 //
 //  Created by Ryan Britt on 3/29/14.
@@ -25,7 +25,8 @@
 #import "STNavigationController.h"
 #import "STPresentSKSceneViewController.h"
 #import <RCDraggableButton.h>
-
+#import <ECSlidingViewController.h>
+#import <UIViewController+ECSlidingViewController.h>
 
 @interface STEditSceneViewController()
 
@@ -61,9 +62,31 @@
     self.view.window.rootViewController = skSceneNavigationController;
     
 }
+- (IBAction)showAllScenes:(id)sender
+{
+    if (self.slidingViewController)
+    {
+        //Allows switching between anchored and not
+        if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+            [self.slidingViewController anchorTopViewToRightAnimated:YES];
+        } else {
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
+    }
+}
+
+- (IBAction)showElementSelect:(id)sender
+{
+    //Allows switching between anchored and not
+    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+        [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    } else {
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+}
 
 /**
- * Creates a new STActorSceneElement and initiates the creation 
+ * Creates a new STActorSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
  * @param sender The object that sent this action
@@ -94,37 +117,6 @@
                                  withFrame:[self frameCGRectFromCenter:tempActor.centerPointCGPoint AndSize:image.size]
                                    withTag:STInteractiveSceneElementTypeActor
                                  withImage:image];
-    
-}
-
-
-/**
- * Creates a new STActorSceneElement and initiates the creation
- * of a draggable button to represent this scene element.
- *
- * @param sender The object that sent this action
- */
-- (void)addActorElementWithImage:(UIImage *)image
-{
-    CGPoint center = CGPointMake(20, 20);
-    
-    //Create ActorSceneElement
-    STActorSceneElement *tempActor = (STActorSceneElement *)
-    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
-                                                 withName:self.currentScene.nextActorName
-                                                withImage:image
-                                            withinContext:self.context
-                                               centeredAt:center];
-    
-    
-    [self.currentScene addActorSceneElementListObject:tempActor];
-    
-    
-    //Create Button to represent Actor
-    [self createNewDraggableSceneElementWithName:tempActor.name
-                                       withFrame:[self frameCGRectFromCenter:tempActor.centerPointCGPoint AndSize:image.size]
-                                         withTag:STInteractiveSceneElementTypeActor
-                                       withImage:image];
     
 }
 
@@ -272,6 +264,7 @@
     [tempTextView makeDraggableWithDropViews:@[self.view] delegate:self];
     [tempTextView setDragMode:UIViewDragDropModeNormal];
     
+    
     [self.view addSubview: tempTextView];
     
     return tempTextView;
@@ -286,10 +279,6 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.context = self.appDelegate.coreDataHelper.context;
-
-    
-    //Add in a scrollview later. Will need to check if subviews can respond to touch before scrollview does.
-    // Will need scrollview subclass.
 
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
 }

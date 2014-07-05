@@ -17,5 +17,7 @@
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 
-- (void)addActorElementWithImage:(UIImage *)image;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+
+
 @end

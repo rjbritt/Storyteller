@@ -14,10 +14,15 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 
+#import <ECSlidingViewController.h>
+#import "ECSlidingViewController+EditStorySlidingViewController.h"
+
+#import <RCDraggableButton.h>
 
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UITextField *storyName;
+@property (strong, nonatomic) ECSlidingViewController *slidingViewController;
 @end
 
 @implementation STMainViewController
@@ -96,19 +101,7 @@
     [newStory setNewSceneToStartingScene:startingScene];
     newStory.editingSceneIndex = newStory.startingSceneIndex;
     
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = newStory;
-    editSceneVC.currentScene = [newStory stInteractiveStartingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
+    ECSlidingViewController *slidingViewController = [ECSlidingViewController slidingViewControllerForStory:newStory];
     
 #warning Insert Animation Here
     
@@ -117,15 +110,12 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.view.alpha = 0;
-                         nextViewController.view.alpha = 1;
+                         slidingViewController.view.alpha = 1;
                      }
                      completion:nil];
     
-    
-    self.view.window.rootViewController = nextViewController;
+    self.view.window.rootViewController = slidingViewController;
 }
-
-
 
 #pragma mark - Lifecycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -162,5 +152,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

@@ -11,6 +11,5 @@
 @class STStory;
 
 @interface STEditStoryTableViewController : UITableViewController
-@property (strong, nonatomic) STStory *currentStory;
-@property (strong, nonatomic) STEditSceneViewController *editSceneDelegate;
+@property (strong, nonatomic) STStory *currentStory; //Necessary In order to properly initialize this VC
 @end

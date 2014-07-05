@@ -99,7 +99,6 @@
 -(void)actorSelect:(id)sender
 {
     UIButton *button = sender;
-    [self.editSceneDelegate addActorElementWithImage:button.imageView.image];
 }
 -(void)envSelect:(id)sender
 {

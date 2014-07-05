@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Storyteller-ECSlidingViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Storyteller-KCOrderedAccessorFix.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Storyteller-MSSlidingPanelController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,7 +34,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-StorytellerTests-ECSlidingViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-StorytellerTests-KCOrderedAccessorFix.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-StorytellerTests-MSSlidingPanelController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2F154E9305A44AA0B46034B2</key>
+		<key>341D22B2963D46A983927337</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35F01F8386C34C74AAFF8252</key>
+		<key>3D7F0D14CFB5469DAA881C71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56ABACC4DD924F728CFDB2B9</key>
+		<key>43E42E2A2D8242BA80C86F20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EA4C5DD67C44F76B7F98B73</key>
+		<key>44C46FEF1B9442B6B8E1892A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>966DE12D4D2342B19A71C26F</key>
+		<key>591CF59D8B9E41FCA95F2932</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>991BAD75870647DC96D19F0E</key>
+		<key>84F7136A0B3D42838EF429C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5E4A9AA9368431E930BF9DF</key>
+		<key>9FD378DE8281492DA27483E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C96CC4717DFD4136A4BE79A2</key>
+		<key>A766F2FB13104972B7BA88B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB5D23746A88435F8880DBD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFF44F0D06F54056B68D3EE9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1AB50FE74734A53B341A65E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA920621F62F487AA1D96E87</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -6,11 +6,23 @@
 // project.
 
 
+// ECSlidingViewController
+#define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
+#define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 2
+#define COCOAPODS_VERSION_MINOR_ECSlidingViewController 0
+#define COCOAPODS_VERSION_PATCH_ECSlidingViewController 2
+
 // KCOrderedAccessorFix
 #define COCOAPODS_POD_AVAILABLE_KCOrderedAccessorFix
 #define COCOAPODS_VERSION_MAJOR_KCOrderedAccessorFix 0
 #define COCOAPODS_VERSION_MINOR_KCOrderedAccessorFix 0
 #define COCOAPODS_VERSION_PATCH_KCOrderedAccessorFix 1
+
+// MSSlidingPanelController
+#define COCOAPODS_POD_AVAILABLE_MSSlidingPanelController
+#define COCOAPODS_VERSION_MAJOR_MSSlidingPanelController 1
+#define COCOAPODS_VERSION_MINOR_MSSlidingPanelController 3
+#define COCOAPODS_VERSION_PATCH_MSSlidingPanelController 2
 
 // RCDraggableButton
 #define COCOAPODS_POD_AVAILABLE_RCDraggableButton

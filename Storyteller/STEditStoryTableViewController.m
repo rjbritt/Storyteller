@@ -15,6 +15,9 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 
+#import <ECSlidingViewController.h>
+#import <UIViewController+ECSlidingViewController.h>
+
 
 @interface STEditStoryTableViewController ()
 @property (strong, nonatomic) NSArray *allScenesForCurrentStory;
@@ -35,9 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
     self.clearsSelectionOnViewWillAppear = NO;
-    [self.navigationItem setTitle:self.currentStory.name];
     
     //Set the buttons for the navigation bar of this view controller in order to go back to Main Screen
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"Main Screen" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
@@ -49,13 +50,26 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //Set all information based on currentStory input
+    self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
+    [self.navigationItem setTitle:self.currentStory.name];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.editingSceneIndex inSection:0]
+                                animated:NO
+                          scrollPosition:0];
+
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.startingSceneIndex inSection:0]
-                                animated:NO
-                          scrollPosition:0];
+
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -180,18 +194,17 @@
     STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     [appDelegate.coreDataHelper saveContext];
     
+    //Instantiate new STEditSceneViewController to erase all the scene elements from the previous scene.
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
+    UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
+    STEditSceneViewController *newSceneViewController = (STEditSceneViewController *)topVC.visibleViewController;
+    
     //Set current Editing scene to the new scene.
     self.currentStory.editingSceneIndex = indexPath.row;
+    newSceneViewController.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
     
-    //Create a new EditSceneViewController, set it as the current scene.
-    STEditSceneViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"STEditSceneViewController"];
-    temp.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
-
-    //Change this view controller's delegate and then change the detail view to temp.
-    //Doing it this way, we may not need a delegate. Verify Later
-    self.editSceneDelegate = temp;
-    self.splitViewController.viewControllers = @[self.splitViewController.viewControllers[0], temp];
-    
+    //Reset the sliding view controller top view controller to the new top VC
+    self.slidingViewController.topViewController = topVC;
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

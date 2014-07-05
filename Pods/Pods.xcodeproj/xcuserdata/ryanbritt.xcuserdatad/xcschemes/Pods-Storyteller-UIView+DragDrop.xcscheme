@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6674E3B468244DC1A9C725FB"
+               BlueprintIdentifier = "CFF44F0D06F54056B68D3EE9"
                BuildableName = "libPods-Storyteller-UIView+DragDrop.a"
                BlueprintName = "Pods-Storyteller-UIView+DragDrop"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -118,8 +118,8 @@ dispatch_queue_t backgroundQueue;
     start = [NSDate date];
     for (STInteractiveSceneElement *element in combinedArray)
     {
-        dispatch_async(backgroundQueue, ^(void)
-        {
+//        dispatch_async(backgroundQueue, ^(void)
+//        {
             if([element isMemberOfClass:[STActorSceneElement class]])
             {
                 SKSpriteNode *actorSprite = [self actorSceneElementToSpriteNode:(STActorSceneElement*)element];
@@ -135,7 +135,7 @@ dispatch_queue_t backgroundQueue;
                 SKSpriteNode *objectSprite = [self objectSceneElementToSpriteNode:(STObjectSceneElement *)element];
                 [self addChild:objectSprite];
             }
-        });
+//        });
     }
     end = [NSDate date];
     NSLog([NSString stringWithFormat:@"Time taken: %lf", [end timeIntervalSinceDate:start]]);

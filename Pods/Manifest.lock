@@ -1,15 +1,21 @@
 PODS:
+  - ECSlidingViewController (2.0.2)
   - KCOrderedAccessorFix (0.0.1)
+  - MSSlidingPanelController (1.3.2)
   - RCDraggableButton (0.4)
   - UIView+DragDrop (0.0.2)
 
 DEPENDENCIES:
+  - ECSlidingViewController (~> 2.0.2)
   - KCOrderedAccessorFix
+  - MSSlidingPanelController
   - RCDraggableButton (~> 0.1)
   - UIView+DragDrop
 
 SPEC CHECKSUMS:
+  ECSlidingViewController: 6c11fadb10d720c2d48bc577962332bdd4264c9f
   KCOrderedAccessorFix: d177d657cbe2b3b070540d6b1652e8534c8bceae
+  MSSlidingPanelController: 554d1e1804e0b412303b814a623e730949aa1d17
   RCDraggableButton: b9bd67cc1623fde0ac4190baed9dcc847dc3081b
   UIView+DragDrop: 537aead6ff1caf6487e756bf88e14c031f1ee8c9
 

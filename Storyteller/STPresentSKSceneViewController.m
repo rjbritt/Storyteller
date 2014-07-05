@@ -14,6 +14,8 @@
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 
+#import <ECSlidingViewController.h>
+#import "ECSlidingViewController+EditStorySlidingViewController.h"
 
 @interface STPresentSKSceneViewController ()
 @property (strong, nonatomic) SKView *skView;
@@ -78,26 +80,10 @@
     
     //Load the selected story, set the editing scene to the starting scene.
     STStory *selectedStory = self.scene.belongingStory;
-    
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = selectedStory;
-    editSceneVC.currentScene = [selectedStory stInteractiveCurrentEditingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
-    
-    
+    ECSlidingViewController *nextViewController = [ECSlidingViewController slidingViewControllerForStory:selectedStory];
 #warning Insert Animation Here
     
     self.view.window.rootViewController = nextViewController;
-
 }
 
 /*
