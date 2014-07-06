@@ -46,131 +46,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34z-zq-AiC">
-                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nSt-Cn-e9W"/>
-                                    <barButtonItem title="Actor" id="Ud7-O3-3cT">
-                                        <connections>
-                                            <action selector="addActorButton:" destination="j6J-Z6-QVO" id="rgz-QP-YZC"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="nTA-Yx-To7"/>
-                                    <barButtonItem title="Environment" id="OeE-Yt-xZY">
-                                        <connections>
-                                            <action selector="addEnvironmentButton:" destination="j6J-Z6-QVO" id="WnK-e9-NcL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="iJh-0k-IoS"/>
-                                    <barButtonItem title="Object" id="Ojs-Iq-qBA">
-                                        <connections>
-                                            <action selector="addObjectButton:" destination="j6J-Z6-QVO" id="8XR-At-3pU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="n03-vo-WaD"/>
-                                    <barButtonItem title="Text" id="sNY-Gc-nA9">
-                                        <connections>
-                                            <action selector="addTextButton:" destination="j6J-Z6-QVO" id="D9x-Q5-iah"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hi4-Tq-in5"/>
-                                    <barButtonItem title="Play" id="9Ty-E6-nWL">
-                                        <connections>
-                                            <action selector="playButton:" destination="j6J-Z6-QVO" id="qTO-nc-gf7"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-YX-xJi">
+                                <rect key="frame" x="0.0" y="480" width="15" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="aL2-Zz-aQ2"/>
+                                </constraints>
+                                <state key="normal" title="leftpulltab" image="Pull Tab.png" backgroundImage="Pull Tab.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAllScenes:" destination="j6J-Z6-QVO" eventType="touchDragInside" id="aRF-Zv-sCc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-WS-P2O">
+                                <rect key="frame" x="753" y="480" width="15" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="XZz-XO-b0U"/>
+                                </constraints>
+                                <state key="normal" title="right pull tab" image="Pull Tab.png" backgroundImage="Pull Tab.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showElementSelect:" destination="j6J-Z6-QVO" eventType="touchDragExit" id="uys-5f-joK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="34z-zq-AiC" secondAttribute="bottom" id="iQF-l1-hgA"/>
-                            <constraint firstAttribute="trailing" secondItem="34z-zq-AiC" secondAttribute="trailing" id="kV7-6j-SRf"/>
-                            <constraint firstItem="34z-zq-AiC" firstAttribute="leading" secondItem="Sco-vI-m8I" secondAttribute="leading" id="mW5-oa-Cax"/>
+                            <constraint firstItem="9QV-YX-xJi" firstAttribute="centerY" secondItem="Sco-vI-m8I" secondAttribute="centerY" id="5eS-59-isz"/>
+                            <constraint firstAttribute="trailing" secondItem="nFX-WS-P2O" secondAttribute="trailing" id="H7E-t3-Tir"/>
+                            <constraint firstItem="nFX-WS-P2O" firstAttribute="baseline" secondItem="9QV-YX-xJi" secondAttribute="baseline" id="ndf-kF-59d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aSM-eY-uob">
-                        <barButtonItem key="leftBarButtonItem" title="Scenes" id="y0S-RB-Ob1">
+                        <barButtonItem key="leftBarButtonItem" title="Read Story" id="YZf-Tz-eip">
                             <connections>
-                                <action selector="showAllScenes:" destination="j6J-Z6-QVO" id="Mht-1J-FrO"/>
+                                <action selector="readStory:" destination="j6J-Z6-QVO" id="cle-C5-Qq9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Select Elements" id="O2l-zY-DDi">
+                        <barButtonItem key="rightBarButtonItem" title="Test Scene" id="suc-SX-STZ">
                             <connections>
-                                <action selector="showElementSelect:" destination="j6J-Z6-QVO" id="6H0-IM-TXF"/>
+                                <action selector="testSceneButton:" destination="j6J-Z6-QVO" id="CJs-4U-ode"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="toolbar" destination="34z-zq-AiC" id="9x6-02-buH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfX-22-URt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3993" y="-2755"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="xlE-3e-baM">
-            <objects>
-                <viewController id="bar-EL-Hjq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="p6T-1p-qIH"/>
-                        <viewControllerLayoutGuide type="bottom" id="SoC-r6-EaF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sX5-8M-4MM">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="FEV-7z-pwp"/>
-                    <size key="freeformSize" width="276" height="1024"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qe2-3z-Lto" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4499" y="-1601"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="q2I-IA-HRh">
-            <objects>
-                <tabBarController storyboardIdentifier="SceneElementSelectionTabController" definesPresentationContext="YES" id="P2v-GN-rx7" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="276" height="1024"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="bQy-kK-TXs">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="bar-EL-Hjq" kind="relationship" relationship="viewControllers" id="2K9-kC-51e"/>
-                        <segue destination="LLZ-Fu-nFv" kind="relationship" relationship="viewControllers" id="for-x8-t3a"/>
-                        <segue destination="UDe-ye-gFV" kind="relationship" relationship="viewControllers" id="V1g-T9-S5E"/>
-                        <segue destination="Csn-Sa-QZT" kind="relationship" relationship="viewControllers" id="h0c-xV-5rj"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t9L-tb-P9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4837" y="-1601"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="t1O-74-KkG">
-            <objects>
-                <viewController id="LLZ-Fu-nFv" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="p17-yU-1yD"/>
-                        <viewControllerLayoutGuide type="bottom" id="FTx-0Q-wWI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8Ss-Om-TVe">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="CoG-ML-guI"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wb5-hA-gjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4199" y="-1601"/>
         </scene>
         <!--Edit Story Nav Controller-->
         <scene sceneID="pcz-tN-210">
@@ -204,20 +129,78 @@
             </objects>
             <point key="canvasLocation" x="-4837" y="-2755"/>
         </scene>
-        <!--Test Scene Nav Controller-->
-        <scene sceneID="1Iz-Vp-m5V">
+        <!--Select Scene Element View Controller-->
+        <scene sceneID="ob4-e2-6ee">
             <objects>
-                <navigationController storyboardIdentifier="STPresentSKSceneNavigationController" definesPresentationContext="YES" id="4gp-rS-psh" userLabel="Test Scene Nav Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3cN-JV-M5J">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="TFG-ky-bog" kind="relationship" relationship="rootViewController" id="Hi8-IZ-7Iv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c1w-2f-WNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SceneElementSelectionController" id="twu-NU-hKl" customClass="STSelectSceneElementViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="beP-8r-2ZT"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEt-MC-0Zy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eei-qJ-1la">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETh-Ye-agU">
+                                <rect key="frame" x="20" y="20" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Actor">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addActorButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="0jL-9u-rwV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRr-YS-100">
+                                <rect key="frame" x="662" y="20" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Environment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addEnvironmentButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="v86-c9-rqI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geo-ty-G8V">
+                                <rect key="frame" x="20" y="974" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Object">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addObjectButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="z0c-wu-KCV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2J-FH-JgY">
+                                <rect key="frame" x="704" y="974" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="h2b-36-D4w"/>
+                                </constraints>
+                                <state key="normal" title="Text">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTextButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="fIA-ah-zhR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ETh-Ye-agU" firstAttribute="baseline" secondItem="dRr-YS-100" secondAttribute="baseline" id="5Ks-t6-gFB"/>
+                            <constraint firstItem="ETh-Ye-agU" firstAttribute="top" secondItem="Eei-qJ-1la" secondAttribute="top" constant="20" symbolic="YES" id="Bla-Wc-08q"/>
+                            <constraint firstAttribute="trailing" secondItem="dRr-YS-100" secondAttribute="trailing" constant="20" symbolic="YES" id="Dbs-ay-qk6"/>
+                            <constraint firstItem="ETh-Ye-agU" firstAttribute="leading" secondItem="geo-ty-G8V" secondAttribute="leading" id="FIB-cJ-Bsy"/>
+                            <constraint firstAttribute="bottom" secondItem="X2J-FH-JgY" secondAttribute="bottom" constant="20" symbolic="YES" id="Ku2-rG-ORm"/>
+                            <constraint firstItem="dRr-YS-100" firstAttribute="trailing" secondItem="X2J-FH-JgY" secondAttribute="trailing" id="r6M-Ye-bEr"/>
+                            <constraint firstItem="ETh-Ye-agU" firstAttribute="leading" secondItem="Eei-qJ-1la" secondAttribute="leading" constant="20" symbolic="YES" id="tpg-xb-yfo"/>
+                            <constraint firstItem="X2J-FH-JgY" firstAttribute="baseline" secondItem="geo-ty-G8V" secondAttribute="baseline" id="xjV-t2-mQk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ai-2m-QdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2455" y="-3908"/>
+            <point key="canvasLocation" x="-4856" y="-1506"/>
         </scene>
         <!--PresentSK Scene View Controller-->
         <scene sceneID="vxU-bj-Mak">
@@ -236,47 +219,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yD0-V7-6i9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1605" y="-3908"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qMB-O5-Vo0">
-            <objects>
-                <viewController id="UDe-ye-gFV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KaR-JR-QSZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="fK5-g9-EYp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GAN-as-Azv">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="maW-Mc-krf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qmy-52-7b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3885" y="-1601"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Jux-tR-fbU">
-            <objects>
-                <viewController id="Csn-Sa-QZT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WPA-aE-3VI"/>
-                        <viewControllerLayoutGuide type="bottom" id="gGY-we-zDY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yYV-M0-4vR">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="pw2-Gm-12k"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wot-3U-PEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3585" y="-1601"/>
+            <point key="canvasLocation" x="-3993" y="-3884"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Pull Tab.png" width="15" height="64"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

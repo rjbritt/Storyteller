@@ -101,7 +101,7 @@
     [newStory setNewSceneToStartingScene:startingScene];
     newStory.editingSceneIndex = newStory.startingSceneIndex;
     
-    ECSlidingViewController *slidingViewController = [ECSlidingViewController slidingViewControllerForStory:newStory];
+    ECSlidingViewController *slidingViewController = [ECSlidingViewController slidingViewControllerForStory:newStory atStartingScene:YES];
     
 #warning Insert Animation Here
     

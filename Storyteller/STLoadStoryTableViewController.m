@@ -88,7 +88,7 @@
 {
     //Load the selected story, set the editing scene to the starting scene.
     STStory *selectedStory = self.storyList[indexPath.row];
-    ECSlidingViewController *nextViewController = [ECSlidingViewController slidingViewControllerForStory:selectedStory];
+    ECSlidingViewController *nextViewController = [ECSlidingViewController slidingViewControllerForStory:selectedStory atStartingScene:NO];
 
 #warning Insert Animation Here
     

@@ -11,5 +11,5 @@
 @class STStory;
 @interface ECSlidingViewController (EditStorySlidingViewController)
 
-+(ECSlidingViewController *)slidingViewControllerForStory:(STStory *)newStory;
++(ECSlidingViewController *)slidingViewControllerForStory:(STStory *)newStory atStartingScene:(BOOL)startScene;
 @end

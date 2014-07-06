@@ -9,7 +9,6 @@
 #import "STEditStoryTableViewController.h"
 #import "STEditSceneViewController.h"
 #import "STMainViewController.h"
-#import "STPlayStoryPageViewController.h"
 
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
@@ -43,9 +42,8 @@
     //Set the buttons for the navigation bar of this view controller in order to go back to Main Screen
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"Main Screen" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
     
-    UIBarButtonItem *playBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playStory)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
-    self.navigationItem.rightBarButtonItems = @[playBarButton, self.editButtonItem];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     
 }
@@ -56,7 +54,7 @@
     
     //Set all information based on currentStory input
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
-    [self.navigationItem setTitle:self.currentStory.name];
+    [self.navigationItem setTitle:@""];
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.editingSceneIndex inSection:0]
                                 animated:NO
@@ -79,17 +77,6 @@
 
 
 #pragma mark - View Action Methods
-/**
- *  This method is to progress through the story. It will initially only support playing a story as a book format.
- */
--(void)playStory
-{
-    STPlayStoryPageViewController *playStoryVC = [[STPlayStoryPageViewController alloc]init];
-    playStoryVC.story = self.currentStory;
-    self.view.window.rootViewController = playStoryVC;
-
-}
-
 /**
  *  This method returns the user to the main view controller by resetting the root view controller.
  */

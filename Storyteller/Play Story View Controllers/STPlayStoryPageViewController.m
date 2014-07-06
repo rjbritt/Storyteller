@@ -79,8 +79,7 @@
 }
 -(NSInteger)indexOfViewController:(UIViewController *)controller
 {
-    //given that an view controller is only created as above this should work. This will be ripped out later.
-    
+    //given that an view controller is only created as above this should work.
     NSInteger index = NSNotFound;
     if([controller isMemberOfClass:[STPresentSKSceneViewController class]])
     {
@@ -105,13 +104,15 @@
     
     NSInteger index = [self indexOfViewController:viewController];
     
+    //If we go beyond the first page of the story, then we go back to the editing page
     if ((index == 0) || (index == NSNotFound))
     {
-        return [ECSlidingViewController slidingViewControllerForStory:self.story];
+#warning Create Animation Here for context shift
+        self.view.window.rootViewController = [ECSlidingViewController slidingViewControllerForStory:self.story atStartingScene:NO];
     }
     
+    //otherwise, return the previous page
     index--;
-    
     return [self viewControllerAtIndex:index];
 }
 

@@ -63,6 +63,8 @@
 		2FA2BECE194679C70007D813 /* STObjectMind.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0001F193BA455003719DC /* STObjectMind.m */; };
 		2FA2BED4194697060007D813 /* STPlayStoryPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA2BED3194697060007D813 /* STPlayStoryPageViewController.m */; };
 		2FB0BF12196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0BF11196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.m */; };
+		2FB0BF151968BC6700AAB7D8 /* STSelectSceneElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0BF141968BC6700AAB7D8 /* STSelectSceneElementViewController.m */; };
+		2FB0BF171969A81400AAB7D8 /* Pull Tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0BF161969A81400AAB7D8 /* Pull Tab.png */; };
 		2FBE404D193BB57C0038D27E /* STActorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE404C193BB57C0038D27E /* STActorTests.m */; };
 		2FC438F7195A4E4C006C719E /* STInteractiveSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC438F6195A4E4C006C719E /* STInteractiveSceneElement.m */; };
 		2FC438FB195A5815006C719E /* STEnvironmentSceneElement+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC438FA195A5815006C719E /* STEnvironmentSceneElement+EaseOfUse.m */; };
@@ -76,7 +78,6 @@
 		2FC43917195BA630006C719E /* Object.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390E195BA630006C719E /* Object.png */; };
 		2FC43918195BA630006C719E /* Object 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390F195BA630006C719E /* Object 2.png */; };
 		2FC43919195BA630006C719E /* Object 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC43910195BA630006C719E /* Object 3.png */; };
-		2FCFF181194FD09000114AB5 /* STSelectSceneElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFF180194FD09000114AB5 /* STSelectSceneElementViewController.m */; };
 		2FE00024193BA455003719DC /* STActorMind.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00011193BA455003719DC /* STActorMind.m */; };
 		2FE00025193BA455003719DC /* STActorSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00013193BA455003719DC /* STActorSceneElement.m */; };
 		2FE00026193BA455003719DC /* STEnvironmentMind.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE00015193BA455003719DC /* STEnvironmentMind.m */; };
@@ -161,6 +162,9 @@
 		2FA2BED3194697060007D813 /* STPlayStoryPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPlayStoryPageViewController.m; path = "Play Story View Controllers/STPlayStoryPageViewController.m"; sourceTree = "<group>"; };
 		2FB0BF10196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECSlidingViewController+EditStorySlidingViewController.h"; sourceTree = "<group>"; };
 		2FB0BF11196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ECSlidingViewController+EditStorySlidingViewController.m"; sourceTree = "<group>"; };
+		2FB0BF131968BC6700AAB7D8 /* STSelectSceneElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSelectSceneElementViewController.h; sourceTree = "<group>"; };
+		2FB0BF141968BC6700AAB7D8 /* STSelectSceneElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSelectSceneElementViewController.m; sourceTree = "<group>"; };
+		2FB0BF161969A81400AAB7D8 /* Pull Tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pull Tab.png"; sourceTree = "<group>"; };
 		2FBE404C193BB57C0038D27E /* STActorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STActorTests.m; sourceTree = "<group>"; };
 		2FC438F5195A4E4C006C719E /* STInteractiveSceneElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STInteractiveSceneElement.h; path = "NSManagedObject subclasses/STInteractiveSceneElement.h"; sourceTree = "<group>"; };
 		2FC438F6195A4E4C006C719E /* STInteractiveSceneElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STInteractiveSceneElement.m; path = "NSManagedObject subclasses/STInteractiveSceneElement.m"; sourceTree = "<group>"; };
@@ -177,8 +181,6 @@
 		2FC4390E195BA630006C719E /* Object.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Object.png; sourceTree = "<group>"; };
 		2FC4390F195BA630006C719E /* Object 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Object 2.png"; sourceTree = "<group>"; };
 		2FC43910195BA630006C719E /* Object 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Object 3.png"; sourceTree = "<group>"; };
-		2FCFF17F194FD09000114AB5 /* STSelectSceneElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSelectSceneElementViewController.h; sourceTree = "<group>"; };
-		2FCFF180194FD09000114AB5 /* STSelectSceneElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSelectSceneElementViewController.m; sourceTree = "<group>"; };
 		2FDCDA4219395D1700625871 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2FE00010193BA455003719DC /* STActorMind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STActorMind.h; path = "NSManagedObject subclasses/STActorMind.h"; sourceTree = "<group>"; };
 		2FE00011193BA455003719DC /* STActorMind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STActorMind.m; path = "NSManagedObject subclasses/STActorMind.m"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		2FCD34DA194FD40200573DB8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2FB0BF161969A81400AAB7D8 /* Pull Tab.png */,
 				2FC43908195BA630006C719E /* Actor.png */,
 				2FC43909195BA630006C719E /* Actor 2.png */,
 				2FC4390A195BA630006C719E /* Actor 3.png */,
@@ -475,8 +478,8 @@
 				2F609134193419FE001787A3 /* STEditStoryTableViewController.m */,
 				2F8B515218E7679200A5CBEF /* STEditSceneViewController.h */,
 				2F8B515318E7679200A5CBEF /* STEditSceneViewController.m */,
-				2FCFF17F194FD09000114AB5 /* STSelectSceneElementViewController.h */,
-				2FCFF180194FD09000114AB5 /* STSelectSceneElementViewController.m */,
+				2FB0BF131968BC6700AAB7D8 /* STSelectSceneElementViewController.h */,
+				2FB0BF141968BC6700AAB7D8 /* STSelectSceneElementViewController.m */,
 			);
 			name = "Edit Story/Scene View Controllers";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				2FC43912195BA630006C719E /* Actor 2.png in Resources */,
 				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
 				2FC43914195BA630006C719E /* Environment.png in Resources */,
+				2FB0BF171969A81400AAB7D8 /* Pull Tab.png in Resources */,
 				2FC43916195BA630006C719E /* Environment3.png in Resources */,
 				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
 				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
@@ -674,6 +678,7 @@
 				2F7CF7C518F03FDC0072490B /* STNavigationController.m in Sources */,
 				2FE00025193BA455003719DC /* STActorSceneElement.m in Sources */,
 				2F8B515418E7679200A5CBEF /* STEditSceneViewController.m in Sources */,
+				2FB0BF151968BC6700AAB7D8 /* STSelectSceneElementViewController.m in Sources */,
 				2FC438FE195A5836006C719E /* STObjectSceneElement+EaseOfUse.m in Sources */,
 				2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */,
 				2FE00036193BA469003719DC /* STActorSceneElement+EaseOfUse.m in Sources */,
@@ -688,7 +693,6 @@
 				2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */,
 				2FB0BF12196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.m in Sources */,
 				2F4C1360194948D3003639F3 /* STTextMedia.m in Sources */,
-				2FCFF181194FD09000114AB5 /* STSelectSceneElementViewController.m in Sources */,
 				2FE00026193BA455003719DC /* STEnvironmentMind.m in Sources */,
 				2FC438F7195A4E4C006C719E /* STInteractiveSceneElement.m in Sources */,
 				2F4C136C19495131003639F3 /* STStory.m in Sources */,

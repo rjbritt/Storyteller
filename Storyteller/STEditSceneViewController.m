@@ -8,7 +8,6 @@
 
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
-#import "STSelectSceneElementViewController.h"
 
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
@@ -19,6 +18,7 @@
 
 #import "STEnvironmentSceneElement.h"
 #import "STObjectSceneElement.h"
+#import "STPlayStoryPageViewController.h"
 
 #import "STAppDelegate.h"
 #import "STInteractiveSceneSKScene.h"
@@ -30,11 +30,8 @@
 
 @interface STEditSceneViewController()
 
-@property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) STAppDelegate *appDelegate;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (strong, nonatomic) STTextMedia *editingTextMedia;
-@property (weak, nonatomic) IBOutlet UILabel *tempLabelOutlet;
 @end
 
 
@@ -51,17 +48,26 @@
  *
  *  @param sender The Object that sent the action.
  */
-- (IBAction)playButton:(id)sender
+- (IBAction)testSceneButton:(id)sender
 {
-        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UINavigationController * skSceneNavigationController = [newStoryboard instantiateViewControllerWithIdentifier:@"STPresentSKSceneNavigationController"];
-    STPresentSKSceneViewController *temp = skSceneNavigationController.viewControllers[0];
+    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
+    STPresentSKSceneViewController *temp = [newStoryboard instantiateViewControllerWithIdentifier:@"STPresentSKSceneViewController"];
     temp.scene = self.currentScene;
-    
-#warning  Insert animation here
-    self.view.window.rootViewController = skSceneNavigationController;
+    [self.navigationController pushViewController:temp animated:YES];
+}
+
+/**
+ *  This method is to progress through the story. It will initially only support playing a story as a book format.
+ */
+-(IBAction)readStory:(id)sender
+{
+    STPlayStoryPageViewController *playStoryVC = [[STPlayStoryPageViewController alloc]init];
+    playStoryVC.story = self.currentScene.belongingStory;
+    self.view.window.rootViewController = playStoryVC;
     
 }
+
+
 - (IBAction)showAllScenes:(id)sender
 {
     if (self.slidingViewController)
@@ -279,6 +285,7 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.context = self.appDelegate.coreDataHelper.context;
+    [self setTitle:[NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name]];
 
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
 }
@@ -309,29 +316,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"actorElementSelect"] || [segue.identifier isEqualToString:@"environmentElementSelect"] || [segue.identifier isEqualToString:@"objectElementSelect"])
-    {
-        STSelectSceneElementViewController *selectVC = segue.destinationViewController;
-        selectVC.editSceneDelegate = self;
-        
-        if ([segue.identifier isEqualToString:@"actorElementSelect"])
-        {
-            selectVC.sceneElementType = STInteractiveSceneElementTypeActor;
-        }
-        else if([segue.identifier isEqualToString:@"environmentElementSelect"])
-        {
-            selectVC.sceneElementType = STInteractiveSceneElementTypeEnvironment;
-        }
-        else
-        {
-            selectVC.sceneElementType = STInteractiveSceneElementTypeObject;
-        }
-        
-    }
-    
-    
 }
 
 
