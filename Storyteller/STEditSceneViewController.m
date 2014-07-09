@@ -43,8 +43,7 @@
 
 /**
  *  Initiates an example of what the scene will look like when it is
- *  presented as an element of a story. Sets the new rootViewController since a navigation element is needed
- *  between the UISplitView and UINavigationView.
+ *  presented as an element of a story. Sets the new rootViewController.
  *
  *  @param sender The Object that sent the action.
  */
@@ -97,7 +96,7 @@
  *
  * @param sender The object that sent this action
  */
-- (IBAction)addActorButton:(id)sender
+- (void)addActorButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add ActorButton"];
    
@@ -133,7 +132,7 @@
  *
  * @param sender The object that sent this action
  */
-- (IBAction)addEnvironmentButton:(id)sender
+- (void)addEnvironmentButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add EnvButton"];
     
@@ -166,7 +165,7 @@
  *
  * @param sender The object that sent this action
  */
-- (IBAction)addObjectButton:(id)sender
+- (void)addObjectButton:(id)sender
 {
     [self currentSceneStatusAtLocation:@"Add Object"];
     
@@ -199,7 +198,7 @@
  *
  *  @param sender The object that sent this action.
  */
--(IBAction)addTextButton:(id)sender
+-(void)addTextButton:(id)sender
 {
     NSString *text = @"Insert Text Here.";
     CGPoint center = CGPointMake(100, 100);
@@ -238,6 +237,31 @@
         {
             [self updateSTInteractiveSceneElementForButton:button];
         };
+    
+    temp.tapBlock = ^(RCDraggableButton * button)
+    {
+        STInteractiveSceneElement *element = [STInteractiveSceneElement findSceneElementOfType:button.tag
+                                                                                withName:button.currentTitle
+                                                                                 inStory:self.currentScene.belongingStory
+                                                                                 inScene:self.currentScene
+                                                                               inContext:self.context];
+        switch (button.tag)
+        {
+            case STInteractiveSceneElementTypeActor:
+                [self.currentScene removeActorSceneElementListObject:(STActorSceneElement *)element];
+                break;
+            case STInteractiveSceneElementTypeEnvironment:
+                [self.currentScene removeEnvironmentSceneElementListObject:(STEnvironmentSceneElement *)element];
+                break;
+            case STInteractiveSceneElementTypeObject:
+                [self.currentScene removeObjectSceneElementListObject:(STObjectSceneElement *)element];
+                break;
+            default:
+                break;
+        }
+        
+        
+    };
     
     //Add as subview and return
     [self.view addSubview:temp];

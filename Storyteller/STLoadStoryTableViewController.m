@@ -91,7 +91,7 @@
     ECSlidingViewController *nextViewController = [ECSlidingViewController slidingViewControllerForStory:selectedStory atStartingScene:NO];
 
 #warning Insert Animation Here
-    
+    //Flip Animation maybe?
     self.view.window.rootViewController = nextViewController;
 }
 

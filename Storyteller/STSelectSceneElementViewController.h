@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class STEditSceneViewController;
 
-@interface STSelectSceneElementViewController : UIViewController <UITabBarDelegate>
+@interface STSelectSceneElementViewController : UIViewController
+@property (strong,nonatomic)STEditSceneViewController *editSceneDelegate;
 
 @end

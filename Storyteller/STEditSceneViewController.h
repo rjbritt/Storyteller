@@ -19,10 +19,13 @@
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
--(IBAction)addActorButton:(id)sender;
--(IBAction)addEnvironmentButton:(id)sender;
--(IBAction)addObjectButton:(id)sender;
--(IBAction)addTextButton:(id)sender;
+-(void)addActorButton:(id)sender;
+-(void)addEnvironmentButton:(id)sender;
+-(void)addObjectButton:(id)sender;
+-(void)addTextButton:(id)sender;
+
+- (IBAction)showElementSelect:(id)sender;
+
 
 
 -(void)updateSTInteractiveSceneElementForButton:(UIButton *)button;

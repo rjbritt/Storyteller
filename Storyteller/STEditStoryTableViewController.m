@@ -13,6 +13,7 @@
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
+#import "STSelectSceneElementViewController.h"
 
 #import <ECSlidingViewController.h>
 #import <UIViewController+ECSlidingViewController.h>
@@ -41,9 +42,9 @@
     
     //Set the buttons for the navigation bar of this view controller in order to go back to Main Screen
     UIBarButtonItem *mainViewControllerBarButton =[[UIBarButtonItem alloc] initWithTitle:@"Main Screen" style:UIBarButtonItemStyleDone target:self action:@selector(toMainViewController)];
-    
+    UIBarButtonItem *addSceneBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addScene)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItems = @[addSceneBarButton,self.editButtonItem];
 
     
 }
@@ -55,6 +56,8 @@
     //Set all information based on currentStory input
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
     [self.navigationItem setTitle:@""];
+    
+    self.tableView.allowsSelectionDuringEditing = YES;
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.editingSceneIndex inSection:0]
                                 animated:NO
@@ -104,6 +107,17 @@
     self.view.window.rootViewController = viewController;
 
 }
+-(void)addScene
+{
+    // Provide a UIAlert which will handle the actual adding to the datasource on "Create Scene"
+    UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:@"Name"
+                                                        message:@"Create a name for your Scene"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Create Scene",nil];
+    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [nameAlert show];
+}
 
 #pragma mark - Tableview
 
@@ -118,7 +132,6 @@
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
-    [self.tableView reloadData];
 }
 
 #pragma mark - TableView Datasource Delegate
@@ -133,82 +146,60 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSInteger rows;
-    
-    if(self.editing)
-    {
-        rows = self.allScenesForCurrentStory.count + 1;
-    }
-    else
-    {
-        rows = self.allScenesForCurrentStory.count;
-    }
-    
-    return rows;
+   return self.allScenesForCurrentStory.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    //If editing, there will be one extra row that is for adding a new scene.
-    if(self.editing)
-    {
-        if(indexPath.row == self.allScenesForCurrentStory.count)
-        {
-            cell.textLabel.text = @"Add a New Scene";
-        }
-        else
-        {
-            cell.textLabel.text = ((STInteractiveScene *)(self.allScenesForCurrentStory[indexPath.row])).name;
+    cell.textLabel.text = ((STInteractiveScene *)(self.allScenesForCurrentStory[indexPath.row])).name;
 
-        }
-    }
-    else
-    {
-        cell.textLabel.text = ((STInteractiveScene *)(self.allScenesForCurrentStory[indexPath.row])).name;
-
-    }
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Save current Scene
-    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate.coreDataHelper saveContext];
     
-    //Instantiate new STEditSceneViewController to erase all the scene elements from the previous scene.
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
-    STEditSceneViewController *newSceneViewController = (STEditSceneViewController *)topVC.visibleViewController;
+    if(self.editing)
+    {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        NSString *cellText = cell.textLabel.text;
+        
+        
+    }
+    //Normal selection when not editing.
+    else
+    {
+        //Save current Scene
+        STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+        [appDelegate.coreDataHelper saveContext];
+        
+        //Instantiate new STEditSceneViewController to erase all the scene elements from the previous scene.
+        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
+        UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
+        STEditSceneViewController *newSceneViewController = (STEditSceneViewController *)topVC.visibleViewController;
+        
+        //Set current Editing scene to the new scene.
+        self.currentStory.editingSceneIndex = indexPath.row;
+        newSceneViewController.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
+        
+        
+        //Reset the sliding view controller top view controller to the new top VC
+        self.slidingViewController.topViewController = topVC;
+        
+        //I don't like doing it this way, but since we delete all the objects on screen by creating a new VC, we have to manually
+        //reset the edit scene delegate so that appropriate scenes update.
+        ((STSelectSceneElementViewController *)self.slidingViewController.underRightViewController).editSceneDelegate = newSceneViewController;
+    }
     
-    //Set current Editing scene to the new scene.
-    self.currentStory.editingSceneIndex = indexPath.row;
-    newSceneViewController.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
     
-    //Reset the sliding view controller top view controller to the new top VC
-    self.slidingViewController.topViewController = topVC;
 }
+
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCellEditingStyle style;
-    
-    //Only the last row should be an insert. Will have to change how we do this for long scenes. Probably just put the + in the corner.
-    if(indexPath.row == self.allScenesForCurrentStory.count)
-    {
-        style = UITableViewCellEditingStyleInsert;
-    }
-    else
-    {
-        style = UITableViewCellEditingStyleDelete;
-    }
-    
-    return style;
+    return UITableViewCellEditingStyleDelete;
 }
 
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -218,17 +209,6 @@
          // Delete the row from the data source
         [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-     }
-     else if (editingStyle == UITableViewCellEditingStyleInsert)
-     {
-         // Provide a UIAlert which will handle the actual adding to the datasource on "Create Scene"
-         UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:@"Name"
-                                                             message:@"Create a name for your Scene"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"Cancel"
-                                                   otherButtonTitles:@"Create Scene",nil];
-         nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-         [nameAlert show];
      }
  }
 
@@ -299,7 +279,11 @@
     [delegate.coreDataHelper saveContext];
     
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
-    [self setEditing:NO animated:YES];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.interactiveSceneList.count-1 inSection:0]
+                                animated:NO
+                          scrollPosition:self.currentStory.interactiveSceneList.count-1];
+    [self.tableView reloadData];
 }
 
 @end

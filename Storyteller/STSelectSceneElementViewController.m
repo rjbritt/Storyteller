@@ -7,21 +7,7 @@
 //
 
 #import "STSelectSceneElementViewController.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
 #import "STEditSceneViewController.h"
-
-#import "STInteractiveSceneElement+EaseOfUse.h"
-#import "STActorSceneElement+EaseOfUse.h"
-#import "STEnvironmentSceneElement+EaseOfUse.h"
-#import "STObjectSceneElement+EaseOfUse.h"
-#import "STTextMedia+EaseOfUse.h"
-#import "STMedia+EaseOfUse.h"
-
-#import "STInteractiveScene+EaseOfUse.h"
-
-#import <UIViewController+ECSlidingViewController.h>
-#import <ECSlidingViewController.h>
-#import <RCDraggableButton.h>
 
 
 @interface STSelectSceneElementViewController ()
@@ -45,17 +31,6 @@
     // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //Setup for connecting the appropriate scenes
-    if (self.slidingViewController)
-    {
-        UINavigationController *topVC = (UINavigationController *)self.slidingViewController.topViewController;
-        self.editSceneVC = (STEditSceneViewController *)topVC.visibleViewController;
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -74,19 +49,23 @@
 */
 - (IBAction)addActorButton:(id)sender
 {
-    [self.editSceneVC addActorButton:sender];
+    [self.editSceneDelegate showElementSelect:sender];
+    [self.editSceneDelegate addActorButton:sender];
 }
 - (IBAction)addEnvironmentButton:(id)sender
 {
-    [self.editSceneVC addEnvironmentButton:sender];
+    [self.editSceneDelegate showElementSelect:sender];
+    [self.editSceneDelegate addEnvironmentButton:sender];
 }
 - (IBAction)addObjectButton:(id)sender
 {
-    [self.editSceneVC addObjectButton:sender];
+    [self.editSceneDelegate showElementSelect:sender];
+    [self.editSceneDelegate addObjectButton:sender];
 }
 - (IBAction)addTextButton:(id)sender
 {
-    [self.editSceneVC addTextButton:sender];
+    [self.editSceneDelegate showElementSelect:sender];
+    [self.editSceneDelegate addTextButton:sender];
 }
 
 

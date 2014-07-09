@@ -11,7 +11,7 @@
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 #import "STStory+EaseOfUse.h"
-
+#import "STSelectSceneElementViewController.h"
 @implementation ECSlidingViewController (EditStorySlidingViewController)
 
 +(ECSlidingViewController *)slidingViewControllerForStory:(STStory *)newStory atStartingScene:(BOOL)startScene
@@ -22,7 +22,7 @@
     //Get controllers for management under the sliding view controller
     UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
     UINavigationController *storyNavigationController = [newStoryboard instantiateViewControllerWithIdentifier:@"EditStoryNavController"];
-    UIViewController *sceneElementSelectionController =[newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
+    STSelectSceneElementViewController *sceneElementSelectionController =[newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
     
     //Make sure left and right view controllers don't go under the topview controller
     storyNavigationController.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom | UIRectEdgeLeft;
@@ -43,6 +43,8 @@
         editSceneVC.currentScene = [newStory stInteractiveCurrentEditingScene];
 
     }
+    sceneElementSelectionController.editSceneDelegate = editSceneVC;
+    
     
     //Set Visual Properties
 //    editStoryVC.view.backgroundColor = [UIColor groupTableViewBackgroundColor];

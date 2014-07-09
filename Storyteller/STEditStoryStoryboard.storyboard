@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cV-Yl-LOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cV-Yl-LOD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -13,10 +13,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Z4E-54-mCo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell" id="Yfs-Hf-gks">
                                 <rect key="frame" x="0.0" y="86" width="276" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z4E-54-mCo" id="I5C-ZY-OZC">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yfs-Hf-gks" id="IEF-n2-8MJ">
                                     <rect key="frame" x="0.0" y="0.0" width="276" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -81,14 +81,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aSM-eY-uob">
-                        <barButtonItem key="leftBarButtonItem" title="Read Story" id="YZf-Tz-eip">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" title="Read Story" id="YZf-Tz-eip">
                             <connections>
                                 <action selector="readStory:" destination="j6J-Z6-QVO" id="cle-C5-Qq9"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Test Scene" id="suc-SX-STZ">
-                            <connections>
-                                <action selector="testSceneButton:" destination="j6J-Z6-QVO" id="CJs-4U-ode"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -127,7 +123,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1OE-NW-hSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4837" y="-2755"/>
+            <point key="canvasLocation" x="-4837" y="-2767"/>
         </scene>
         <!--Select Scene Element View Controller-->
         <scene sceneID="ob4-e2-6ee">
@@ -200,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ai-2m-QdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4856" y="-1506"/>
+            <point key="canvasLocation" x="-3993" y="-3908"/>
         </scene>
         <!--PresentSK Scene View Controller-->
         <scene sceneID="vxU-bj-Mak">
@@ -219,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yD0-V7-6i9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3993" y="-3884"/>
+            <point key="canvasLocation" x="-4837" y="-1608"/>
         </scene>
     </scenes>
     <resources>

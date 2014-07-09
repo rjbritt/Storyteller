@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STEditSceneViewController.h"
+
 @class STStory;
 
 @interface STEditStoryTableViewController : UITableViewController
