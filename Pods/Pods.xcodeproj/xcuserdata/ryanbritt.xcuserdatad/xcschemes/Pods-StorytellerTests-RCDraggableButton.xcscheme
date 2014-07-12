@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A766F2FB13104972B7BA88B2"
+               BlueprintIdentifier = "6E666F522AD54FF490345D51"
                BuildableName = "libPods-StorytellerTests-RCDraggableButton.a"
                BlueprintName = "Pods-StorytellerTests-RCDraggableButton"
                ReferencedContainer = "container:Pods.xcodeproj">

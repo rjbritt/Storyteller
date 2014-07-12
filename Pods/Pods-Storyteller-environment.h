@@ -30,6 +30,12 @@
 #define COCOAPODS_VERSION_MINOR_RCDraggableButton 4
 #define COCOAPODS_VERSION_PATCH_RCDraggableButton 0
 
+// UIAlertView+Blocks
+#define COCOAPODS_POD_AVAILABLE_UIAlertView_Blocks
+#define COCOAPODS_VERSION_MAJOR_UIAlertView_Blocks 0
+#define COCOAPODS_VERSION_MINOR_UIAlertView_Blocks 8
+#define COCOAPODS_VERSION_PATCH_UIAlertView_Blocks 1
+
 // UIView+DragDrop
 #define COCOAPODS_POD_AVAILABLE_UIView_DragDrop
 #define COCOAPODS_VERSION_MAJOR_UIView_DragDrop 0
