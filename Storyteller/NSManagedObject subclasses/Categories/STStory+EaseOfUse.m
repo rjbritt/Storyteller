@@ -7,6 +7,7 @@
 //
 
 #import "STStory+EaseOfUse.h"
+#import "STInteractiveScene+EaseOfUse.h"
 
 @implementation STStory (EaseOfUse)
 
@@ -112,5 +113,18 @@
     return self.interactiveSceneList[self.editingSceneIndex];
 }
 
+-(int)numberOfSceneElementsForCurrentStory
+{
+    int sum = 0;
+    for (STInteractiveScene * scene in self.interactiveSceneList)
+    {
+        sum += scene.actorSceneElementList.count;
+        sum += scene.environmentSceneElementList.count;
+        sum += scene.objectSceneElementList.count;
+        sum += scene.sceneMedia.count;
+    }
+    
+    return sum;
+}
 
 @end

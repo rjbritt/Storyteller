@@ -108,7 +108,7 @@
     if ((index == 0) || (index == NSNotFound))
     {
 #warning Create Animation Here for context shift
-        self.view.window.rootViewController = [ECSlidingViewController slidingViewControllerForStory:self.story atStartingScene:NO];
+        self.view.window.rootViewController = [[ECSlidingViewController alloc] initSlidingViewControllerForStory:self.story atStartingScene:NO];
     }
     
     //otherwise, return the previous page

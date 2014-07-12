@@ -16,6 +16,6 @@
 -(void)setNewSceneToStartingScene:(STInteractiveScene *)scene;
 -(STInteractiveScene *)stInteractiveStartingScene;
 -(STInteractiveScene *)stInteractiveCurrentEditingScene;
-
+-(int)numberOfSceneElementsForCurrentStory;
 
 @end

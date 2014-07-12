@@ -38,6 +38,5 @@ typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
                                              inScene:(STInteractiveScene *)scene
                                            inContext:(NSManagedObjectContext *)context;
 
-//+(NSArray*)findAllSceneElements
 
 @end

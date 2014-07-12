@@ -7,7 +7,6 @@ pod 'KCOrderedAccessorFix'
 pod 'RCDraggableButton' , '~>0.1'
 pod 'UIView+DragDrop'
 pod 'ECSlidingViewController', '~> 2.0.2'
-pod 'MSSlidingPanelController'
 pod 'UIAlertView+Blocks'
 
 
@@ -19,7 +18,6 @@ pod 'KCOrderedAccessorFix'
 pod 'RCDraggableButton' , '~>0.1'
 pod 'UIView+DragDrop'
 pod 'ECSlidingViewController', '~> 2.0.2'
-pod 'MSSlidingPanelController'
 pod 'UIAlertView+Blocks'
 
 end

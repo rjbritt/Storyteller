@@ -65,30 +65,6 @@
     
 }
 
-
-- (IBAction)showAllScenes:(id)sender
-{
-    if (self.slidingViewController)
-    {
-        //Allows switching between anchored and not
-        if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
-            [self.slidingViewController anchorTopViewToRightAnimated:YES];
-        } else {
-            [self.slidingViewController resetTopViewAnimated:YES];
-        }
-    }
-}
-
-- (IBAction)showElementSelect:(id)sender
-{
-    //Allows switching between anchored and not
-    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
-        [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    } else {
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-}
-
 /**
  * Creates a new STActorSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
@@ -172,6 +148,7 @@
     [self.uiKitScene createNewDraggableSceneElementWithSceneElement:tempObject andTag:STInteractiveSceneElementTypeObject];
 }
 
+
 /**
  * Creates a new STTextMedia and initiates the creation
  * of a draggable UITextView to represent this scene element.
@@ -187,6 +164,31 @@
     [self.currentScene addSceneMediaObject:media];
     [self.uiKitScene createNewDraggableTextViewWithText:text atCenter:center];
 }
+
+#pragma mark - ECSlidingViewController Methods
+- (IBAction)showAllScenes:(id)sender
+{
+    if (self.slidingViewController)
+    {
+        //Allows switching between anchored and not
+        if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+            [self.slidingViewController anchorTopViewToRightAnimated:YES];
+        } else {
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
+    }
+}
+
+- (IBAction)showElementSelect:(id)sender
+{
+    //Allows switching between anchored and not
+    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+        [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    } else {
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+}
+
 
 #pragma mark - View Life Cycle Methods
 

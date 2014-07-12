@@ -9,7 +9,11 @@
 #import "ECSlidingViewController.h"
 
 @class STStory;
-@interface ECSlidingViewController (EditStorySlidingViewController)
+@class STInteractiveScene;
 
-+(ECSlidingViewController *)slidingViewControllerForStory:(STStory *)newStory atStartingScene:(BOOL)startScene;
+@interface ECSlidingViewController (EditStorySlidingViewController) <UIGestureRecognizerDelegate>
+
+-(ECSlidingViewController *)initSlidingViewControllerForStory:(STStory *)newStory atStartingScene:(BOOL)startScene;
+-(void)changeEditSceneViewControllerToScene:(STInteractiveScene *)scene;
+
 @end

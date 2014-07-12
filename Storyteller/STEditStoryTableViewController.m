@@ -14,6 +14,7 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 #import "STSelectSceneElementViewController.h"
+#import "ECSlidingViewController+EditStorySlidingViewController.h"
 
 #import <ECSlidingViewController.h>
 #import <UIViewController+ECSlidingViewController.h>
@@ -58,6 +59,7 @@
     [self.navigationItem setTitle:@""];
     
     self.tableView.allowsSelectionDuringEditing = YES;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.editingSceneIndex inSection:0]
                                 animated:NO
@@ -119,6 +121,20 @@
     [nameAlert show];
 }
 
+-(void)changeToSceneAtIndex:(NSInteger)index
+{
+    //Save current Scene
+    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate.coreDataHelper saveContext];
+    
+    //Set new current editing scene
+    self.currentStory.editingSceneIndex = index;
+    
+    [self.slidingViewController changeEditSceneViewControllerToScene:[self.currentStory stInteractiveCurrentEditingScene]];
+
+    
+}
+
 #pragma mark - Tableview
 
 /**
@@ -160,40 +176,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    if(self.editing)
-    {
-        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-        NSString *cellText = cell.textLabel.text;
-        
-        
-    }
-    //Normal selection when not editing.
-    else
-    {
-        //Save current Scene
-        STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-        [appDelegate.coreDataHelper saveContext];
-        
-        //Instantiate new STEditSceneViewController to erase all the scene elements from the previous scene.
-        UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-        UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
-        STEditSceneViewController *newSceneViewController = (STEditSceneViewController *)topVC.visibleViewController;
-        
-        //Set current Editing scene to the new scene.
-        self.currentStory.editingSceneIndex = indexPath.row;
-        newSceneViewController.currentScene = [self.currentStory stInteractiveCurrentEditingScene];
-        
-        
-        //Reset the sliding view controller top view controller to the new top VC
-        self.slidingViewController.topViewController = topVC;
-        
-        //I don't like doing it this way, but since we delete all the objects on screen by creating a new VC, we have to manually
-        //reset the edit scene delegate so that appropriate scenes update.
-        ((STSelectSceneElementViewController *)self.slidingViewController.underRightViewController).editSceneDelegate = newSceneViewController;
-    }
-    
-    
+    [self changeToSceneAtIndex:indexPath.row];
 }
 
 
@@ -204,11 +187,33 @@
 
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
+     //To Do: Handle only one element left in the list  at the beginning of the if statement
      if (editingStyle == UITableViewCellEditingStyleDelete)
      {
+         NSLog(@"Number of scene Elements in story before delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
+
          // Delete the row from the data source
         [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
+         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+         NSIndexPath * newPath;
+         //If the last entry
+         if(indexPath.row == self.currentStory.interactiveSceneList.count)
+         {
+             //Select the next row up
+             newPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
+         }
+         else
+         {
+             newPath = indexPath;
+         }
+         [self.tableView selectRowAtIndexPath: newPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+         [self changeToSceneAtIndex:newPath.row];
+      
+         NSLog(@"Number of scene Elements in story after delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
+
+
      }
  }
 
@@ -279,11 +284,20 @@
     [delegate.coreDataHelper saveContext];
     
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
-    
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentStory.interactiveSceneList.count-1 inSection:0]
-                                animated:NO
-                          scrollPosition:self.currentStory.interactiveSceneList.count-1];
     [self.tableView reloadData];
+    
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:self.currentStory.interactiveSceneList.count-1 inSection:0];
+    
+    [self.tableView scrollToRowAtIndexPath:newIndexPath
+                          atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    [self.tableView selectRowAtIndexPath:newIndexPath
+                                animated:YES
+                          scrollPosition:UITableViewScrollPositionNone];
+    
+    [self changeToSceneAtIndex:newIndexPath.row];
+
+    
+    
 }
 
 @end

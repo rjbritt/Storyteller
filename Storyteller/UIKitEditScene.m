@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) UIView *view;
 @property (strong, nonatomic) STTextMedia *editingTextMedia;
-
+@property (weak, nonatomic) UITextView *currentEditingTextView;
 @end
 
 @implementation UIKitEditScene
@@ -128,6 +128,7 @@
         [self updateSTInteractiveSceneElementForButton:button];
     };
     
+    //called on double tap. This is to delete an element.
     temp.doubleTapBlock = ^(RCDraggableButton * button)
     {
        [UIAlertView showWithTitle:@"Delete Element?"
@@ -139,11 +140,12 @@
                              {/*do nothing*/}
                              else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"])
                              {
-                                 STInteractiveSceneElement *element = [STInteractiveSceneElement findSceneElementOfType:button.tag
-                                                                                                               withName:button.currentTitle
-                                                                                                                inStory:self.currentScene.belongingStory
-                                                                                                                inScene:self.currentScene
-                                                                                                              inContext:self.context];
+                                 STInteractiveSceneElement *element =
+                                 [STInteractiveSceneElement findSceneElementOfType:button.tag
+                                                                          withName:button.currentTitle
+                                                                           inStory:self.currentScene.belongingStory
+                                                                           inScene:self.currentScene
+                                                                         inContext:self.context];
                                  
                                  switch (button.tag)
                                  {
@@ -166,15 +168,11 @@
                              }
                          }];
     };
-    
+
     //Return view to be added as subview
     [self.view addSubview:temp];
 
 }
-
-
-
-
 
 /**
  *  Creates a new UITextView that has been made draggable and adds it as a subview
@@ -200,10 +198,18 @@
     [tempTextView makeDraggableWithDropViews:@[self.view] delegate:self];
     [tempTextView setDragMode:UIViewDragDropModeNormal];
 
+    UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    accessoryView.backgroundColor = [UIColor redColor];
+    UIButton *tempButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    [tempButton addTarget:self action:@selector(deleteTextView) forControlEvents:UIControlEventTouchUpInside];
+    [tempButton setTitle:@"Delete" forState:UIControlStateNormal];
+    
+    [accessoryView addSubview:tempButton];
+    tempTextView.inputAccessoryView = accessoryView;
     [self.view addSubview:tempTextView];
 }
 
-#pragma mark - TextView Delegate
+#pragma mark - TextView Delegate And Modification Methods
 
 /**
  *  TextView Delegate method used to signify that a textView has begun editing. This
@@ -217,6 +223,12 @@
                                                        inScene:self.currentScene
                                                       andStory:self.currentScene.belongingStory
                                                      inContext:self.context];
+    self.currentEditingTextView = textView;
+    if([textView.text isEqualToString: @"Insert Text Here."])
+    {
+        textView.text = @"";
+    }
+
 }
 
 /**
@@ -228,9 +240,18 @@
  */
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
+    if([textView.text isEqualToString:@""])
+    {
+        textView.text = @"Insert Text Here.";
+    }
     self.editingTextMedia.text = textView.text;
 }
 
+-(void)deleteTextView
+{
+    [self.currentScene removeSceneMediaObject:self.editingTextMedia];
+    [self.currentEditingTextView removeFromSuperview];
+}
 
 #pragma mark - Scene Update from UIKit
 
