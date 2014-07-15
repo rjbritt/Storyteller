@@ -46,8 +46,6 @@
     UIBarButtonItem *addSceneBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addScene)];
     self.navigationItem.leftBarButtonItem = mainViewControllerBarButton;
     self.navigationItem.rightBarButtonItems = @[addSceneBarButton,self.editButtonItem];
-
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,6 +54,7 @@
     
     //Set all information based on currentStory input
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
+    [self.tableView reloadData];
     [self.navigationItem setTitle:@""];
     
     self.tableView.allowsSelectionDuringEditing = YES;
@@ -131,7 +130,6 @@
     self.currentStory.editingSceneIndex = index;
     
     [self.slidingViewController changeEditSceneViewControllerToScene:[self.currentStory stInteractiveCurrentEditingScene]];
-
     
 }
 

@@ -13,22 +13,19 @@
 
 @class STInteractiveScene;
 
-@interface STEditSceneViewController : UIViewController<UIViewDragDropDelegate, UITextViewDelegate>
+@interface STEditSceneViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
--(void)addActorButton:(id)sender;
--(void)addEnvironmentButton:(id)sender;
--(void)addObjectButton:(id)sender;
 -(void)addTextButton:(id)sender;
 
+-(void)addActorSceneElementWithImage:(UIImage *)image;
+-(void)addEnvironmentSceneElementWithImage:(UIImage *)image;
+-(void)addObjectSceneElementWithImage:(UIImage *)image;
+
 - (IBAction)showElementSelect:(id)sender;
-
-
-
--(void)updateSTInteractiveSceneElementForButton:(UIButton *)button;
 
 
 

@@ -198,14 +198,15 @@
     [tempTextView makeDraggableWithDropViews:@[self.view] delegate:self];
     [tempTextView setDragMode:UIViewDragDropModeNormal];
 
-    UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    accessoryView.backgroundColor = [UIColor redColor];
-    UIButton *tempButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    //Add an accessoryView to allow for deletion.
+    int desiredHeight = 44;
+  
+    UIButton *tempButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, desiredHeight)];
+    tempButton.backgroundColor = [UIColor redColor];
     [tempButton addTarget:self action:@selector(deleteTextView) forControlEvents:UIControlEventTouchUpInside];
     [tempButton setTitle:@"Delete" forState:UIControlStateNormal];
     
-    [accessoryView addSubview:tempButton];
-    tempTextView.inputAccessoryView = accessoryView;
+    tempTextView.inputAccessoryView = tempButton;
     [self.view addSubview:tempTextView];
 }
 

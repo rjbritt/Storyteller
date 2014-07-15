@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-YX-xJi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-YX-xJi">
                                 <rect key="frame" x="0.0" y="480" width="15" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -59,7 +59,7 @@
                                     <action selector="showAllScenes:" destination="j6J-Z6-QVO" eventType="touchUpInside" id="JDh-rS-SZk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-WS-P2O">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-WS-P2O">
                                 <rect key="frame" x="753" y="480" width="15" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -77,11 +77,21 @@
                         <constraints>
                             <constraint firstItem="9QV-YX-xJi" firstAttribute="centerY" secondItem="Sco-vI-m8I" secondAttribute="centerY" id="5eS-59-isz"/>
                             <constraint firstAttribute="trailing" secondItem="nFX-WS-P2O" secondAttribute="trailing" id="H7E-t3-Tir"/>
+                            <constraint firstItem="9QV-YX-xJi" firstAttribute="leading" secondItem="Sco-vI-m8I" secondAttribute="leading" id="QAI-La-6ZZ"/>
                             <constraint firstItem="nFX-WS-P2O" firstAttribute="baseline" secondItem="9QV-YX-xJi" secondAttribute="baseline" id="ndf-kF-59d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aSM-eY-uob">
                         <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="center" minimumFontSize="17" id="9Xl-EQ-eNj">
+                            <rect key="frame" x="231" y="7" width="307" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="j6J-Z6-QVO" id="RCZ-YL-Xod"/>
+                            </connections>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" title="Read Story" id="YZf-Tz-eip">
                             <connections>
                                 <action selector="readStory:" destination="j6J-Z6-QVO" id="cle-C5-Qq9"/>
@@ -137,66 +147,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETh-Ye-agU">
-                                <rect key="frame" x="20" y="20" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Actor">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ser-ae-xL9">
+                                <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rgM-Uo-RTm">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="vJL-0V-wEX">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <action selector="addActorButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="0jL-9u-rwV"/>
+                                    <outlet property="dataSource" destination="twu-NU-hKl" id="kTH-rS-lWp"/>
+                                    <outlet property="delegate" destination="twu-NU-hKl" id="9ok-Yd-Nxa"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRr-YS-100">
-                                <rect key="frame" x="662" y="20" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Environment">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            </collectionView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-eG-pHD">
+                                <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Actor" id="0QL-9j-WQE"/>
+                                    <tabBarItem title="Environment" id="p9s-Ns-EF9"/>
+                                    <tabBarItem title="Object" id="eBu-zR-fqY"/>
+                                    <tabBarItem title="Media" id="vrW-qj-wKg"/>
+                                </items>
                                 <connections>
-                                    <action selector="addEnvironmentButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="v86-c9-rqI"/>
+                                    <outlet property="delegate" destination="twu-NU-hKl" id="GJS-Az-iXF"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geo-ty-G8V">
-                                <rect key="frame" x="20" y="974" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Object">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addObjectButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="z0c-wu-KCV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2J-FH-JgY">
-                                <rect key="frame" x="704" y="974" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="h2b-36-D4w"/>
-                                </constraints>
-                                <state key="normal" title="Text">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTextButton:" destination="twu-NU-hKl" eventType="touchUpInside" id="fIA-ah-zhR"/>
-                                </connections>
-                            </button>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ETh-Ye-agU" firstAttribute="baseline" secondItem="dRr-YS-100" secondAttribute="baseline" id="5Ks-t6-gFB"/>
-                            <constraint firstItem="ETh-Ye-agU" firstAttribute="top" secondItem="Eei-qJ-1la" secondAttribute="top" constant="20" symbolic="YES" id="Bla-Wc-08q"/>
-                            <constraint firstAttribute="trailing" secondItem="dRr-YS-100" secondAttribute="trailing" constant="20" symbolic="YES" id="Dbs-ay-qk6"/>
-                            <constraint firstItem="ETh-Ye-agU" firstAttribute="leading" secondItem="geo-ty-G8V" secondAttribute="leading" id="FIB-cJ-Bsy"/>
-                            <constraint firstAttribute="bottom" secondItem="X2J-FH-JgY" secondAttribute="bottom" constant="20" symbolic="YES" id="Ku2-rG-ORm"/>
-                            <constraint firstItem="dRr-YS-100" firstAttribute="trailing" secondItem="X2J-FH-JgY" secondAttribute="trailing" id="r6M-Ye-bEr"/>
-                            <constraint firstItem="ETh-Ye-agU" firstAttribute="leading" secondItem="Eei-qJ-1la" secondAttribute="leading" constant="20" symbolic="YES" id="tpg-xb-yfo"/>
-                            <constraint firstItem="X2J-FH-JgY" firstAttribute="baseline" secondItem="geo-ty-G8V" secondAttribute="baseline" id="xjV-t2-mQk"/>
+                            <constraint firstItem="UUJ-eG-pHD" firstAttribute="leading" secondItem="Eei-qJ-1la" secondAttribute="leading" id="IMV-ro-Xzb"/>
+                            <constraint firstAttribute="trailing" secondItem="UUJ-eG-pHD" secondAttribute="trailing" id="Iiq-EZ-bLx"/>
+                            <constraint firstItem="ser-ae-xL9" firstAttribute="leading" secondItem="UUJ-eG-pHD" secondAttribute="leading" id="NRS-9z-DIi"/>
+                            <constraint firstItem="ser-ae-xL9" firstAttribute="bottom" secondItem="UUJ-eG-pHD" secondAttribute="top" id="NkZ-Yq-fVF"/>
+                            <constraint firstAttribute="bottom" secondItem="UUJ-eG-pHD" secondAttribute="bottom" id="gKF-IA-N2A"/>
+                            <constraint firstItem="ser-ae-xL9" firstAttribute="top" secondItem="Eei-qJ-1la" secondAttribute="top" constant="20" symbolic="YES" id="hgQ-53-9gc"/>
+                            <constraint firstItem="ser-ae-xL9" firstAttribute="trailing" secondItem="UUJ-eG-pHD" secondAttribute="trailing" id="t0E-XA-8bU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ser-ae-xL9" id="wtf-cV-Jns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ai-2m-QdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3993" y="-3908"/>
+            <point key="canvasLocation" x="-4015" y="-3913"/>
         </scene>
         <!--PresentSK Scene View Controller-->
         <scene sceneID="vxU-bj-Mak">

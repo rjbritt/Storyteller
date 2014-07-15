@@ -65,26 +65,24 @@
     
 }
 
+#pragma mark - Public Methods
 /**
  * Creates a new STActorSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
- * @param sender The object that sent this action
+ * @param image The image that this scene element will use.
  */
-- (void)addActorButton:(id)sender
+-(void)addActorSceneElementWithImage:(UIImage *)image
 {
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(50, top + 50);
-    UIImage *image = [UIImage imageNamed:@"Actor"];
     
-    
-    //Create ActorSceneElement
+    //Create ActorSceneElement data
     STInteractiveSceneElement *tempActor = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
                                                                                         withName:self.currentScene.nextActorName
                                                                                        withImage:image
                                                                                    withinContext:self.context
                                                                                       centeredAt:desiredCenter];
-    
                                       
     [self.currentScene addActorSceneElementListObject:(STActorSceneElement *)tempActor];
     
@@ -98,14 +96,12 @@
  * Creates a new STEnvironmentSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
- * @param sender The object that sent this action
+ * @param image The image that this scene element will use.
  */
-- (void)addEnvironmentButton:(id)sender
+-(void)addEnvironmentSceneElementWithImage:(UIImage *)image;
 {
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(50, top + 50);
-    UIImage *image = [UIImage imageNamed:@"Actor 2"];
-    
     
     //Create EnvironmentSceneElement
     STInteractiveSceneElement  *tempEnv = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeEnvironment
@@ -125,14 +121,12 @@
  * Creates a new STObjectSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
- * @param sender The object that sent this action
+ * @param image The image that this scene element will use.
  */
-- (void)addObjectButton:(id)sender
+-(void)addObjectSceneElementWithImage:(UIImage *)image;
 {
     CGFloat top = self.topLayoutGuide.length;
     CGPoint desiredCenter = CGPointMake(50, top + 50);
-    UIImage *image = [UIImage imageNamed:@"Actor 3"];
-    
     
     //Create ObjectSceneElement
     STInteractiveSceneElement *tempObject = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeObject
@@ -199,7 +193,9 @@
 
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.context = self.appDelegate.coreDataHelper.context;
-    [self setTitle:[NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name]];
+    UITextField * titleText =(UITextField *) self.navigationItem.titleView;
+    titleText.text = [NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name];
+    titleText.textColor = self.view.tintColor;
     self.uiKitScene = [[UIKitEditScene alloc]initWithScene:self.currentScene inContext:self.context andView:self.view];
 
 }
@@ -232,6 +228,25 @@
 {
 }
 
+#pragma mark - UITextField Delegate
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.text = self.currentScene.name;
+}
 
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.currentScene.name = textField.text;
+    textField.text = [NSString stringWithFormat:@"%@ - %@", self.currentScene.belongingStory.name, self.currentScene.name];
+    
+    //updates the tableview if the tableview. If the tableview is onscreen at the same time, this allows the simultaneous changes.
+    // Might be better to do with a notification
+    if(self.slidingViewController)
+    {
+        UINavigationController *underLeftVC = ((UINavigationController *)self.slidingViewController.underLeftViewController);
+        [((STEditStoryTableViewController *)underLeftVC.visibleViewController).tableView reloadData];
+    }
+    
+}
 
 @end
