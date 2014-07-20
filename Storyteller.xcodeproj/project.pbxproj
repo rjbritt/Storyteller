@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		150E8CFA046E4AA996CC8A92 /* libPods-Storyteller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E3F706566947D19ED69877 /* libPods-Storyteller.a */; };
 		2F1E7568194A70C000CF064D /* STPresentSKSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */; };
+		2F245FFA1978796E001AB95E /* SwiftSceneSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F245FF91978796E001AB95E /* SwiftSceneSelectionViewController.swift */; };
 		2F2545E3192404EF008A3163 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F2545E2192404EF008A3163 /* README.md */; };
 		2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA0E19325B8D00B94507 /* STMainViewController.m */; };
 		2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */; };
@@ -102,6 +103,8 @@
 /* Begin PBXFileReference section */
 		2F1E7566194A70C000CF064D /* STPresentSKSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPresentSKSceneViewController.h; sourceTree = "<group>"; };
 		2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPresentSKSceneViewController.m; sourceTree = "<group>"; };
+		2F245FF81978796E001AB95E /* Storyteller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Storyteller-Bridging-Header.h"; sourceTree = "<group>"; };
+		2F245FF91978796E001AB95E /* SwiftSceneSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSceneSelectionViewController.swift; sourceTree = "<group>"; };
 		2F2545E2192404EF008A3163 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		2F48DA0D19325B8D00B94507 /* STMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMainViewController.h; sourceTree = "<group>"; };
 		2F48DA0E19325B8D00B94507 /* STMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMainViewController.m; sourceTree = "<group>"; };
@@ -357,6 +360,7 @@
 		2F8B514018E7679200A5CBEF /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				2F245FF81978796E001AB95E /* Storyteller-Bridging-Header.h */,
 				2FCD34DA194FD40200573DB8 /* Images */,
 				2F7CF7E118F07BC20072490B /* Core Data */,
 				2F7CF7BF18F03DED0072490B /* Subclassed UIViewControllers */,
@@ -483,6 +487,7 @@
 				2F8B515318E7679200A5CBEF /* STEditSceneViewController.m */,
 				2FB0BF131968BC6700AAB7D8 /* STSelectSceneElementViewController.h */,
 				2FB0BF141968BC6700AAB7D8 /* STSelectSceneElementViewController.m */,
+				2F245FF91978796E001AB95E /* SwiftSceneSelectionViewController.swift */,
 			);
 			name = "Edit Story/Scene View Controllers";
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				2FA2BED4194697060007D813 /* STPlayStoryPageViewController.m in Sources */,
 				2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */,
 				2FE00027193BA455003719DC /* STEnvironmentSceneElement.m in Sources */,
+				2F245FFA1978796E001AB95E /* SwiftSceneSelectionViewController.swift in Sources */,
 				2F945F65196CCCAC00A0CFBD /* UIKitEditScene.m in Sources */,
 				2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */,
 				2FB0BF12196895D400AAB7D8 /* ECSlidingViewController+EditStorySlidingViewController.m in Sources */,
@@ -863,11 +869,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Storyteller/Storyteller-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -879,11 +889,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Storyteller/Storyteller-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -62,12 +62,6 @@
 }
 */
 
-- (IBAction)addTextButton:(id)sender
-{
-    [self.editSceneDelegate showElementSelect:sender];
-    [self.editSceneDelegate addTextButton:sender];
-}
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
