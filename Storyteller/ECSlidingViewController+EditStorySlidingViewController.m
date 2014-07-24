@@ -12,6 +12,7 @@
 #import "STEditStoryTableViewController.h"
 #import "STStory+EaseOfUse.h"
 #import "STSelectSceneElementViewController.h"
+#import "Storyteller-Swift.h"
 
 #import "STMedia+EaseOfUse.h"
 #import "STInteractiveSceneElement+EaseOfUse.h"
@@ -30,7 +31,8 @@
         //Get controllers for management under the sliding view controller
         UINavigationController *topVC = [newStoryboard instantiateViewControllerWithIdentifier:@"STEditSceneNavViewController"];
         UINavigationController *storyNavigationController = [newStoryboard instantiateViewControllerWithIdentifier:@"EditStoryNavController"];
-        STSelectSceneElementViewController *sceneElementSelectionController =[newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
+        //STSelectSceneElementViewController *sceneElementSelectionController =[newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
+        SwiftSceneSelectionViewController *sceneElementSelectionController = [newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
         
         //Make sure left and right view controllers don't go under the topview controller
         storyNavigationController.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom | UIRectEdgeLeft;

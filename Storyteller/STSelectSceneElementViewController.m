@@ -97,6 +97,7 @@
     return self.sceneElementImageArray.count;
 }
 
+
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     if ([item.title isEqualToString:@"Actor"])

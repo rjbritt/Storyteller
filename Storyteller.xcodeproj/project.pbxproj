@@ -11,6 +11,8 @@
 		2F1E7568194A70C000CF064D /* STPresentSKSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */; };
 		2F245FFA1978796E001AB95E /* SwiftSceneSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F245FF91978796E001AB95E /* SwiftSceneSelectionViewController.swift */; };
 		2F2545E3192404EF008A3163 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F2545E2192404EF008A3163 /* README.md */; };
+		2F33EC7319808D63000F9040 /* ImageResourceNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F33EC7219808D63000F9040 /* ImageResourceNames.plist */; };
+		2F33EC751980AEB0000F9040 /* Environment 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F33EC741980AEB0000F9040 /* Environment 3.png */; };
 		2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA0E19325B8D00B94507 /* STMainViewController.m */; };
 		2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */; };
 		2F4C135619493F95003639F3 /* STTextMedia+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C135519493F95003639F3 /* STTextMedia+EaseOfUse.m */; };
@@ -74,7 +76,6 @@
 		2FC43913195BA630006C719E /* Actor 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390A195BA630006C719E /* Actor 3.png */; };
 		2FC43914195BA630006C719E /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390B195BA630006C719E /* Environment.png */; };
 		2FC43915195BA630006C719E /* Environment 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390C195BA630006C719E /* Environment 2.png */; };
-		2FC43916195BA630006C719E /* Environment3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390D195BA630006C719E /* Environment3.png */; };
 		2FC43917195BA630006C719E /* Object.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390E195BA630006C719E /* Object.png */; };
 		2FC43918195BA630006C719E /* Object 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC4390F195BA630006C719E /* Object 2.png */; };
 		2FC43919195BA630006C719E /* Object 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC43910195BA630006C719E /* Object 3.png */; };
@@ -106,6 +107,8 @@
 		2F245FF81978796E001AB95E /* Storyteller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Storyteller-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F245FF91978796E001AB95E /* SwiftSceneSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSceneSelectionViewController.swift; sourceTree = "<group>"; };
 		2F2545E2192404EF008A3163 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		2F33EC7219808D63000F9040 /* ImageResourceNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ImageResourceNames.plist; path = ../ImageResourceNames.plist; sourceTree = "<group>"; };
+		2F33EC741980AEB0000F9040 /* Environment 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Environment 3.png"; sourceTree = "<group>"; };
 		2F48DA0D19325B8D00B94507 /* STMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMainViewController.h; sourceTree = "<group>"; };
 		2F48DA0E19325B8D00B94507 /* STMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMainViewController.m; sourceTree = "<group>"; };
 		2F48DA1019327AF700B94507 /* STLoadStoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoadStoryTableViewController.h; sourceTree = "<group>"; };
@@ -181,7 +184,6 @@
 		2FC4390A195BA630006C719E /* Actor 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actor 3.png"; sourceTree = "<group>"; };
 		2FC4390B195BA630006C719E /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment.png; sourceTree = "<group>"; };
 		2FC4390C195BA630006C719E /* Environment 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Environment 2.png"; sourceTree = "<group>"; };
-		2FC4390D195BA630006C719E /* Environment3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Environment3.png; sourceTree = "<group>"; };
 		2FC4390E195BA630006C719E /* Object.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Object.png; sourceTree = "<group>"; };
 		2FC4390F195BA630006C719E /* Object 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Object 2.png"; sourceTree = "<group>"; };
 		2FC43910195BA630006C719E /* Object 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Object 3.png"; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		2F8B514018E7679200A5CBEF /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				2F33EC7219808D63000F9040 /* ImageResourceNames.plist */,
 				2F245FF81978796E001AB95E /* Storyteller-Bridging-Header.h */,
 				2FCD34DA194FD40200573DB8 /* Images */,
 				2F7CF7E118F07BC20072490B /* Core Data */,
@@ -468,7 +471,7 @@
 				2FC4390A195BA630006C719E /* Actor 3.png */,
 				2FC4390B195BA630006C719E /* Environment.png */,
 				2FC4390C195BA630006C719E /* Environment 2.png */,
-				2FC4390D195BA630006C719E /* Environment3.png */,
+				2F33EC741980AEB0000F9040 /* Environment 3.png */,
 				2FC4390E195BA630006C719E /* Object.png */,
 				2FC4390F195BA630006C719E /* Object 2.png */,
 				2FC43910195BA630006C719E /* Object 3.png */,
@@ -584,15 +587,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F33EC7319808D63000F9040 /* ImageResourceNames.plist in Resources */,
 				2FC43912195BA630006C719E /* Actor 2.png in Resources */,
 				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
 				2FC43914195BA630006C719E /* Environment.png in Resources */,
 				2FB0BF171969A81400AAB7D8 /* Pull Tab.png in Resources */,
-				2FC43916195BA630006C719E /* Environment3.png in Resources */,
 				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
 				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
 				2FC43913195BA630006C719E /* Actor 3.png in Resources */,
 				2F5E8FB31933ECAF00D78641 /* STEditStoryStoryboard.storyboard in Resources */,
+				2F33EC751980AEB0000F9040 /* Environment 3.png in Resources */,
 				2FC43915195BA630006C719E /* Environment 2.png in Resources */,
 				2FC43919195BA630006C719E /* Object 3.png in Resources */,
 				2FC43911195BA630006C719E /* Actor.png in Resources */,
