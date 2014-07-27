@@ -19,7 +19,6 @@
 #import "STMedia+EaseOfUse.h"
 #import "STTextMedia+EaseOfUse.h"
 
-#import <ECSlidingViewController.h>
 #import <UIViewController+ECSlidingViewController.h>
 
 #import "UIKitEditScene.h"
@@ -177,6 +176,8 @@
 {
     //Allows switching between anchored and not
     if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
+        ECSlidingViewController * temp = self.slidingViewController;
+
         [self.slidingViewController anchorTopViewToLeftAnimated:YES];
     } else {
         [self.slidingViewController resetTopViewAnimated:YES];
@@ -194,6 +195,7 @@
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
     self.context = self.appDelegate.coreDataHelper.context;
     UITextField * titleText =(UITextField *) self.navigationItem.titleView;
+
     titleText.text = [NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name];
     titleText.textColor = self.view.tintColor;
     self.uiKitScene = [[UIKitEditScene alloc]initWithScene:self.currentScene inContext:self.context andView:self.view];

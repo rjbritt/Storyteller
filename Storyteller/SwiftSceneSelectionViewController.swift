@@ -5,11 +5,11 @@
 //  Created by Ryan Britt on 7/17/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
-
+// name to refactor to: STSelectSceneViewController
 
 import UIKit
 
-class SwiftSceneSelectionViewController:UIViewController, UICollectionViewDataSource,UITabBarDelegate
+class SwiftSceneSelectionViewController:UIViewController
 {
     enum SelectedSceneElementType
     {
@@ -20,13 +20,15 @@ class SwiftSceneSelectionViewController:UIViewController, UICollectionViewDataSo
     }
     
     //class properties
+    
+    //Any or all of these could be nil in which case there are no elements of a particular type.
     var sceneElementPathArray:[String]?
     var actorElementPathArray:[String]?
     var environmentElementPathArray:[String]?
     var objectElementPathArray:[String]?
 
     var currentSceneElementType = SelectedSceneElementType.Actor
-    var editSceneDelegate:STEditSceneViewController?
+    var sceneManagementDelegate:SceneManagementDelegate?
 
     @IBOutlet var collectionView: UICollectionView
     @IBOutlet var tabBar: UITabBar
@@ -79,20 +81,23 @@ extension SwiftSceneSelectionViewController:UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell!
     {
         var cell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
-        
-        var currentImage = UIImage(named: sceneElementPathArray![indexPath.row])
-        switch currentSceneElementType
-            {
-        case .Actor,.Environment,.Object:
-            cell.backgroundView = UIImageView(image: currentImage)
-        case .Text:
-            let textView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-            textView.text = "Text Box"
-            textView.editable = false
-            textView.userInteractionEnabled = false
-            cell.backgroundView = textView
+        if let sceneElementPath = sceneElementPathArray
+        {
+            var currentImage = UIImage(named: sceneElementPath[indexPath.row])
+            switch currentSceneElementType
+                {
+            case .Actor,.Environment,.Object:
+                cell.backgroundView = UIImageView(image: currentImage)
+            case .Text:
+                let textView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                textView.text = "Text Box"
+                textView.editable = false
+                textView.userInteractionEnabled = false
+                cell.backgroundView = textView
+            }
+            
         }
-        
+
         return cell
         
     }
@@ -110,22 +115,18 @@ extension SwiftSceneSelectionViewController:UICollectionViewDelegate
             currentImage = (cell.backgroundView as UIImageView).image
         }
         
-        if let sceneDelegate = editSceneDelegate
+        if let sceneDelegate = sceneManagementDelegate
         {
             switch currentSceneElementType
                 {
             case .Actor:
-                sceneDelegate.showElementSelect(nil)
-                sceneDelegate.addActorSceneElementWithImage(currentImage)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Actor)
             case .Environment:
-                sceneDelegate.showElementSelect(nil)
-                sceneDelegate.addEnvironmentSceneElementWithImage(currentImage)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Environment)
             case .Object:
-                sceneDelegate.showElementSelect(nil)
-                sceneDelegate.addObjectSceneElementWithImage(currentImage)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Object)
             case .Text:
-                sceneDelegate.showElementSelect(nil)
-                sceneDelegate.addTextButton(nil)
+                sceneDelegate.addText()
             }
         }
         else {} //The edit Scene Delegate was not set before initiating this class. Create Error handling for outside caller.
@@ -140,7 +141,7 @@ extension SwiftSceneSelectionViewController: UITabBarDelegate
 {
     func tabBar(tabBar: UITabBar!, didSelectItem item: UITabBarItem!)
     {
-        if let title = item.title // Title has to be guaranteed for this to work appropriately
+        if let title = item.title
         {
             switch title
             {
@@ -153,9 +154,11 @@ extension SwiftSceneSelectionViewController: UITabBarDelegate
                 case "Object":
                     currentSceneElementType = .Object
                     sceneElementPathArray = objectElementPathArray
-                default:
+                case "Media":
                     currentSceneElementType = .Text
                     sceneElementPathArray = ["Text"]
+            default:
+                break
             }
         }
         

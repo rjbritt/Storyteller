@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SceneManagementDelegate.h"
 
 @class STStory;
 
 @interface STEditStoryTableViewController : UITableViewController
 @property (strong, nonatomic) STStory *currentStory; //Necessary In order to properly initialize this VC
+@property (strong, nonatomic) UIViewController<SceneManagementDelegate> *sceneManagementDelegate;
 @end

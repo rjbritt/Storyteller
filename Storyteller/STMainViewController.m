@@ -14,15 +14,15 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 
-#import <ECSlidingViewController.h>
-#import "ECSlidingViewController+EditStorySlidingViewController.h"
+#import "STSlidingViewController.h"
+#import "STSlidingViewController.h"
 
 #import <RCDraggableButton.h>
 
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UITextField *storyName;
-@property (strong, nonatomic) ECSlidingViewController *slidingViewController;
+@property (strong, nonatomic) STSlidingViewController *slidingViewController;
 @end
 
 @implementation STMainViewController
@@ -101,7 +101,7 @@
     [newStory setNewSceneToStartingScene:startingScene];
     newStory.editingSceneIndex = newStory.startingSceneIndex;
     
-    ECSlidingViewController *slidingViewController = [[ECSlidingViewController alloc] initSlidingViewControllerForStory:newStory atStartingScene:YES];
+    self.slidingViewController = [[STSlidingViewController alloc] initWithStory:newStory atStartingScene:YES];
     
 #warning Insert Animation Here
     
@@ -110,11 +110,11 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.view.alpha = 0;
-                         slidingViewController.view.alpha = 1;
+                         self.slidingViewController.view.alpha = 1;
                      }
                      completion:nil];
     
-    self.view.window.rootViewController = slidingViewController;
+    self.view.window.rootViewController = self.slidingViewController;
 }
 
 #pragma mark - Lifecycle

@@ -13,10 +13,8 @@
 #import "STAppDelegate.h"
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
-#import "STSelectSceneElementViewController.h"
-#import "ECSlidingViewController+EditStorySlidingViewController.h"
+#import "STSlidingViewController.h"
 
-#import <ECSlidingViewController.h>
 #import <UIViewController+ECSlidingViewController.h>
 
 
@@ -120,7 +118,7 @@
     [nameAlert show];
 }
 
--(void)changeToSceneAtIndex:(NSInteger)index
+-(void)changeToSceneAtIndex:(int)index
 {
     //Save current Scene
     STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
@@ -128,8 +126,7 @@
     
     //Set new current editing scene
     self.currentStory.editingSceneIndex = index;
-    
-    [self.slidingViewController changeEditSceneViewControllerToScene:[self.currentStory stInteractiveCurrentEditingScene]];
+    [self.sceneManagementDelegate selectScene:[self.currentStory stInteractiveCurrentEditingScene]];
     
 }
 
@@ -174,7 +171,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self changeToSceneAtIndex:indexPath.row];
+    [self changeToSceneAtIndex:(int)indexPath.row];
 }
 
 
@@ -188,29 +185,38 @@
      //To Do: Handle only one element left in the list  at the beginning of the if statement
      if (editingStyle == UITableViewCellEditingStyleDelete)
      {
-         NSLog(@"Number of scene Elements in story before delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
-
-         // Delete the row from the data source
-        [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
-         
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
-         NSIndexPath * newPath;
-         //If the last entry
-         if(indexPath.row == self.currentStory.interactiveSceneList.count)
+         if (self.currentStory.interactiveSceneList.count == 1)
          {
-             //Select the next row up
-             newPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
+             // Delete the row from the data source
+             [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
+             
+             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
          }
          else
          {
-             newPath = indexPath;
-         }
-         [self.tableView selectRowAtIndexPath: newPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-         [self changeToSceneAtIndex:newPath.row];
-      
-         NSLog(@"Number of scene Elements in story after delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
+             NSLog(@"Number of scene Elements in story before delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
 
+             // Delete the row from the data source
+            [self.currentStory removeObjectFromInteractiveSceneListAtIndex:indexPath.row];
+             
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+             NSIndexPath * newPath;
+             //If the last entry
+             if(indexPath.row == self.currentStory.interactiveSceneList.count)
+             {
+                 //Select the next row up
+                 newPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
+             }
+             else
+             {
+                 newPath = indexPath;
+             }
+             [self.tableView selectRowAtIndexPath: newPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+             [self changeToSceneAtIndex:(int)newPath.row];
+          
+             NSLog(@"Number of scene Elements in story after delete: %i", [self.currentStory numberOfSceneElementsForCurrentStory]);
+         }
 
      }
  }
@@ -292,7 +298,7 @@
                                 animated:YES
                           scrollPosition:UITableViewScrollPositionNone];
     
-    [self changeToSceneAtIndex:newIndexPath.row];
+    [self changeToSceneAtIndex:(int)newIndexPath.row];
 
     
     

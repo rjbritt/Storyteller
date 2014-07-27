@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STInteractiveSceneElement+EaseOfUse.h"
 #import <UIKit/UIKit.h>
 #import <UIView+DragDrop.h>
-#import "STInteractiveSceneElement+EaseOfUse.h"
-
 @class STInteractiveScene;
 @class RCDraggableButton;
 

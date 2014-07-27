@@ -11,9 +11,9 @@
 #import "STPlayStoryPageViewController.h"
 #import "STInteractiveSceneSKScene.h"
 #import "STPresentSKSceneViewController.h"
+#import "STSlidingViewController.h"
 
 #import "STStory+EaseOfUse.h"
-#import "ECSlidingViewController+EditStorySlidingViewController.h"
 
 @interface STPlayStoryPageViewController ()
 @end
@@ -108,7 +108,7 @@
     if ((index == 0) || (index == NSNotFound))
     {
 #warning Create Animation Here for context shift
-        self.view.window.rootViewController = [[ECSlidingViewController alloc] initSlidingViewControllerForStory:self.story atStartingScene:NO];
+        self.view.window.rootViewController = [[STSlidingViewController alloc] initWithStory:self.story atStartingScene:NO];
     }
     
     //otherwise, return the previous page

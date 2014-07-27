@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 -(void)addTextButton:(id)sender;
-
 -(void)addActorSceneElementWithImage:(UIImage *)image;
 -(void)addEnvironmentSceneElementWithImage:(UIImage *)image;
 -(void)addObjectSceneElementWithImage:(UIImage *)image;

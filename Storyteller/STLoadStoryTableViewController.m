@@ -13,8 +13,7 @@
 #import "STEditStoryTableViewController.h"
 #import "STEditSceneViewController.h"
 
-#import <ECSlidingViewController.h>
-#import "ECSlidingViewController+EditStorySlidingViewController.h"
+#import "STSlidingViewController.h"
 
 @interface STLoadStoryTableViewController ()
 @property (strong, nonatomic) STAppDelegate *appDelegate;
@@ -87,8 +86,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Load the selected story, set the editing scene to the starting scene.
-    STStory *selectedStory = self.storyList[indexPath.row];
-    ECSlidingViewController *nextViewController = [[ECSlidingViewController alloc] initSlidingViewControllerForStory:selectedStory atStartingScene:NO];
+    STSlidingViewController *nextViewController = [[STSlidingViewController alloc]
+                                                     initWithStory:self.storyList[indexPath.row]
+                                                   atStartingScene:NO];
 
 #warning Insert Animation Here
     //Flip Animation maybe?

@@ -14,8 +14,7 @@
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 
-#import <ECSlidingViewController.h>
-#import "ECSlidingViewController+EditStorySlidingViewController.h"
+#import "STSlidingViewController.h"
 
 @interface STPresentSKSceneViewController ()
 @property (strong, nonatomic) SKView *skView;
@@ -34,7 +33,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    // Present the scene.
+    // Create and Present the scene.
     self.skView = [[SKView alloc]initWithFrame:self.view.frame];
     self.skView.showsFPS = YES;
     self.skView.showsNodeCount = YES;
@@ -46,10 +45,6 @@
     [self.skView presentScene:self.skScene];
 }
 
--(void)prepareSKSceneWithSTScene:(STInteractiveScene *)scene
-{
-    
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -77,10 +72,9 @@
 
 -(void)backToSceneSelection
 {
-    
     //Load the selected story, set the editing scene to the starting scene.
     STStory *selectedStory = self.scene.belongingStory;
-    ECSlidingViewController *nextViewController = [[ECSlidingViewController alloc] initSlidingViewControllerForStory:selectedStory atStartingScene:NO];
+    STSlidingViewController *nextViewController = [[STSlidingViewController alloc] initWithStory:selectedStory atStartingScene:NO];
 #warning Insert Animation Here
     
     self.view.window.rootViewController = nextViewController;
