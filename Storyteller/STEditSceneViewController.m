@@ -176,8 +176,6 @@
 {
     //Allows switching between anchored and not
     if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
-        ECSlidingViewController * temp = self.slidingViewController;
-
         [self.slidingViewController anchorTopViewToLeftAnimated:YES];
     } else {
         [self.slidingViewController resetTopViewAnimated:YES];

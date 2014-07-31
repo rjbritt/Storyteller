@@ -18,6 +18,7 @@
 #import "STSlidingViewController.h"
 
 #import <RCDraggableButton.h>
+#import <UIAlertView+Blocks.h>
 
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
@@ -39,26 +40,12 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Create Story",nil];
-    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [nameAlert show];
-}
-
-/**
- *  This delegate method handles all the alertview button clicks within this view controller
- *
- *  @param alert       The particular alert that triggered this delegate method.
- *  @param buttonIndex The button index that was tapped
- */
-- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    //There's probably a neater way to do this than hard coding these names
     
-    if([alert.title isEqualToString:@"Name"])
+    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    nameAlert.tapBlock = ^(UIAlertView *alert, NSInteger buttonIndex)
     {
-        /*
-         *  When the Story Designer chooses to create a story with a new name, this method verifies that
-         *  there isn't another story with the same name.
-         */
+        // When the Story designer chooses to create a story with a new name, this verifies that
+        // there isn't another story with the same name.
         if([[alert buttonTitleAtIndex:buttonIndex] isEqualToString:@"Create Story"])
         {
             NSString *newStoryName = [alert textFieldAtIndex:0].text;
@@ -70,21 +57,19 @@
             {
                 [self initializeNewStoryWithName:newStoryName];
             }
-            else
+            else //otherwise show a new alertview that explains that the story already exists
             {
-                UIAlertView *duplicateAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Name"
-                                                                         message:@"A Story already exists with that name. Please choose another."
-                                                                        delegate:self
-                                                               cancelButtonTitle:@"OK"
-                                                               otherButtonTitles:nil];
-                [duplicateAlert show];
+                [UIAlertView showWithTitle:@"Invalid name"
+                                   message:@"A Story already exists with that name. Please choose another."
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil
+                                  tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex)
+                { [self initializeNewStory:nil]; }];
             }
         }
-    }
-    else if([alert.title isEqualToString:@"Invalid Name"])
-    {
-        [self initializeNewStory:nil];
-    }
+    };
+    
+    [nameAlert show];
 }
 
 /**

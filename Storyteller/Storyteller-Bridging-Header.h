@@ -5,7 +5,6 @@
 //Model Imports
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
 
 //VC Imports
 #import "STEditSceneViewController.h"

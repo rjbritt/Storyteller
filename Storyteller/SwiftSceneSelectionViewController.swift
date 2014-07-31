@@ -30,8 +30,8 @@ class SwiftSceneSelectionViewController:UIViewController
     var currentSceneElementType = SelectedSceneElementType.Actor
     var sceneManagementDelegate:SceneManagementDelegate?
 
-    @IBOutlet var collectionView: UICollectionView
-    @IBOutlet var tabBar: UITabBar
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tabBar: UITabBar!
     
     override func viewDidLoad()
     {
@@ -120,11 +120,11 @@ extension SwiftSceneSelectionViewController:UICollectionViewDelegate
             switch currentSceneElementType
                 {
             case .Actor:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Actor)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Actor")
             case .Environment:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Environment)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Environment")
             case .Object:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: STInteractiveSceneElementType.Object)
+                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Object")
             case .Text:
                 sceneDelegate.addText()
             }
