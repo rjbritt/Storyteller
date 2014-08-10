@@ -85,49 +85,38 @@ NSString *storeFilename = @"InteractiveSceneDataModel";
     
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[CoreData alloc]init];
+        [_sharedInstance setupCoreData];
     });
     
     return _sharedInstance;
 }
-
--(id)initialInit
-{
-    /* NOTE:
-     The model can also be initiated using an explicit managed model specification similar to
-     _model = [[NSManagedObjectModel alloc] initWithContentsOfURL: [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"]];
-     What are the consequences about having/needing multiple core data models and simply merging the bundles using this method. This may need investigation later.
-     For now, simply merging the bundles looks like it will provide anything necessary.
-     */
-    
-    _model = [NSManagedObjectModel mergedModelFromBundles:nil];
-    [_model kc_generateOrderedSetAccessors];
-    
-    _coordinator = [[NSPersistentStoreCoordinator alloc]
-                    initWithManagedObjectModel:_model];
-    _context = [[NSManagedObjectContext alloc]
-                initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [_context setPersistentStoreCoordinator:_coordinator];
-}
-
 
 - (id)init
 {
 #if DEBUG
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 #endif
-    if (CoreData.sharedInstance)
+    self = [super init];
+    
+    if(self)
     {
-        self = CoreData.sharedInstance;
-    }
-    else
-    {
-        self = [super init];
+        /* NOTE:
+         The model can also be initiated using an explicit managed model specification similar to
+         _model = [[NSManagedObjectModel alloc] initWithContentsOfURL: [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"]];
+         What are the consequences about having/needing multiple core data models and simply merging the bundles using this method. This may need investigation later.
+         For now, simply merging the bundles looks like it will provide anything necessary.
+         */
         
-        if(self)
-        {
-            [self initialInit];
-        }
+        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
+        [_model kc_generateOrderedSetAccessors];
+        
+        _coordinator = [[NSPersistentStoreCoordinator alloc]
+                        initWithManagedObjectModel:_model];
+        _context = [[NSManagedObjectContext alloc]
+                    initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [_context setPersistentStoreCoordinator:_coordinator];
     }
+
     return self;
 }
 

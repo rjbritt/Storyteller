@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STAppDelegate.h"
+#import "CoreData.h"
 
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
@@ -26,7 +26,7 @@
 
 @interface STEditSceneViewController()
 
-@property (strong, nonatomic) STAppDelegate *appDelegate;
+@property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) STTextMedia *editingTextMedia;
 @property (strong, nonatomic) UIKitEditScene *uiKitScene;
 
@@ -70,12 +70,10 @@
  * of a draggable button to represent this scene element.
  *
  * @param image The image that this scene element will use.
+ * @param desiredCenter The desired center for the scene element.
  */
--(void)addActorSceneElementWithImage:(UIImage *)image
+-(void)addActorSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter
 {
-    CGFloat top = self.topLayoutGuide.length;
-    CGPoint desiredCenter = CGPointMake(50, top + 50);
-    
     //Create ActorSceneElement data
     STInteractiveSceneElement *tempActor = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
                                                                                         withName:self.currentScene.nextActorName
@@ -96,12 +94,10 @@
  * of a draggable button to represent this scene element.
  *
  * @param image The image that this scene element will use.
+ * @param desiredCenter The desired center for the scene element.
  */
--(void)addEnvironmentSceneElementWithImage:(UIImage *)image;
+-(void)addEnvironmentSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter;
 {
-    CGFloat top = self.topLayoutGuide.length;
-    CGPoint desiredCenter = CGPointMake(50, top + 50);
-    
     //Create EnvironmentSceneElement
     STInteractiveSceneElement  *tempEnv = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeEnvironment
                                                                                        withName:[self.currentScene nextEnviroName]
@@ -121,11 +117,10 @@
  * of a draggable button to represent this scene element.
  *
  * @param image The image that this scene element will use.
+ * @param desiredCenter The desired center for the scene element.
  */
--(void)addObjectSceneElementWithImage:(UIImage *)image;
+-(void)addObjectSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter
 {
-    CGFloat top = self.topLayoutGuide.length;
-    CGPoint desiredCenter = CGPointMake(50, top + 50);
     
     //Create ObjectSceneElement
     STInteractiveSceneElement *tempObject = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeObject
@@ -141,21 +136,19 @@
     [self.uiKitScene createNewDraggableSceneElementWithSceneElement:tempObject andTag:STInteractiveSceneElementTypeObject];
 }
 
-
 /**
  * Creates a new STTextMedia and initiates the creation
  * of a draggable UITextView to represent this scene element.
  *
- *  @param sender The object that sent this action.
+ *  @param center CGPoint representing the desired center of the Text
  */
--(void)addTextButton:(id)sender
+-(void)addTextAtCenter:(CGPoint)center
 {
     NSString *text = @"Insert Text Here.";
-    CGPoint center = CGPointMake(100, 100);
     
     STTextMedia *media = [STTextMedia initWithText:text withFontSize:20 inContext:self.context atCenter:center];
     [self.currentScene addSceneMediaObject:media];
-    [self.uiKitScene createNewDraggableTextViewWithText:text atCenter:center];
+    [self.uiKitScene createNewDraggableTextViewWithText:text atCenter:center withSize:[UIKitEditScene textViewSize]];
 }
 
 #pragma mark - ECSlidingViewController Methods
@@ -172,6 +165,12 @@
     }
 }
 
+/**
+ *  Switches between an anchored or non anchored position to show the
+ *  element select panel. Configured for the element select panel being shown on the right side of the screen.
+ *
+ *  @param sender What entity sent the message. May be nil.
+ */
 - (IBAction)showElementSelect:(id)sender
 {
     //Allows switching between anchored and not
@@ -190,8 +189,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.context = self.appDelegate.coreDataHelper.context;
+    self.context = [[CoreData sharedInstance]context];
     UITextField * titleText =(UITextField *) self.navigationItem.titleView;
 
     titleText.text = [NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name];

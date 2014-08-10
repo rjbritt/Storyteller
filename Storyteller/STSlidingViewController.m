@@ -15,6 +15,7 @@
 
 #import "STMedia+EaseOfUse.h"
 #import "STInteractiveSceneElement+EaseOfUse.h"
+#import "UIKitEditScene.h"
 
 #import <RCDraggableButton.h>
 
@@ -31,7 +32,8 @@
 @synthesize currentStory;
 @synthesize currentScene;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -56,6 +58,8 @@
     self = [[STSlidingViewController alloc]init];
     if(self)
     {
+        
+        
         //Get new Storyboard
         UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
         
@@ -124,7 +128,7 @@
         self.topViewController = topVC;
         self.underLeftViewController = storyNavigationController;
         self.currentStory = newStory;
-        self.anchorLeftRevealAmount = self.anchorRightRevealAmount;
+        self.anchorLeftRevealAmount = 2 * self.anchorRightRevealAmount;
 
 
     }
@@ -133,7 +137,12 @@
 
 #pragma mark - SceneManagementDelegate
 
-
+/**
+ *  Selects a new scene and changes the topViewController for the STSlidingViewController. If Nil is passed, an appropriate screen for no selected scene is shown.
+ *
+ *  @param scene A scene within the current story to switch to. Or Nil, if no scene is selected (reserved for the case that there
+ *  are no available scenes to choose from).
+ */
 -(void)selectScene:(STInteractiveScene *)scene
 {
     UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
@@ -175,29 +184,46 @@
     
 }
 
+/**
+ *  Adds a new scene element to the appropriate scene view controller and STInteractiveScene
+ *  through the use of delegate methods.
+ *
+ *  @param image UIImage that represents the new scene element
+ *  @param type  A string that is either "Actor", "Environment", or "Object". Any other string
+ *  is not processed as a scene element.
+ */
 -(void)addSceneElementWithImage:(UIImage *)image ofType:(NSString *)type
 {
+    CGFloat top = self.editSceneVC.topLayoutGuide.length;
     [self.editSceneVC showElementSelect:nil];
+    //CGpoint centers correctly offset the image to appear in the upper left corner.
+
     if([type isEqualToString:@"Actor"])
     {
-        [self.editSceneVC addActorSceneElementWithImage:image];
+        [self.editSceneVC addActorSceneElementWithImage:image atCenter:CGPointMake(image.size.width/2, (image.size.height/2) + top)];
     }
     else if([type isEqualToString:@"Environment"])
     {
-        [self.editSceneVC addEnvironmentSceneElementWithImage:image];
+        [self.editSceneVC addEnvironmentSceneElementWithImage:image atCenter:CGPointMake(image.size.width/2, top + (image.size.height/2))];
     }
     else if([type isEqualToString:@"Object"])
     {
-        [self.editSceneVC addObjectSceneElementWithImage:image];
+        [self.editSceneVC addObjectSceneElementWithImage:image atCenter:CGPointMake(image.size.width/2, top + (image.size.height/2))];
     }
 
 }
 
-
+/**
+ *  Adds a new text box to the appropriate scene view controller and STInteractiveScene through
+ *  the use of delegate methods.
+ */
 -(void)addText
 {
+    CGFloat top = self.editSceneVC.topLayoutGuide.length;
+    CGSize size = [UIKitEditScene textViewSize];
     [self.editSceneVC showElementSelect:nil];
-    [self.editSceneVC addTextButton:nil];
+    //correctly offsets the text to appear in the upper left corner.
+    [self.editSceneVC addTextAtCenter:CGPointMake(size.width/2, size.height/2 + top)];
     
 }
 

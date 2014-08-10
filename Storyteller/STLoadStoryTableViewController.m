@@ -38,7 +38,7 @@
     [super viewDidLoad];
     
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
+    self.storyList = [STStory findAllStoriesAscendinglyWithinContext:[[CoreData sharedInstance]context]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -115,9 +115,9 @@
          [storyToDelete removeInteractiveSceneList:storyToDelete.interactiveSceneList];
          
          //Delete the Story itself.
-         [self.appDelegate.coreDataHelper.context deleteObject:storyToDelete];
+         [[CoreData sharedInstance].context deleteObject:storyToDelete];
          
-         self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
+         self.storyList = [STStory findAllStoriesAscendinglyWithinContext:[CoreData sharedInstance].context];
          [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
          [self.tableView reloadData];
 

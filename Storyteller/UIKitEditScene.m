@@ -34,6 +34,17 @@
 #pragma mark - Initialization
 
 
+/**
+ *  Designated Initializer used to create an instance of a UIKit Scene based on the
+ *  information in the STInteractiveScene within a certain context while attaching 
+ *  subviews to the specified view.
+ *
+ *  @param scene   STInteractiveScene that contains all of the information that will be represented within this scene.
+ *  @param context NSManagedObjectContext where this scene is found and where updates will be saved.
+ *  @param view    The UIView which will have subviews added to it to create a represented STInteractiveScene.
+ *
+ *  @return A fully initialized UIKitEditScene object with all of the appropriate information.
+ */
 -(id)initWithScene:(STInteractiveScene *)scene inContext:(NSManagedObjectContext *)context andView:(UIView *)view
 {
     self = [super init];
@@ -92,7 +103,7 @@
         if([media isMemberOfClass:[STTextMedia class]])
         {
             STTextMedia *textMedia = (STTextMedia *)media;
-            [self createNewDraggableTextViewWithText:textMedia.text atCenter:[textMedia centerPointCGPoint]];
+            [self createNewDraggableTextViewWithText:textMedia.text atCenter:[textMedia centerPointCGPoint]withSize:[UIKitEditScene textViewSize]];
         }
     }
     
@@ -179,11 +190,12 @@
  *
  *  @param text   The text that will appear in the textview by default
  *  @param center The point where the textview needs to be centered
+ *  @param size   The size desired for the textview.
  *
  */
--(void)createNewDraggableTextViewWithText:(NSString *)text atCenter:(CGPoint)center
+-(void)createNewDraggableTextViewWithText:(NSString *)text atCenter:(CGPoint)center withSize:(CGSize)size
 {
-    CGRect frame = [STTextMedia genericRectForTextFieldAtCenter:center];
+    CGRect frame = [UIKitEditScene frameForTextViewAtCenter:center withSize:size];
     
     UITextView *tempTextView = [[UITextView alloc]initWithFrame:frame];
     [tempTextView setFont:[UIFont systemFontOfSize:20]];
@@ -434,25 +446,34 @@
     
 }
 
-#pragma mark - Alertview Delegate Methods
 
+#pragma mark - Utility Class Info
 /**
- *  This delegate method handles all the alertview button clicks within this view controller
+ *  Produces a CGRect that defines the frame for a TextView given a specific center.
  *
- *  @param alert       The particular alert that triggered this delegate method.
- *  @param buttonIndex The button index that was tapped
+ *  @param center Desired center for the TextView
+ *  @param size Desired size for the TextView
+ *
+ *  @return A properly configured rectangle that will be the frame for the TextView
  */
-- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
++(CGRect) frameForTextViewAtCenter:(CGPoint)center withSize:(CGSize)size
 {
-    //There's probably a neater way to do this than hard coding these names
+    CGPoint origin;
+    origin.x = center.x - (size.width/2);
+    origin.y = center.y - (size.height/2);
     
-    if([alert.title isEqualToString:@""])
-    {
-    }
-
+    return  CGRectMake(origin.x, origin.y, size.width, size.height);
 }
 
-
+/**
+ *  Gives a standard size for a textView
+ *
+ *  @return CGSize with appropriate text view size
+ */
++(CGSize)textViewSize
+{
+    return CGSizeMake(300, 300);
+}
 
 
 @end

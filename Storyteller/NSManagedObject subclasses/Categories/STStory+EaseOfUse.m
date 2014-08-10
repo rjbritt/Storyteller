@@ -14,7 +14,7 @@
 #pragma mark - Initialization
 
 /**
- *  Initializes a new story within the required NSManagedObjectContext.
+ *  Initializes a new story entity within the required NSManagedObjectContext.
  *  This method assumes that the uniqueness of this name has been verified.
  *  All stories initialized this way are defaulted to unordered scenes
  *
@@ -90,7 +90,7 @@
 -(void)setNewSceneToStartingScene:(STInteractiveScene *)scene
 {
     [self addInteractiveSceneListObject:scene];
-    self.startingSceneIndex = [self.interactiveSceneList indexOfObject:scene];
+    self.startingSceneIndex = (int) [self.interactiveSceneList indexOfObject:scene];
 }
 
 /**
@@ -113,6 +113,11 @@
     return self.interactiveSceneList[self.editingSceneIndex];
 }
 
+/**
+ *  Returns the total number of scene elements in the story
+ *
+ *  @return Total number of scene elements including media within a story. Useful for verification purposes.
+ */
 -(int)numberOfSceneElementsForCurrentStory
 {
     int sum = 0;

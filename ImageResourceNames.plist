@@ -4,21 +4,23 @@
 <dict>
 	<key>Actor</key>
 	<array>
-		<string>Actor.png</string>
-		<string>Actor 2.png</string>
-		<string>Actor 3.png</string>
+		<string>BlueActor.png</string>
+		<string>GreenActor.png</string>
+		<string>PurpleActor.png</string>
+		<string>RedActor.png</string>
 	</array>
 	<key>Environment</key>
 	<array>
-		<string>Environment.png</string>
-		<string>Environment 2.png</string>
-		<string>Environment 3.png</string>
+		<string>Grassy Rock.png</string>
+		<string>Large Tree.png</string>
+		<string>Log.png</string>
+		<string>Smaller Tree.png</string>
 	</array>
 	<key>Object</key>
 	<array>
-		<string>Object.png</string>
-		<string>Object 2.png</string>
-		<string>Object 3.png</string>
+		<string>Bench.png</string>
+		<string>Clock Tower.png</string>
+		<string>Fountain.png</string>
 	</array>
 </dict>
 </plist>

@@ -5,12 +5,13 @@
 //  Created by Ryan Britt on 7/17/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
-// name to refactor to: STSelectSceneViewController
+// refactor to: STSelectSceneViewController
 
 import UIKit
 
 class SwiftSceneSelectionViewController:UIViewController
 {
+
     enum SelectedSceneElementType
     {
         case Actor
@@ -18,6 +19,7 @@ class SwiftSceneSelectionViewController:UIViewController
         case Object
         case Text
     }
+    
     
     //class properties
     
@@ -37,7 +39,8 @@ class SwiftSceneSelectionViewController:UIViewController
     {
         super.viewDidLoad()
         collectionView.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        
+        tabBar.selectedItem = tabBar.items[0] as UITabBarItem
+                
         //find the path to the resource dictionary
         let resourcePath = NSBundle.mainBundle().pathForResource("ImageResourceNames", ofType: "plist")
         //initialize the resource dictionary
@@ -48,7 +51,7 @@ class SwiftSceneSelectionViewController:UIViewController
         {
             //put the appropriate objects into each array
             switch key as String
-            {
+                {
             case "Actor":
                 actorElementPathArray = resourcePathDictionary.objectForKey(key) as? [String]
             case "Environment":
@@ -61,13 +64,14 @@ class SwiftSceneSelectionViewController:UIViewController
         }
         
         sceneElementPathArray = actorElementPathArray
+
+
     }
     
 }
 
 extension SwiftSceneSelectionViewController:UICollectionViewDataSource
 {
-
     func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int
     {
         return 1
@@ -78,12 +82,12 @@ extension SwiftSceneSelectionViewController:UICollectionViewDataSource
         return sceneElementPathArray!.count
     }
     
-    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell!
+    func collectionView(thisCollectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell!
     {
         var cell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
         if let sceneElementPath = sceneElementPathArray
         {
-            var currentImage = UIImage(named: sceneElementPath[indexPath.row])
+            let currentImage = UIImage(named: sceneElementPath[indexPath.row])
             switch currentSceneElementType
                 {
             case .Actor,.Environment,.Object:
@@ -97,7 +101,6 @@ extension SwiftSceneSelectionViewController:UICollectionViewDataSource
             }
             
         }
-
         return cell
         
     }
@@ -105,6 +108,31 @@ extension SwiftSceneSelectionViewController:UICollectionViewDataSource
 
 extension SwiftSceneSelectionViewController:UICollectionViewDelegate
 {
+    func collectionView(thisCollectionView: UICollectionView!,
+           layout collectionViewLayout: UICollectionViewLayout!,
+      sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize
+        
+    {
+        var size = CGSizeMake(100, 100)
+        
+        if let sceneElementPath = sceneElementPathArray
+        {
+            let currentImage = UIImage(named: sceneElementPath[indexPath.row])
+
+            switch currentSceneElementType
+            {
+            case .Actor,.Environment,.Object:
+                size = currentImage.size
+            default:
+                break
+            }
+        }
+
+        
+        return size
+    }
+    
+    
     func collectionView(collectionView:UICollectionView!, didSelectItemAtIndexPath indexPath:NSIndexPath!)
     {
         let cell = self.collectionView(collectionView!, cellForItemAtIndexPath: indexPath)
@@ -115,6 +143,7 @@ extension SwiftSceneSelectionViewController:UICollectionViewDelegate
             currentImage = (cell.backgroundView as UIImageView).image
         }
         
+        //unwrap and check sceneManagementDelegate
         if let sceneDelegate = sceneManagementDelegate
         {
             switch currentSceneElementType

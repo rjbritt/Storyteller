@@ -10,5 +10,4 @@
 
 @class STInteractiveSceneElement;
 
-#import <UIKit/UIKit.h>
 #import "Storyteller-Swift.h"

@@ -10,7 +10,7 @@
 #import "STEditSceneViewController.h"
 #import "STMainViewController.h"
 
-#import "STAppDelegate.h"
+#import "CoreData.h"
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 #import "STSlidingViewController.h"
@@ -86,8 +86,7 @@
 -(void)toMainViewController
 {
     //Save current Scene
-    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate.coreDataHelper saveContext];
+    [[CoreData sharedInstance] saveContext];
     
     //Get Storyboard
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
@@ -151,10 +150,8 @@
  */
 -(void)addNewSceneWithName:(NSString *)name
 {
-    STAppDelegate *delegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    
     //Add the new scene to interactiveSceneList
-    [self.currentStory addInteractiveSceneListObject:[STInteractiveScene initWithName:name inContext:delegate.coreDataHelper.context]];
+    [self.currentStory addInteractiveSceneListObject:[STInteractiveScene initWithName:name inContext:[[CoreData sharedInstance]context]]];
     
     //Reset the list of all scenes and reload the tableview
     self.allScenesForCurrentStory = [self.currentStory.interactiveSceneList array];
@@ -182,8 +179,7 @@
 -(void)changeToSceneAtIndex:(int)index
 {
     //Save current Scene
-    STAppDelegate *appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate.coreDataHelper saveContext];
+    [[CoreData sharedInstance]saveContext];
     
     //Set new current editing scene
     self.currentStory.editingSceneIndex = index;

@@ -115,7 +115,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.context = ((STAppDelegate*)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
+    self.context = [CoreData sharedInstance].context;
     [self.navigationItem setTitle:@"Home"];
     
     // Do any additional setup after loading the view.

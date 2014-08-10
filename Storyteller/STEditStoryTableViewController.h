@@ -12,6 +12,15 @@
 @class STStory;
 
 @interface STEditStoryTableViewController : UITableViewController
-@property (strong, nonatomic) STStory *currentStory; //Necessary In order to properly initialize this VC
+/**
+ *  Current Story that is used for showing this VC. It is necessary to set this 
+ *  property before initializing this VC in order to properly load this VC.
+ */
+@property (strong, nonatomic) STStory *currentStory;
+
+/**
+ *  VC that implements the SceneManagementDelegate. This is primarily used to
+ *  handle the scene selection within this VC.
+ */
 @property (strong, nonatomic) UIViewController<SceneManagementDelegate> *sceneManagementDelegate;
 @end

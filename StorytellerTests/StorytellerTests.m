@@ -22,7 +22,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.context = ((STAppDelegate *)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
+    self.context = [CoreData sharedInstance].context;
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
