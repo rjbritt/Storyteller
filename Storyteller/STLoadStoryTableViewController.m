@@ -13,6 +13,8 @@
 #import "STEditStoryTableViewController.h"
 #import "STEditSceneViewController.h"
 
+#import "STSlidingViewController.h"
+
 @interface STLoadStoryTableViewController ()
 @property (strong, nonatomic) STAppDelegate *appDelegate;
 @property (strong, nonatomic) NSArray *storyList;
@@ -36,7 +38,7 @@
     [super viewDidLoad];
     
     self.appDelegate = (STAppDelegate *)[[UIApplication sharedApplication]delegate];
-    self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
+    self.storyList = [STStory findAllStoriesAscendinglyWithinContext:[[CoreData sharedInstance]context]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,6 +48,7 @@
     [self.navigationItem setTitle:@"Load Story"];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -83,24 +86,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Load the selected story, set the editing scene to the starting scene.
-    STStory *selectedStory = self.storyList[indexPath.row];
-    
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = selectedStory;
-    editSceneVC.currentScene = [selectedStory stInteractiveStartingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
-    
+    STSlidingViewController *nextViewController = [[STSlidingViewController alloc]
+                                                     initWithStory:self.storyList[indexPath.row]
+                                                   atStartingScene:NO];
+
 #warning Insert Animation Here
-    
+    //Flip Animation maybe?
     self.view.window.rootViewController = nextViewController;
 }
 
@@ -124,9 +115,9 @@
          [storyToDelete removeInteractiveSceneList:storyToDelete.interactiveSceneList];
          
          //Delete the Story itself.
-         [self.appDelegate.coreDataHelper.context deleteObject:storyToDelete];
+         [[CoreData sharedInstance].context deleteObject:storyToDelete];
          
-         self.storyList = [STStory findAllStoriesAscendinglyWithinContext:self.appDelegate.coreDataHelper.context];
+         self.storyList = [STStory findAllStoriesAscendinglyWithinContext:[CoreData sharedInstance].context];
          [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
          [self.tableView reloadData];
 

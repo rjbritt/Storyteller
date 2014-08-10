@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STEditSceneViewController.h"
+#import "SceneManagementDelegate.h"
+
 @class STStory;
 
 @interface STEditStoryTableViewController : UITableViewController
+/**
+ *  Current Story that is used for showing this VC. It is necessary to set this 
+ *  property before initializing this VC in order to properly load this VC.
+ */
 @property (strong, nonatomic) STStory *currentStory;
-@property (strong, nonatomic) STEditSceneViewController *editSceneDelegate;
+
+/**
+ *  VC that implements the SceneManagementDelegate. This is primarily used to
+ *  handle the scene selection within this VC.
+ */
+@property (strong, nonatomic) UIViewController<SceneManagementDelegate> *sceneManagementDelegate;
 @end

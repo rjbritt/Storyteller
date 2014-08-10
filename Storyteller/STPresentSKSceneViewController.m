@@ -14,6 +14,7 @@
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 
+#import "STSlidingViewController.h"
 
 @interface STPresentSKSceneViewController ()
 @property (strong, nonatomic) SKView *skView;
@@ -32,7 +33,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    // Present the scene.
+    // Create and Present the scene.
     self.skView = [[SKView alloc]initWithFrame:self.view.frame];
     self.skView.showsFPS = YES;
     self.skView.showsNodeCount = YES;
@@ -44,10 +45,6 @@
     [self.skView presentScene:self.skScene];
 }
 
--(void)prepareSKSceneWithSTScene:(STInteractiveScene *)scene
-{
-    
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,29 +72,12 @@
 
 -(void)backToSceneSelection
 {
-    
     //Load the selected story, set the editing scene to the starting scene.
     STStory *selectedStory = self.scene.belongingStory;
-    
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = selectedStory;
-    editSceneVC.currentScene = [selectedStory stInteractiveCurrentEditingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
-    
-    
+    STSlidingViewController *nextViewController = [[STSlidingViewController alloc] initWithStory:selectedStory atStartingScene:NO];
 #warning Insert Animation Here
     
     self.view.window.rootViewController = nextViewController;
-
 }
 
 /*

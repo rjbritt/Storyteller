@@ -18,11 +18,14 @@
 #import "STMedia+EaseOfUse.h"
 #import "STTextMedia+EaseOfUse.h"
 
+#import "UIKitEditScene.h"
 
-//class extension for private properties
+
 @interface STInteractiveSceneSKScene()
+
 @property (strong, nonatomic, readwrite) STInteractiveScene *currentScene;
 @property (strong, nonatomic) NSManagedObjectContext * currentContext;
+
 @end
 
 @implementation STInteractiveSceneSKScene
@@ -48,7 +51,7 @@ dispatch_queue_t backgroundQueue;
         
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:1 green:1 blue:1 alpha:1.0];
-        self.currentContext = ((STAppDelegate *)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
+        self.currentContext = [[CoreData sharedInstance]context];
         
         self.currentScene = scene;
     }
@@ -80,7 +83,8 @@ dispatch_queue_t backgroundQueue;
            {
                STTextMedia *textMedia = (STTextMedia *)media;
                UITextView *tempTextView = [[UITextView alloc]initWithFrame:
-                                           [STTextMedia genericRectForTextFieldAtCenter:textMedia.centerPointCGPoint]];
+                                           [UIKitEditScene frameForTextViewAtCenter:textMedia.centerPointCGPoint
+                                                                        withSize:[UIKitEditScene textViewSize]]];
                
                tempTextView.text = textMedia.text;
                tempTextView.tag = STTextMediaType;
@@ -115,29 +119,31 @@ dispatch_queue_t backgroundQueue;
     
     NSArray *combinedArray = [[actors arrayByAddingObjectsFromArray:environment]arrayByAddingObjectsFromArray:objects];
     
+    
     start = [NSDate date];
     for (STInteractiveSceneElement *element in combinedArray)
     {
-        dispatch_async(backgroundQueue, ^(void)
+        //dispatches the element loading onto a separate thread
+        //        dispatch_sync(backgroundQueue, ^(void)
+        //        {
+        if([element isMemberOfClass:[STActorSceneElement class]])
         {
-            if([element isMemberOfClass:[STActorSceneElement class]])
-            {
-                SKSpriteNode *actorSprite = [self actorSceneElementToSpriteNode:(STActorSceneElement*)element];
-                [self addChild:actorSprite];
-            }
-            else if([element isMemberOfClass:[STEnvironmentSceneElement class]])
-            {
-                SKSpriteNode *enviroSprite = [self environmentSceneElementToSpriteNode:(STEnvironmentSceneElement*)element];
-                [self addChild:enviroSprite];
-            }
-            else
-            {
-                SKSpriteNode *objectSprite = [self objectSceneElementToSpriteNode:(STObjectSceneElement *)element];
-                [self addChild:objectSprite];
-            }
-        });
+            SKSpriteNode *actorSprite = [self actorSceneElementToSpriteNode:(STActorSceneElement*)element];
+            [self addChild:actorSprite];
+        }
+        else if([element isMemberOfClass:[STEnvironmentSceneElement class]])
+        {
+            SKSpriteNode *enviroSprite = [self environmentSceneElementToSpriteNode:(STEnvironmentSceneElement*)element];
+            [self addChild:enviroSprite];
+        }
+        else
+        {
+            SKSpriteNode *objectSprite = [self objectSceneElementToSpriteNode:(STObjectSceneElement *)element];
+            [self addChild:objectSprite];
+        }
+        //        });
     }
-    end = [NSDate date];
+       end = [NSDate date];
     NSLog([NSString stringWithFormat:@"Time taken: %lf", [end timeIntervalSinceDate:start]]);
     
 
