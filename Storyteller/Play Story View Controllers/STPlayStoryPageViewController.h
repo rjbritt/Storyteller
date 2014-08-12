@@ -11,8 +11,8 @@
 
 @class STStory;
 @interface STPlayStoryPageViewController : UIViewController <UIPageViewControllerDataSource>
-@property (strong, nonatomic) STStory *story;
 
+@property (strong, nonatomic) STStory *story;
 @property(strong, nonatomic)STPlayStoryPageViewController *currentPage;
 @property(strong, nonatomic)NSArray *allScenes;
 @end

@@ -9,8 +9,14 @@
 #import "STMedia.h"
 
 @interface STMedia (EaseOfUse)
+/**
+ *  Enum that details the different types of STMedia Entities.
+ */
 typedef NS_ENUM(NSInteger, STMediaType)
 {
+    /**
+     *  Enum Value for a STTextMedia entity.
+     */
     STTextMediaType = 2000,
 };
 @end

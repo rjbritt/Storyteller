@@ -14,10 +14,16 @@
 #import "STStory+EaseOfUse.h"
 #import "STInteractiveScene+EaseOfUse.h"
 
+#import "STSlidingViewController.h"
+#import "STSlidingViewController.h"
+
+#import <RCDraggableButton.h>
+#import <UIAlertView+Blocks.h>
 
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (weak, nonatomic) IBOutlet UITextField *storyName;
+@property (strong, nonatomic) STSlidingViewController *slidingViewController;
 @end
 
 @implementation STMainViewController
@@ -34,26 +40,12 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Create Story",nil];
-    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [nameAlert show];
-}
-
-/**
- *  This delegate method handles all the alertview button clicks within this view controller
- *
- *  @param alert       The particular alert that triggered this delegate method.
- *  @param buttonIndex The button index that was tapped
- */
-- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    //There's probably a neater way to do this than hard coding these names
     
-    if([alert.title isEqualToString:@"Name"])
+    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    nameAlert.tapBlock = ^(UIAlertView *alert, NSInteger buttonIndex)
     {
-        /*
-         *  When the Story Designer chooses to create a story with a new name, this method verifies that
-         *  there isn't another story with the same name.
-         */
+        // When the Story designer chooses to create a story with a new name, this verifies that
+        // there isn't another story with the same name.
         if([[alert buttonTitleAtIndex:buttonIndex] isEqualToString:@"Create Story"])
         {
             NSString *newStoryName = [alert textFieldAtIndex:0].text;
@@ -65,21 +57,19 @@
             {
                 [self initializeNewStoryWithName:newStoryName];
             }
-            else
+            else //otherwise show a new alertview that explains that the story already exists
             {
-                UIAlertView *duplicateAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Name"
-                                                                         message:@"A Story already exists with that name. Please choose another."
-                                                                        delegate:self
-                                                               cancelButtonTitle:@"OK"
-                                                               otherButtonTitles:nil];
-                [duplicateAlert show];
+                [UIAlertView showWithTitle:@"Invalid name"
+                                   message:@"A Story already exists with that name. Please choose another."
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil
+                                  tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex)
+                { [self initializeNewStory:nil]; }];
             }
         }
-    }
-    else if([alert.title isEqualToString:@"Invalid Name"])
-    {
-        [self initializeNewStory:nil];
-    }
+    };
+    
+    [nameAlert show];
 }
 
 /**
@@ -96,19 +86,7 @@
     [newStory setNewSceneToStartingScene:startingScene];
     newStory.editingSceneIndex = newStory.startingSceneIndex;
     
-    //Get new Storyboard and root UISplitViewController
-    UIStoryboard *newStoryboard = [UIStoryboard storyboardWithName:@"STEditStoryStoryboard" bundle:nil];
-    UISplitViewController *nextViewController = [newStoryboard instantiateInitialViewController];
-    
-    //Get splitView components
-    UINavigationController *splitViewMasterNavController = (UINavigationController *)nextViewController.viewControllers[0];
-    STEditStoryTableViewController *editStoryVC = splitViewMasterNavController.viewControllers[0];
-    STEditSceneViewController *editSceneVC = nextViewController.viewControllers[1];
-    
-    //Set properties and delegates.
-    editStoryVC.currentStory = newStory;
-    editSceneVC.currentScene = [newStory stInteractiveStartingScene];
-    editStoryVC.editSceneDelegate = editSceneVC;
+    self.slidingViewController = [[STSlidingViewController alloc] initWithStory:newStory atStartingScene:YES];
     
 #warning Insert Animation Here
     
@@ -117,15 +95,12 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.view.alpha = 0;
-                         nextViewController.view.alpha = 1;
+                         self.slidingViewController.view.alpha = 1;
                      }
                      completion:nil];
     
-    
-    self.view.window.rootViewController = nextViewController;
+    self.view.window.rootViewController = self.slidingViewController;
 }
-
-
 
 #pragma mark - Lifecycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -140,7 +115,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.context = ((STAppDelegate*)[[UIApplication sharedApplication]delegate]).coreDataHelper.context;
+    self.context = [CoreData sharedInstance].context;
     [self.navigationItem setTitle:@"Home"];
     
     // Do any additional setup after loading the view.
@@ -162,5 +137,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

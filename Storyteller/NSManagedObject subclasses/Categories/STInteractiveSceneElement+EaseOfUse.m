@@ -128,7 +128,7 @@
  *  @param scene       The Scene that the STInteractiveSceneElement is in
  *  @param context     The NSManagedObjectContext to look for the STInteractiveSceneElement in
  *
- *  @return <#return value description#>
+ *  @return A particular scene element matching the search parameters. nil if not found.
  */
 +(STInteractiveSceneElement *)findSceneElementOfType:(STInteractiveSceneElementType)elementType
                                             withName:(NSString *)name
