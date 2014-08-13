@@ -27,6 +27,16 @@
 		2F609135193419FE001787A3 /* STEditStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F609134193419FE001787A3 /* STEditStoryTableViewController.m */; };
 		2F76A08E1970C0B70005EE40 /* STInteractiveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76A08D1970C0B70005EE40 /* STInteractiveScene.m */; };
 		2F76A0911970C0B80005EE40 /* STStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76A0901970C0B80005EE40 /* STStory.m */; };
+		2F76B74C19984D19009CE596 /* sceneElements.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B74B19984D19009CE596 /* sceneElements.atlas */; };
+		2F76B75619984D2E009CE596 /* Actor 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B74D19984D2E009CE596 /* Actor 2.png */; };
+		2F76B75719984D2E009CE596 /* Actor 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B74E19984D2E009CE596 /* Actor 3.png */; };
+		2F76B75819984D2E009CE596 /* Actor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B74F19984D2E009CE596 /* Actor.png */; };
+		2F76B75919984D2E009CE596 /* Environment 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75019984D2E009CE596 /* Environment 2.png */; };
+		2F76B75A19984D2E009CE596 /* Environment 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75119984D2E009CE596 /* Environment 3.png */; };
+		2F76B75B19984D2E009CE596 /* Environment.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75219984D2E009CE596 /* Environment.png */; };
+		2F76B75C19984D2E009CE596 /* Object 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75319984D2E009CE596 /* Object 2.png */; };
+		2F76B75D19984D2E009CE596 /* Object 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75419984D2E009CE596 /* Object 3.png */; };
+		2F76B75E19984D2E009CE596 /* Object.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F76B75519984D2E009CE596 /* Object.png */; };
 		2F7CF7C718F06FC90072490B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7CF7C618F06FC90072490B /* CoreData.framework */; };
 		2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F7CF7C818F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld */; };
 		2F804B4019843ACE00245C91 /* STSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F804B3F19843ACE00245C91 /* STSlidingViewController.m */; };
@@ -130,6 +140,16 @@
 		2F76A08D1970C0B70005EE40 /* STInteractiveScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STInteractiveScene.m; path = "NSManagedObject subclasses/STInteractiveScene.m"; sourceTree = "<group>"; };
 		2F76A08F1970C0B80005EE40 /* STStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStory.h; path = "NSManagedObject subclasses/STStory.h"; sourceTree = "<group>"; };
 		2F76A0901970C0B80005EE40 /* STStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStory.m; path = "NSManagedObject subclasses/STStory.m"; sourceTree = "<group>"; };
+		2F76B74B19984D19009CE596 /* sceneElements.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sceneElements.atlas; sourceTree = "<group>"; };
+		2F76B74D19984D2E009CE596 /* Actor 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Actor 2.png"; path = "sceneElements.atlas/Actor 2.png"; sourceTree = "<group>"; };
+		2F76B74E19984D2E009CE596 /* Actor 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Actor 3.png"; path = "sceneElements.atlas/Actor 3.png"; sourceTree = "<group>"; };
+		2F76B74F19984D2E009CE596 /* Actor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Actor.png; path = sceneElements.atlas/Actor.png; sourceTree = "<group>"; };
+		2F76B75019984D2E009CE596 /* Environment 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Environment 2.png"; path = "sceneElements.atlas/Environment 2.png"; sourceTree = "<group>"; };
+		2F76B75119984D2E009CE596 /* Environment 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Environment 3.png"; path = "sceneElements.atlas/Environment 3.png"; sourceTree = "<group>"; };
+		2F76B75219984D2E009CE596 /* Environment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Environment.png; path = sceneElements.atlas/Environment.png; sourceTree = "<group>"; };
+		2F76B75319984D2E009CE596 /* Object 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Object 2.png"; path = "sceneElements.atlas/Object 2.png"; sourceTree = "<group>"; };
+		2F76B75419984D2E009CE596 /* Object 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Object 3.png"; path = "sceneElements.atlas/Object 3.png"; sourceTree = "<group>"; };
+		2F76B75519984D2E009CE596 /* Object.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Object.png; path = sceneElements.atlas/Object.png; sourceTree = "<group>"; };
 		2F7CF7C618F06FC90072490B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2F7CF7C918F0704C0072490B /* InteractiveSceneDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InteractiveSceneDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2F804B3D1984381E00245C91 /* SceneManagementDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneManagementDelegate.h; sourceTree = "<group>"; };
@@ -463,6 +483,7 @@
 		2FCD34DA194FD40200573DB8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2F76B74B19984D19009CE596 /* sceneElements.atlas */,
 				2FF20003198D575F00C5257C /* UIKitReferences */,
 				2FF2FFE9198D55F900C5257C /* exampleElements.atlas */,
 				2FB0BF161969A81400AAB7D8 /* Pull Tab.png */,
@@ -498,6 +519,15 @@
 		2FF20003198D575F00C5257C /* UIKitReferences */ = {
 			isa = PBXGroup;
 			children = (
+				2F76B74D19984D2E009CE596 /* Actor 2.png */,
+				2F76B74E19984D2E009CE596 /* Actor 3.png */,
+				2F76B74F19984D2E009CE596 /* Actor.png */,
+				2F76B75019984D2E009CE596 /* Environment 2.png */,
+				2F76B75119984D2E009CE596 /* Environment 3.png */,
+				2F76B75219984D2E009CE596 /* Environment.png */,
+				2F76B75319984D2E009CE596 /* Object 2.png */,
+				2F76B75419984D2E009CE596 /* Object 3.png */,
+				2F76B75519984D2E009CE596 /* Object.png */,
 				2FF2FFEB198D572500C5257C /* BlueActor.png */,
 				2FF2FFEC198D572500C5257C /* GreenActor.png */,
 				2FF2FFED198D572500C5257C /* PurpleActor.png */,
@@ -598,24 +628,34 @@
 				2FF2FFFC198D572500C5257C /* Large Tree.png in Resources */,
 				2F33EC7319808D63000F9040 /* ImageResourceNames.plist in Resources */,
 				2FF2FFFA198D572500C5257C /* RedActor.png in Resources */,
+				2F76B75919984D2E009CE596 /* Environment 2.png in Resources */,
 				2FF20000198D572500C5257C /* Clock Tower.png in Resources */,
 				2FF2FFF8198D572500C5257C /* GreenActor.png in Resources */,
+				2F76B75E19984D2E009CE596 /* Object.png in Resources */,
 				2F8B515B18E7679200A5CBEF /* Images.xcassets in Resources */,
 				2FF2FFF9198D572500C5257C /* PurpleActor.png in Resources */,
 				2FB0BF171969A81400AAB7D8 /* Pull Tab.png in Resources */,
 				2FF2FFF7198D572500C5257C /* BlueActor.png in Resources */,
+				2F76B75A19984D2E009CE596 /* Environment 3.png in Resources */,
 				2F8B515118E7679200A5CBEF /* Main_iPad.storyboard in Resources */,
 				2F8B514E18E7679200A5CBEF /* Main_iPhone.storyboard in Resources */,
+				2F76B75819984D2E009CE596 /* Actor.png in Resources */,
+				2F76B74C19984D19009CE596 /* sceneElements.atlas in Resources */,
 				2FF2FFEA198D55F900C5257C /* exampleElements.atlas in Resources */,
 				2FF2FFFB198D572500C5257C /* Grassy Rock.png in Resources */,
 				2FF2FFFE198D572500C5257C /* Smaller Tree.png in Resources */,
 				2FF2FFFD198D572500C5257C /* Log.png in Resources */,
 				2FF20001198D572500C5257C /* Fountain.png in Resources */,
 				2F5E8FB31933ECAF00D78641 /* STEditStoryStoryboard.storyboard in Resources */,
+				2F76B75719984D2E009CE596 /* Actor 3.png in Resources */,
 				2F8B514518E7679200A5CBEF /* InfoPlist.strings in Resources */,
+				2F76B75C19984D2E009CE596 /* Object 2.png in Resources */,
+				2F76B75B19984D2E009CE596 /* Environment.png in Resources */,
 				2FF2FFFF198D572500C5257C /* Bench.png in Resources */,
 				2FF20002198D572500C5257C /* Lampost.png in Resources */,
 				2F2545E3192404EF008A3163 /* README.md in Resources */,
+				2F76B75619984D2E009CE596 /* Actor 2.png in Resources */,
+				2F76B75D19984D2E009CE596 /* Object 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
