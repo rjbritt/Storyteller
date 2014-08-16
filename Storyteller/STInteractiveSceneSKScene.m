@@ -9,7 +9,7 @@
 #import "STInteractiveSceneSKScene.h"
 #import "STAppDelegate.h"
 
-#import "STActorSceneElement+EaseOfUse.h"
+#import "STActorSceneElement.h"
 #import "STEnvironmentSceneElement.h"
 #import "STObjectSceneElement.h"
 

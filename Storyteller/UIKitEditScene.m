@@ -9,9 +9,9 @@
 #import "UIKitEditScene.h"
 #import "STInteractiveSceneElement+EaseOfUse.h"
 
-#import "STActorSceneElement+EaseOfUse.h"
-#import "STEnvironmentSceneElement+EaseOfUse.h"
-#import "STObjectSceneElement+EaseOfUse.h"
+#import "STActorSceneElement.h"
+#import "STEnvironmentSceneElement.h"
+#import "STObjectSceneElement.h"
 
 #import "STInteractiveScene+EaseOfUse.h"
 #import "STTextMedia+EaseOfUse.h"

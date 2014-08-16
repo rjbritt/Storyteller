@@ -13,7 +13,7 @@
 #pragma mark - Convenience Methods
 
 /**
- *  This convenience method allows the class to call a class method which will instantiate a new STInteractiveScene withi
+ *  This convenience method allows the class to call a class method which will instantiate a new STInteractiveScene within
  *  the designated NSManagedObjectContext
  *
  *  @param name    The name of the new scene
