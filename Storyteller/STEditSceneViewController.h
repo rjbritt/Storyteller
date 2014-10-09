@@ -2,7 +2,9 @@
 //  STViewController.h
 //  Storyteller
 //
-
+//  This view controller subclass controls the view that is shown to the user as an editable "Scene" within the
+//  Storyteller environment.
+//
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -29,13 +31,13 @@
 -(void)addTextAtCenter:(CGPoint)center;
 
 /**
- * Creates a new STActorSceneElement and initiates the creation
+ * Creates a new STCharacterSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
  * @param image The image that this scene element will use.
  * @param desiredCenter The desired center for the scene element.
  */
--(void)addActorSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter;
+-(void)addCharacterSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter;
 
 /**
  * Creates a new STEnvironmentSceneElement and initiates the creation

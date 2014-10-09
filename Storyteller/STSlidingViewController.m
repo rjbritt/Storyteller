@@ -11,10 +11,6 @@
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 #import "Storyteller-Swift-Ordered.h"
-#import "STStory+EaseOfUse.h"
-
-#import "STMedia+EaseOfUse.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
 #import "UIKitEditScene.h"
 
 #import <RCDraggableButton.h>
@@ -23,7 +19,8 @@
 
 @property (strong, nonatomic) STEditSceneViewController *editSceneVC;
 @property (strong, nonatomic) STEditStoryTableViewController *editStoryVC;
-@property (strong, nonatomic) SwiftSceneSelectionViewController *sceneSelectVC;
+@property (strong, nonatomic) STSelectSceneElementViewController *sceneSelectVC;
+
 
 @end
 
@@ -84,7 +81,7 @@
         //Prepare the edit scene VC if there are any scenes in the story.
         if (newStory.interactiveSceneList.count > 0)
         {
-            SwiftSceneSelectionViewController *sceneSelectVC = [newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
+            STSelectSceneElementViewController *sceneSelectVC = [newStoryboard instantiateViewControllerWithIdentifier:@"SceneElementSelectionController"];
 
             //Make sure left and right view controllers don't go under the topview controller
             sceneSelectVC.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom | UIRectEdgeRight;
@@ -128,7 +125,7 @@
         self.topViewController = topVC;
         self.underLeftViewController = storyNavigationController;
         self.currentStory = newStory;
-        self.anchorLeftRevealAmount = 2 * self.anchorRightRevealAmount;
+        self.anchorLeftRevealAmount = self.anchorRightRevealAmount;
 
 
     }
@@ -168,6 +165,7 @@
         }
         self.sceneSelectVC.sceneManagementDelegate = self;
         self.topViewController = newTopVC;
+        
         //Needs to be set since the blank scene has no under right view controller
         self.underRightViewController = self.sceneSelectVC;
         self.currentScene = scene;
@@ -198,9 +196,9 @@
     [self.editSceneVC showElementSelect:nil];
     //CGpoint centers correctly offset the image to appear in the upper left corner.
 
-    if([type isEqualToString:@"Actor"])
+    if([type isEqualToString:@"Character"])
     {
-        [self.editSceneVC addActorSceneElementWithImage:image atCenter:CGPointMake(image.size.width/2, (image.size.height/2) + top)];
+        [self.editSceneVC addCharacterSceneElementWithImage:image atCenter:CGPointMake(image.size.width/2, (image.size.height/2) + top)];
     }
     else if([type isEqualToString:@"Environment"])
     {

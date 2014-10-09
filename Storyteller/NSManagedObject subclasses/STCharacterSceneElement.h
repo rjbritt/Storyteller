@@ -1,8 +1,8 @@
 //
-//  STActorSceneElement.h
+//  STCharacterSceneElement.h
 //  Storyteller
 //
-//  Created by Ryan Britt on 6/24/14.
+//  Created by Ryan Britt on 10/4/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @class STInteractiveScene;
 
-@interface STActorSceneElement : STInteractiveSceneElement
+@interface STCharacterSceneElement : STInteractiveSceneElement
 
 @property (nonatomic, retain) STInteractiveScene *belongingScene;
 

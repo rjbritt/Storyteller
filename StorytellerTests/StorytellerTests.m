@@ -35,7 +35,7 @@
 
 -(void)testRetrieveAllSceneElements
 {
-    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+    [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeCharacter
                                                  withName:@"name 1"
                                                 withImage:[UIImage imageNamed:@"Actor"]
                                             withinContext:self.context centeredAt:CGPointMake(0, 0)];

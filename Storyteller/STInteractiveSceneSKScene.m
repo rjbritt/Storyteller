@@ -9,7 +9,7 @@
 #import "STInteractiveSceneSKScene.h"
 #import "STAppDelegate.h"
 
-#import "STActorSceneElement+EaseOfUse.h"
+#import "STCharacterSceneElement+EaseOfUse.h"
 #import "STEnvironmentSceneElement.h"
 #import "STObjectSceneElement.h"
 
@@ -113,7 +113,7 @@ dispatch_queue_t backgroundQueue;
     NSDate *start;
     NSDate *end;
     
-    NSArray *actors = [self.currentScene.actorSceneElementList array];
+    NSArray *actors = [self.currentScene.characterSceneElementList array];
     NSArray *environment = [self.currentScene.environmentSceneElementList array];
     NSArray *objects = [self.currentScene.objectSceneElementList array];
     
@@ -126,9 +126,9 @@ dispatch_queue_t backgroundQueue;
         //dispatches the element loading onto a separate thread
         //        dispatch_sync(backgroundQueue, ^(void)
         //        {
-        if([element isMemberOfClass:[STActorSceneElement class]])
+        if([element isMemberOfClass:[STCharacterSceneElement class]])
         {
-            SKSpriteNode *actorSprite = [self actorSceneElementToSpriteNode:(STActorSceneElement*)element];
+            SKSpriteNode *actorSprite = [self actorSceneElementToSpriteNode:(STCharacterSceneElement*)element];
             [self addChild:actorSprite];
         }
         else if([element isMemberOfClass:[STEnvironmentSceneElement class]])
@@ -149,7 +149,7 @@ dispatch_queue_t backgroundQueue;
 
 }
 
--(SKSpriteNode *) actorSceneElementToSpriteNode:(STActorSceneElement *)actor
+-(SKSpriteNode *) actorSceneElementToSpriteNode:(STCharacterSceneElement *)actor
 {
     SKSpriteNode *actorSprite = [SKSpriteNode spriteNodeWithTexture:
                                  [SKTexture textureWithImage:

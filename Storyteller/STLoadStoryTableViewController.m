@@ -8,8 +8,7 @@
 
 #import "STLoadStoryTableViewController.h"
 #import "STAppDelegate.h"
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 #import "STEditStoryTableViewController.h"
 #import "STEditSceneViewController.h"
 

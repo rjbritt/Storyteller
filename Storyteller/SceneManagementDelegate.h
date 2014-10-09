@@ -2,6 +2,10 @@
 //  SceneManagementDelegate.h
 //  Storyteller
 //
+//  This delegate is designed to be used with a container view controller to
+//  manage the ability to select scenes and add elements within an appropriate
+//  environment.
+//
 //  Created by Ryan Britt on 7/26/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
@@ -9,7 +13,7 @@
 #import <Foundation/Foundation.h>
 
 #import "STInteractiveSceneElement+EaseOfUse.h"
-#import "STStory+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 @protocol SceneManagementDelegate
 
@@ -29,8 +33,7 @@
  *  through the use of delegate methods.
  *
  *  @param image UIImage that represents the new scene element
- *  @param type  A string that is either "Actor", "Environment", or "Object". Any other string
- *  is not processed as a scene element.
+ *  @param type  A string that is either "Character", "Environment", or "Object". Any other string is not processed as a scene element.
  */
 -(void)addSceneElementWithImage:(UIImage *)image ofType:(NSString *)type;
 

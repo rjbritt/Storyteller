@@ -63,7 +63,7 @@
  *
  *  @return A NSString representing the next Actor name.
  */
--(NSString *)nextActorName
+-(NSString *)nextCharacterElementName
 {
     NSString *temp = [NSString stringWithFormat:@"Actor%i",(int) self.actorTagIncr];
     self.actorTagIncr ++;
@@ -75,7 +75,7 @@
  *
  *  @return A NSString representing the next Environment name.
  */
--(NSString *)nextEnviroName
+-(NSString *)nextEnviroElementName
 {
     NSString *temp = [NSString stringWithFormat:@"Environment%i",(int) self.enviroTagIncr];
     self.enviroTagIncr ++;
@@ -87,7 +87,7 @@
  *
  *  @return A NSString representing the next Object name.
  */
--(NSString *)nextObjectName
+-(NSString *)nextObjectElementName
 {
     NSString *temp = [NSString stringWithFormat:@"Object%i",(int) self.objectTagIncr];
     self.objectTagIncr ++;

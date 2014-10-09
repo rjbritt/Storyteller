@@ -6,12 +6,7 @@
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STInteractiveSceneElement+EaseOfUse.h"
-#import "STActorSceneElement.h"
-#import "STEnvironmentSceneElement.h"
-#import "STObjectSceneElement.h"
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 @implementation STInteractiveSceneElement (EaseOfUse)
 
@@ -63,7 +58,7 @@
  *  This is a factory method to easily initialize a scene element of a specific type.
  *
  *  @param elementType An element of the STInteractiveSceneElementType ENUM. Valid element types are 
- *  STInteractiveSceneElementTypeActor
+ *  STInteractiveSceneElementTypeCharacter
  *  STInteractiveSceneElementTypeEnvironment
  *  STInteractiveSceneElementTypeObject
  *  
@@ -84,9 +79,9 @@
     
     switch (elementType)
     {
-        case STInteractiveSceneElementTypeActor:
+        case STInteractiveSceneElementTypeCharacter:
         {
-            STActorSceneElement * temp = [NSEntityDescription insertNewObjectForEntityForName:@"STActorSceneElement" inManagedObjectContext:context];
+            STCharacterSceneElement * temp = [NSEntityDescription insertNewObjectForEntityForName:@"STCharacterSceneElement" inManagedObjectContext:context];
             returnedElement = temp;
         }
             break;
@@ -142,9 +137,9 @@
     //Determine what element type to fetch.
     switch (elementType)
     {
-        case STInteractiveSceneElementTypeActor:
+        case STInteractiveSceneElementTypeCharacter:
         {
-            elementFetch = [NSFetchRequest fetchRequestWithEntityName:@"STActorSceneElement"];
+            elementFetch = [NSFetchRequest fetchRequestWithEntityName:@"STCharacterSceneElement"];
         }
             break;
         case STInteractiveSceneElementTypeEnvironment:

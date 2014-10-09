@@ -13,7 +13,7 @@
 #import "STPresentSKSceneViewController.h"
 #import "STSlidingViewController.h"
 
-#import "STStory+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 @interface STPlayStoryPageViewController ()
 @end

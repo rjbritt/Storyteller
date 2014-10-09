@@ -123,7 +123,7 @@
     int sum = 0;
     for (STInteractiveScene * scene in self.interactiveSceneList)
     {
-        sum += scene.actorSceneElementList.count;
+        sum += scene.characterSceneElementList.count;
         sum += scene.environmentSceneElementList.count;
         sum += scene.objectSceneElementList.count;
         sum += scene.sceneMedia.count;

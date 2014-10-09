@@ -11,8 +11,7 @@
 #import "STEditSceneViewController.h"
 
 #import "STAppDelegate.h"
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 #import "STSlidingViewController.h"
 #import "STSlidingViewController.h"
@@ -127,6 +126,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-(NSUInteger) supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscape;
+//}
+
+  
 /*
 #pragma mark - Navigation
 

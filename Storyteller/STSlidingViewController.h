@@ -8,7 +8,7 @@
 
 #import "ECSlidingViewController.h"
 #import "SceneManagementDelegate.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 @interface STSlidingViewController : ECSlidingViewController  <SceneManagementDelegate, UIGestureRecognizerDelegate>
 

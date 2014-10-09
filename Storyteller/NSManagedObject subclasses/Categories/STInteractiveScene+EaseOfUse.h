@@ -35,21 +35,21 @@
  *
  *  @return A NSString representing the next Actor name.
  */
--(NSString *)nextActorName;
+-(NSString *)nextCharacterElementName;
 
 /**
  *  A default Environment name generator that is linked to a saved incremented value. This guarentees unique default names.
  *
  *  @return A NSString representing the next Environment name.
  */
--(NSString *)nextEnviroName;
+-(NSString *)nextEnviroElementName;
 
 /**
  *  A default Object name generator that is linked to a saved incremented value. This guarentees unique default names.
  *
  *  @return A NSString representing the next Object name.
  */
--(NSString *)nextObjectName;
+-(NSString *)nextObjectElementName;
 
 
 @end

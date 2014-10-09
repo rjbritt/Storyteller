@@ -14,10 +14,7 @@
 #import "STPlayStoryPageViewController.h"
 #import "STEditSceneViewController.h"
 
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
-#import "STMedia+EaseOfUse.h"
-#import "STTextMedia+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 #import <UIViewController+ECSlidingViewController.h>
 
@@ -66,25 +63,25 @@
 
 #pragma mark - Public Methods
 /**
- * Creates a new STActorSceneElement and initiates the creation
+ * Creates a new STCharacterSceneElement and initiates the creation
  * of a draggable button to represent this scene element.
  *
  * @param image The image that this scene element will use.
  * @param desiredCenter The desired center for the scene element.
  */
--(void)addActorSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter
+-(void)addCharacterSceneElementWithImage:(UIImage *)image atCenter:(CGPoint)desiredCenter
 {
-    //Create ActorSceneElement data
-    STInteractiveSceneElement *tempActor = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
-                                                                                        withName:self.currentScene.nextActorName
+    //Create CharacterSceneElement data
+    STInteractiveSceneElement *tempActor = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeCharacter
+                                                                                        withName:self.currentScene.nextCharacterElementName
                                                                                        withImage:image
                                                                                    withinContext:self.context
                                                                                       centeredAt:desiredCenter];
                                       
-    [self.currentScene addActorSceneElementListObject:(STActorSceneElement *)tempActor];
+    [self.currentScene addCharacterSceneElementListObject:(STCharacterSceneElement *)tempActor];
     
     //Create Button to represent Actor
-    [self.uiKitScene createNewDraggableSceneElementWithSceneElement:tempActor andTag:STInteractiveSceneElementTypeActor];
+    [self.uiKitScene createNewDraggableSceneElementWithSceneElement:tempActor andTag:STInteractiveSceneElementTypeCharacter];
     
 }
 
@@ -100,7 +97,7 @@
 {
     //Create EnvironmentSceneElement
     STInteractiveSceneElement  *tempEnv = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeEnvironment
-                                                                                       withName:[self.currentScene nextEnviroName]
+                                                                                       withName:[self.currentScene nextEnviroElementName]
                                                                                       withImage:image
                                                                                   withinContext:self.context
                                                                                      centeredAt:desiredCenter];
@@ -124,7 +121,7 @@
     
     //Create ObjectSceneElement
     STInteractiveSceneElement *tempObject = [STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeObject
-                                                                                    withName:[self.currentScene nextObjectName]
+                                                                                    withName:[self.currentScene nextObjectElementName]
                                                                                    withImage:image
                                                                                withinContext:self.context
                                                                                   centeredAt:desiredCenter];
@@ -200,16 +197,12 @@
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 - (void)didReceiveMemoryWarning

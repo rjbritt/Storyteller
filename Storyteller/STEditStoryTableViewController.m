@@ -11,8 +11,7 @@
 #import "STMainViewController.h"
 
 #import "CoreData.h"
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 #import "STSlidingViewController.h"
 
 #import <UIViewController+ECSlidingViewController.h>
@@ -89,7 +88,7 @@
     [[CoreData sharedInstance] saveContext];
     
     //Get Storyboard
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     STMainViewController *viewController = (STMainViewController *)[mainStoryboard instantiateInitialViewController];
 
 #warning insert animation here

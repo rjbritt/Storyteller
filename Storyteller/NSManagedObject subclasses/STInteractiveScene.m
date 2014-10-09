@@ -6,12 +6,7 @@
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STInteractiveScene.h"
-#import "STActorSceneElement.h"
-#import "STEnvironmentSceneElement.h"
-#import "STMedia.h"
-#import "STObjectSceneElement.h"
-#import "STStory.h"
+#import "STManagedObjectImportAll.h"
 
 
 @implementation STInteractiveScene
@@ -20,7 +15,7 @@
 @dynamic enviroTagIncr;
 @dynamic name;
 @dynamic objectTagIncr;
-@dynamic actorSceneElementList;
+@dynamic characterSceneElementList;
 @dynamic belongingStory;
 @dynamic environmentSceneElementList;
 @dynamic objectSceneElementList;

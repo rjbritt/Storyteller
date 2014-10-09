@@ -2,12 +2,16 @@
 //  UIKitEditScene.h
 //  Storyteller
 //
+//  This is a sublcass of NSObject that works as a view controller for handling the
+//  placement, update, and delete of UI objects.
+//  This class must be created and used within a subclass of UIViewController in order to work properly.
+//
 //  Created by Ryan Britt on 7/8/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "STInteractiveSceneElement+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 #import <UIKit/UIKit.h>
 #import <UIView+DragDrop.h>
 @class STInteractiveScene;

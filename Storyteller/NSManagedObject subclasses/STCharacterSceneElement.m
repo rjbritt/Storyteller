@@ -1,16 +1,16 @@
 //
-//  STActorSceneElement.m
+//  STCharacterSceneElement.m
 //  Storyteller
 //
-//  Created by Ryan Britt on 6/24/14.
+//  Created by Ryan Britt on 10/4/14.
 //  Copyright (c) 2014 Ryan Britt. All rights reserved.
 //
 
-#import "STActorSceneElement.h"
+#import "STCharacterSceneElement.h"
 #import "STInteractiveScene.h"
 
 
-@implementation STActorSceneElement
+@implementation STCharacterSceneElement
 
 @dynamic belongingScene;
 

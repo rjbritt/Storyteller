@@ -7,16 +7,6 @@
 //
 
 #import "UIKitEditScene.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
-
-#import "STActorSceneElement+EaseOfUse.h"
-#import "STEnvironmentSceneElement+EaseOfUse.h"
-#import "STObjectSceneElement+EaseOfUse.h"
-
-#import "STInteractiveScene+EaseOfUse.h"
-#import "STTextMedia+EaseOfUse.h"
-#import "STMedia+EaseOfUse.h"
-
 #import <UIAlertView+Blocks.h>
 #import <RCDraggableButton.h>
 
@@ -69,7 +59,7 @@
 {
     [self currentSceneStatusAtLocation:@"Load UIKit from STInteractive Scene"];
     
-    NSArray *actorsInCurrentScene = [self.currentScene.actorSceneElementList array];
+    NSArray *actorsInCurrentScene = [self.currentScene.characterSceneElementList array];
     NSArray *environmentsInCurrentScene = [self.currentScene.environmentSceneElementList array];
     NSArray *objectsInCurrentScene = [self.currentScene.objectSceneElementList array];
     
@@ -82,9 +72,9 @@
     {
         STInteractiveSceneElementType elementType;
         
-        if([element isMemberOfClass:[STActorSceneElement class]])
+        if([element isMemberOfClass:[STCharacterSceneElement class]])
         {
-            elementType = STInteractiveSceneElementTypeActor;
+            elementType = STInteractiveSceneElementTypeCharacter;
         }
         else if([element isMemberOfClass:[STEnvironmentSceneElement class]])
         {
@@ -160,8 +150,8 @@
                                  
                                  switch (button.tag)
                                  {
-                                     case STInteractiveSceneElementTypeActor:
-                                         [self.currentScene removeActorSceneElementListObject:(STActorSceneElement *)element];
+                                     case STInteractiveSceneElementTypeCharacter:
+                                         [self.currentScene removeCharacterSceneElementListObject:(STCharacterSceneElement *)element];
                                          break;
                                      case STInteractiveSceneElementTypeEnvironment:
                                          [self.currentScene removeEnvironmentSceneElementListObject:(STEnvironmentSceneElement *)element];
@@ -300,15 +290,15 @@
 {
     [self currentSceneStatusAtLocation:@"Update Button"];
     
-    //The button tag must be analyzed to verify the type of element that we are accessing. An Actor could
-    //theoretically have the same name as an Environment. This must be understood so that the appropriate STInteractiveSceneElement
-    //can be found.
+    //The button tag must be analyzed to verify the type of element that we are accessing. A Character could
+    //theoretically have the same name as an Environment. The type of scene element must be understood so that
+    //the appropriate STInteractiveSceneElement can be found.
     switch (button.tag)
     {
-        case STInteractiveSceneElementTypeActor:
+        case STInteractiveSceneElementTypeCharacter:
         {
-            STActorSceneElement *temp = (STActorSceneElement *)
-            [STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeActor
+            STCharacterSceneElement *temp = (STCharacterSceneElement *)
+            [STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeCharacter
                                                      withName:button.titleLabel.text
                                                       inStory:self.currentScene.belongingStory
                                                       inScene:self.currentScene
@@ -408,7 +398,7 @@
  */
 -(void)currentSceneStatusAtLocation:(NSString *)location
 {
-    NSLog(@"Current Scene: %@ , Current Actor Count: %i, Location: %@", self.currentScene.name, self.currentScene.actorSceneElementList.count, location);
+    NSLog(@"Current Scene: %@ , Current Actor Count: %i, Location: %@", self.currentScene.name, self.currentScene.characterSceneElementList.count, location);
 }
 
 #pragma mark - UIView + DragDrop Delegate Methods

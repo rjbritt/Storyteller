@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class STActorSceneElement, STEnvironmentSceneElement, STMedia, STObjectSceneElement, STStory;
+@class STCharacterSceneElement, STEnvironmentSceneElement, STMedia, STObjectSceneElement, STStory;
 
 @interface STInteractiveScene : NSManagedObject
 
@@ -17,7 +17,7 @@
 @property (nonatomic) int32_t enviroTagIncr;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) int32_t objectTagIncr;
-@property (nonatomic, retain) NSOrderedSet *actorSceneElementList;
+@property (nonatomic, retain) NSOrderedSet *characterSceneElementList;
 @property (nonatomic, retain) STStory *belongingStory;
 @property (nonatomic, retain) NSOrderedSet *environmentSceneElementList;
 @property (nonatomic, retain) NSOrderedSet *objectSceneElementList;
@@ -26,16 +26,16 @@
 
 @interface STInteractiveScene (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(STActorSceneElement *)value inActorSceneElementListAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromActorSceneElementListAtIndex:(NSUInteger)idx;
-- (void)insertActorSceneElementList:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeActorSceneElementListAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInActorSceneElementListAtIndex:(NSUInteger)idx withObject:(STActorSceneElement *)value;
-- (void)replaceActorSceneElementListAtIndexes:(NSIndexSet *)indexes withActorSceneElementList:(NSArray *)values;
-- (void)addActorSceneElementListObject:(STActorSceneElement *)value;
-- (void)removeActorSceneElementListObject:(STActorSceneElement *)value;
-- (void)addActorSceneElementList:(NSOrderedSet *)values;
-- (void)removeActorSceneElementList:(NSOrderedSet *)values;
+- (void)insertObject:(STCharacterSceneElement *)value inCharacterSceneElementListAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromCharacterSceneElementListAtIndex:(NSUInteger)idx;
+- (void)insertCharacterSceneElementList:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeCharacterSceneElementListAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInCharacterSceneElementListAtIndex:(NSUInteger)idx withObject:(STCharacterSceneElement *)value;
+- (void)replaceCharacterSceneElementListAtIndexes:(NSIndexSet *)indexes withCharacterSceneElementList:(NSArray *)values;
+- (void)addCharacterSceneElementListObject:(STCharacterSceneElement *)value;
+- (void)removeCharacterSceneElementListObject:(STCharacterSceneElement *)value;
+- (void)addCharacterSceneElementList:(NSOrderedSet *)values;
+- (void)removeCharacterSceneElementList:(NSOrderedSet *)values;
 - (void)insertObject:(STEnvironmentSceneElement *)value inEnvironmentSceneElementListAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromEnvironmentSceneElementListAtIndex:(NSUInteger)idx;
 - (void)insertEnvironmentSceneElementList:(NSArray *)value atIndexes:(NSIndexSet *)indexes;

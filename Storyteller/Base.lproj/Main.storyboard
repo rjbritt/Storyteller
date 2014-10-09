@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="cdq-6S-Pac">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cdq-6S-Pac">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -13,42 +13,57 @@
                         <viewControllerLayoutGuide type="bottom" id="yLe-5G-bgf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hdk-i8-utz">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeO-5p-mpn">
-                                <rect key="frame" x="452" y="369" width="121" height="30"/>
-                                <state key="normal" title="Create New Story">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="initializeNewStory:" destination="IOw-NN-BMf" eventType="touchUpInside" id="WJH-Ud-GSc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe0-1j-yeH">
-                                <rect key="frame" x="443" y="407" width="139" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe0-1j-yeH">
+                                <rect key="frame" x="231" y="323" width="139" height="30"/>
                                 <state key="normal" title="Load Previous Story">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="335" y="423" width="139" height="30"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="831-Hi-MRE" kind="push" id="PiE-WY-3r4"/>
+                                    <segue destination="831-Hi-MRE" kind="show" id="PiE-WY-3r4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsr-Wp-fZF">
+                                <rect key="frame" x="240" y="285" width="121" height="30"/>
+                                <state key="normal" title="Create New Story">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="340" y="285" width="121" height="30"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="340" y="385" width="128" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="initializeNewStory:" destination="IOw-NN-BMf" eventType="touchUpInside" id="F06-HO-YxC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oe0-1j-yeH" firstAttribute="top" secondItem="Qsr-Wp-fZF" secondAttribute="bottom" constant="8" symbolic="YES" id="4iO-zw-tQO"/>
+                            <constraint firstItem="Qsr-Wp-fZF" firstAttribute="centerX" secondItem="hdk-i8-utz" secondAttribute="centerX" id="NZp-fR-Ngo"/>
+                            <constraint firstItem="oe0-1j-yeH" firstAttribute="centerX" secondItem="Qsr-Wp-fZF" secondAttribute="centerX" id="YQJ-PG-Xoi"/>
+                            <constraint firstItem="Qsr-Wp-fZF" firstAttribute="centerY" secondItem="hdk-i8-utz" secondAttribute="centerY" id="rhs-UY-Q0q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Kf-LF-Bfb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOW-Xr-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3126" y="-539"/>
+            <point key="canvasLocation" x="-2442.75" y="-316.5"/>
         </scene>
         <!--Load Story Table View Controller-->
         <scene sceneID="dcb-1B-Ubd">
             <objects>
                 <tableViewController id="831-Hi-MRE" customClass="STLoadStoryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V72-n0-07C">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -70,13 +85,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nO1-J2-p2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1964" y="-539"/>
+            <point key="canvasLocation" x="-1534.375" y="-315.8203125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sCp-sq-3Fd">
             <objects>
                 <navigationController definesPresentationContext="YES" id="cdq-6S-Pac" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0RG-X7-T23">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -90,15 +104,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEp-vS-d3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4441" y="-539"/>
+            <point key="canvasLocation" x="-3469.53125" y="-315.8203125"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <nil key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination">
-            <size key="portraitSize" width="768" height="1024"/>
-            <size key="landscapeSize" width="1024" height="768"/>
-        </simulatedScreenMetrics>
-    </simulatedMetricsContainer>
 </document>

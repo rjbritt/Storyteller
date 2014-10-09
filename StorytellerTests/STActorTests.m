@@ -9,10 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "STAppDelegate.h"
 
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
-#import "STActorSceneElement+EaseOfUse.h"
-#import "STInteractiveSceneElement+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 
 @interface STActorTests : XCTestCase
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -51,19 +48,19 @@
     STInteractiveScene *story2Scene3 = [STInteractiveScene initWithName:@"Story2Scene3" inContext:self.context];
     STInteractiveScene *story2Scene4 = [STInteractiveScene initWithName:@"Story2Scene4" inContext:self.context];
     
-    STActorSceneElement *actor1 = (STActorSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement *actor1 = (STCharacterSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeCharacter
                                                                                                       withName:@"actor1"
                                                                                                      withImage:[UIImage imageNamed:@"Actor"]
                                                                                                  withinContext:self.context
                                                                                                     centeredAt:CGPointMake(0, 0)];
 
-    STActorSceneElement *actor2 = (STActorSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement *actor2 = (STCharacterSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeCharacter
                                                                                                       withName:@"actor2"
                                                                                                      withImage:[UIImage imageNamed:@"Actor"]
                                                                                                  withinContext:self.context
                                                                                                     centeredAt:CGPointMake(0, 0)];
     
-    STActorSceneElement *actor3 = (STActorSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement *actor3 = (STCharacterSceneElement *)[STInteractiveSceneElement initializeSceneElementType:STInteractiveSceneElementTypeCharacter
                                                                                                       withName:@"actor3"
                                                                                                      withImage:[UIImage imageNamed:@"Actor"]
                                                                                                  withinContext:self.context
@@ -73,10 +70,10 @@
 
     //Add Actor 1 to scene 1
     [story1 addInteractiveSceneListObject:story1Scene1];
-    [story1Scene1 addActorSceneElementListObject:actor1];
+    [story1Scene1 addCharacterSceneElementListObject:actor1];
     
     //Find Actor1 in scene 1
-    STActorSceneElement * foundActor1 = (STActorSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement * foundActor1 = (STCharacterSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeCharacter
                                                                                                        withName:actor1.name
                                                                                                         inStory:story1
                                                                                                         inScene:story1Scene1
@@ -88,12 +85,12 @@
     
     //Add actor 1 and 2 to scene 2
     [story1 addInteractiveSceneListObject:story1Scene2];
-    [story1Scene2 addActorSceneElementListObject:actor1];
-    [story1Scene2 addActorSceneElementListObject:actor2];
+    [story1Scene2 addCharacterSceneElementListObject:actor1];
+    [story1Scene2 addCharacterSceneElementListObject:actor2];
     
     //Find Actor 2 in scene 2
     
-    STActorSceneElement * foundActor2 = (STActorSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement * foundActor2 = (STCharacterSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeCharacter
                                                                                                        withName:actor2.name
                                                                                                         inStory:story1
                                                                                                         inScene:story1Scene2
@@ -105,11 +102,11 @@
     XCTAssert([foundActor2.belongingScene.belongingStory.name isEqualToString:story1.name]);
     
     //Add Actor 2 and 3 into scene 1
-    [story1Scene1 addActorSceneElementListObject:actor2];
-    [story1Scene1 addActorSceneElementListObject:actor3];
+    [story1Scene1 addCharacterSceneElementListObject:actor2];
+    [story1Scene1 addCharacterSceneElementListObject:actor3];
     
     //Find Actor2 in scene 1
-    STActorSceneElement * foundActor3 = (STActorSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeActor
+    STCharacterSceneElement * foundActor3 = (STCharacterSceneElement*)[STInteractiveSceneElement findSceneElementOfType:STInteractiveSceneElementTypeCharacter
                                                                                                        withName:actor2.name
                                                                                                         inStory:story1
                                                                                                         inScene:story1Scene1

@@ -14,7 +14,7 @@
 
 typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
 {
-    STInteractiveSceneElementTypeActor = 1000,
+    STInteractiveSceneElementTypeCharacter= 1000,
     STInteractiveSceneElementTypeEnvironment,
     STInteractiveSceneElementTypeObject,
 };
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, STInteractiveSceneElementType)
  *  This is a factory method to easily initialize a scene element of a specific type.
  *
  *  @param elementType An element of the STInteractiveSceneElementType ENUM. Valid element types are
- *  STInteractiveSceneElementTypeActor
+ *  STInteractiveSceneElementTypeCharacter
  *  STInteractiveSceneElementTypeEnvironment
  *  STInteractiveSceneElementTypeObject
  *

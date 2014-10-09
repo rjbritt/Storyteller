@@ -9,8 +9,7 @@
 #import "STPresentSKSceneViewController.h"
 #import "STInteractiveSceneSKScene.h"
 #import "STMainViewController.h"
-#import "STStory+EaseOfUse.h"
-#import "STInteractiveScene+EaseOfUse.h"
+#import "STManagedObjectImportAll.h"
 #import "STEditSceneViewController.h"
 #import "STEditStoryTableViewController.h"
 
