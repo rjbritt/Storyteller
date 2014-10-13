@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		150E8CFA046E4AA996CC8A92 /* libPods-Storyteller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E3F706566947D19ED69877 /* libPods-Storyteller.a */; };
 		2F1E7568194A70C000CF064D /* STPresentSKSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1E7567194A70C000CF064D /* STPresentSKSceneViewController.m */; };
-		2F245FFA1978796E001AB95E /* STSelectSceneElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F245FF91978796E001AB95E /* STSelectSceneElementViewController.swift */; };
 		2F2545E3192404EF008A3163 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F2545E2192404EF008A3163 /* README.md */; };
 		2F2CABE219E0CD0700B80922 /* STCharacterSceneElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CABE119E0CD0700B80922 /* STCharacterSceneElement.m */; };
 		2F2CABE519E0ED5B00B80922 /* STActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CABE419E0ED5B00B80922 /* STActor.m */; };
@@ -21,6 +20,7 @@
 		2F2CABF119E0ED5B00B80922 /* STCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CABF019E0ED5B00B80922 /* STCharacter.m */; };
 		2F2CABF219E0ED5B00B80922 /* STCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CABF019E0ED5B00B80922 /* STCharacter.m */; };
 		2F33EC7319808D63000F9040 /* ImageResourceNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F33EC7219808D63000F9040 /* ImageResourceNames.plist */; };
+		2F4591D619EA38F000D873C2 /* STSelectSceneElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F245FF91978796E001AB95E /* STSelectSceneElementViewController.swift */; };
 		2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA0E19325B8D00B94507 /* STMainViewController.m */; };
 		2F48DA1219327AF700B94507 /* STLoadStoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F48DA1119327AF700B94507 /* STLoadStoryTableViewController.m */; };
 		2F4C135619493F95003639F3 /* STTextMedia+EaseOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C135519493F95003639F3 /* STTextMedia+EaseOfUse.m */; };
@@ -764,6 +764,7 @@
 				2FE00036193BA469003719DC /* STCharacterSceneElement+EaseOfUse.m in Sources */,
 				2F76A08E1970C0B70005EE40 /* STInteractiveScene.m in Sources */,
 				2F8B515718E7679200A5CBEF /* STInteractiveSceneSKScene.m in Sources */,
+				2F4591D619EA38F000D873C2 /* STSelectSceneElementViewController.swift in Sources */,
 				2FE00038193BA469003719DC /* STInteractiveSceneElement+EaseOfUse.m in Sources */,
 				2F8B514718E7679200A5CBEF /* main.m in Sources */,
 				2F4C1364194950FB003639F3 /* STMedia.m in Sources */,
@@ -771,7 +772,6 @@
 				2FA2BED4194697060007D813 /* STPlayStoryPageViewController.m in Sources */,
 				2F7CF7CA18F0704C0072490B /* InteractiveSceneDataModel.xcdatamodeld in Sources */,
 				2FE00027193BA455003719DC /* STEnvironmentSceneElement.m in Sources */,
-				2F245FFA1978796E001AB95E /* STSelectSceneElementViewController.swift in Sources */,
 				2F945F65196CCCAC00A0CFBD /* UIKitEditScene.m in Sources */,
 				2F2CABF119E0ED5B00B80922 /* STCharacter.m in Sources */,
 				2F48DA0F19325B8D00B94507 /* STMainViewController.m in Sources */,
@@ -940,6 +940,12 @@
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-v",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -964,6 +970,12 @@
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreData,
+					"-v",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;

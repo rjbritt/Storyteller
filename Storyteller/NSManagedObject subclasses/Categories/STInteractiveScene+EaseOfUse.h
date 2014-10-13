@@ -31,9 +31,9 @@
 +(STInteractiveScene *)findSceneWithName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 
 /**
- *  A default Actor name generator that is linked to a saved incremented value. This guarentees unique default names.
+ *  A default Character name generator that is linked to a saved incremented value. This guarentees unique default names.
  *
- *  @return A NSString representing the next Actor name.
+ *  @return A NSString representing the next Character name.
  */
 -(NSString *)nextCharacterElementName;
 

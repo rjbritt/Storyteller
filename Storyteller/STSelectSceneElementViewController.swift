@@ -9,7 +9,6 @@
 
 import UIKit
 
-
 class STSelectSceneElementViewController:UIViewController
 {
 
@@ -24,11 +23,11 @@ class STSelectSceneElementViewController:UIViewController
     
     //class properties
     
-    //Any or all of these could be nil in which case there are no elements of a particular type.
-    var sceneElementPathArray:[String]?
-    var actorElementPathArray:[String]?
-    var environmentElementPathArray:[String]?
-    var objectElementPathArray:[String]?
+    //Any or all of these could be empty in which case there are no elements of a particular type.
+    var sceneElementPathArray:NSArray = []
+    var actorElementPathArray:NSArray = []
+    var environmentElementPathArray:NSArray = []
+    var objectElementPathArray:NSArray = []
 
     var currentSceneElementType = SelectedSceneElementType.Actor
     var sceneManagementDelegate:SceneManagementDelegate?
@@ -51,26 +50,31 @@ class STSelectSceneElementViewController:UIViewController
         //initialize the resource dictionary
         let resourcePathDictionary = NSDictionary(contentsOfFile: resourcePath!)
         
-        let allkeys = resourcePathDictionary.allKeys
-        //{ if let statement needed above for Xcode 6.1 beta. Not sure if permanent swift language change or not.
-            for key in allkeys
-            {
-                //put the appropriate objects into each array
-                let value = resourcePathDictionary.objectForKey(key) as? NSArray
-                switch key as String
-                {
-                case "Actor":
-                    actorElementPathArray = value as? [String]
-                case "Environment":
-                    environmentElementPathArray = value as? [String]
-                case "Object":
-                    objectElementPathArray = value as? [String]
-                default:
-                    break
-                }
-
-            }
-        //}
+        actorElementPathArray = (resourcePathDictionary?.objectForKey("Actor") as NSArray)
+        environmentElementPathArray = (resourcePathDictionary?.objectForKey("Environment") as NSArray)
+        objectElementPathArray = (resourcePathDictionary?.objectForKey("Object") as NSArray)
+        
+        
+//        let allkeys = resourcePathDictionary.allKeys as [String]
+//        //{// if let statement needed above for Xcode 6.1 beta. Not sure if permanent swift language change or not.
+//            for key in allkeys
+//            {
+//                //put the appropriate objects into each array
+//                let value = resourcePathDictionary.objectForKey(key) as [String]
+//                switch key
+//                {
+//                case "Actor":
+//                    actorElementPathArray = value
+//                case "Environment":
+//                    environmentElementPathArray = value
+//                case "Object":
+//                    objectElementPathArray = value
+//                default:
+//                    break
+//                }
+//
+//            }
+//        //}
         
         sceneElementPathArray = actorElementPathArray
 
@@ -88,15 +92,15 @@ extension STSelectSceneElementViewController:UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return sceneElementPathArray!.count
+        return sceneElementPathArray.count;
     }
     
     func collectionView(thisCollectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         var cell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
-        if let sceneElementPath = sceneElementPathArray
+        if sceneElementPathArray.count > 0
         {
-            let currentImage = UIImage(named: sceneElementPath[indexPath.row])
+            let currentImage = UIImage(named:sceneElementPathArray[indexPath.row] as String)
             switch currentSceneElementType
                 {
             case .Actor,.Environment,.Object:
@@ -118,17 +122,16 @@ extension STSelectSceneElementViewController:UICollectionViewDataSource
 extension STSelectSceneElementViewController:UICollectionViewDelegate
 {
     func collectionView(thisCollectionView: UICollectionView!,
-           layout collectionViewLayout: UICollectionViewLayout!,
-      sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize
+               layout collectionViewLayout: UICollectionViewLayout!,
+          sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize
         
     {
         //Assign a default size
         var size = CGSizeMake(100, 100)
         
-        if let sceneElementPath = sceneElementPathArray
+        //if the scene elementpath contains a valid UIImage name, create it, and set the collectionViewItem size to its size.
+        if let currentImage = UIImage(named: sceneElementPathArray[indexPath.row] as String)
         {
-            let currentImage = UIImage(named: sceneElementPath[indexPath.row])
-
             switch currentSceneElementType
             {
             case .Actor,.Environment,.Object:
@@ -138,8 +141,6 @@ extension STSelectSceneElementViewController:UICollectionViewDelegate
                 break
             }
         }
-
-        
         return size
     }
     

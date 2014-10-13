@@ -7,16 +7,15 @@
 //
 
 #import "UIKitEditScene.h"
-#import <UIAlertView+Blocks.h>
 #import <RCDraggableButton.h>
 
 @interface UIKitEditScene()
 
 @property (strong, nonatomic) STInteractiveScene *currentScene;
 @property (strong, nonatomic) NSManagedObjectContext *context;
-@property (strong, nonatomic) UIView *view;
 @property (strong, nonatomic) STTextMedia *editingTextMedia;
 @property (weak, nonatomic) UITextView *currentEditingTextView;
+@property (strong, nonatomic) UIViewController *viewController;
 @end
 
 @implementation UIKitEditScene
@@ -31,17 +30,17 @@
  *
  *  @param scene   STInteractiveScene that contains all of the information that will be represented within this scene.
  *  @param context NSManagedObjectContext where this scene is found and where updates will be saved.
- *  @param view    The UIView which will have subviews added to it to create a represented STInteractiveScene.
+ *  @param viewController    The subclass of UIViewController which controls the view that will have subviews added to it to create a represented STInteractiveScene.
  *
  *  @return A fully initialized UIKitEditScene object with all of the appropriate information.
  */
--(id)initWithScene:(STInteractiveScene *)scene inContext:(NSManagedObjectContext *)context andView:(UIView *)view
+-(id)initWithScene:(STInteractiveScene *)scene inContext:(NSManagedObjectContext *)context andPresentingViewController:(UIViewController *)viewController
 {
     self = [super init];
     
     self.currentScene = scene;
     self.context = context;
-    self.view = view;
+    self.viewController = viewController;
     
     [self loadUIKitSceneFromCurrentSTInteractiveScene];
     
@@ -132,46 +131,44 @@
     //called on double tap. This is to delete an element.
     temp.doubleTapBlock = ^(RCDraggableButton * button)
     {
-       [UIAlertView showWithTitle:@"Delete Element?"
-                          message:@"Are you sure you want to delete this element?"
-                cancelButtonTitle:@"No"
-                otherButtonTitles:@[@"Yes"]
-                         tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
-                             if (buttonIndex == alertView.cancelButtonIndex)
-                             {/*do nothing*/}
-                             else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"])
-                             {
-                                 STInteractiveSceneElement *element =
-                                 [STInteractiveSceneElement findSceneElementOfType:button.tag
-                                                                          withName:button.currentTitle
-                                                                           inStory:self.currentScene.belongingStory
-                                                                           inScene:self.currentScene
-                                                                         inContext:self.context];
-                                 
-                                 switch (button.tag)
-                                 {
-                                     case STInteractiveSceneElementTypeCharacter:
-                                         [self.currentScene removeCharacterSceneElementListObject:(STCharacterSceneElement *)element];
-                                         break;
-                                     case STInteractiveSceneElementTypeEnvironment:
-                                         [self.currentScene removeEnvironmentSceneElementListObject:(STEnvironmentSceneElement *)element];
-                                         break;
-                                     case STInteractiveSceneElementTypeObject:
-                                         [self.currentScene removeObjectSceneElementListObject:(STObjectSceneElement *)element];
-                                         break;
-                                         
-                                     default:
-                                         break;
-                                 }
-                                 
-                                 [button removeFromSuperview];
-                                 
-                             }
-                         }];
+        UIAlertController *deleteConfirmation = [UIAlertController alertControllerWithTitle:@"Delete Element?"
+                                                                                    message:@"Are you sure you want to delete this element?"
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+        
+        [deleteConfirmation addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
+        [deleteConfirmation addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            STInteractiveSceneElement *element =
+            [STInteractiveSceneElement findSceneElementOfType:button.tag
+                                                     withName:button.currentTitle
+                                                      inStory:self.currentScene.belongingStory
+                                                      inScene:self.currentScene
+                                                    inContext:self.context];
+
+            //What type of scene element is being deleted?
+            switch (button.tag)
+            {
+                case STInteractiveSceneElementTypeCharacter:
+                    [self.currentScene removeCharacterSceneElementListObject:(STCharacterSceneElement *)element];
+                    break;
+                case STInteractiveSceneElementTypeEnvironment:
+                    [self.currentScene removeEnvironmentSceneElementListObject:(STEnvironmentSceneElement *)element];
+                    break;
+                case STInteractiveSceneElementTypeObject:
+                    [self.currentScene removeObjectSceneElementListObject:(STObjectSceneElement *)element];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            [button removeFromSuperview];
+        }]];
+        
+        [self.viewController presentViewController:deleteConfirmation animated:YES completion:nil];
     };
 
     //Return view to be added as subview
-    [self.view addSubview:temp];
+    [self.viewController.view insertSubview:temp atIndex:0];//addSubview:temp];
 
 }
 
@@ -197,19 +194,28 @@
     
     
     //make a view draggable
-    [tempTextView makeDraggableWithDropViews:@[self.view] delegate:self];
+    [tempTextView makeDraggableWithDropViews:@[self.viewController.view] delegate:self];
     [tempTextView setDragMode:UIViewDragDropModeNormal];
 
     //Add an accessoryView to allow for deletion.
     int desiredHeight = 44;
-  
-    UIButton *tempButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, desiredHeight)];
-    tempButton.backgroundColor = [UIColor redColor];
-    [tempButton addTarget:self action:@selector(deleteTextView) forControlEvents:UIControlEventTouchUpInside];
-    [tempButton setTitle:@"Delete" forState:UIControlStateNormal];
+    UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.viewController.view.frame.size.width, desiredHeight)];
     
-    tempTextView.inputAccessoryView = tempButton;
-    [self.view addSubview:tempTextView];
+    UIButton *deleteButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.viewController.view.frame.size.width/2, desiredHeight)];
+    deleteButton.backgroundColor = [UIColor redColor];
+    [deleteButton addTarget:self action:@selector(deleteTextView) forControlEvents:UIControlEventTouchUpInside];
+    [deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+    
+    UIButton *doneButton = [[UIButton alloc]initWithFrame:CGRectMake(self.viewController.view.frame.size.width/2, 0, self.viewController.view.frame.size.width/2, desiredHeight)];
+    doneButton.backgroundColor = self.viewController.view.tintColor;
+    [doneButton addTarget:self action:@selector(doneWithTextView) forControlEvents:UIControlEventTouchUpInside];
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    
+    [accessoryView addSubview:deleteButton];
+    [accessoryView addSubview:doneButton];
+    
+    tempTextView.inputAccessoryView = accessoryView;
+    [self.viewController.view insertSubview:tempTextView atIndex:0];//addSubview:tempTextView];
 }
 
 #pragma mark - TextView Delegate And Modification Methods
@@ -254,6 +260,11 @@
 {
     [self.currentScene removeSceneMediaObject:self.editingTextMedia];
     [self.currentEditingTextView removeFromSuperview];
+}
+
+-(void)doneWithTextView
+{
+    [self.currentEditingTextView resignFirstResponder];
 }
 
 #pragma mark - Scene Update from UIKit

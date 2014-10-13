@@ -17,7 +17,6 @@
 #import "STSlidingViewController.h"
 
 #import <RCDraggableButton.h>
-#import <UIAlertView+Blocks.h>
 
 @interface STMainViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *context;
@@ -34,41 +33,36 @@
  */
 - (IBAction)initializeNewStory:(id)sender
 {
-    UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:@"Name"
-                                                             message:@"Create a name for your Story"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Create Story",nil];
+    UIAlertController *nameAlertController = [UIAlertController alertControllerWithTitle:@"Name"
+                                                                                 message:@"Create a name for your Story"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
     
-    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    nameAlert.tapBlock = ^(UIAlertView *alert, NSInteger buttonIndex)
-    {
-        // When the Story designer chooses to create a story with a new name, this verifies that
-        // there isn't another story with the same name.
-        if([[alert buttonTitleAtIndex:buttonIndex] isEqualToString:@"Create Story"])
+    [nameAlertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [nameAlertController addTextFieldWithConfigurationHandler:nil];
+    [nameAlertController addAction:[UIAlertAction actionWithTitle:@"Create Story" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *newStoryName = ((UITextField *)nameAlertController.textFields[0]).text;
+        
+        //Check to see if story already exists
+        STStory *story = [STStory findStoryWithName:newStoryName inContext:self.context];
+        
+        if(!story) //if the story doesn't exist, create it
         {
-            NSString *newStoryName = [alert textFieldAtIndex:0].text;
-            
-            //Check to see if story already exists
-            STStory *story = [STStory findStoryWithName:newStoryName inContext:self.context];
-            
-            if(!story) //if the story doesn't exist, create it
-            {
-                [self initializeNewStoryWithName:newStoryName];
-            }
-            else //otherwise show a new alertview that explains that the story already exists
-            {
-                [UIAlertView showWithTitle:@"Invalid name"
-                                   message:@"A Story already exists with that name. Please choose another."
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil
-                                  tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex)
-                { [self initializeNewStory:nil]; }];
-            }
+            [self initializeNewStoryWithName:newStoryName];
         }
-    };
+        else //otherwise show a new alertview that explains that the story already exists
+        {
+            
+            UIAlertController *invalidAlertController =[UIAlertController alertControllerWithTitle:@"Invalid Name"
+                                                                                           message:@"A Story already exists with that name. Please Choose another"
+                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [invalidAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [self initializeNewStory:sender];
+            }]];
+            [self presentViewController:invalidAlertController animated:YES completion:nil];
+        }
+    }]];
     
-    [nameAlert show];
+    [self presentViewController:nameAlertController animated:YES completion:nil];
 }
 
 /**

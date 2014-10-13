@@ -15,7 +15,6 @@
 #import "STSlidingViewController.h"
 
 #import <UIViewController+ECSlidingViewController.h>
-#import <UIAlertView+Blocks.h>
 
 
 @interface STEditStoryTableViewController ()
@@ -113,28 +112,18 @@
 -(void)addScene
 {
     // Provide a UIAlert which will handle the actual adding to the datasource on "Create Scene"
-    UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:@"Name"
-                                                        message:@"Create a name for your Scene"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Create Scene",nil];
-    nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UIAlertController *nameAlertController = [UIAlertController alertControllerWithTitle:@"Name"
+                                                                                 message:@"Create a name for your scene"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
     
-    nameAlert.tapBlock = ^(UIAlertView *alertView, NSInteger buttonIndex)
-    {
-        if([alertView.title isEqualToString:@"Name"])
-        {
-            
-            if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Create Scene"])
-            {
-                
-                NSString *newSceneName = [alertView textFieldAtIndex:0].text;
-                [self addNewSceneWithName:newSceneName];
-            }
-        }
-    };
+    [nameAlertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [nameAlertController addTextFieldWithConfigurationHandler:nil];
+    [nameAlertController addAction:[UIAlertAction actionWithTitle:@"Create Scene" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *newSceneName = ((UITextField *)nameAlertController.textFields[0]).text;
+        [self addNewSceneWithName:newSceneName];
+    }]];
     
-    [nameAlert show];
+    [self presentViewController:nameAlertController animated:YES completion:nil];
 }
 
 

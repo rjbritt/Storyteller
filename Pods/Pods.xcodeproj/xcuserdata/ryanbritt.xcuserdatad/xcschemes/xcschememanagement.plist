@@ -14,17 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Storyteller-MSSlidingPanelController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Storyteller-RCDraggableButton.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Storyteller-UIAlertView+Blocks.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,17 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-StorytellerTests-MSSlidingPanelController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-StorytellerTests-RCDraggableButton.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-StorytellerTests-UIAlertView+Blocks.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,72 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1156D71582054B73B8E3CCC7</key>
+		<key>06133596C0B6471E8003C110</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>13D6777BBC80454B862D53D1</key>
+		<key>15331EBC19134478B757A302</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>409F544C095149FA893F7980</key>
+		<key>26DCD897B79D4A9A9B5D3A4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>531345727B1248ED92C706C8</key>
+		<key>3173C15EA2BD4F3592DDF0FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67B6729B998049DF88C31440</key>
+		<key>588E44C3461441FA9C424DD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67DAA50DD2EC439890534DB8</key>
+		<key>62023E669B304465BBC63510</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E666F522AD54FF490345D51</key>
+		<key>83B4A782517940DBB7BACBD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7364941BCEE14F5783BA76A8</key>
+		<key>87DA78221CA64FCC84FB7766</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>741739850A2448179AB06F3E</key>
+		<key>DDEB0B761AC94DCCA7D0583E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB92709B67894B329FE36F5E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BADB8F7EBECC4DCDBFE14163</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C0D693F4234A497DA7B50F10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CF7487CDA3474DF8A454C9EF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F68B17D936BF492F84F5CC33</key>
+		<key>E1500477C201443AAE0E1560</key>
 		<dict>
 			<key>primary</key>
 			<true/>

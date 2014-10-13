@@ -191,7 +191,7 @@
 
     titleText.text = [NSString stringWithFormat:@"%@ - %@",self.currentScene.belongingStory.name, self.currentScene.name];
     titleText.textColor = self.view.tintColor;
-    self.uiKitScene = [[UIKitEditScene alloc]initWithScene:self.currentScene inContext:self.context andView:self.view];
+    self.uiKitScene = [[UIKitEditScene alloc]initWithScene:self.currentScene inContext:self.context andPresentingViewController:self];
 
 }
 

@@ -26,11 +26,11 @@
  *
  *  @param scene   STInteractiveScene that contains all of the information that will be represented within this scene.
  *  @param context NSManagedObjectContext where this scene is found and where updates will be saved.
- *  @param view    The UIView which will have subviews added to it to create a represented STInteractiveScene.
+ *  @param viewController    The subclass of UIViewController which controls the view that will have subviews added to it to create a represented STInteractiveScene.
  *
  *  @return A fully initialized UIKitEditScene object with all of the appropriate information.
  */
--(id)initWithScene:(STInteractiveScene *)scene inContext:(NSManagedObjectContext *)context andView:(UIView *)view;
+-(id)initWithScene:(STInteractiveScene *)scene inContext:(NSManagedObjectContext *)context andPresentingViewController:(UIViewController *)viewController;
 
 /**
  *  Creates a new SceneElement with a RCDraggableButton instance and adds it as a subview. This button is used as the UIKit representation of
