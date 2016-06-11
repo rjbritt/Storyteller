@@ -14,6 +14,10 @@
 		DE4DCC5E1D0C5A2D00B7AE5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */; };
 		DE4DCC691D0C5A2D00B7AE5D /* StorytellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC681D0C5A2D00B7AE5D /* StorytellerTests.swift */; };
 		DE4DCC741D0C5A2D00B7AE5D /* StorytellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */; };
+		DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */; };
+		DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */; };
+		DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */; };
+		DEC5A0F51D0C6FA300C29A33 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEC5A0F41D0C6FA300C29A33 /* SpriteKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		DE4DCC6F1D0C5A2D00B7AE5D /* StorytellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerUITests.swift; sourceTree = "<group>"; };
 		DE4DCC751D0C5A2D00B7AE5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleButton.swift; path = UIKitToSpriteKit/ConvertibleButton.swift; sourceTree = "<group>"; };
+		DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleView.swift; path = UIKitToSpriteKit/ConvertibleView.swift; sourceTree = "<group>"; };
+		DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitConversionScene.swift; path = UIKitToSpriteKit/UIKitConversionScene.swift; sourceTree = "<group>"; };
+		DEC5A0F41D0C6FA300C29A33 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC5A0F51D0C6FA300C29A33 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,7 @@
 		DE4DCC471D0C5A2D00B7AE5D = {
 			isa = PBXGroup;
 			children = (
+				DEC5A0F41D0C6FA300C29A33 /* SpriteKit.framework */,
 				DE4DCC521D0C5A2D00B7AE5D /* Storyteller */,
 				DE4DCC671D0C5A2D00B7AE5D /* StorytellerTests */,
 				DE4DCC721D0C5A2D00B7AE5D /* StorytellerUITests */,
@@ -97,6 +107,7 @@
 		DE4DCC521D0C5A2D00B7AE5D /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */,
 				DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */,
 				DE4DCC551D0C5A2D00B7AE5D /* ViewController.swift */,
 				DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */,
@@ -123,6 +134,16 @@
 				DE4DCC751D0C5A2D00B7AE5D /* Info.plist */,
 			);
 			path = StorytellerUITests;
+			sourceTree = "<group>";
+		};
+		DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */,
+				DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */,
+				DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */,
+			);
+			name = UIKitToSpriteKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */,
 				DE4DCC561D0C5A2D00B7AE5D /* ViewController.swift in Sources */,
 				DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */,
+				DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */,
+				DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +508,7 @@
 				DE4DCC7A1D0C5A2D00B7AE5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE4DCC7B1D0C5A2D00B7AE5D /* Build configuration list for PBXNativeTarget "StorytellerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +517,7 @@
 				DE4DCC7D1D0C5A2D00B7AE5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE4DCC7E1D0C5A2D00B7AE5D /* Build configuration list for PBXNativeTarget "StorytellerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +526,7 @@
 				DE4DCC801D0C5A2D00B7AE5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
