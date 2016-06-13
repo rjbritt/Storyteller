@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class ViewController: UIViewController {
+class ViewController:UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         conversionScene.conversionViews = view.subviews.flatMap{$0 as? ConvertibleView}
         skView.presentScene(conversionScene)
     }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Landscape
+    }
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
 
 }
-

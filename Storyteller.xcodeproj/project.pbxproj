@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5192D4E65A1234D4D9362E93 /* Pods_Storyteller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86AC46F95D13A83B90B1EB1 /* Pods_Storyteller.framework */; };
 		DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */; };
-		DE4DCC561D0C5A2D00B7AE5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC551D0C5A2D00B7AE5D /* ViewController.swift */; };
+		DE4DCC561D0C5A2D00B7AE5D /* EditSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */; };
 		DE4DCC591D0C5A2D00B7AE5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */; };
 		DE4DCC5B1D0C5A2D00B7AE5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */; };
 		DE4DCC5E1D0C5A2D00B7AE5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */; };
 		DE4DCC691D0C5A2D00B7AE5D /* StorytellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC681D0C5A2D00B7AE5D /* StorytellerTests.swift */; };
 		DE4DCC741D0C5A2D00B7AE5D /* StorytellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */; };
+		DE9356AD1D0E2C8700153378 /* SceneSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */; };
+		DE9356AF1D0E392400153378 /* SlidingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */; };
 		DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */; };
 		DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */; };
 		DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */; };
@@ -38,9 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B4511D4D5D79BFED0A7812C /* Pods-Storyteller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storyteller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller.debug.xcconfig"; sourceTree = "<group>"; };
+		A9CF7BA201F86E350E98B932 /* Pods-Storyteller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storyteller.release.xcconfig"; path = "Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller.release.xcconfig"; sourceTree = "<group>"; };
+		DE22368C1D0CF84E00C6D60E /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		DE4DCC501D0C5A2D00B7AE5D /* Storyteller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyteller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE4DCC551D0C5A2D00B7AE5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSceneVC.swift; sourceTree = "<group>"; };
 		DE4DCC581D0C5A2D00B7AE5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE4DCC5D1D0C5A2D00B7AE5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,10 +57,13 @@
 		DE4DCC6F1D0C5A2D00B7AE5D /* StorytellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerUITests.swift; sourceTree = "<group>"; };
 		DE4DCC751D0C5A2D00B7AE5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneSelectVC.swift; path = "View Controllers/SceneSelectVC.swift"; sourceTree = "<group>"; };
+		DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingContainerVC.swift; path = "View Controllers/SlidingContainerVC.swift"; sourceTree = "<group>"; };
 		DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleButton.swift; path = UIKitToSpriteKit/ConvertibleButton.swift; sourceTree = "<group>"; };
 		DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleView.swift; path = UIKitToSpriteKit/ConvertibleView.swift; sourceTree = "<group>"; };
 		DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitConversionScene.swift; path = UIKitToSpriteKit/UIKitConversionScene.swift; sourceTree = "<group>"; };
 		DEC5A0F41D0C6FA300C29A33 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		F86AC46F95D13A83B90B1EB1 /* Pods_Storyteller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storyteller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEC5A0F51D0C6FA300C29A33 /* SpriteKit.framework in Frameworks */,
+				5192D4E65A1234D4D9362E93 /* Pods_Storyteller.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,14 +93,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DE4DCC471D0C5A2D00B7AE5D = {
+		1E5AF5FFF6275B6F97E70D2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B4511D4D5D79BFED0A7812C /* Pods-Storyteller.debug.xcconfig */,
+				A9CF7BA201F86E350E98B932 /* Pods-Storyteller.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7348E403E669D48D3ACA41AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DEC5A0F41D0C6FA300C29A33 /* SpriteKit.framework */,
+				F86AC46F95D13A83B90B1EB1 /* Pods_Storyteller.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE4DCC471D0C5A2D00B7AE5D = {
+			isa = PBXGroup;
+			children = (
+				DE22368C1D0CF84E00C6D60E /* Bridging-Header.h */,
 				DE4DCC521D0C5A2D00B7AE5D /* Storyteller */,
 				DE4DCC671D0C5A2D00B7AE5D /* StorytellerTests */,
 				DE4DCC721D0C5A2D00B7AE5D /* StorytellerUITests */,
 				DE4DCC511D0C5A2D00B7AE5D /* Products */,
+				1E5AF5FFF6275B6F97E70D2A /* Pods */,
+				7348E403E669D48D3ACA41AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,11 +139,13 @@
 			children = (
 				DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */,
 				DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */,
-				DE4DCC551D0C5A2D00B7AE5D /* ViewController.swift */,
+				DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */,
 				DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */,
 				DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */,
 				DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */,
 				DE4DCC5F1D0C5A2D00B7AE5D /* Info.plist */,
+				DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */,
+				DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */,
 			);
 			path = Storyteller;
 			sourceTree = "<group>";
@@ -153,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE4DCC781D0C5A2D00B7AE5D /* Build configuration list for PBXNativeTarget "Storyteller" */;
 			buildPhases = (
+				C32E31FB0A39D60440883020 /* [CP] Check Pods Manifest.lock */,
 				DE4DCC4C1D0C5A2D00B7AE5D /* Sources */,
 				DE4DCC4D1D0C5A2D00B7AE5D /* Frameworks */,
 				DE4DCC4E1D0C5A2D00B7AE5D /* Resources */,
+				890E81746FA98FBD21022F1E /* [CP] Embed Pods Frameworks */,
+				96F94BC5656C5ABF205CCC1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,13 +307,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		890E81746FA98FBD21022F1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96F94BC5656C5ABF205CCC1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C32E31FB0A39D60440883020 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE4DCC4C1D0C5A2D00B7AE5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */,
-				DE4DCC561D0C5A2D00B7AE5D /* ViewController.swift in Sources */,
+				DE9356AD1D0E2C8700153378 /* SceneSelectVC.swift in Sources */,
+				DE9356AF1D0E392400153378 /* SlidingContainerVC.swift in Sources */,
+				DE4DCC561D0C5A2D00B7AE5D /* EditSceneVC.swift in Sources */,
 				DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */,
 				DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */,
 				DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */,
@@ -423,23 +508,27 @@
 		};
 		DE4DCC791D0C5A2D00B7AE5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B4511D4D5D79BFED0A7812C /* Pods-Storyteller.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Storyteller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanBritt.Storyteller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		DE4DCC7A1D0C5A2D00B7AE5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9CF7BA201F86E350E98B932 /* Pods-Storyteller.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Storyteller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanBritt.Storyteller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};

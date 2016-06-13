@@ -14,6 +14,7 @@ public class ConvertibleButton:UIButton, ConvertibleView {
     public var node: SKNode?
     public var view: UIView!
     
+    
     @IBInspectable var spriteImage:UIImage? {
         didSet {
             guard let sprite = spriteImage else {return}
@@ -24,11 +25,13 @@ public class ConvertibleButton:UIButton, ConvertibleView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         view = self
+        self.makeDraggable()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         view = self
-
+        self.makeDraggable()
+        
     }
 }
