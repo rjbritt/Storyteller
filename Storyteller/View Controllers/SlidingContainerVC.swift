@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
+
 
 
 class SlidingContainerVC: SlideMenuController {

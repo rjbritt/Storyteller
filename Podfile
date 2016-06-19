@@ -7,8 +7,8 @@ pod 'UIView+DragDrop'
 #pod 'ECSlidingViewController'
 #pod 'MSSlidingPanelController'
 
-pod 'SlideMenuControllerSwift'
-pod 'AERecord'
-pod 'AECoreDataUI'
+#pod 'SlideMenuControllerSwift'
+#pod 'AERecord'
+#pod 'AECoreDataUI'
 
 end

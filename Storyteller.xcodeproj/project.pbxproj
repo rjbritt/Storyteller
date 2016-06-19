@@ -17,6 +17,7 @@
 		DE4DCC741D0C5A2D00B7AE5D /* StorytellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */; };
 		DE9356AD1D0E2C8700153378 /* SceneSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */; };
 		DE9356AF1D0E392400153378 /* SlidingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */; };
+		DEC4EDA41D0F956100B8BC54 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */; };
 		DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */; };
 		DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */; };
 		DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */; };
@@ -59,6 +60,7 @@
 		DE4DCC751D0C5A2D00B7AE5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneSelectVC.swift; path = "View Controllers/SceneSelectVC.swift"; sourceTree = "<group>"; };
 		DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingContainerVC.swift; path = "View Controllers/SlidingContainerVC.swift"; sourceTree = "<group>"; };
+		DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleButton.swift; path = UIKitToSpriteKit/ConvertibleButton.swift; sourceTree = "<group>"; };
 		DEC5A0EE1D0C6EBF00C29A33 /* ConvertibleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleView.swift; path = UIKitToSpriteKit/ConvertibleView.swift; sourceTree = "<group>"; };
 		DEC5A0EF1D0C6EBF00C29A33 /* UIKitConversionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitConversionScene.swift; path = UIKitToSpriteKit/UIKitConversionScene.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		DE4DCC521D0C5A2D00B7AE5D /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
+				DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */,
 				DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */,
 				DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */,
 				DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */,
@@ -249,6 +252,9 @@
 				TargetAttributes = {
 					DE4DCC4F1D0C5A2D00B7AE5D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5SHT6D4V49;
+						DevelopmentTeamName = "Ryan Britt";
+						ProvisioningStyle = Automatic;
 					};
 					DE4DCC631D0C5A2D00B7AE5D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -366,6 +372,7 @@
 				DE4DCC561D0C5A2D00B7AE5D /* EditSceneVC.swift in Sources */,
 				DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */,
 				DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */,
+				DEC4EDA41D0F956100B8BC54 /* SlideMenuController.swift in Sources */,
 				DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,10 +518,13 @@
 			baseConfigurationReference = 4B4511D4D5D79BFED0A7812C /* Pods-Storyteller.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Storyteller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanBritt.Storyteller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
@@ -524,6 +534,7 @@
 			baseConfigurationReference = A9CF7BA201F86E350E98B932 /* Pods-Storyteller.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Storyteller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanBritt.Storyteller;
