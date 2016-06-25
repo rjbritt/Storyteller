@@ -12,8 +12,8 @@ import SpriteKit
 public class UIKitConversionScene: SKScene {
     public var conversionViews:[ConvertibleView]?
     
-    override public func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override public func didMove(to view: SKView) {
+        super.didMove(to: view)
         configureViewsToNodes()
     }
     
@@ -22,7 +22,7 @@ public class UIKitConversionScene: SKScene {
         for conversionView in conversionViews {
             guard let node = conversionView.node else {return}
             node.name = conversionView.convertibleViewName
-            node.position = convertPointFromView(conversionView.view.center)
+            node.position = convertPoint(fromView: conversionView.view.center)
             addChild(node)
         }
     }

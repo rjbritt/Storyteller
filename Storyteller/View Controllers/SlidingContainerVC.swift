@@ -18,15 +18,15 @@ class SlidingContainerVC: SlideMenuController {
     override func viewDidLoad() {
         /* If the IBInspectables are set, attempt to set all VCs through Storyboard instantiation */
         if let mainId = mainVcId {
-            mainViewController = storyboard?.instantiateViewControllerWithIdentifier(mainId)
+            mainViewController = storyboard?.instantiateViewController(withIdentifier: mainId)
         }
         if let leftId = leftVcId {
-            leftViewController = storyboard?.instantiateViewControllerWithIdentifier(leftId)
+            leftViewController = storyboard?.instantiateViewController(withIdentifier: leftId)
             SlideMenuOptions.leftViewWidth = self.view.frame.width / 2.0
             addLeftGestures()
         }
         if let rightId = rightVcId {
-            rightViewController = storyboard?.instantiateViewControllerWithIdentifier(rightId)
+            rightViewController = storyboard?.instantiateViewController(withIdentifier: rightId)
             SlideMenuOptions.rightViewWidth = self.view.frame.width / 2.0
             addRightGestures()
         }
