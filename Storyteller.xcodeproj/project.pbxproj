@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5192D4E65A1234D4D9362E93 /* Pods_Storyteller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86AC46F95D13A83B90B1EB1 /* Pods_Storyteller.framework */; };
+		DE020A031D1F266C0036504E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE020A021D1F266C0036504E /* Assets.xcassets */; };
+		DE020A051D1F26870036504E /* TilesetImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE020A041D1F26870036504E /* TilesetImages.xcassets */; };
+		DE020BD11D1F283D0036504E /* mapScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE020BD01D1F283D0036504E /* mapScene1.sks */; };
 		DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */; };
 		DE4DCC561D0C5A2D00B7AE5D /* EditSceneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */; };
 		DE4DCC591D0C5A2D00B7AE5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */; };
-		DE4DCC5B1D0C5A2D00B7AE5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */; };
 		DE4DCC5E1D0C5A2D00B7AE5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */; };
 		DE4DCC691D0C5A2D00B7AE5D /* StorytellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC681D0C5A2D00B7AE5D /* StorytellerTests.swift */; };
 		DE4DCC741D0C5A2D00B7AE5D /* StorytellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */; };
-		DE9356AD1D0E2C8700153378 /* SceneSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */; };
+		DE60C23A1D1F1E9600EA818A /* MapList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE60C2391D1F1E9600EA818A /* MapList.plist */; };
+		DE60C23C1D1F21CE00EA818A /* MapSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE60C23B1D1F21CE00EA818A /* MapSelectionVC.swift */; };
+		DE60C23F1D1F247C00EA818A /* DefaultTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE60C23E1D1F247C00EA818A /* DefaultTileSet.sks */; };
 		DE9356AF1D0E392400153378 /* SlidingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */; };
 		DEC4EDA41D0F956100B8BC54 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */; };
 		DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */; };
@@ -44,12 +48,14 @@
 /* Begin PBXFileReference section */
 		4B4511D4D5D79BFED0A7812C /* Pods-Storyteller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storyteller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller.debug.xcconfig"; sourceTree = "<group>"; };
 		A9CF7BA201F86E350E98B932 /* Pods-Storyteller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storyteller.release.xcconfig"; path = "Pods/Target Support Files/Pods-Storyteller/Pods-Storyteller.release.xcconfig"; sourceTree = "<group>"; };
+		DE020A021D1F266C0036504E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE020A041D1F26870036504E /* TilesetImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TilesetImages.xcassets; sourceTree = "<group>"; };
+		DE020BD01D1F283D0036504E /* mapScene1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mapScene1.sks; sourceTree = "<group>"; };
 		DE22368C1D0CF84E00C6D60E /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		DE4DCC501D0C5A2D00B7AE5D /* Storyteller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyteller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSceneVC.swift; sourceTree = "<group>"; };
 		DE4DCC581D0C5A2D00B7AE5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE4DCC5D1D0C5A2D00B7AE5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE4DCC5F1D0C5A2D00B7AE5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4DCC641D0C5A2D00B7AE5D /* StorytellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +64,10 @@
 		DE4DCC6F1D0C5A2D00B7AE5D /* StorytellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorytellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4DCC731D0C5A2D00B7AE5D /* StorytellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorytellerUITests.swift; sourceTree = "<group>"; };
 		DE4DCC751D0C5A2D00B7AE5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneSelectVC.swift; path = "View Controllers/SceneSelectVC.swift"; sourceTree = "<group>"; };
+		DE60C2391D1F1E9600EA818A /* MapList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MapList.plist; sourceTree = "<group>"; };
+		DE60C23B1D1F21CE00EA818A /* MapSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSelectionVC.swift; path = "View Controllers/MapSelectionVC.swift"; sourceTree = "<group>"; };
+		DE60C23D1D1F22A200EA818A /* WorkingWithTilemaps.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkingWithTilemaps.playground; sourceTree = "<group>"; };
+		DE60C23E1D1F247C00EA818A /* DefaultTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DefaultTileSet.sks; sourceTree = "<group>"; };
 		DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingContainerVC.swift; path = "View Controllers/SlidingContainerVC.swift"; sourceTree = "<group>"; };
 		DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		DEC5A0ED1D0C6EBF00C29A33 /* ConvertibleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleButton.swift; path = UIKitToSpriteKit/ConvertibleButton.swift; sourceTree = "<group>"; };
@@ -113,10 +122,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE020BD21D1F284C0036504E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DE020BD31D1F285B0036504E /* Spritekit */,
+				DE020A021D1F266C0036504E /* Assets.xcassets */,
+				DE020A041D1F26870036504E /* TilesetImages.xcassets */,
+				DE4DCC5F1D0C5A2D00B7AE5D /* Info.plist */,
+				DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */,
+				DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DE020BD31D1F285B0036504E /* Spritekit */ = {
+			isa = PBXGroup;
+			children = (
+				DE60C2391D1F1E9600EA818A /* MapList.plist */,
+				DE020BD01D1F283D0036504E /* mapScene1.sks */,
+				DE60C23E1D1F247C00EA818A /* DefaultTileSet.sks */,
+			);
+			name = Spritekit;
+			sourceTree = "<group>";
+		};
+		DE020BD41D1F288E0036504E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */,
+				DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */,
+				DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */,
+				DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */,
+				DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */,
+				DE60C23B1D1F21CE00EA818A /* MapSelectionVC.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		DE4DCC471D0C5A2D00B7AE5D = {
 			isa = PBXGroup;
 			children = (
 				DE22368C1D0CF84E00C6D60E /* Bridging-Header.h */,
+				DE60C23D1D1F22A200EA818A /* WorkingWithTilemaps.playground */,
 				DE4DCC521D0C5A2D00B7AE5D /* Storyteller */,
 				DE4DCC671D0C5A2D00B7AE5D /* StorytellerTests */,
 				DE4DCC721D0C5A2D00B7AE5D /* StorytellerUITests */,
@@ -139,16 +185,8 @@
 		DE4DCC521D0C5A2D00B7AE5D /* Storyteller */ = {
 			isa = PBXGroup;
 			children = (
-				DEC4EDA31D0F956100B8BC54 /* SlideMenuController.swift */,
-				DEC5A0F31D0C6ED000C29A33 /* UIKitToSpriteKit */,
-				DE4DCC531D0C5A2D00B7AE5D /* AppDelegate.swift */,
-				DE4DCC551D0C5A2D00B7AE5D /* EditSceneVC.swift */,
-				DE4DCC571D0C5A2D00B7AE5D /* Main.storyboard */,
-				DE4DCC5A1D0C5A2D00B7AE5D /* Assets.xcassets */,
-				DE4DCC5C1D0C5A2D00B7AE5D /* LaunchScreen.storyboard */,
-				DE4DCC5F1D0C5A2D00B7AE5D /* Info.plist */,
-				DE9356AC1D0E2C8700153378 /* SceneSelectVC.swift */,
-				DE9356AE1D0E392400153378 /* SlidingContainerVC.swift */,
+				DE020BD41D1F288E0036504E /* Source */,
+				DE020BD21D1F284C0036504E /* Resources */,
 			);
 			path = Storyteller;
 			sourceTree = "<group>";
@@ -294,9 +332,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE020BD11D1F283D0036504E /* mapScene1.sks in Resources */,
+				DE020A051D1F26870036504E /* TilesetImages.xcassets in Resources */,
+				DE60C23F1D1F247C00EA818A /* DefaultTileSet.sks in Resources */,
 				DE4DCC5E1D0C5A2D00B7AE5D /* LaunchScreen.storyboard in Resources */,
-				DE4DCC5B1D0C5A2D00B7AE5D /* Assets.xcassets in Resources */,
+				DE60C23A1D1F1E9600EA818A /* MapList.plist in Resources */,
 				DE4DCC591D0C5A2D00B7AE5D /* Main.storyboard in Resources */,
+				DE020A031D1F266C0036504E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,10 +412,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEC5A0F11D0C6EBF00C29A33 /* ConvertibleView.swift in Sources */,
-				DE9356AD1D0E2C8700153378 /* SceneSelectVC.swift in Sources */,
 				DE9356AF1D0E392400153378 /* SlidingContainerVC.swift in Sources */,
 				DE4DCC561D0C5A2D00B7AE5D /* EditSceneVC.swift in Sources */,
 				DE4DCC541D0C5A2D00B7AE5D /* AppDelegate.swift in Sources */,
+				DE60C23C1D1F21CE00EA818A /* MapSelectionVC.swift in Sources */,
 				DEC5A0F01D0C6EBF00C29A33 /* ConvertibleButton.swift in Sources */,
 				DEC4EDA41D0F956100B8BC54 /* SlideMenuController.swift in Sources */,
 				DEC5A0F21D0C6EBF00C29A33 /* UIKitConversionScene.swift in Sources */,
@@ -468,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -508,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
