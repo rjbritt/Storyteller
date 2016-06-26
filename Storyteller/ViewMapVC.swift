@@ -22,12 +22,6 @@ class ViewController:UIViewController  {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        let skView = segue.destinationViewController.view as! SKView
-        let size = skView.frame.size
-        let conversionScene = UIKitConversionScene(size: size)
-        conversionScene.backgroundColor = UIColor.blue()
-        conversionScene.conversionViews = view.subviews.flatMap{$0 as? ConvertibleView}
-        skView.presentScene(conversionScene)
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -37,4 +31,13 @@ class ViewController:UIViewController  {
         return true
     }
 
+//    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let skView = segue.destinationViewController.view as! SKView
+//        let size = skView.frame.size
+//        let conversionScene = UIKitConversionScene(size: size)
+//        conversionScene.backgroundColor = UIColor.blue()
+//        conversionScene.conversionViews = view.subviews.flatMap{$0 as? ConvertibleView}
+//        skView.presentScene(conversionScene)
+//    }
+    
 }
