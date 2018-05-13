@@ -30,7 +30,7 @@ class STSelectSceneElementViewController:UIViewController
     var objectElementPathArray:NSArray = []
 
     var currentSceneElementType = SelectedSceneElementType.Actor
-    var sceneManagementDelegate:SceneManagementDelegate?
+    @objc var sceneManagementDelegate:SceneManagementDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBar!
@@ -38,21 +38,21 @@ class STSelectSceneElementViewController:UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        collectionView.backgroundColor = UIColor.groupTableViewBackground
         
         if let uitabBarItems = tabBar.items
         {
-            tabBar.selectedItem = uitabBarItems[0] as? UITabBarItem;
+            tabBar.selectedItem = uitabBarItems[0] as UITabBarItem;
         }
         
         //find the path to the resource dictionary
-        let resourcePath = NSBundle.mainBundle().pathForResource("ImageResourceNames", ofType: "plist")
+        let resourcePath = Bundle.main.path(forResource: "ImageResourceNames", ofType: "plist")
         //initialize the resource dictionary
         let resourcePathDictionary = NSDictionary(contentsOfFile: resourcePath!)
         
-        actorElementPathArray = (resourcePathDictionary?.objectForKey("Actor") as NSArray)
-        environmentElementPathArray = (resourcePathDictionary?.objectForKey("Environment") as NSArray)
-        objectElementPathArray = (resourcePathDictionary?.objectForKey("Object") as NSArray)
+        actorElementPathArray = (resourcePathDictionary?.object(forKey: "Actor") as! NSArray)
+        environmentElementPathArray = (resourcePathDictionary?.object(forKey: "Environment") as! NSArray)
+        objectElementPathArray = (resourcePathDictionary?.object(forKey: "Object") as! NSArray)
         
         
 //        let allkeys = resourcePathDictionary.allKeys as [String]
@@ -90,17 +90,17 @@ extension STSelectSceneElementViewController:UICollectionViewDataSource
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return sceneElementPathArray.count;
     }
     
-    func collectionView(thisCollectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    func collectionView(_ thisCollectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        var cell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
+        let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
         if sceneElementPathArray.count > 0
         {
-            let currentImage = UIImage(named:sceneElementPathArray[indexPath.row] as String)
+            let currentImage = UIImage(named:sceneElementPathArray[indexPath.row] as! String)
             switch currentSceneElementType
                 {
             case .Actor,.Environment,.Object:
@@ -108,8 +108,8 @@ extension STSelectSceneElementViewController:UICollectionViewDataSource
             case .Text:
                 let textView = UITextView() //UITextView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 textView.text = "Text Box"
-                textView.editable = false
-                textView.userInteractionEnabled = false
+                textView.isEditable = false
+                textView.isUserInteractionEnabled = false
                 cell.backgroundView = textView
             }
             
@@ -127,10 +127,10 @@ extension STSelectSceneElementViewController:UICollectionViewDelegate
         
     {
         //Assign a default size
-        var size = CGSizeMake(100, 100)
+        var size = CGSize(width:100, height:100)
         
         //if the scene elementpath contains a valid UIImage name, create it, and set the collectionViewItem size to its size.
-        if let currentImage = UIImage(named: sceneElementPathArray[indexPath.row] as String)
+        if let currentImage = UIImage(named: sceneElementPathArray[indexPath.row] as! String)
         {
             switch currentSceneElementType
             {
@@ -145,16 +145,16 @@ extension STSelectSceneElementViewController:UICollectionViewDelegate
     }
     
     
-    func collectionView(collectionView:UICollectionView!, didSelectItemAtIndexPath indexPath:NSIndexPath!)
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let cell = self.collectionView(collectionView!, cellForItemAtIndexPath: indexPath)
+        let cell = self.collectionView(collectionView, cellForItemAt: indexPath)
         var currentImage:UIImage?
         
         if let backgroundView = cell.backgroundView
         {
-            if(backgroundView.isMemberOfClass(UIImageView))
+            if(backgroundView is UIImageView)
             {
-                currentImage = (cell.backgroundView as UIImageView).image
+                currentImage = (cell.backgroundView as! UIImageView).image
             }
         }
         
@@ -164,11 +164,11 @@ extension STSelectSceneElementViewController:UICollectionViewDelegate
             switch currentSceneElementType
                 {
             case .Actor:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Character")
+                sceneDelegate.addSceneElement(with: currentImage, ofType: "Character")
             case .Environment:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Environment")
+                sceneDelegate.addSceneElement(with: currentImage, ofType: "Environment")
             case .Object:
-                sceneDelegate.addSceneElementWithImage(currentImage, ofType: "Object")
+                sceneDelegate.addSceneElement(with: currentImage, ofType: "Object")
             case .Text:
                 sceneDelegate.addText()
             }
@@ -183,7 +183,7 @@ extension STSelectSceneElementViewController:UICollectionViewDelegate
 
 extension STSelectSceneElementViewController: UITabBarDelegate
 {
-    func tabBar(tabBar: UITabBar!, didSelectItem item: UITabBarItem!)
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
     {
         if let title = item.title
         {

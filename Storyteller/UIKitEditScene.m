@@ -409,7 +409,7 @@
  */
 -(void)currentSceneStatusAtLocation:(NSString *)location
 {
-    NSLog(@"Current Scene: %@ , Current Actor Count: %i, Location: %@", self.currentScene.name, self.currentScene.characterSceneElementList.count, location);
+    NSLog(@"Current Scene: %@ , Current Actor Count: %lu, Location: %@", self.currentScene.name, (unsigned long)self.currentScene.characterSceneElementList.count, location);
 }
 
 #pragma mark - UIView + DragDrop Delegate Methods

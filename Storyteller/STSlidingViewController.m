@@ -102,6 +102,7 @@
             
             //Set Data and Delegate properties
             editSceneVC.currentScene = scene;
+            
             sceneSelectVC.sceneManagementDelegate = self;
             
             //Set Visual Properties
@@ -163,6 +164,7 @@
             self.sceneSelectVC.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom | UIRectEdgeRight;
             self.sceneSelectVC.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
         }
+        
         self.sceneSelectVC.sceneManagementDelegate = self;
         self.topViewController = newTopVC;
         

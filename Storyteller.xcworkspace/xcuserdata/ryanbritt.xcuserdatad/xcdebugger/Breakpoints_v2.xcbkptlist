@@ -16,7 +16,7 @@
             startingLineNumber = "89"
             endingLineNumber = "89"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             startingLineNumber = "82"
             endingLineNumber = "82"
             landmarkName = "-initializeNewStoryWithName:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,14 +57,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storyteller/STSelectSceneElementViewController.swift"
-            timestampString = "434784440.935045"
+            filePath = "StorytellerTests/STInteractiveSceneTests.m"
+            timestampString = "547857169.943359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-testSceneRetrieve"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

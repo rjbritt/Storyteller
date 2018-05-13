@@ -610,7 +610,7 @@
 				ORGANIZATIONNAME = "Ryan Britt";
 				TargetAttributes = {
 					2F8B513418E7679200A5CBEF = {
-						DevelopmentTeam = 5SHT6D4V49;
+						DevelopmentTeam = X628RQ66MY;
 					};
 					2F8B515F18E7679200A5CBEF = {
 						TestTargetID = 2F8B513418E7679200A5CBEF;
@@ -889,6 +889,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -921,6 +923,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -935,6 +939,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X628RQ66MY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
@@ -965,6 +970,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X628RQ66MY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Storyteller/Storyteller-Prefix.pch";
 				INFOPLIST_FILE = "Storyteller/Storyteller-Info.plist";
